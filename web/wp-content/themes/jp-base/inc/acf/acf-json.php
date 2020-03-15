@@ -1,7 +1,9 @@
 <?php
 
-### Set up the folder for ACF to save JSON files to. This is where the options will be stored.
-// https://www.advancedcustomfields.com/resources/local-json/
+/*
+ * PURPOSE : Set up the folder for ACF to save JSON files to. This is where the options will be stored.
+ *   NOTES : https://www.advancedcustomfields.com/resources/local-json/
+ */
 function taoti_acf_json_load_point( $paths ) {
 
     // remove original path (optional)

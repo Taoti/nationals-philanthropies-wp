@@ -1,8 +1,10 @@
 <?php
-### Add 'Edit' and 'View' buttons to the toolbar for custom options pages that manage post type archives.
-// https://codex.wordpress.org/Function_Reference/add_node
 
-function jp_toolbar_customize(){
+/*
+ * PURPOSE : Add 'Edit' and 'View' buttons to the toolbar for custom options pages that manage post type archives.
+ *   NOTES : https://codex.wordpress.org/Function_Reference/add_node
+ */
+function taoti_admin_bar_customize(){
     global $wp_admin_bar;
 
     ### EXAMPLE ###
@@ -37,4 +39,4 @@ function jp_toolbar_customize(){
 
 }
 
-// add_action( 'admin_bar_menu', 'jp_toolbar_customize', 75 );
+// add_action( 'admin_bar_menu', 'taoti_admin_bar_customize', 75 );

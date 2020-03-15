@@ -3,8 +3,11 @@
 
 
 
-### Filter into ACF to allow URL fields to accept strings that start with "tel:" as valid URLs.
-function jp_acf_validate_url( $valid, $value, $field, $input ){
+/*
+ * PURPOSE : Filter into ACF to allow URL fields to accept strings that start with "tel:" as valid URLs.
+ *   NOTES : https://www.advancedcustomfields.com/resources/acf-validate_value/
+ */
+function taoti_acf_validate_url( $valid, $value, $field, $input ){
 
     // These are strings that a possible URL can start with and still be a valid URL. Otherwise it only accepts strings that start with 'http://' or 'https://'.
     $valid_url_prefixes = [
@@ -23,4 +26,4 @@ function jp_acf_validate_url( $valid, $value, $field, $input ){
 	return $valid;
 
 }
-add_filter('acf/validate_value/type=url', 'jp_acf_validate_url', 20, 4);
+add_filter('acf/validate_value/type=url', 'taoti_acf_validate_url', 20, 4);

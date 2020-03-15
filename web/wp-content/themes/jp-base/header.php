@@ -30,7 +30,7 @@
 
     <?php
     ### Set up critical and non critical CSS.
-    do_action('jp_css');
+    do_action('taoti_do_css');
     ?>
 
     <?php wp_head(); ?>

@@ -3,24 +3,34 @@
 
 
 
-function jp_tinymce_custom_formats( $args ){
+/*
+ * PURPOSE : Set options for the TinyMCE editor when it starts, like which buttons to use or things toggled on/off. Each customization is explained further within this function.
+ *  PARAMS : $args - array of parameters for TinyMCE editor, look up the `tiny_mce_before_init` filter for more details.
+ * RETURNS : $args
+ *   NOTES :
+ */
+function taoti_tinymce_set_init_options( $args ){
 	// Always show kitchen sink in WYSIWYG Editor.
 	$args['wordpress_adv_hidden'] = false;
 
-	// Set the block formats.
+	// Set the block formats. Prevent the client from using <h1> since those are usually included as the page title in the templates, and further customizations you need.
 	$args['block_formats'] = 'Paragraph=p;Heading 2=h2;Heading 3=h3;Heading 4=h4;Heading 5=h5;Heading 6=h6';
 
 	return $args;
 }
-add_filter( 'tiny_mce_before_init', 'jp_tinymce_custom_formats' );
+add_filter( 'tiny_mce_before_init', 'taoti_tinymce_set_init_options' );
 
 
 
 
 
-### Customize the buttons on the WYSIWYG toolbars
-// For the Basic WYSIWYG (via ACF)
-function jp_toolbars( $toolbars ){
+/*
+ * PURPOSE : Customize the buttons on the TinyMCE toolbars, for the Basic WYSIWYG (via ACF). Look through the function and comment/uncomment as needed for the project.
+ *  PARAMS : $toolbars - array - each item in the array corresponds to a buton in the TinyMCE toolbar. Example print_routput below.
+ * RETURNS : $toolbars
+ *   NOTES :
+ */
+function taoti_tinymce_toolbar_buttons( $toolbars ){
 	//echo "<pre>"; print_r($toolbars); echo "</pre>";
 	/*
 	Here's what gets output when you print_r($toolbars):
@@ -101,13 +111,14 @@ function jp_toolbars( $toolbars ){
 		$toolbars['Basic'][1][] = 'pastetext';
 	}
 
-	// return $toolbars - IMPORTANT!
 	return $toolbars;
 }
-add_filter( 'acf/fields/wysiwyg/toolbars' , 'jp_toolbars'  );
+add_filter( 'acf/fields/wysiwyg/toolbars' , 'taoti_tinymce_toolbar_buttons'  );
 
-// For the FIRST row of the Full WYSIWYG buttons
-function jp_tinymce_buttons( $buttons ){
+/*
+ * PURPOSE : For the FIRST row of the Full TinyMCE WYSIWYG buttons.
+ */
+function taoti_tinymce_buttons_full_row1( $buttons ){
 	//echo "<pre>"; print_r($buttons); echo "</pre>";
 	/*
 	Array (
@@ -129,15 +140,18 @@ function jp_tinymce_buttons( $buttons ){
 	    [15] => wp_adv
 	)
 	*/
-	//Remove the format dropdown select and text color selector
+
+	// Remove things like 'strikethrough' and alignment options - things we generally leave up to the design and not to a WYSIWYG.
 	$remove = array('strikethrough','alignleft','aligncenter','alignright','wp_more','fullscreen');
 
 	return array_diff($buttons,$remove);
 }
-add_filter('mce_buttons','jp_tinymce_buttons');
+add_filter('mce_buttons','taoti_tinymce_buttons_full_row1');
 
-// For the SECOND row of the Full WYSIWYG buttons
-function jp_tinymce_buttons2( $buttons ){
+/*
+ * PURPOSE : For the SECOND row of the Full TinyMCE WYSIWYG buttons.
+ */
+function taoti_tinymce_buttons_full_row2( $buttons ){
 	//echo "<pre>"; print_r($buttons); echo "</pre>";
 	/*
 	Array (
@@ -160,4 +174,4 @@ function jp_tinymce_buttons2( $buttons ){
 
 	return array_diff($buttons,$remove);
 }
-add_filter('mce_buttons_2','jp_tinymce_buttons2');
+add_filter('mce_buttons_2','taoti_tinymce_buttons_full_row2');
