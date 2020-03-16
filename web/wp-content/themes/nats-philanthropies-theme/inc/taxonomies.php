@@ -3,43 +3,43 @@
 
 function jp_registers_taxonomies(){
 
-    $jp_magic_taxonomy_maker_array = [
+  $jp_magic_taxonomy_maker_array = [
 
-        /*
-		HOW TO USE
+    /*
+    HOW TO USE
 
-		Copy the array below for 'product-type' and edit as needed. $jp_magic_taxonomy_maker_array should be an array of arrays, and those arrays make it easier to create custom taxonomies.
+    Copy the array below for 'product-type' and edit as needed. $jp_magic_taxonomy_maker_array should be an array of arrays, and those arrays make it easier to create custom taxonomies.
 
-		The 'slug', 'singular', and 'plural' parameters are explained below in the example array's comments.
+    The 'slug', 'singular', and 'plural' parameters are explained below in the example array's comments.
 
-        'applicable_post_types' is an array of the post type slugs that this taxonomy should apply to.
+    'applicable_post_types' is an array of the post type slugs that this taxonomy should apply to.
 
-		For the 'register_args' array, add whichever arguments you need to the array (Except for the 'labels' argument, that's automatically generated for you). The defaults will should work well 99% of the time, but you can add/override anything with this array.
+    For the 'register_args' array, add whichever arguments you need to the array (Except for the 'labels' argument, that's automatically generated for you). The defaults will should work well 99% of the time, but you can add/override anything with this array.
 
-		Use the documentation on https://codex.wordpress.org/Function_Reference/register_taxonomy
+    Use the documentation on https://codex.wordpress.org/Function_Reference/register_taxonomy
 
-		The most common argument you might need for taxonomies is 'hierarchical'. `true` means there are parent/child relationships (like categories) and `false` is a flat structure (like tags).
+    The most common argument you might need for taxonomies is 'hierarchical'. `true` means there are parent/child relationships (like categories) and `false` is a flat structure (like tags).
 
-        If you don't need to add anything to the 'register_args' array, just leave it as an empty array.
+    If you don't need to add anything to the 'register_args' array, just leave it as an empty array.
 
-		*/
+    */
 
-        // Comment out or change this example:
-        [
-			'slug' => 'product-type', // Lowercase letters, dashes only
-			'singular' => 'Product Type', // Capitalized, something like 'Product Type' or 'Topic'
-			'plural' => 'Product Types (REPLACE ME)', // Capitalized, something like 'Product Types' or 'Topics'
-            'applicable_post_types' => [ // Post type slugs
-                'post',
-                'products',
-            ],
-			'register_args' => [ // Explained above. Leave as an empty array if not needed.
-				'hierarchical' => true,
-			],
+    // Comment out or change this example:
+    // [
+		// 	'slug' => 'product-type', // Lowercase letters, dashes only
+		// 	'singular' => 'Product Type', // Capitalized, something like 'Product Type' or 'Topic'
+		// 	'plural' => 'Product Types (REPLACE ME)', // Capitalized, something like 'Product Types' or 'Topics'
+    //     'applicable_post_types' => [ // Post type slugs
+    //       'post',
+    //       'products',
+    //     ],
+		// 	'register_args' => [ // Explained above. Leave as an empty array if not needed.
+		// 		'hierarchical' => true,
+		// 	],
+    //
+		// ],
 
-		],
-
-    ];
+  ];
 
     foreach( $jp_magic_taxonomy_maker_array as $tax_args ){
 

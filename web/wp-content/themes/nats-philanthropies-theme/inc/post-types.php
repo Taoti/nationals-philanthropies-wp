@@ -32,16 +32,16 @@ function jp_register_post_types() {
 		*/
 
 		// Comment out or change this example:
-		[
-			'slug' => 'products', // Lowercase letters, dashes only. Probably should be plural.
-			'singular' => 'Product', // Capitalized, something like 'Product' or 'Staff Member'
-			'plural' => 'Products (REPLACE ME)', // Capitalized, something like 'Products' or 'Staff Members'
-			'register_args' => [ // Explained above.
-				'menu_icon' => 'dashicons-clipboard',
-				'description' => 'Manage your Products.',
-			],
-
-		],
+		// [
+		// 	'slug' => 'products', // Lowercase letters, dashes only. Probably should be plural.
+		// 	'singular' => 'Product', // Capitalized, something like 'Product' or 'Staff Member'
+		// 	'plural' => 'Products (REPLACE ME)', // Capitalized, something like 'Products' or 'Staff Members'
+		// 	'register_args' => [ // Explained above.
+		// 		'menu_icon' => 'dashicons-clipboard',
+		// 		'description' => 'Manage your Products.',
+		// 	],
+		//
+		// ],
 
 	];
 
