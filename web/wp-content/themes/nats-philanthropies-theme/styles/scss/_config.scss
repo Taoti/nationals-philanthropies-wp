@@ -17,18 +17,22 @@ $serif: Georgia, serif;
 $bounce: cubic-bezier(0, 0.86, 0.46, 1.24);
 
 //##### Colors
-$color-1: #ff00ff;
-$color-2: #ffff00;
-$color-3: #00ffff;
+$color-1: #1E1E21;
+$color-2: #1D3787;
+$color-3: #981A1E;
+$color-4: #AB0003;
+$color-5: #616161;
+$color-6: #9C9C9C;
+$color-7: black;
 
-$text: #444;
+$text: $color-5;
 $invert: #fff;
 
-$link: $color-1;
-$hover: $color-2;
+$link: $color-3;
+$hover: $color-4;
 
 $success: #398f14;
-$error: red;
+$error: $color-4;
 
 
 

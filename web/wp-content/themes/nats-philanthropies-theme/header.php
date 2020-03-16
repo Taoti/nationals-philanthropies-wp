@@ -42,16 +42,19 @@
 
 <header id="header">
     <div id="header-inner">
-        <a href="<?php echo home_url(); ?>" class="header-logo"><?php echo file_get_contents( get_template_directory().'/images/logo.svg' ); ?></a>
+        <a href="<?php echo home_url(); ?>" class="header-logoLink">
+          <img class="header-logo lazyload" data-srcset="<?php echo get_stylesheet_directory_uri(); ?>/images/logo-nats-philanthropies.png 1x, <?php echo get_stylesheet_directory_uri(); ?>/images/logo-nats-philanthropies@2x.png 2x" width="240" height="76">
+        </a>
 
         <?php
-        $theme_location = 'main-navigation';
+        $theme_location = 'temporary-navigation';
         if( has_nav_menu($theme_location) ):
             $args = [
                 'theme_location' => $theme_location,
                 'item_spacing' => 'discard',
                 'container' => 'nav',
                 'menu_class' => 'menu-'.$theme_location,
+                'fallback_cb' => false,
             ];
             wp_nav_menu( $args );
 
