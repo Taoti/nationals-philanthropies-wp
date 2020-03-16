@@ -1,16 +1,9 @@
 <?php
 // use Modules\CTA;
 
-$temporary_page_enabled = true;
-
-if( $temporary_page_enabled ):
-  get_template_part( 'template-temporary-front-page' );
-
-else :
-
 
 ### Critical CSS for the front page template
-taoti_enqueue_critical_css( get_template_directory().'/styles/css/critical/front-page-critical.min.css' );
+// taoti_enqueue_critical_css( get_template_directory().'/styles/css/critical/temp-front-page-critical.min.css' );
 
 
 get_header();
@@ -21,7 +14,7 @@ get_header();
 <div class="l-container content">
   <div class="l-text-column content-inner">
 
-
+    <h1>Temporary Home Page</h1>
 
   </div><!-- END .content-inner -->
 </div><!-- END .content -->
@@ -30,5 +23,3 @@ get_header();
 
 <?php
 get_footer();
-
-endif;
