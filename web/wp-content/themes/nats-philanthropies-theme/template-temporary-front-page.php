@@ -12,7 +12,7 @@ get_header();
 <div class="hero">
 
   <div class="hero-bg">
-    <?php include get_stylesheet_directory().'/images/bg-home-hero2.svg'; ?>
+    <?php include get_stylesheet_directory().'/images/bg-home-hero2.php'; ?>
   </div>
 
   <div class="hero-inner l-container">
