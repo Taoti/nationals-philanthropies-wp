@@ -5,7 +5,8 @@
   // width: 1366px;
   // height: 883px;
 
-  max-height: 883px;
+  // max-height: 883px;
+  min-height: 883px;
   border: 1px solid #f0f;
   // height: 883px;
 }
@@ -16,21 +17,29 @@
 }
 
 .hero-bg {
-  // position: absolute;
-  // top: 0;
-  // left: 0;
-  // width: 100%;
-  // padding-top: 64.64%;
-  // height: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding-top: 64.64%;
+  height: 0;
+}
+
+.hero-bgImage {
+  clip-path: url(#mask-pageTear-1);
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
 }
 
 .hero-bgSVG {
-  // display: block;
-  // position: absolute;
-  // top: 0;
-  // left: 0;
-  // width: 100%;
-  // height: 100%;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .hero-bgCover {
