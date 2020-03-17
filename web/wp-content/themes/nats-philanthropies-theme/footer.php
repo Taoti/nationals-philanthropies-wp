@@ -3,13 +3,18 @@
     <div class="footer-inner l-container">
 
       <div class="footer-branding">
+
         <img class="footer-logo lazyload" src="<?php echo get_stylesheet_directory_uri(); ?>/images/placeholder.gif" width="92" height="92">
 
-        <h4 class="footer-heading">Nationals Philanthropies</h4>
+        <div class="footer-brandingText">
 
-        <p class="footer-siteDescription">
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-        </p>
+          <h4 class="footer-heading">Nationals Philanthropies</h4>
+
+          <p class="footer-siteDescription">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+          </p>
+
+        </div>
 
       </div>
 
@@ -32,7 +37,7 @@
     </div>
 
     <div class="footer-inner l-container">
-      <p class="copyright">Nationals Philanthropies – Copyright <?php echo date("Y"); ?>. All Rights Reseved</p>
+      <p class="footer-copyright">Nationals Philanthropies – Copyright <?php echo date("Y"); ?>. All Rights Reseved</p>
     </div>
 
 </footer>

@@ -1,0 +1,72 @@
+.CTAs-inner {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cta {
+  display: grid;
+  flex-basis: calc(50% - 1.4rem);
+  grid-gap: 2.4rem;
+  grid-template-columns: 98px 1fr; // 98px is the width of the 72x72 icon square when it rotates by 45deg. Remember a^2 + b^2 = c^2
+}
+
+.cta-side {
+  display: flex;
+  justify-content: center;
+}
+
+.cta-icon {
+  display: flex;
+  height: 72px;
+  width: 72px;
+  background-color: $color-3;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(45deg);
+  transform-origin: center center;
+
+  &::before {
+    content: '';
+    display: block;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: rotate(-45deg);
+    transform-origin: center center;
+  }
+
+}
+
+  .cta-icon-letter::before {
+      background-image: url('../../images/icon-letter.png');
+      width: 27px;
+      height: 27px;
+  }
+
+  .cta-icon-heart-hand::before {
+      background-image: url('../../images/icon-heart-hand.png');
+      width: 31px;
+      height: 31px;
+  }
+
+.cta-button {
+  appearance: none;
+  border: none;
+  background: none;
+  color: $link;
+  font-size: 1.6rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  display: inline-block;
+  margin-top: 2.4rem;
+}
+
+.cta-buttonIcon {
+  display: inline-block;
+  width: 1.8rem;
+  height: 1rem;
+
+  path {
+    fill: $link;
+  }
+}

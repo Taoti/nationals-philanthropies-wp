@@ -1,3 +1,30 @@
 #footer {
+  background-color: $color-1;
+  color: transparentize($invert, .5);
+}
 
+.footer-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.footer-branding {
+  display: grid;
+  grid-template-columns: 92px 1fr;
+  grid-gap: 3.5rem;
+}
+
+.footer-socialLinks {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+
+.footer-copyright {
+  font-size: 1.1rem;
+  color: $invert;
+  margin-bottom: 3.5rem;
+  margin-top: 4.8rem;
+  padding-left: calc(92px + 3.5rem);
 }
