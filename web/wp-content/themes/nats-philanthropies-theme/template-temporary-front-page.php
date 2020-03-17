@@ -9,17 +9,22 @@
 get_header();
 ?>
 
+<div class="hero">
+  <div class="hero-inner l-container">
 
+    <h1 class="hero-heading">
+      <span class="hero-headingOutline">A new pursuit for a</span>
+      better Washington
+    </h1>
 
-<div class="l-container content">
-  <div class="l-text-column content-inner">
+  </div>
+</div>
 
-    <h1>Temporary Home Page</h1>
+<div class="CTAs">
+  <div class="CTAs-inner l-container">
 
-  </div><!-- END .content-inner -->
-</div><!-- END .content -->
-
-
+  </div>
+</div>
 
 <?php
 get_footer();

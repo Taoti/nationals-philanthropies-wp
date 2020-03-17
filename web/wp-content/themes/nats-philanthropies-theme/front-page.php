@@ -18,8 +18,8 @@ get_header();
 
 
 
-<div class="l-container content">
-  <div class="l-text-column content-inner">
+<div class="content">
+  <div class="content-inner l-container">
 
 
 
