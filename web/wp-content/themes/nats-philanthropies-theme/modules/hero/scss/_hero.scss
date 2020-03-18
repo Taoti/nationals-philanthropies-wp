@@ -35,6 +35,20 @@
 }
 
 .hero-heading {
+  background-repeat: no-repeat;
+  background-position: left bottom;
   color: $invert;
   font-size: 9rem;
+  text-transform: uppercase;
+}
+
+.hero-headingLine {
+  display: block;
+}
+
+.hero-headingOutline {
+  background-repeat: no-repeat;
+  background-position: right -10rem bottom;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 2px $invert;
 }

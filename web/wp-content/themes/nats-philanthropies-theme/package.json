@@ -11,7 +11,7 @@
   "license": "ISC",
   "devDependencies": {
     "gulp": "^4.0.2",
-    "gulp-autoprefixer": "^3.1.0",
+    "gulp-autoprefixer": "latest",
     "gulp-clean-css": "^3.9.3",
     "gulp-concat": "^2.6.0",
     "gulp-image": "^4.3.0",

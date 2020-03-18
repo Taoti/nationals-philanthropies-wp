@@ -15,9 +15,9 @@ get_header();
 
   <div class="hero-inner l-container">
 
-    <h1 class="hero-heading">
-      <span class="hero-headingOutline">A new pursuit for a</span>
-      better Washington
+    <h1 class="hero-heading lazyload" data-bg="<?php echo get_stylesheet_directory_uri(); ?>/images/accent-spatter-1.png">
+      <span class="hero-headingLine hero-headingOutline lazyload" data-bg="<?php echo get_stylesheet_directory_uri(); ?>/images/accent-spatter-2.png">A new pursuit for a</span>
+      <span class="hero-headingLine">better Washington</span>
     </h1>
 
   </div>
