@@ -55,7 +55,11 @@ get_header();
     </svg> -->
 
 
-    <img class="hero-bgImage" src="<?php echo get_stylesheet_directory_uri(); ?>/images/bg-home-hero.jpg" width="1366" height="883" alt="" style="-webkit-mask-box-image: url(<?php echo get_stylesheet_directory_uri(); ?>/images/border-page-tear-2.svg) 30 repeat;">
+    <!-- <img class="hero-bgImage" src="<?php echo get_stylesheet_directory_uri(); ?>/images/bg-home-hero.jpg" width="1366" height="883" alt="" style="-webkit-mask-box-image: url(<?php echo get_stylesheet_directory_uri(); ?>/images/border-page-tear-2.svg) 30 repeat;"> -->
+
+    <img class="hero-bgImage" src="<?php echo get_stylesheet_directory_uri(); ?>/images/bg-home-hero.jpg" width="1366" height="883" alt="">
+
+    <div class="hero-bgCover"></div>
 
   </div>
 

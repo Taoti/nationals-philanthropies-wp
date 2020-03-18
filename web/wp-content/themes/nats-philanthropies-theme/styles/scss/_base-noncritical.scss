@@ -1,0 +1,17 @@
+body {
+  background-image: url('../../images/bg-baseball-leather.png');
+  background-repeat: repeat;
+}
+
+.hero-bg {
+  &::after {
+    content: '';
+    background-image: url('../../images/border-page-tear-1.png');
+    background-repeat: repeat-x;
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 49px;
+  }
+}
