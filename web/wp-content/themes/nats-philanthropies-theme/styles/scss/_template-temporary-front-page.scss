@@ -14,7 +14,21 @@
 
 
 .CTAs {
+  padding-bottom: 8rem;
+  padding-top: 8rem;
   position: relative;
+
+  &::before {
+    content: '';
+    display: block;
+    width: 1px;
+    height: calc(100% - 16rem);
+    position: absolute;
+    top: 8rem;
+    left: 50%;
+    background-color: $color-6;
+    opacity: .4;
+  }
 }
 
 .CTAs-inner {
@@ -27,6 +41,7 @@
   flex-basis: calc(50% - 1.4rem);
   grid-gap: 2.4rem;
   grid-template-columns: 98px 1fr; // 98px is the width of the 72x72 icon square when it rotates by 45deg. Remember a^2 + b^2 = c^2
+  padding: 0 1.5rem;
 }
 
 .cta-side {
@@ -67,6 +82,11 @@
       width: 31px;
       height: 31px;
   }
+
+.cta-heading {
+  color: $color-7;
+  text-transform: uppercase;
+}
 
 .cta-button {
   appearance: none;
