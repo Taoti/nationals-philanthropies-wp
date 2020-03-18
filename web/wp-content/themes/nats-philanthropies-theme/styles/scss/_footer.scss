@@ -11,6 +11,12 @@
   grid-template-columns: 1fr 1fr;
 }
 
+.footer-heading {
+  color: $color-4;
+  text-transform: uppercase;
+  font-size: 2.4rem;
+}
+
 .footer-branding {
   display: grid;
   grid-template-columns: 92px 1fr;
@@ -23,6 +29,37 @@
   align-items: center;
   text-align: center;
 }
+
+.footer-socialItem {
+  flex-basis: 33.3%;
+}
+
+.footer-socialLink {
+  display: inline-block;
+}
+
+.footer-socialIcon {
+  display: block;
+
+  path {
+    fill: $invert;
+  }
+}
+
+  .footer-socialIcon-twitter {
+    height: 14px;
+    width: 17px;
+  }
+
+  .footer-socialIcon-facebook {
+    height: 16px;
+    width: 16px;
+  }
+
+  .footer-socialIcon-instagram{
+    height: 16px;
+    width: 17px;
+  }
 
 .footer-copyright {
   font-size: 1.1rem;

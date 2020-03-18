@@ -4,7 +4,9 @@
 
       <div class="footer-branding">
 
-        <img class="footer-logo lazyload" src="<?php echo get_stylesheet_directory_uri(); ?>/images/placeholder.gif" width="92" height="92">
+        <a href="<?php echo home_url(); ?>" class="footer-logoLink">
+          <img class="footer-logo lazyload" data-srcset="<?php echo get_stylesheet_directory_uri(); ?>/images/logo-nats-philanthropies-small.png 1x, <?php echo get_stylesheet_directory_uri(); ?>/images/logo-nats-philanthropies-small@2x.png 2x" width="92" height="92" alt="Washington Nationals Philanthropies Logo (small)">
+        </a>
 
         <div class="footer-brandingText">
 
@@ -21,15 +23,21 @@
       <ul class="footer-socialLinks">
 
         <li class="footer-socialItem">
-          <a class="footer-socialLink" href="#0">Tw</a>
+          <a class="footer-socialLink" href="#0">
+            <i class="footer-socialIcon footer-socialIcon-twitter"><?php echo file_get_contents( get_stylesheet_directory().'/images/social-twitter.svg' ); ?></i>
+          </a>
         </li>
 
         <li class="footer-socialItem">
-          <a class="footer-socialLink" href="#0">Fa</a>
+          <a class="footer-socialLink" href="#0">
+            <i class="footer-socialIcon footer-socialIcon-facebook"><?php echo file_get_contents( get_stylesheet_directory().'/images/social-facebook2.svg' ); ?></i>
+          </a>
         </li>
 
         <li class="footer-socialItem">
-          <a class="footer-socialLink" href="#0">In</a>
+          <a class="footer-socialLink" href="#0">
+            <i class="footer-socialIcon footer-socialIcon-instagram"><?php echo file_get_contents( get_stylesheet_directory().'/images/social-instagram.svg' ); ?></i>
+          </a>
         </li>
 
       </ul>
