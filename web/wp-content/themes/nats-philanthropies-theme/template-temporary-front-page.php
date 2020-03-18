@@ -11,7 +11,7 @@ get_header();
 
 <div class="hero lazyload" data-bg="<?php echo get_stylesheet_directory_uri(); ?>/images/bg-home-hero.jpg">
 
-  <div class="hero-bgCover"></div>
+  <!-- <div class="hero-bgCover"></div> -->
 
   <div class="hero-inner l-container">
 

@@ -6,8 +6,8 @@
 .l-container {
 	max-width: $max-width;
 	width: 100%;
-	padding-left: 13.8rem;//1rem;
-	padding-right: 13.8rem;//1rem;
+	padding-left: $container-padding;//1rem;
+	padding-right: $container-padding;//1rem;
 	margin-left: auto;
 	margin-right: auto;
 }

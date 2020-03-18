@@ -54,7 +54,7 @@
                 'theme_location' => $theme_location,
                 'item_spacing' => 'discard',
                 'container' => 'nav',
-                'menu_class' => 'menu-'.$theme_location,
+                'menu_class' => 'menu menu-'.$theme_location,
                 'fallback_cb' => false,
             ];
             wp_nav_menu( $args );
