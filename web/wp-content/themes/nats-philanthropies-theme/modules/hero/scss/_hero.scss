@@ -21,16 +21,18 @@
   top: 0;
   left: 0;
   width: 100%;
-  padding-top: 64.64%;
+  // padding-top: 64.64%;
   height: 0;
 }
 
 .hero-bgImage {
-  clip-path: url(#mask-pageTear-1);
+  clip-path: url(#clip-path-1);
   position: absolute;
   top: 0;
   left: 0;
   object-fit: cover;
+  display: block;
+  width: 100%;
 }
 
 .hero-bgSVG {
@@ -40,6 +42,7 @@
   left: 0;
   width: 100%;
   height: 100%;
+  opacity: 0;
 }
 
 .hero-bgCover {
