@@ -6,10 +6,21 @@
 .l-container {
 	max-width: $max-width;
 	width: 100%;
-	padding-left: $container-padding;//1rem;
-	padding-right: $container-padding;//1rem;
+	padding-left: $container-padding;
+	padding-right: $container-padding;
 	margin-left: auto;
 	margin-right: auto;
+
+	@media screen and ( max-width: 960px ) {
+		padding-left: $container-padding-tablet;
+		padding-right: $container-padding-tablet;
+	}
+
+	@media screen and ( max-width: 700px ) {
+		padding-left: $container-padding-mobile;
+		padding-right: $container-padding-mobile;
+	}
+	
 }
 
 

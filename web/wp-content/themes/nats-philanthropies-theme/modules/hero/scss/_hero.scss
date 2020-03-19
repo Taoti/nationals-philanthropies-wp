@@ -37,23 +37,30 @@
 .hero-heading {
   background-repeat: no-repeat;
   background-position: left bottom;
+  background-size: 50%;//477px 82px;
   color: $invert;
   font-size: 15rem;
   text-transform: uppercase;
   text-align: center;
   line-height: .8;
   margin-top: 16rem;
-  margin-top: 12vw;
   letter-spacing: -.025em;
+
+  @media screen and ( max-width: 1230px ) {
+    font-size: 11vw;
+    margin-top: 12vw;
+  }
 }
 
 .hero-headingLine {
   display: block;
+  white-space: nowrap;
 }
 
 .hero-headingOutline {
   background-repeat: no-repeat;
   background-position: right -10rem bottom;
+  background-size: 72%;//690px 67px;
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke: 2px $invert;
 }
