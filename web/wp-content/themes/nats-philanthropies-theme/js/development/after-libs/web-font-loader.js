@@ -8,10 +8,10 @@ WebFont.load({
     // }
 
     // OR TYPEKIT
-    // typekit: { id: '1234567' },
+    typekit: { id: 'prq8jxo' },
 
     // CALLBACK WHEN FONTS LOAD
-    // active: taoti_fonts_active_cb
+    active: taoti_fonts_active_cb
 });
 
 

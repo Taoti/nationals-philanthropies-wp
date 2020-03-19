@@ -11,8 +11,11 @@ $max-width-text: 50em;
 $container-padding: 13.8rem;
 
 //##### Fonts
-$sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-$serif: Georgia, serif;
+$base-sans-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+$base-serif-stack: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+$sans: 'noto-sans', $base-sans-stack;
+$sans-2: 'rama-gothic-e', $base-sans-stack;
+$serif: 'rama-slab-e', $base-serif-stack;
 
 
 //##### Cubic Bezier
