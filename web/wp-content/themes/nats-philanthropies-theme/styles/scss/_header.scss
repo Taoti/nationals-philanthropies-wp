@@ -1,17 +1,32 @@
 #header {
   height: var( --header-height, auto );
-  position: fixed;
+  padding-top: 11px; // account for the height + top of the blue/white/red lines in the ::before element.
+  position: absolute;//fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 10;
+
+  &::before {
+    background-color: $color-2;
+    border-bottom: 2px solid $color-4;
+    border-top: 3px solid $color-8;
+    content: '';
+    display: block;
+    height: 7px; // The height of 7px, along with the 3px/2px top/bottom borders, will make the background color come through as a 2px tall middle stripe.
+    left: 0;
+    position: absolute;
+    top: 4px;
+    width: 100%;
+    z-index: 1;
+  }
 }
 
 #header-inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 11.6rem;
+  padding-top: 10.7rem;
 }
 
 

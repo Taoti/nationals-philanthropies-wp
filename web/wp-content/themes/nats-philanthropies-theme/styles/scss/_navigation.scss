@@ -10,11 +10,14 @@
 .menu-link {
   color: $invert;
   display: block;
+  font-family: $sans-2;
+  font-size: 1.6rem;
   font-weight: bold;
+  letter-spacing: .05em;
   padding-left: 4.6rem;
-  padding-right: 8.2rem;
-  padding-top: 4.2rem;
-  padding-bottom: 3.3rem;
+  padding-right: 8rem;
+  padding-top: 3.8rem;
+  padding-bottom: 3.7rem;
   text-transform: uppercase;
   transition: background-color 150ms;
 
@@ -28,7 +31,7 @@
 .menu-icon {
   display: block;
   height: 1rem;
-  width: 1.8rem;
+  width: 1.7rem;
 }
 
 .menu-item:last-child {
@@ -71,7 +74,7 @@
 
     &:hover {
       background-color: $hover;
-      
+
       &::before,
       &::after {
         background-color: $hover;

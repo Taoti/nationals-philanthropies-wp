@@ -38,8 +38,13 @@
   background-repeat: no-repeat;
   background-position: left bottom;
   color: $invert;
-  font-size: 9rem;
+  font-size: 15rem;
   text-transform: uppercase;
+  text-align: center;
+  line-height: .8;
+  margin-top: 16rem;
+  margin-top: 12vw;
+  letter-spacing: -.025em;
 }
 
 .hero-headingLine {
