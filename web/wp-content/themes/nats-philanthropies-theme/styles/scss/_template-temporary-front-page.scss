@@ -20,6 +20,7 @@
   padding-top: 8rem;
   position: relative;
 
+  // Bad way of getting the center line between the cta columns. I need to change this to a better layout where the border will work.
   &::before {
     content: '';
     display: block;
@@ -30,12 +31,22 @@
     left: 50%;
     background-color: $color-6;
     opacity: .4;
+
+    @media screen and ( max-width: 840px ) {
+      display: none;
+    }
+
   }
 }
 
 .CTAs-inner {
   display: flex;
   justify-content: space-between;
+
+  @media screen and ( max-width: 840px ) {
+    display: block;
+  }
+
 }
 
 .cta {
@@ -44,6 +55,18 @@
   grid-gap: 2.4rem;
   grid-template-columns: 98px 1fr; // 98px is the width of the 72x72 icon square when it rotates by 45deg. Remember a^2 + b^2 = c^2
   padding: 0 1.5rem;
+
+  @media screen and ( max-width: 440px ) {
+    grid-template-columns: 80px 1fr;
+    grid-gap: 1.6rem;
+  }
+
+  + .cta {
+    @media screen and ( max-width: 840px ) {
+      margin-top: 6rem;
+    }
+  }
+
 }
 
 .cta-side {
@@ -60,6 +83,11 @@
   justify-content: center;
   transform: rotate(45deg);
   transform-origin: center center;
+
+  @media screen and ( max-width: 440px ) {
+    width: 55px;
+    height: 55px;
+  }
 
   &::before {
     content: '';
