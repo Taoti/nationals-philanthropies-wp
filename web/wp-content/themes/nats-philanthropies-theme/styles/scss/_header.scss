@@ -25,11 +25,24 @@
 #header-inner {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding-top: 10.7rem;
+  align-items: stretch;
+  border-bottom: 1px solid rgba(255, 255, 255, .25);
+  border-top: 1px solid rgba(255, 255, 255, .25);
+  margin-top: 10.7rem;
 }
 
 
+
+.header-logoLink {
+  display: flex;
+  align-items: center;
+  transition: opacity 125ms;
+
+  &:hover {
+    opacity: .8;
+  }
+  
+}
 
 .header-logo {
     display: block;
