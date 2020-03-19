@@ -13,7 +13,7 @@ html {
 
 body {
     color: $text;
-    font-family: $sans;
+    font-family: $base-sans-stack;//$sans;
     font-size: $body-font-size;
     line-height: 1.4;
 }
