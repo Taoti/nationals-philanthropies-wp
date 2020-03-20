@@ -164,7 +164,7 @@ $footer-grid-padding: 1.7rem;
     width: 100vw;
     background-color: $border-line;
     position: absolute;
-    left: calc(-127px - 13.8rem - ((100vw - #{$max-width}) / 2) );
+    left: calc(-127px - #{$container-padding} - ((100vw - #{$max-width}) / 2) );
     top: 0;
 
     @media screen and ( max-width: $max-width ) {

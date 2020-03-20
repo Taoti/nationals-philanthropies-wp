@@ -40,7 +40,7 @@
     position: absolute;
     transition: background-color 150ms;
     bottom: 100%;
-    left: 0;
+    left: -1px; // offset the width of the border
     height: 200px;
     // width: 200%;
     width: calc( (100vw - (#{$max-width} - #{$container-padding} - #{$container-padding}) ) / 2 + 100% );
