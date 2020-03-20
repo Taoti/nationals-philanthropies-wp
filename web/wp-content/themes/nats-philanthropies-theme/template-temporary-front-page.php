@@ -35,7 +35,7 @@ get_header();
       <div class="cta-content">
         <h3 class="cta-heading">Sign Up For Newsletter</h3>
         <p class="cta-description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-        <button class="cta-button" data-openModal="newsletter">Sign Up <i class="cta-buttonIcon"><?php echo file_get_contents( get_stylesheet_directory().'/images/icon-arrow.svg' ); ?></i></button>
+        <button class="cta-button" data-modal="menu-modal-subscribe">Sign Up <i class="cta-buttonIcon"><?php echo file_get_contents( get_stylesheet_directory().'/images/icon-arrow.svg' ); ?></i></button>
       </div>
 
     </div>
@@ -49,7 +49,7 @@ get_header();
       <div class="cta-content">
         <h3 class="cta-heading">Donate to the Nationals Philanthropies</h3>
         <p class="cta-description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-        <button class="cta-button" data-openModal="donate">Donate <i class="cta-buttonIcon"><?php echo file_get_contents( get_stylesheet_directory().'/images/icon-arrow.svg' ); ?></i></button>
+        <a class="cta-button" href="#0">Donate <i class="cta-buttonIcon"><?php echo file_get_contents( get_stylesheet_directory().'/images/icon-arrow.svg' ); ?></i></a>
       </div>
 
     </div>

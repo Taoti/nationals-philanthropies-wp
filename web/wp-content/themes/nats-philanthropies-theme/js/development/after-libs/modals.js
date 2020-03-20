@@ -1,9 +1,13 @@
-$('a[data-modal]').click( function(e){
+$('[data-modal]').click( function(e){
   e.preventDefault();
-  // console.log(this);
 
   var modal_selector = '.' + this.dataset.modal;
+
   $( modal_selector ).toggleClass('is-active');
+
+  document.querySelector(modal_selector).scrollIntoView({
+    behavior: "smooth"
+  });
 
 });
 
