@@ -16,8 +16,8 @@ get_header();
   <div class="hero-inner l-container">
 
     <h1 class="hero-heading lazyload" data-bg="<?php echo get_stylesheet_directory_uri(); ?>/images/accent-spatter-1.png">
-      <span class="hero-headingLine hero-headingOutline lazyload" data-bg="<?php echo get_stylesheet_directory_uri(); ?>/images/accent-spatter-2.png">A new pursuit for a</span>
-      <span class="hero-headingLine">better Washington</span>
+      <span class="hero-headingLine hero-headingOutline lazyload" data-bg="<?php echo get_stylesheet_directory_uri(); ?>/images/accent-spatter-2.png">Join us in a</span>
+      <span class="hero-headingLine">new pursuit</span>
     </h1>
 
   </div>
@@ -33,8 +33,8 @@ get_header();
       </div>
 
       <div class="cta-content">
-        <h3 class="cta-heading">Sign Up For Newsletter</h3>
-        <p class="cta-description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+        <h3 class="cta-heading">Stay Up To Date</h3>
+        <p class="cta-description">For the latest information on news, events and special offers, register for our email newsletter.</p>
         <button class="cta-button" data-modal="menu-modal-subscribe">Sign Up <i class="cta-buttonIcon"><?php echo file_get_contents( get_stylesheet_directory().'/images/icon-arrow.svg' ); ?></i></button>
       </div>
 
@@ -47,8 +47,8 @@ get_header();
       </div>
 
       <div class="cta-content">
-        <h3 class="cta-heading">Donate to the Nationals Philanthropies</h3>
-        <p class="cta-description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+        <h3 class="cta-heading">Make A Contribution</h3>
+        <p class="cta-description">Give a tax deductible gift today in support of the ongoing work of Nationals Philanthropies.</p>
         <a class="cta-button" href="#0">Donate <i class="cta-buttonIcon"><?php echo file_get_contents( get_stylesheet_directory().'/images/icon-arrow.svg' ); ?></i></a>
       </div>
 

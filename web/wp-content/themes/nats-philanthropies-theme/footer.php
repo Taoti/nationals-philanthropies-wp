@@ -12,7 +12,7 @@
       <h4 class="footer-heading">Nationals Philanthropies</h4>
 
       <p class="footer-siteDescription">
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+        A nonprofit fueled by collective action in pursuit of a better Washington region. The official charitable arm of the Washington Nationals, including the signature program of the Nationals Youth Baseball Academy.
       </p>
 
     </div>
