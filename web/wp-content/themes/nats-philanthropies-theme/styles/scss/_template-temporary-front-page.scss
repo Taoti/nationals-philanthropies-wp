@@ -57,7 +57,7 @@
   padding: 0 1.5rem;
 
   @media screen and ( max-width: 440px ) {
-    grid-template-columns: 80px 1fr;
+    grid-template-columns: 50px 1fr;
     grid-gap: 1.6rem;
   }
 
@@ -85,8 +85,8 @@
   transform-origin: center center;
 
   @media screen and ( max-width: 440px ) {
-    width: 55px;
-    height: 55px;
+    width: 40px;
+    height: 40px;
   }
 
   &::before {
@@ -105,12 +105,22 @@
       background-image: url('../../images/icon-letter.png');
       width: 27px;
       height: 27px;
+
+      @media screen and ( max-width: 440px ) {
+        width: 19px;
+        height: 19px;
+      }
   }
 
   .cta-icon-heart-hand::before {
       background-image: url('../../images/icon-heart-hand.png');
       width: 31px;
       height: 31px;
+
+      @media screen and ( max-width: 440px ) {
+        width: 20px;
+        height: 20px;
+      }
   }
 
 .cta-heading {
