@@ -57,7 +57,7 @@ get_header();
   </div>
 </div>
 
-<div>
+<!-- <div>
   <?php
   $theme_location = 'temporary-navigation';
   $menuLocations = get_nav_menu_locations();
@@ -66,7 +66,7 @@ get_header();
     $main_nav = wp_get_nav_menu_items( $menuLocations[$theme_location] );
     // echo "<pre>"; var_dump($main_nav); echo "</pre>";
 
-    if( !empty($main_nav) ): 
+    if( !empty($main_nav) ):
       foreach( $main_nav as $nav_item ):
 
         echo "<pre>"; print_r($nav_item); echo "</pre>";
@@ -76,7 +76,7 @@ get_header();
 
   endif;
   ?>
-</div>
+</div> -->
 
 <?php
 get_footer();
