@@ -22,20 +22,20 @@
     <ul class="footer-socialItems">
 
       <li class="footer-socialItem footer-socialItem-twitter footer-gridItem">
-        <a class="footer-socialLink" href="#0">
+        <a class="footer-socialLink" href="https://twitter.com/Nationals">
           <i class="footer-socialIcon footer-socialIcon-twitter"><?php echo file_get_contents( get_stylesheet_directory().'/images/social-twitter.svg' ); ?></i>
         </a>
       </li>
 
-      <li class="footer-socialItem footer-socialItem-facebook footer-gridItem">
-        <a class="footer-socialLink" href="#0">
-          <i class="footer-socialIcon footer-socialIcon-facebook"><?php echo file_get_contents( get_stylesheet_directory().'/images/social-facebook2.svg' ); ?></i>
+      <li class="footer-socialItem footer-socialItem-instagram footer-gridItem">
+        <a class="footer-socialLink" href="https://www.instagram.com/nationals/">
+          <i class="footer-socialIcon footer-socialIcon-instagram"><?php echo file_get_contents( get_stylesheet_directory().'/images/social-instagram.svg' ); ?></i>
         </a>
       </li>
 
-      <li class="footer-socialItem footer-socialItem-instagram footer-gridItem">
-        <a class="footer-socialLink" href="#0">
-          <i class="footer-socialIcon footer-socialIcon-instagram"><?php echo file_get_contents( get_stylesheet_directory().'/images/social-instagram.svg' ); ?></i>
+      <li class="footer-socialItem footer-socialItem-facebook footer-gridItem">
+        <a class="footer-socialLink" href="https://www.facebook.com/Nationals/">
+          <i class="footer-socialIcon footer-socialIcon-facebook"><?php echo file_get_contents( get_stylesheet_directory().'/images/social-facebook2.svg' ); ?></i>
         </a>
       </li>
 

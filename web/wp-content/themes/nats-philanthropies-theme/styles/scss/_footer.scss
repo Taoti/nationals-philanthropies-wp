@@ -141,6 +141,10 @@ $footer-grid-padding: 1.7rem;
       right: 0;
     }
 
+    &:last-child::after {
+      opacity: 1;
+    }
+
 }
 
   .footer-socialItem-twitter {
@@ -154,9 +158,9 @@ $footer-grid-padding: 1.7rem;
   .footer-socialItem-instagram {
     // grid-area: social-3;
 
-    &::after {
-      opacity: 1;
-    }
+    // &::after {
+    //   opacity: 1;
+    // }
   }
 
 // .footer-emptyItem {
