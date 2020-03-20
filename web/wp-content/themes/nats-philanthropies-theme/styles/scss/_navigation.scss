@@ -59,6 +59,10 @@
     }
   }
 
+  @media screen and ( max-width: 568px ) {
+    padding: 2rem;
+  }
+
 }
 
 .menu-icon {
@@ -89,6 +93,7 @@
       @media screen and ( max-width: $max-width ) {
         width: 200%;
       }
+      
     }
 
     &::after {
