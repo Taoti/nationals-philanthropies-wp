@@ -2545,6 +2545,22 @@ document.addEventListener('lazybeforeunveil', function(e){
 
 });
 
+$('a[data-modal]').click( function(e){
+  e.preventDefault();
+  // console.log(this);
+
+  var modal_selector = '.' + this.dataset.modal;
+  $( modal_selector ).toggleClass('is-active');
+
+});
+
+$('.modal-close').click( function(e){
+  e.preventDefault();
+
+  $(this).parents('.modal').toggleClass('is-active');
+
+});
+
 // Use this to load fonts from Google Fonts, Typekit, Fonts.com, and Fontdeck, as well as self-hosted web fonts
 // https://github.com/typekit/webfontloader
 

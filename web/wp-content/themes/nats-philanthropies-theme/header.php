@@ -57,7 +57,53 @@
                 'menu_class' => 'menu menu-'.$theme_location,
                 'fallback_cb' => false,
             ];
-            wp_nav_menu( $args );
+            // wp_nav_menu( $args );
+
+        endif;
+
+        $menuLocations = get_nav_menu_locations();
+        // echo "<pre>"; print_r( $menuLocations ); echo "</pre>";
+        if( isset($menuLocations[$theme_location]) ):
+          $main_nav = wp_get_nav_menu_items( $menuLocations[$theme_location] );
+          // echo "<pre>"; var_dump($main_nav); echo "</pre>";
+
+          if( !empty($main_nav) ): ?>
+          <nav class="navContainer">
+            <ul class="menu menu-mainMenu">
+              <?php foreach( $main_nav as $nav_item ): ?>
+                <?php
+                $title = get_the_title( $nav_item );
+                $href = $nav_item->url;
+                ?>
+
+                <li class="menu-item">
+                  <a href="<?php echo $href; ?>" class="menu-link"<?php if( $title === 'Subscribe' ): ?> data-modal="menu-modal-subscribe"<?php endif; ?>><?php echo $title; ?></a>
+
+                  <?php if( $title === 'Subscribe' ): ?>
+                  <div class="modal menu-modal menu-modal-subscribe">
+                    <div class="menu-modal-inner">
+                      <h2>Subscribe</h2>
+                      <form>
+                        <p>
+                          <label for="email"></label>
+                          <input type="text" id="email">
+                        </p>
+                        <p>
+                          <button type="submit">Submit</button>
+                        </p>
+                      </form>
+                      <button class="modal-close">Close</button>
+                    </div>
+                  </div>
+                  <?php endif; ?>
+
+                </li>
+
+              <?php endforeach; ?>
+            </ul>
+          </nav>
+          <?php
+          endif;
 
         endif;
         ?>
