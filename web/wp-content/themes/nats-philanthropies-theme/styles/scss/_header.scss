@@ -72,16 +72,29 @@
 .header-logoLink {
   display: flex;
   align-items: center;
-  transition: opacity 125ms;
+  // transition: opacity 125ms;
+  transform: scale3d(1, 1, 1);
+  transform-origin: center;
+  transition: transform 125ms cubic-bezier(.17, .67, .45, 2);
 
   &:hover {
-    opacity: .8;
+    // opacity: .8;
+    transform: scale3d(1.33, 1.33, 1.33);
+
+    // path {
+    //   // fill: $link;
+    //   stroke-width: 2pt;
+    //   stroke: $invert;
+    //   fill: transparentize($invert, .8);
+    // }
+
   }
 
 }
 
 .header-logo {
     display: block;
+    width: 240px;
 
     @media screen and ( max-width: 840px ) {
       width: 120px;
@@ -92,21 +105,11 @@
       width: 80px;
     }
 
-    // svg {
-    //     display: block;
-    //     height: auto;
-    //     width: 100%;
-    // }
-    //
-    // path {
-    //     fill: $invert;
-    //     transition: fill 100ms linear;
-    // }
-    //
-    // &:hover {
-    //     path {
-    //         fill: $hover;
-    //     }
-    // }
+    path {
+        fill: $invert;
+        // stroke-width: 2pt;
+        // stroke: transparent;
+        // transition: fill 300ms, stroke 300ms;
+    }
 
 }
