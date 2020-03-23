@@ -134,6 +134,24 @@
   line-height: 1.75;
 }
 
+.cta-buttonIcon {
+  display: inline-block;
+  height: 1rem;
+  padding-left: .8rem;
+  width: 2.6rem;
+  // transform: translate3d(0, 0, 0);
+
+  svg {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  path {
+    fill: $link;
+  }
+}
+
 .cta-button {
   appearance: none;
   border: none;
@@ -146,15 +164,23 @@
   text-transform: uppercase;
   display: inline-block;
   margin-top: 2.4rem;
-}
+  transform: scale3d(1, 1, 1);
+  transform-origin: center;
+  transition: transform 125ms cubic-bezier(.17, .67, .45, 2);
 
-.cta-buttonIcon {
-  display: inline-block;
-  height: 1.2rem;
-  padding-left: .8rem;
-  width: 2.5rem;
+  &:hover {
+    color: $hover;
+    text-decoration: none;
+    transform: scale3d(1.25, 1.25, 1.25);
 
-  path {
-    fill: $link;
+    .cta-buttonIcon {
+      // transform: translate3d(5px, 0, 0);
+    }
+
+    path {
+      fill: $hover;
+    }
+
   }
+
 }
