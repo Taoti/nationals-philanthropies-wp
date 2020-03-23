@@ -1,10 +1,12 @@
-.menu-main-navigation-container { // nav
-
+.navContainer {
+  width: 100%;
+  padding-left: 2rem;
 }
 
 .menu {
   display: flex;
   justify-content: flex-end;
+  width: inherit;
 }
 
 .menu-link {
@@ -22,15 +24,6 @@
   position: relative;
   text-transform: uppercase;
   transition: background-color 150ms;
-
-  // &::before,
-  // &::after {
-  //   background-color: $link;
-  //   content: '';
-  //   display: block;
-  //   position: absolute;
-  //   transition: background-color 150ms;
-  // }
 
   &::before {
     background-color: transparent;
@@ -53,6 +46,7 @@
   &:hover {
     color: $invert;
     background-color: $hover;
+    text-decoration: none;
 
     &::before {
       background-color: $hover;
@@ -73,8 +67,11 @@
 
 .menu-item {
   position: relative;
+  max-width: 294px;
+  width: 100%;
 }
 
+// The last link in the main menu is supposed to look like a giant red button that extends off the screen. The ::before and ::after elements are used to extend the background-color of the button.
 .menu-item:last-child {
 
   .menu-link {
@@ -87,10 +84,14 @@
       bottom: 100%;
       left: 0;
       height: calc(var(--header-height) - 100% - 7px - 1em); // The height of the header, minus the height of this .menu-link (100%), minus the height of the blue/white/red border on #header::before (7px), minus the height of the text in this .menu-link (1em).
-      width: calc( (100vw - (#{$max-width} - #{$container-padding} - #{$container-padding}) ) / 2 + 100% );
+      width: calc((100vw - (#{$max-width} - #{$container-padding} - #{$container-padding})) / 2 + 100%);
 
-      @media screen and ( max-width: $max-width ) {
+      @media screen and (max-width: $max-width) {
         width: 200%;
+      }
+
+      @media screen and (max-width: 760px) {
+        display: none;
       }
 
     }
