@@ -86,14 +86,13 @@
       border-left: none;
       bottom: 100%;
       left: 0;
-      height: 200px;
-      // width: 200%;
+      height: calc(var(--header-height) - 100% - 7px - 1em); // The height of the header, minus the height of this .menu-link (100%), minus the height of the blue/white/red border on #header::before (7px), minus the height of the text in this .menu-link (1em).
       width: calc( (100vw - (#{$max-width} - #{$container-padding} - #{$container-padding}) ) / 2 + 100% );
 
       @media screen and ( max-width: $max-width ) {
         width: 200%;
       }
-      
+
     }
 
     &::after {
