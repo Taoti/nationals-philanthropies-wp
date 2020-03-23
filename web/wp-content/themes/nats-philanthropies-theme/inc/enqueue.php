@@ -12,13 +12,13 @@ function taoti_scripts(){
 	if( !is_admin() ){
 
 		// Deregister WordPress jQuery and register Google's, only if you need jQuery.
-		if( !is_customize_preview() ){
-			wp_deregister_script('jquery');
-		}
-		// wp_enqueue_script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js', array(), '3.3.1', true);
+		// if( !is_customize_preview() ){
+		// 	wp_deregister_script('jquery');
+		// }
+		wp_enqueue_script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js', array(), '3.4.1', true);
 
 		// Main Scripts (this file is concatenated from the files inside of js/development/ )
-		wp_enqueue_script('scripts', get_template_directory_uri().'/js/scripts.min.js', array(), filemtime( get_template_directory().'/js/scripts.min.js' ), true);
+		wp_enqueue_script('scripts', get_template_directory_uri().'/js/scripts.min.js', array('jquery'), filemtime( get_template_directory().'/js/scripts.min.js' ), true);
 
 		// wp_localize_script( 'scripts', 'taoti_js', array(
 		// 	'ajax_url' => admin_url('admin-ajax.php'),
