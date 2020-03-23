@@ -19,15 +19,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <?php /*
-    <!-- http://realfavicongenerator.net/ -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/manifest.json">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#45a9ba">
-    <meta name="theme-color" content="#ffffff">
-    */ ?>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ab0003">
+  <meta name="msapplication-TileColor" content="#2b5797">
+  <meta name="theme-color" content="#ffffff">
 
   <?php
   ### Set up critical and non critical CSS.
@@ -80,15 +78,15 @@
                 ?>
 
                 <li class="menu-item">
-                  <a href="<?php echo $href; ?>" class="menu-link" <?php if ($title === 'Subscribe') : ?> data-modal="menu-modal-subscribe" <?php endif; ?>><?php echo $title; ?><i class="menu-icon"><?php echo file_get_contents(get_stylesheet_directory().'/images/icon-arrow.svg'); ?></i></a>
+                  <a href="<?php echo $href; ?>" class="menu-link" <?php if ($title === 'Subscribe') : ?> data-modal="menu-modal-subscribe" <?php endif; ?>><?php echo $title; ?><i class="menu-icon"><?php echo file_get_contents(get_stylesheet_directory() . '/images/icon-arrow.svg'); ?></i></a>
 
                   <?php if ($title === 'Subscribe') : ?>
                     <div class="modal menu-modal menu-modal-subscribe">
                       <div class="menu-modal-inner">
                         <button class="modal-close">Close<i class="modal-closeX">&times;</i></button>
-                        <?php echo do_shortcode( '[gravityform id="1" title="true" description="false" ajax="true"]'); ?>
-                    </div>
-                  <?php endif; ?>
+                        <?php echo do_shortcode('[gravityform id="1" title="true" description="false" ajax="true"]'); ?>
+                      </div>
+                    <?php endif; ?>
 
                 </li>
 
