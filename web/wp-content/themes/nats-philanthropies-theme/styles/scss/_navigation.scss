@@ -69,6 +69,11 @@
   position: relative;
   max-width: 294px;
   width: 100%;
+
+  @media screen and (max-width: 560px) {
+    position: static;
+  }
+
 }
 
 // The last link in the main menu is supposed to look like a giant red button that extends off the screen. The ::before and ::after elements are used to extend the background-color of the button.
@@ -126,18 +131,16 @@
 }
 
 .menu-modal {
-  background-color: $color-2;
-  padding: 2rem;
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 200%;
   box-shadow: 0px 0px 9px 4px rgba(0, 0, 0, 0.4);
-  z-index: 2;
-  pointer-events: none;
   opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  top: calc(-1 * (var(--header-height) - 100% - 14px)); //0;
   transform: translate3d(0, -3rem, 0);
   transition: opacity 133ms, transform 200ms;
+  width: 200%;
+  z-index: 2;
 
   &.is-active {
     pointer-events: auto;
@@ -145,4 +148,172 @@
     transform: translate3d(0, 0, 0);
   }
 
+  @media screen and (max-width: 840px) {
+    width: 150%;
+    left: 0;
+    min-width: 320px;
+  }
+
+  @media screen and (max-width: 560px) {
+    width: 100vw;
+  }
+
+}
+
+.menu-modal-inner {
+  padding-top: 14.5rem;
+}
+
+.menu-modal-subscribe {
+  background-color: $color-2;
+  color: $invert;
+  font-family: $sans-2;
+
+  // Set the gravity forms styles for the form in this modal.
+  .gform_heading,
+  .gform_body {
+    padding: 0 3.5rem;
+  }
+
+  .gfield + .gfield {
+    margin-top: 3rem;
+  }
+
+  .gform_title {
+    text-transform: uppercase;
+    letter-spacing: .07em;
+    margin-bottom: 6rem;
+
+    @media screen and (max-width: 840px) {
+      margin-bottom: 2rem;
+    }
+  }
+
+  .gfield_label {
+    display: none;
+  }
+
+  .ginput_container input {
+    background-color: transparent;
+    border: 1px solid transparentize($invert, .5);
+    color: inherit;
+    padding: 2rem;
+    font-size: 1.6rem;
+    font-family: inherit;
+    width: 100%;
+  }
+
+  .ginput_container input::-webkit-input-placeholder {
+    color: transparentize($invert, .5);
+  }
+  .ginput_container input::-moz-placeholder {
+    color: transparentize($invert, .5);
+  }
+  .ginput_container input::-ms-input-placeholder {
+    color: transparentize($invert, .5);
+  }
+
+  .ginput_container_consent {
+    input[type=checkbox] {
+      display: none;
+
+      &:checked {
+        + .gfield_consent_label::before {
+          content: '\00d7';
+        }
+      }
+
+    }
+  }
+
+  .gfield_consent_label {
+    cursor: pointer;
+    position: relative;
+
+    &::before {
+      border: 1px solid transparentize($invert, .5);
+      content: '';
+      display: inline-block;
+      width: 1.9rem;
+      height: 1.7rem;
+      margin-right: 1rem;
+      vertical-align: top;
+      font-size: 2rem;
+      line-height: .7;
+      font-family: sans-serif;
+      text-align: center;
+    }
+
+  }
+
+  .gform_button {
+    appearance: none;
+    background: $link;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    display: block;
+    font-size: 1.6rem;
+    font-family: inherit;
+    letter-spacing: .07em;
+    margin-top: 10rem;
+    padding: 6rem 7.3rem;
+    text-align: left;
+    text-transform: uppercase;
+    transition: background 125ms;
+    width: 100%;
+
+    &:hover {
+      background-color: $hover;
+    }
+
+    @media screen and (max-width: 840px) {
+      margin-top: 3rem;
+    }
+
+  }
+
+}
+
+.gform_validation_container {
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+.modal-close {
+  appearance: none;
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  display: inline-block;
+  font-family: $sans-2;
+  font-size: 1.6rem;
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  margin-bottom: 4.4rem;
+  margin-left: 3.5rem;
+  transform: scale3d(1, 1, 1);
+  transform-origin: center;
+  transition: transform 125ms $bounce-2;
+
+  &:hover {
+    transform: scale3d(1.125, 1.125, 1.125);
+  }
+
+  @media screen and (max-width: 840px) {
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+  }
+
+}
+
+.modal-closeX {
+  display: block;
+  line-height: 1;
+  font-size: 2rem;
+  font-weight: 100;
+  font-family: sans-serif;
 }
