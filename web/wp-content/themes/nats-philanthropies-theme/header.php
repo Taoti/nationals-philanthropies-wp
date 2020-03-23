@@ -85,18 +85,8 @@
                   <?php if ($title === 'Subscribe') : ?>
                     <div class="modal menu-modal menu-modal-subscribe">
                       <div class="menu-modal-inner">
-                        <h2>Subscribe</h2>
-                        <form>
-                          <p>
-                            <label for="email"></label>
-                            <input type="text" id="email">
-                          </p>
-                          <p>
-                            <button type="submit">Submit</button>
-                          </p>
-                        </form>
-                        <button class="modal-close">Close</button>
-                      </div>
+                        <button class="modal-close">Close<i class="modal-closeX">&times;</i></button>
+                        <?php echo do_shortcode( '[gravityform id="1" title="true" description="false" ajax="true"]'); ?>
                     </div>
                   <?php endif; ?>
 
