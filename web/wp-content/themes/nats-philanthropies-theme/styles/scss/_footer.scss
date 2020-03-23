@@ -43,6 +43,7 @@ $footer-grid-padding: 1.7rem;
 
 .footer-logoLink {
   grid-area: logo;
+  height: fit-content;
   padding-right: 35px;
   position: relative;
 
@@ -50,24 +51,12 @@ $footer-grid-padding: 1.7rem;
     padding-right: 24px;
   }
 
-  &::before {
-    content: '';
-    display: block;
-    height: 1px;
-    background-color: $border-line;
-    width: 100vw;
-    position: absolute;
-    bottom: 0;
+  &:hover {
 
-    @media screen and ( max-width: 768px ) {
-      left: -$container-padding-tablet;
-      opacity: 1;
+    .footer-logo {
+      transform: scale3d(1.33, 1.33, 1.33);
     }
 
-    @media screen and ( max-width: 700px ) {
-      left: -$container-padding-mobile;
-      opacity: 1;
-    }
   }
 
 }
@@ -76,10 +65,36 @@ $footer-grid-padding: 1.7rem;
   display: block;
   height: auto;
   max-width: 100%;
+  transform: scale3d(1, 1, 1);
+  transform-origin: center center;
+  transition: transform 125ms $bounce-2;
 }
 
 .footer-brandingText {
   grid-area: branding;
+  position: relative;
+
+  &::before {
+    background-color: $border-line;
+    bottom: 0;
+    content: '';
+    display: block;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    width: 100vw;
+
+    @media screen and (max-width: 768px) {
+      right: -$container-padding-tablet;
+      opacity: 1;
+    }
+
+    @media screen and (max-width: 700px) {
+      right: -$container-padding-mobile;
+      opacity: 1;
+    }
+  }
 }
 
 .footer-heading {

@@ -75,7 +75,7 @@
   // transition: opacity 125ms;
   transform: scale3d(1, 1, 1);
   transform-origin: center;
-  transition: transform 125ms cubic-bezier(.17, .67, .45, 2);
+  transition: transform 125ms $bounce-2;
 
   &:hover {
     // opacity: .8;

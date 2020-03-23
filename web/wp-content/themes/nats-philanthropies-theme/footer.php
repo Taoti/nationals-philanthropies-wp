@@ -4,7 +4,8 @@
     <!-- <div class="footer-branding"> -->
 
     <a href="<?php echo home_url(); ?>" class="footer-logoLink footer-gridItem">
-      <img class="footer-logo lazyload" data-srcset="<?php echo get_stylesheet_directory_uri(); ?>/images/logo-nats-philanthropies-small.png 1x, <?php echo get_stylesheet_directory_uri(); ?>/images/logo-nats-philanthropies-small@2x.png 2x" width="92" height="92" alt="Washington Nationals Philanthropies Logo (small)">
+      <!-- <img class="footer-logo lazyload" data-srcset="<?php echo get_stylesheet_directory_uri(); ?>/images/logo-nats-philanthropies-small.png 1x, <?php echo get_stylesheet_directory_uri(); ?>/images/logo-nats-philanthropies-small@2x.png 2x" width="92" height="92" alt="Washington Nationals Philanthropies Logo (small)"> -->
+      <i class="footer-logo"><?php echo file_get_contents(get_stylesheet_directory() . '/images/logo-nats-philanthropies-mark.svg'); ?></i>
     </a>
 
     <div class="footer-brandingText footer-gridItem">
@@ -23,19 +24,19 @@
 
       <li class="footer-socialItem footer-socialItem-twitter footer-gridItem">
         <a class="footer-socialLink" href="https://twitter.com/Nationals">
-          <i class="footer-socialIcon footer-socialIcon-twitter"><?php echo file_get_contents( get_stylesheet_directory().'/images/social-twitter.svg' ); ?></i>
+          <i class="footer-socialIcon footer-socialIcon-twitter"><?php echo file_get_contents(get_stylesheet_directory() . '/images/social-twitter.svg'); ?></i>
         </a>
       </li>
 
       <li class="footer-socialItem footer-socialItem-instagram footer-gridItem">
         <a class="footer-socialLink" href="https://www.instagram.com/nationals/">
-          <i class="footer-socialIcon footer-socialIcon-instagram"><?php echo file_get_contents( get_stylesheet_directory().'/images/social-instagram.svg' ); ?></i>
+          <i class="footer-socialIcon footer-socialIcon-instagram"><?php echo file_get_contents(get_stylesheet_directory() . '/images/social-instagram.svg'); ?></i>
         </a>
       </li>
 
       <li class="footer-socialItem footer-socialItem-facebook footer-gridItem">
         <a class="footer-socialLink" href="https://www.facebook.com/Nationals/">
-          <i class="footer-socialIcon footer-socialIcon-facebook"><?php echo file_get_contents( get_stylesheet_directory().'/images/social-facebook2.svg' ); ?></i>
+          <i class="footer-socialIcon footer-socialIcon-facebook"><?php echo file_get_contents(get_stylesheet_directory() . '/images/social-facebook2.svg'); ?></i>
         </a>
       </li>
 
@@ -53,4 +54,5 @@
 
 <?php wp_footer(); ?>
 </body>
+
 </html>
