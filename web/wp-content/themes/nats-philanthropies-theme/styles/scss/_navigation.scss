@@ -45,11 +45,11 @@
 
   &:hover {
     color: $invert;
-    background-color: $hover;
+    background-color: $color-2;//$hover;
     text-decoration: none;
 
     &::before {
-      background-color: $hover;
+      background-color: $color-2;//$hover;
     }
   }
 
