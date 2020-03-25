@@ -1,5 +1,5 @@
 <?php
-// use Modules\CTA;
+use Modules\Hero;
 
 
 ### Critical CSS for the front page template
@@ -9,29 +9,15 @@
 get_header();
 ?>
 
-<div class="hero lazyload" data-bg="<?php echo get_stylesheet_directory_uri(); ?>/images/bg-home-hero2.jpg">
-
-  <!-- <div class="hero-bgCover"></div> -->
-
-  <div class="hero-inner l-container">
-
-    <h1 class="hero-heading">
-
-      <img class="hero-accent hero-accent-1 lazyload" data-srcset="<?php echo get_stylesheet_directory_uri(); ?>/images/accent-spatter-1.png 1x, <?php echo get_stylesheet_directory_uri(); ?>/images/accent-spatter-1@2x.png 2x" width="477" height="82" alt="Paint splatter accent">
-
-      <span class="hero-headingLine hero-headingOutline">
-        <span class="hero-textWrap">Join us in a</span>
-        <img class="hero-accent hero-accent-2 lazyload" data-srcset="<?php echo get_stylesheet_directory_uri(); ?>/images/accent-spatter-2.png 1x, <?php echo get_stylesheet_directory_uri(); ?>/images/accent-spatter-2@2x.png 2x" width="690" height="67" alt="Paint splatter accent">
-      </span>
-
-      <span class="hero-headingLine">
-        <span class="hero-textWrap">new pursuit</span>
-      </span>
-
-    </h1>
-
-  </div>
-</div>
+<?php
+$args = [
+  'heading_line_1' => 'Join Us In A',
+  'heading_line_2' => 'New Pursuit',
+  // 'background_image_url' => get_stylesheet_directory_uri() . '/images/bg-home-hero.jpg',
+];
+$hero = new Hero($args);
+$hero->render();
+?>
 
 <div class="CTAs section-homepage">
   <div class="CTAs-inner l-container">
