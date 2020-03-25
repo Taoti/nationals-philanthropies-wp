@@ -138,6 +138,9 @@ add_action( 'customize_register', 'taoti_customize_register_cb' );
 
 
 function taoti_customizer_live_preview(){
-    wp_enqueue_script( 'taoti-themecustomizer', get_template_directory_uri().'/js/admin/theme-customizer.js', array( 'jquery','customize-preview' ), '1.0', true );
+    wp_enqueue_script( 'taoti-theme-customizer', get_template_directory_uri().'/js/admin/theme-customizer.js', array( 'jquery','customize-preview' ), '1.0', true );
+
+    wp_enqueue_style('taoti-theme-customizer', get_template_directory_uri() . '/styles/css/style-customizer.min.css', array(), filemtime(get_template_directory() . '/styles/css/style-customizer.min.css'));
+
 }
 add_action( 'customize_preview_init', 'taoti_customizer_live_preview', 0, 99 );

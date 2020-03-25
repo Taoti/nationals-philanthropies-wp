@@ -51,6 +51,7 @@ gulp.task('scss', function () {
 			themePath + 'styles/scss/admin/style-tinymce.scss', // TinyMCE WYSIWYG editor.
 			themePath + 'styles/scss/admin/style-login.scss', // the login page
 			themePath + 'styles/scss/admin/style-admin.scss', // the WP Dashboard
+			themePath + 'styles/scss/admin/style-customizer.scss', // the Customizer's Live Preview
 			themePath + 'styles/style-noncritical.scss', // noncritical CSS files
 			themePath + 'styles/style-critical.scss', // critical CSS files
 		],

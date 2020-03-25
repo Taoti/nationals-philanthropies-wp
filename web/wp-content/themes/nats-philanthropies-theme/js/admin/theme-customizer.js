@@ -27,6 +27,7 @@ wp.customize('taoti_404_content', function (value) {
         var content = document.querySelectorAll('.js-customizer-404Content');
 
         if (content.length) {
+            content[0].style = 'white-space:pre-wrap;margin-bottom:1.4em;';
             content[0].innerHTML = newval;
         }
 
