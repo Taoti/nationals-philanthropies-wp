@@ -45,7 +45,7 @@ $hero->render();
       <div class="cta-content">
         <h3 class="cta-heading">Make A Contribution</h3>
         <p class="cta-description">Give a tax deductible gift today in support of the ongoing work of Nationals Philanthropies.</p>
-        <a class="cta-button" href="https://nationals.com/give">Donate <i class="cta-buttonIcon"><?php echo file_get_contents(get_stylesheet_directory() . '/images/icon-arrow.svg'); ?></i></a>
+        <a class="cta-button" href="https://www.mlb.com/nationals/forms/give">Donate <i class="cta-buttonIcon"><?php echo file_get_contents(get_stylesheet_directory() . '/images/icon-arrow.svg'); ?></i></a>
       </div>
 
     </div>
