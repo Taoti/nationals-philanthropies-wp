@@ -35,8 +35,13 @@ $hero->render();
         ?>
         <h1 class="page-title js-customizer-404Title"><?php echo $page_title; ?></h1>
 
-        <div class="entry-content js-customizer-404Content">
-            <?php echo $content; ?>
+        <div class="entry-content">
+            <div class="js-customizer-404Content">
+            <?php echo wpautop( $content ); ?>
+            </div>
+
+            <p>Back to <a href="<?php echo home_url(); ?>">home page</a>.</p>
+
         </div>
 
     </div><!-- END .content-inner -->
