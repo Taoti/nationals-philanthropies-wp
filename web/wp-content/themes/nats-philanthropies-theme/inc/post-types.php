@@ -43,6 +43,30 @@ function jp_register_post_types() {
 		//
 		// ],
 
+		[
+			'slug' => 'people',
+			'singular' => 'Person',
+			'plural' => 'People',
+			'register_args' => [
+				'menu_icon' => 'dashicons-id',
+				'description' => 'Manage your People.',
+			],
+
+		],
+
+		[
+			'slug' => 'events',
+			'singular' => 'Event',
+			'plural' => 'Event',
+			'register_args' => [
+				'menu_icon' => 'dashicons-buddicons-groups',
+				'description' => 'Manage your Events.',
+			],
+
+		],
+
+		// NOTE: If you are looking for the 'news' post type there is none, it is the 'post' post type with customized labels. See `taoti_change_post_labels()` below.
+
 	];
 
 	foreach( $jp_magic_post_type_maker_array as $post_type_args ){
@@ -121,7 +145,7 @@ function jp_generate_post_type_args( $args = [] ){
 
 	$defaults = array(
 		'public'        	  => true,
-		'menu_position' 	  => 10,
+		'menu_position' 	  => 8,
 		'hierarchical'		  => true,
 		'supports'      	  => array( 'title', 'editor', 'page-attributes', 'thumbnail', 'excerpt' ),
 		'has_archive'   	  => true,
@@ -132,3 +156,28 @@ function jp_generate_post_type_args( $args = [] ){
 
 	return $merged;
 }
+
+
+
+### Change labels of "Posts" to "News"
+// https://revelationconcept.com/wordpress-rename-default-posts-news-something-else/
+function taoti_change_post_labels() {
+    global $wp_post_types;
+
+    $labels = &$wp_post_types['post']->labels;
+
+    $labels->name = 'News';
+    $labels->singular_name = 'News Item';
+    $labels->add_new = 'Add New';
+    $labels->add_new_item = 'Add News Item';
+    $labels->edit_item = 'Edit News Item';
+    $labels->new_item = 'News Item';
+    $labels->view_item = 'View News Item';
+    $labels->search_items = 'Search News';
+    $labels->not_found = 'No News Items found';
+    $labels->not_found_in_trash = 'No News Items found in Trash';
+    $labels->all_items = 'All News';
+    $labels->menu_name = 'News';
+    $labels->name_admin_bar = 'News';
+}
+add_action( 'init', 'taoti_change_post_labels' );
