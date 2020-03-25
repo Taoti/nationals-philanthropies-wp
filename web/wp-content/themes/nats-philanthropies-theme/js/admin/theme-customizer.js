@@ -10,7 +10,7 @@
 
 
 // 404 Page Title
-wp.customize('jp_404_page_title', function (value) {
+wp.customize('taoti_404_page_title', function (value) {
     value.bind(function (newval) {
         var pageTitle = document.querySelectorAll('.js-customizer-404Title');
 
@@ -22,7 +22,7 @@ wp.customize('jp_404_page_title', function (value) {
 });
 
 // 404 Page Content
-wp.customize('jp_404_content', function (value) {
+wp.customize('taoti_404_content', function (value) {
     value.bind(function (newval) {
         var content = document.querySelectorAll('.js-customizer-404Content');
 

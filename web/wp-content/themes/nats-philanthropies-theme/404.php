@@ -1,5 +1,6 @@
 <?php
-// use Modules\CTA;
+
+use Modules\Hero;
 
 
 ### Critical CSS for the 404 page template
@@ -7,6 +8,17 @@
 
 
 get_header();
+?>
+
+
+<?php
+$args = [
+    'heading_line_1' => 'Not Found',
+    'heading_line_2' => '(404)',
+    'background_image_url' => get_stylesheet_directory_uri() . '/images/bg-home-hero.jpg',
+];
+$hero = new Hero($args);
+$hero->render();
 ?>
 
 
@@ -18,8 +30,8 @@ get_header();
         // NOTE
         // This theme sets up customizer options for the 404 page title and content. Check Appearance > Customize, or go to a 404 page and click Customize in the admin bar.
         // Check inc/customizer.php for more info.
-        $page_title = get_theme_mod( 'jp_404_page_title', 'Not Found (404)' );
-        $content = get_theme_mod( 'jp_404_content', 'The content you were looking for could not be found.' );
+        $page_title = get_theme_mod('taoti_404_page_title', 'Not Found (404)');
+        $content = get_theme_mod('taoti_404_content', 'The content you were looking for could not be found.');
         ?>
         <h1 class="page-title js-customizer-404Title"><?php echo $page_title; ?></h1>
 
