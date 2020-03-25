@@ -23,21 +23,27 @@
     <ul class="footer-socialItems">
 
       <li class="footer-socialItem footer-socialItem-twitter footer-gridItem">
-        <a class="footer-socialLink" href="https://twitter.com/Nationals">
-          <i class="footer-socialIcon footer-socialIcon-twitter"><?php echo file_get_contents(get_stylesheet_directory() . '/images/social-twitter.svg'); ?></i>
-        </a>
+        <?php if( get_theme_mod('taoti_twitter_url') && !is_preview() ): ?>
+          <a class="footer-socialLink js-customizer-twitter" href="<?php echo get_theme_mod('taoti_twitter_url'); ?>">
+            <i class="footer-socialIcon footer-socialIcon-twitter"><?php echo file_get_contents(get_stylesheet_directory() . '/images/social-twitter.svg'); ?></i>
+          </a>
+        <?php endif; ?>
       </li>
 
       <li class="footer-socialItem footer-socialItem-instagram footer-gridItem">
-        <a class="footer-socialLink" href="https://www.instagram.com/nationals/">
+        <?php if( get_theme_mod('taoti_instagram_url') && !is_preview() ): ?>
+        <a class="footer-socialLink js-customizer-instagram" href="<?php echo get_theme_mod('taoti_instagram_url'); ?>">
           <i class="footer-socialIcon footer-socialIcon-instagram"><?php echo file_get_contents(get_stylesheet_directory() . '/images/social-instagram.svg'); ?></i>
         </a>
+        <?php endif; ?>
       </li>
 
       <li class="footer-socialItem footer-socialItem-facebook footer-gridItem">
-        <a class="footer-socialLink" href="https://www.facebook.com/Nationals/">
+        <?php if( get_theme_mod('taoti_facebook_url') && !is_preview() ): ?>
+        <a class="footer-socialLink js-customizer-facebook" href="<?php echo get_theme_mod('taoti_facebook_url'); ?>">
           <i class="footer-socialIcon footer-socialIcon-facebook"><?php echo file_get_contents(get_stylesheet_directory() . '/images/social-facebook2.svg'); ?></i>
         </a>
+        <?php endif; ?>
       </li>
 
     </ul>

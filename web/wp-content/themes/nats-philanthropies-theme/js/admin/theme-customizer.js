@@ -12,10 +12,10 @@
 // 404 Page Title
 wp.customize('jp_404_page_title', function (value) {
     value.bind(function (newval) {
-        var tagline = document.querySelectorAll('.js-customizer-404Title');
+        var pageTitle = document.querySelectorAll('.js-customizer-404Title');
 
-        if (tagline.length) {
-            tagline[0].innerHTML = newval;
+        if (pageTitle.length) {
+            pageTitle[0].innerHTML = newval;
         }
 
     });
@@ -24,11 +24,51 @@ wp.customize('jp_404_page_title', function (value) {
 // 404 Page Content
 wp.customize('jp_404_content', function (value) {
     value.bind(function (newval) {
-        var tagline = document.querySelectorAll('.js-customizer-404Content');
+        var content = document.querySelectorAll('.js-customizer-404Content');
 
-        if (tagline.length) {
-            tagline[0].innerHTML = newval;
+        if (content.length) {
+            content[0].innerHTML = newval;
         }
 
     });
 });
+
+
+
+// ####### SOCIAL MEDIA LINKS
+
+// Twitter
+// wp.customize('taoti_twitter_url', function (value) {
+//     value.bind(function (newval) {
+//         var socialLinks = document.querySelectorAll('.js-customizer-twitter');
+
+//         for( i = 0; i < socialLinks.length; i++ ){
+//             socialLinks[i].href = newval;
+//         }
+
+//     });
+// });
+
+// Instagram
+// wp.customize('taoti_instagram_url', function (value) {
+//     value.bind(function (newval) {
+//         var socialLinks = document.querySelectorAll('.js-customizer-instagram');
+
+//         for (i = 0; i < socialLinks.length; i++) {
+//             socialLinks[i].href = newval;
+//         }
+
+//     });
+// });
+
+// Facebook
+// wp.customize('taoti_facebook_url', function (value) {
+//     value.bind(function (newval) {
+//         var socialLinks = document.querySelectorAll('.js-customizer-facebook');
+
+//         for (i = 0; i < socialLinks.length; i++) {
+//             socialLinks[i].href = newval;
+//         }
+
+//     });
+// });
