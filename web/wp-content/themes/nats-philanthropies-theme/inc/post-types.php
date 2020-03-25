@@ -162,22 +162,23 @@ function jp_generate_post_type_args( $args = [] ){
 ### Change labels of "Posts" to "News"
 // https://revelationconcept.com/wordpress-rename-default-posts-news-something-else/
 function taoti_change_post_labels() {
-    global $wp_post_types;
+	global $wp_post_types;
 
-    $labels = &$wp_post_types['post']->labels;
+	$labels = &$wp_post_types['post']->labels;
 
-    $labels->name = 'News';
-    $labels->singular_name = 'News Item';
-    $labels->add_new = 'Add New';
-    $labels->add_new_item = 'Add News Item';
-    $labels->edit_item = 'Edit News Item';
-    $labels->new_item = 'News Item';
-    $labels->view_item = 'View News Item';
-    $labels->search_items = 'Search News';
-    $labels->not_found = 'No News Items found';
-    $labels->not_found_in_trash = 'No News Items found in Trash';
-    $labels->all_items = 'All News';
-    $labels->menu_name = 'News';
-    $labels->name_admin_bar = 'News';
+	$labels->name = 'News';
+	$labels->singular_name = 'News Item';
+	$labels->add_new = 'Add New';
+	$labels->add_new_item = 'Add News Item';
+	$labels->edit_item = 'Edit News Item';
+	$labels->new_item = 'News Item';
+	$labels->view_item = 'View News Item';
+	$labels->search_items = 'Search News';
+	$labels->not_found = 'No News Items found';
+	$labels->not_found_in_trash = 'No News Items found in Trash';
+	$labels->all_items = 'All News';
+	$labels->menu_name = 'News';
+	$labels->name_admin_bar = 'News';
+
 }
 add_action( 'init', 'taoti_change_post_labels' );

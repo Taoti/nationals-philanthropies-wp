@@ -64,11 +64,12 @@ add_action( 'after_setup_theme', 'jp_theme_setup' );
 
 
 
-### Remove tags support from posts
+### Remove tags and category support from posts
 function jp_unregister_tags(){
     unregister_taxonomy_for_object_type('post_tag', 'post');
+    unregister_taxonomy_for_object_type('category', 'post');
 }
-//add_action('init', 'jp_unregister_tags');
+add_action('init', 'jp_unregister_tags');
 
 
 

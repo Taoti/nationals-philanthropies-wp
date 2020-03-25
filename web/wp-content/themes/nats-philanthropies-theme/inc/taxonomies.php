@@ -26,18 +26,59 @@ function jp_registers_taxonomies(){
 
     // Comment out or change this example:
     // [
-		// 	'slug' => 'product-type', // Lowercase letters, dashes only
-		// 	'singular' => 'Product Type', // Capitalized, something like 'Product Type' or 'Topic'
-		// 	'plural' => 'Product Types (REPLACE ME)', // Capitalized, something like 'Product Types' or 'Topics'
+    // 	'slug' => 'product-type', // Lowercase letters, dashes only
+    // 	'singular' => 'Product Type', // Capitalized, something like 'Product Type' or 'Topic'
+    // 	'plural' => 'Product Types (REPLACE ME)', // Capitalized, something like 'Product Types' or 'Topics'
     //     'applicable_post_types' => [ // Post type slugs
     //       'post',
     //       'products',
     //     ],
-		// 	'register_args' => [ // Explained above. Leave as an empty array if not needed.
-		// 		'hierarchical' => true,
-		// 	],
-    //
-		// ],
+    // 	'register_args' => [ // Explained above. Leave as an empty array if not needed.
+    // 		'hierarchical' => true,
+    // 	],
+
+    // ],
+
+		// NOTE: post_tag and category taxonomies are unregistered from the 'post' post type in wp-reset.php
+
+    [
+      'slug' => 'type',
+      'singular' => 'Type',
+      'plural' => 'Types',
+      'applicable_post_types' => [
+        'post',
+      ],
+      'register_args' => [
+        'hierarchical' => true,
+      ],
+
+    ],
+
+    [
+      'slug' => 'topic',
+      'singular' => 'Topic',
+      'plural' => 'Topics',
+      'applicable_post_types' => [
+        'post',
+      ],
+      'register_args' => [
+        'hierarchical' => false,
+      ],
+
+    ],
+
+    [
+      'slug' => 'affiliation',
+      'singular' => 'Affiliation',
+      'plural' => 'Affiliations',
+      'applicable_post_types' => [
+        'people',
+      ],
+      'register_args' => [
+        'hierarchical' => true,
+      ],
+
+    ],
 
   ];
 
