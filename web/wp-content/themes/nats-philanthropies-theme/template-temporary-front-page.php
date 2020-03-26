@@ -53,28 +53,5 @@ $hero->render();
   </div>
 </div>
 
-<!-- <div>
-  <?php
-  $theme_location = 'temporary-navigation';
-  $menuLocations = get_nav_menu_locations();
-  // echo "<pre>"; print_r( $menuLocations ); echo "</pre>";
-  if (isset($menuLocations[$theme_location])) :
-    $main_nav = wp_get_nav_menu_items($menuLocations[$theme_location]);
-    // echo "<pre>"; var_dump($main_nav); echo "</pre>";
-
-    if (!empty($main_nav)) :
-      foreach ($main_nav as $nav_item) :
-
-        echo "<pre>";
-        print_r($nav_item);
-        echo "</pre>";
-
-      endforeach;
-    endif;
-
-  endif;
-  ?>
-</div> -->
-
 <?php
 get_footer();
