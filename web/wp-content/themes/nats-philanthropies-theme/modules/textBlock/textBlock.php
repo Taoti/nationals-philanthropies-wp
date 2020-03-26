@@ -4,7 +4,7 @@ use Timber;
 
 ### Example usage
 	// $args = [
-	// 	'text_block' => get_sub_field('text_block'),
+	// 	'content' => get_sub_field('content'),
 	// ];
 	// $new_module = new TextBlock($args);
 	// $new_module->render();
@@ -15,7 +15,7 @@ class TextBlock {
 
 	public function __construct( $args=[] ){
 		$this->defaults = [
-			'text_block' => false,
+			'content' => false,
 			'classes' => [
 				'l-module',
 				'l-container',
