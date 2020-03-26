@@ -1,0 +1,19 @@
+{% block postGrid %}
+<div class="{{ classes }}">
+    <div class="l-inner postGrid-inner">
+
+        {% if primary_heading %}
+		<h2 class="postGrid-primaryHeading">{{ primary_heading }}</h2>
+		{% endif %}
+
+		{% if description %}
+		<div class="postGrid-description">{{ description }}</div>
+	    {% endif %}
+
+		{% if button_url and button_label %}
+		<a class="postGrid-button" href="{{ button_url }}">{{ button_label }}</a>
+		{% endif %}
+
+    </div>
+</div>
+{% endblock %}

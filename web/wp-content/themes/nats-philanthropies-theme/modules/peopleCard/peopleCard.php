@@ -9,10 +9,10 @@ use Timber;
 	// 	'button_url' => get_field('button_url'),
 	// 	'button_label' => get_field('button_label'),
 	// ];
-	// $new_module = new {{ModuleName}}($args);
+	// $new_module = new PeopleCard($args);
 	// $new_module->render();
 
-class {{ModuleName}} {
+class PeopleCard {
 	protected $defaults;
 	protected $context;
 
@@ -24,7 +24,7 @@ class {{ModuleName}} {
 			'button_label' => false,
 			'classes' => [
 				'l-module',
-				'{{ModuleFile}}',
+				'peopleCard',
 			]
 		];
 
@@ -40,7 +40,7 @@ class {{ModuleName}} {
 	}
 
 	public function render(){
-		Timber::render('{{ModuleFile}}.twig', $this->context);
+		Timber::render('peopleCard.twig', $this->context);
 	}
 
 }

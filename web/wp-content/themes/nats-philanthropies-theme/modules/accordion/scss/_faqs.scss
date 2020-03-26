@@ -1,0 +1,114 @@
+.accordion-primaryHeading {
+    text-align: center;
+    letter-spacing: -.03em;
+    margin-bottom: 4rem;
+}
+
+.accordion-listItem {
+    position: relative;
+    background-color: $invert;
+    border-radius: 1rem;
+    box-shadow: 0px 0px 20px 0px rgba(0, 72, 131, 0.2);
+    padding: 3.3rem 5rem;
+
+    @media screen and ( max-width: 480px ) {
+        padding: 3rem;
+    }
+
+    + .accordion-listItem {
+        margin-top: 3rem;
+    }
+}
+
+
+.accordion-questionText {
+    cursor: pointer;
+    font-size: 2.7rem;
+    font-weight: 900;
+    line-height: 1.3;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: color 100ms linear;
+
+    @media screen and ( max-width: 480px ) {
+        font-size: 2.3rem;
+    }
+
+    @media screen and ( max-width: 340px ) {
+        font-size: 2rem;
+    }
+
+    &:hover {
+        color: $hover;
+    }
+}
+
+.accordion-question {
+    padding-right: 11rem;
+
+    @media screen and ( max-width: 640px ) {
+        padding-right: 5rem;
+    }
+
+    @media screen and ( max-width: 480px ) {
+        padding-right: 2.5rem;
+    }
+}
+
+.accordion-arrow {
+    height: 27px;
+    min-width: 46px;
+    width: 46px;
+
+    @media screen and ( max-width: 480px ) {
+        height: 19px;
+        min-width: 31px;
+    }
+
+    svg {
+        perspective: 20in;
+        transform: rotateX(0deg);
+        transition: transform 200ms ease;
+    }
+
+    path {
+        fill: $highlight-2;
+    }
+
+}
+
+.accordion-answerText {
+    max-height: 0;
+    font-family: $serif;
+    letter-spacing: -.025em;
+    overflow: hidden;
+    overflow-y: auto;
+    transition: max-height 200ms ease-out, margin 1ms linear 200ms;
+    margin-top: 0;
+}
+
+
+
+// This is the checkbox <input>. The checked/unchecked state is what toggles the visibility of the answer.
+.accordion-toggle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    visibility: hidden;
+
+    &:checked {
+
+        ~ .accordion-answerText {
+            transition: max-height 400ms ease-in, margin 1ms linear;
+            max-height: 100vh;
+            margin-top: 3rem;
+        }
+
+        + .accordion-questionText .accordion-arrow svg {
+            transform: rotateX(180deg);
+        }
+
+    }
+
+}

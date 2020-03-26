@@ -1,0 +1,11 @@
+{% block textBlock %}
+<div class="{{ classes }}">
+  <div class="l-inner textBlock-inner">
+
+		{% if content %}
+		<div class="textBlock-content entry-content">{{ content }}</div>
+	  {% endif %}
+
+  </div>
+</div>
+{% endblock %}

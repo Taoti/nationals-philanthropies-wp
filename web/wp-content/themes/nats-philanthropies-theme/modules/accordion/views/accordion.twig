@@ -1,0 +1,34 @@
+{% block accordion %}
+<div class="{{ classes }}">
+    <div class="l-text-column accordion-inner">
+
+        {% if primary_heading %}
+		<h2 class="accordion-primaryHeading">{{ primary_heading }}</h2>
+		{% endif %}
+
+		{% if question_answer_list %}
+		<ul class="accordion-list">
+            {% for qa_pair in question_answer_list %}
+
+            <li class="accordion-listItem">
+
+                <input class="accordion-toggle" type="checkbox" id="faq-{{ loop.index0 }}">
+
+                <label class="accordion-questionText" for="faq-{{ loop.index0 }}">
+                    <span class="accordion-question">{{ qa_pair.question }}</span>
+                    <span class="accordion-arrow">{{ icon_arrow }}</span>
+                </label>
+
+                <div class="accordion-answerText entry-content">
+                    {{ qa_pair.answer }}
+                </div>
+
+            </li>
+
+            {% endfor %}
+        </ul>
+	    {% endif %}
+
+    </div>
+</div>
+{% endblock %}
