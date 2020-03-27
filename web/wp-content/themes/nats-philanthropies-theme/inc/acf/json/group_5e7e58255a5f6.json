@@ -1,6 +1,6 @@
 {
-    "key": "group_5e7d0f3a67f0c",
-    "title": "Hide Field - Content Editor",
+    "key": "group_5e7e58255a5f6",
+    "title": "Hidden Fields - News",
     "fields": [],
     "location": [
         [
@@ -8,20 +8,6 @@
                 "param": "post_type",
                 "operator": "==",
                 "value": "post"
-            }
-        ],
-        [
-            {
-                "param": "post_type",
-                "operator": "==",
-                "value": "page"
-            }
-        ],
-        [
-            {
-                "param": "post_type",
-                "operator": "==",
-                "value": "events"
             }
         ]
     ],
@@ -35,5 +21,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1585254238
+    "modified": 1585338425
 }

@@ -4,6 +4,16 @@
 @import '../globals';
 
 
+// Hide the field groups that only exist to hide other fields:
+#acf-group_5e7e58255a5f6, // Hidden Fields - News
+#acf-group_5e7e599b4fd45, //Hidden Fields – Events
+#acf-group_5e7e598c4470b, //Hidden Fields – People
+#acf-group_5e7e59aba3b01 // Hidden Fields – Pages
+{
+    display: none !important;
+}
+
+
 
 // Add a more visible, alternating border color to the repeater ACF options.
 .acf-table > tbody > tr:nth-child(2n) > td.order {
@@ -29,22 +39,4 @@
 	background: purple;
     color: #fff;
     text-shadow: none;
-}
-
-
-
-
-// Hide the Quick Draft dashboard widget
-#dashboard_quick_press {
-    display: none;
-}
-
-// Woocommerce Adimin
-#woocommerce-product-data {
-    .type_box, .linked_product_options, .attribute_options, #advanced_product_data .options_group {
-        display: none !important;
-    }
-    #advanced_product_data .options_group.reviews {
-        display: block !important;
-    }
 }

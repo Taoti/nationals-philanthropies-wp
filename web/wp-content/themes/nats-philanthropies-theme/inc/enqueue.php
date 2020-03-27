@@ -63,7 +63,7 @@ function taoti_admin_theme_style(){
 	// CSS for admin
     wp_enqueue_style('admin-theme', get_template_directory_uri().'/styles/css/style-admin.min.css', array(), filemtime( get_template_directory().'/styles/css/style-admin.min.css' ) );
 }
-// add_action('admin_enqueue_scripts', 'taoti_admin_theme_style');
+add_action('admin_enqueue_scripts', 'taoti_admin_theme_style');
 
 /*
  * PURPOSE : Login screen enqueues
