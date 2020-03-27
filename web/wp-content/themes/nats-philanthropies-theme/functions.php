@@ -23,6 +23,7 @@ include 'inc/tinyMCE/tinymce.styles.php';
 include 'inc/tinyMCE/tinymce.toolbars.php';
 include 'inc/tinyMCE/tinymce.customizations.php';
 include 'inc/user-roles.php';
+include 'inc/gravity-forms.php';
 
 ### Modules
 include 'inc/modules.php';
