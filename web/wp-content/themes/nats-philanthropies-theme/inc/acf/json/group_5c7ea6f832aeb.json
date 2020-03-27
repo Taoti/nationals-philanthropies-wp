@@ -88,7 +88,7 @@
                 "layout_5e7d13d02a320": {
                     "key": "layout_5e7d13d02a320",
                     "name": "cta",
-                    "label": "CTA",
+                    "label": "CTA (Call to Action)",
                     "display": "block",
                     "sub_fields": [
                         {
@@ -144,7 +144,7 @@
                             "label": "Select an event",
                             "name": "selected_event",
                             "type": "post_object",
-                            "instructions": "",
+                            "instructions": "Feature the information, link, and image from the selected event.",
                             "required": 1,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -281,6 +281,25 @@
                     "display": "block",
                     "sub_fields": [
                         {
+                            "key": "field_5e7e5505e8990",
+                            "label": "Heading",
+                            "name": "heading",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
                             "key": "field_5e7d15ea29df2",
                             "label": "People Listing",
                             "name": "people_listing",
@@ -338,7 +357,7 @@
                             "label": "Quoted Text",
                             "name": "quoted_text",
                             "type": "text",
-                            "instructions": "",
+                            "instructions": "Note - do not include double-quotes in the text, they are automatically included in the design.",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -354,10 +373,29 @@
                         },
                         {
                             "key": "field_5e7d12179c633",
-                            "label": "Attribution",
-                            "name": "attribution",
+                            "label": "Attribution Name",
+                            "name": "attribution_name",
                             "type": "text",
-                            "instructions": "",
+                            "instructions": "The name of the person who said the quote.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_5e7e4d0d2bd32",
+                            "label": "Attribution Description",
+                            "name": "attribution_description",
+                            "type": "text",
+                            "instructions": "E.g., an association or job title.",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -376,7 +414,7 @@
                             "label": "Image",
                             "name": "image",
                             "type": "image",
-                            "instructions": "",
+                            "instructions": "E.g., person's photo or company logo. Must be at least 512x463.",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -387,8 +425,8 @@
                             "return_format": "array",
                             "preview_size": "medium",
                             "library": "all",
-                            "min_width": "",
-                            "min_height": "",
+                            "min_width": 512,
+                            "min_height": 463,
                             "min_size": "",
                             "max_width": "",
                             "max_height": "",
@@ -426,10 +464,10 @@
                         },
                         {
                             "key": "field_5e7d15032a325",
-                            "label": "Pull content from this Topic",
-                            "name": "related_term",
+                            "label": "Pull content from these Topics",
+                            "name": "related_terms",
                             "type": "taxonomy",
-                            "instructions": "Up to four posts will be displayed that are assigned to the selected Topic.",
+                            "instructions": "Up to four posts will be displayed that are assigned to the selected Topics.",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -438,13 +476,13 @@
                                 "id": ""
                             },
                             "taxonomy": "topic",
-                            "field_type": "select",
-                            "allow_null": 1,
+                            "field_type": "checkbox",
                             "add_term": 0,
                             "save_terms": 0,
                             "load_terms": 0,
                             "return_format": "id",
-                            "multiple": 0
+                            "multiple": 0,
+                            "allow_null": 0
                         }
                     ],
                     "min": "",
@@ -516,5 +554,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1585332853
+    "modified": 1585337617
 }

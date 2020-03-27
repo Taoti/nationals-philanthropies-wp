@@ -22,6 +22,8 @@ the_post();
             <?php the_content(); ?>
         </div>
 
+        <?php the_page_builder(); ?>
+
     </div><!-- END .content-inner -->
 </div><!-- END .content -->
 

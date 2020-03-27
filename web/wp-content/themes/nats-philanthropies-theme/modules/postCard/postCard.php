@@ -1,6 +1,7 @@
 <?php
 namespace Modules;
 use Timber;
+use JP\Get;
 
 ### Example usage
 	// $args = [
@@ -18,10 +19,7 @@ class PostCard {
 
 	public function __construct( $args=[] ){
 		$this->defaults = [
-			'primary_heading' => false,
-			'description' => false,
-			'button_url' => false,
-			'button_label' => false,
+			'post_object' => false,
 			'classes' => [
 				'l-module',
 				'postCard',
@@ -30,11 +28,35 @@ class PostCard {
 
 		extract(array_merge($this->defaults, $args));
 
+		$title = '';
+		$permalink = '';
+		$excerpt = '';
+		$subheading_items = [];
+		$tags = [];
+
+		if( is_a($post_object, 'WP_Post') ){
+
+			$title = get_the_title( $post_object );
+			$permalink = get_permalink( $post_object );
+			$excerpt = get_the_excerpt( $post_object );
+
+			$primary_type = taoti_get_primary_term( $post_object->ID, 'type' );
+			if( is_a($primary_type, 'WP_Term') ){
+				$subheading_items[] = $primary_type->name;
+			}
+
+			$subheading_items[] = get_the_date( null, $post_object );
+
+			// Get post tags into the array
+
+		}
+
 		$this->context = Timber::get_context();
-		$this->context['primary_heading'] = $primary_heading;
-		$this->context['description'] = $description;
-		$this->context['button_url'] = $button_url;
-		$this->context['button_label'] = $button_label;
+		$this->context['title'] = $title;
+		$this->context['permalink'] = $permalink;
+		$this->context['excerpt'] = $excerpt;
+		$this->context['subheading_items'] = $subheading_items;
+		$this->context['tags'] = $tags;
 		$this->context['classes'] = implode(' ', $classes);
 
 	}

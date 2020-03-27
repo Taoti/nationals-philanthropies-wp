@@ -2,7 +2,9 @@
 use Modules\PeopleCard;
 use Modules\PostColumns;
 
+$heading = get_sub_field('heading');
 $people_listing = get_sub_field('people_listing');
+
 $people_cards = [];
 
 if( is_array($people_listing) && !empty($people_listing) ){
@@ -17,6 +19,7 @@ if( is_array($people_listing) && !empty($people_listing) ){
 }
 
 $args = array(
+	'heading' => $heading,
 	'columns' => $people_cards,
 	'classes' => [
 		'l-module',
