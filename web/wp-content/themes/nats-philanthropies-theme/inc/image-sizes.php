@@ -4,9 +4,16 @@
 // Add custom image sizes.
 function jp_image_size_setup(){
 
+	// set medium to 250x250 in the dashboard
+
 	add_image_size('1080p', 1920, 1080, true);
 	add_image_size('720p', 1280, 720, true);
-	add_image_size('article', 720, 480, true);
+
+	add_image_size('article', 750, 422, true);
+
+	add_image_size('listing-item', 572, 322, true);
+
+	add_image_size('quote-image', 512, 463, true);
 
 }
 add_action( 'after_setup_theme', 'jp_image_size_setup' );
@@ -19,7 +26,9 @@ function jp_custom_size_names( $sizes ) {
 	return array_merge( $sizes, array(
 		'1080p' => 'Standard 1080p',
 		'720p' => 'Standard 720p',
-		'article' => 'Article Photo',
+		'article' => 'Article - Good within copy',
+		'listing-item' => 'Listing Image',
+		'quote-item' => 'Quote Image',
 	) );
 
 }
