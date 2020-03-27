@@ -1,19 +1,13 @@
 {% block postColumns %}
+{% if columns %}
 <div class="{{ classes }}">
-    <div class="l-inner postColumns-inner">
+	<div class="l-inner postColumns-inner">
 
-        {% if primary_heading %}
-		<h2 class="postColumns-primaryHeading">{{ primary_heading }}</h2>
-		{% endif %}
+		{% for column in columns %}
+		{{ column }}
+		{% endfor %}
 
-		{% if description %}
-		<div class="postColumns-description">{{ description }}</div>
-	    {% endif %}
-
-		{% if button_url and button_label %}
-		<a class="postColumns-button" href="{{ button_url }}">{{ button_label }}</a>
-		{% endif %}
-
-    </div>
+	</div>
 </div>
+{% endif %}
 {% endblock %}

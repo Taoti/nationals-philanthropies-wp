@@ -1,6 +1,7 @@
 <?php
 namespace Modules;
 use Timber;
+use JP\Get;
 
 ### Example usage
 	// $args = [
@@ -18,10 +19,7 @@ class PeopleCard {
 
 	public function __construct( $args=[] ){
 		$this->defaults = [
-			'primary_heading' => false,
-			'description' => false,
-			'button_url' => false,
-			'button_label' => false,
+			'post_object' => false,
 			'classes' => [
 				'l-module',
 				'peopleCard',
@@ -30,11 +28,31 @@ class PeopleCard {
 
 		extract(array_merge($this->defaults, $args));
 
+		$name = '';
+		$job_title = '';
+		$image_html = '';
+
+		if( is_a($post_object, 'WP_Post') ){
+
+			$name = get_the_title( $post_object );
+
+			$job_title = get_field( 'job_title', $post_object->ID );
+
+			$image_args = [
+				'image_array' => Get::featured_image_array( $post_object->ID ),
+				'size' => 'medium',
+				'classes' => [
+					'peopleCard-image'
+				],
+			];
+			$image_html = Get::image_html( $image_args );
+
+		}
+
 		$this->context = Timber::get_context();
-		$this->context['primary_heading'] = $primary_heading;
-		$this->context['description'] = $description;
-		$this->context['button_url'] = $button_url;
-		$this->context['button_label'] = $button_label;
+		$this->context['name'] = $name;
+		$this->context['job_title'] = $job_title;
+		$this->context['image_html'] = $image_html;
 		$this->context['classes'] = implode(' ', $classes);
 
 	}

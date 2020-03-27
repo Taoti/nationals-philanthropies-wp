@@ -16,17 +16,86 @@
                 "id": ""
             },
             "layouts": {
-                "5c7ea70e138ad": {
-                    "key": "5c7ea70e138ad",
-                    "name": "text_block",
-                    "label": "Text Block",
+                "layout_5e7d1048b8037": {
+                    "key": "layout_5e7d1048b8037",
+                    "name": "accordion",
+                    "label": "Accordion",
                     "display": "block",
                     "sub_fields": [
                         {
-                            "key": "field_5e7d0b2312778",
-                            "label": "Content",
-                            "name": "content",
-                            "type": "wysiwyg",
+                            "key": "field_5e7d1053b8038",
+                            "label": "Accordion Items",
+                            "name": "accordion_items",
+                            "type": "repeater",
+                            "instructions": "Each accordion has a heading and some accompanying text. The text is hidden at first, but is revealed by clicking on the heading.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "collapsed": "",
+                            "min": 0,
+                            "max": 0,
+                            "layout": "row",
+                            "button_label": "Add An Accordion Item",
+                            "sub_fields": [
+                                {
+                                    "key": "field_5e7d1093b8039",
+                                    "label": "Heading",
+                                    "name": "heading",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": ""
+                                },
+                                {
+                                    "key": "field_5e7d10a6b803a",
+                                    "label": "Text",
+                                    "name": "text",
+                                    "type": "wysiwyg",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "tabs": "all",
+                                    "toolbar": "basic",
+                                    "media_upload": 0,
+                                    "delay": 0
+                                }
+                            ]
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_5e7d13d02a320": {
+                    "key": "layout_5e7d13d02a320",
+                    "name": "cta",
+                    "label": "CTA",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5e7d13d52a321",
+                            "label": "Heading",
+                            "name": "heading",
+                            "type": "text",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -36,10 +105,61 @@
                                 "id": ""
                             },
                             "default_value": "",
-                            "tabs": "all",
-                            "toolbar": "full",
-                            "media_upload": 1,
-                            "delay": 0
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_5e7d14042a322",
+                            "label": "Description",
+                            "name": "description",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_5e7d0fc1c76a0": {
+                    "key": "layout_5e7d0fc1c76a0",
+                    "name": "featured_event",
+                    "label": "Featured Event",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5e7d0ff2c76a1",
+                            "label": "Select an event",
+                            "name": "selected_event",
+                            "type": "post_object",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "post_type": [
+                                "events"
+                            ],
+                            "taxonomy": "",
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "return_format": "object",
+                            "ui": 1
                         }
                     ],
                     "min": "",
@@ -154,50 +274,18 @@
                     "min": "",
                     "max": ""
                 },
-                "layout_5e7d0fc1c76a0": {
-                    "key": "layout_5e7d0fc1c76a0",
-                    "name": "featured_event",
-                    "label": "Featured Event",
+                "layout_5e7d15cd29df1": {
+                    "key": "layout_5e7d15cd29df1",
+                    "name": "people_listing",
+                    "label": "People Listing",
                     "display": "block",
                     "sub_fields": [
                         {
-                            "key": "field_5e7d0ff2c76a1",
-                            "label": "Select an event",
-                            "name": "selected_event",
-                            "type": "post_object",
-                            "instructions": "",
-                            "required": 1,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "post_type": [
-                                "events"
-                            ],
-                            "taxonomy": "",
-                            "allow_null": 0,
-                            "multiple": 0,
-                            "return_format": "object",
-                            "ui": 1
-                        }
-                    ],
-                    "min": "",
-                    "max": ""
-                },
-                "layout_5e7d1048b8037": {
-                    "key": "layout_5e7d1048b8037",
-                    "name": "accordion",
-                    "label": "Accordion",
-                    "display": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_5e7d1053b8038",
-                            "label": "Accordion List",
-                            "name": "accordion_list",
+                            "key": "field_5e7d15ea29df2",
+                            "label": "People Listing",
+                            "name": "people_listing",
                             "type": "repeater",
-                            "instructions": "",
+                            "instructions": "Add people to display in a grid.",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -209,45 +297,29 @@
                             "min": 0,
                             "max": 0,
                             "layout": "row",
-                            "button_label": "Add An Accordion Row",
+                            "button_label": "Add A Person",
                             "sub_fields": [
                                 {
-                                    "key": "field_5e7d1093b8039",
-                                    "label": "Heading",
-                                    "name": "heading",
-                                    "type": "text",
+                                    "key": "field_5e7d164929df3",
+                                    "label": "Select a person",
+                                    "name": "people_post",
+                                    "type": "post_object",
                                     "instructions": "",
-                                    "required": 0,
+                                    "required": 1,
                                     "conditional_logic": 0,
                                     "wrapper": {
                                         "width": "",
                                         "class": "",
                                         "id": ""
                                     },
-                                    "default_value": "",
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
-                                    "maxlength": ""
-                                },
-                                {
-                                    "key": "field_5e7d10a6b803a",
-                                    "label": "Text",
-                                    "name": "text",
-                                    "type": "wysiwyg",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "tabs": "all",
-                                    "toolbar": "basic",
-                                    "media_upload": 0,
-                                    "delay": 0
+                                    "post_type": [
+                                        "people"
+                                    ],
+                                    "taxonomy": "",
+                                    "allow_null": 0,
+                                    "multiple": 0,
+                                    "return_format": "object",
+                                    "ui": 1
                                 }
                             ]
                         }
@@ -327,54 +399,6 @@
                     "min": "",
                     "max": ""
                 },
-                "layout_5e7d13d02a320": {
-                    "key": "layout_5e7d13d02a320",
-                    "name": "cta",
-                    "label": "CTA",
-                    "display": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_5e7d13d52a321",
-                            "label": "Heading",
-                            "name": "heading",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
-                        },
-                        {
-                            "key": "field_5e7d14042a322",
-                            "label": "Description",
-                            "name": "description",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
-                        }
-                    ],
-                    "min": "",
-                    "max": ""
-                },
                 "layout_5e7d14c02a323": {
                     "key": "layout_5e7d14c02a323",
                     "name": "related_content",
@@ -426,18 +450,18 @@
                     "min": "",
                     "max": ""
                 },
-                "layout_5e7d15cd29df1": {
-                    "key": "layout_5e7d15cd29df1",
-                    "name": "people_listing",
-                    "label": "People Listing",
+                "5c7ea70e138ad": {
+                    "key": "5c7ea70e138ad",
+                    "name": "text_block",
+                    "label": "Text Block",
                     "display": "block",
                     "sub_fields": [
                         {
-                            "key": "field_5e7d15ea29df2",
-                            "label": "People Listing",
-                            "name": "people_listing",
-                            "type": "repeater",
-                            "instructions": "Add people to display in a grid.",
+                            "key": "field_5e7d0b2312778",
+                            "label": "Content",
+                            "name": "content",
+                            "type": "wysiwyg",
+                            "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -445,35 +469,11 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "collapsed": "",
-                            "min": 0,
-                            "max": 0,
-                            "layout": "row",
-                            "button_label": "Add A Person",
-                            "sub_fields": [
-                                {
-                                    "key": "field_5e7d164929df3",
-                                    "label": "Select a person",
-                                    "name": "people_post",
-                                    "type": "post_object",
-                                    "instructions": "",
-                                    "required": 1,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "post_type": [
-                                        "people"
-                                    ],
-                                    "taxonomy": "",
-                                    "allow_null": 0,
-                                    "multiple": 0,
-                                    "return_format": "object",
-                                    "ui": 1
-                                }
-                            ]
+                            "default_value": "",
+                            "tabs": "all",
+                            "toolbar": "full",
+                            "media_upload": 1,
+                            "delay": 0
                         }
                     ],
                     "min": "",
@@ -516,5 +516,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1585256089
+    "modified": 1585332853
 }
