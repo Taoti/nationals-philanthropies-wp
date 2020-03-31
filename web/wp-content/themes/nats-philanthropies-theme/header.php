@@ -43,13 +43,22 @@
   <header id="header">
     <div id="header-inner" class="l-container">
 
+      <?php
+      $temporary_page_enabled = ( is_home() && get_field( 'temporary_landing_page_is_enabled', 'option' ) );
+      ?>
+
+      <?php if( $temporary_page_enabled ): ?>
       <a href="<?php echo home_url(); ?>" class="header-logoLink">
-        <!-- <img class="header-logo lazyload" data-srcset="<?php echo get_stylesheet_directory_uri(); ?>/images/logo-nats-philanthropies.png 1x, <?php echo get_stylesheet_directory_uri(); ?>/images/logo-nats-philanthropies@2x.png 2x" width="240" height="76" alt="Washington Nationals Philanthropies Logo"> -->
         <i class="header-logo"><?php echo file_get_contents(get_stylesheet_directory() . '/images/logo-nats-philanthropies.svg'); ?></i>
       </a>
 
+      <?php else: ?>
+      <a href="<?php echo home_url(); ?>" class="header-logoLink">
+        <i class="header-logo"><?php echo file_get_contents(get_stylesheet_directory() . '/images/logo-nats-philanthropies-mark.svg'); ?></i>
+      </a>
+      <?php endif ?>
+
       <?php
-      $temporary_page_enabled = is_home();
       if( $temporary_page_enabled ){
         // $theme_location = 'temporary-navigation';
         get_template_part( 'parts/navigation', 'temp' );
