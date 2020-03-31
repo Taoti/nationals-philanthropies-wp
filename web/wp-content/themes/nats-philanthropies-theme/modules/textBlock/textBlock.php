@@ -25,7 +25,7 @@ class TextBlock {
 
 		extract(array_merge($this->defaults, $args));
 
-		$processed_content = do_shortcode( $text_block );
+		$processed_content = do_shortcode( $content );
 
 		$this->context = Timber::get_context();
 		$this->context['content'] = $processed_content;
