@@ -1,7 +1,7 @@
 <?php
 // use Modules\CTA;
 
-$temporary_page_enabled = ( is_home() && get_field( 'temporary_landing_page_is_enabled', 'option' ) );
+$temporary_page_enabled = ( is_front_page() && get_field( 'temporary_landing_page_is_enabled', 'option' ) );
 
 if( $temporary_page_enabled ):
   get_template_part( 'template-temporary-front-page' );
