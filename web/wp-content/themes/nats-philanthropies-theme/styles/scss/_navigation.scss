@@ -15,11 +15,11 @@
   font-family: $sans-2;
   font-size: 1.6rem;
   font-weight: bold;
-  letter-spacing: .05em;
-  padding-left: 4.6rem;
-  padding-right: 8rem;
-  padding-top: 3.8rem;
-  padding-bottom: 3.7rem;
+  letter-spacing: .1em;
+  padding-left: 1.6rem;//4.6rem;
+  padding-right: 1.6rem;//8rem;
+  // padding-top: 3.8rem;
+  // padding-bottom: 3.7rem;
   position: relative;
   text-transform: uppercase;
   transition: background-color 150ms;
@@ -65,8 +65,6 @@
 
 .menu-item {
   position: relative;
-  max-width: 294px;
-  width: 100%;
 
   @media screen and (max-width: 560px) {
     position: static;

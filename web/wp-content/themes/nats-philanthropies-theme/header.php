@@ -49,7 +49,7 @@
 
       <?php if( $temporary_page_enabled ): ?>
       <a href="<?php echo home_url(); ?>" class="header-logoLink">
-        <i class="header-logo"><?php echo file_get_contents(get_stylesheet_directory() . '/images/logo-nats-philanthropies.svg'); ?></i>
+        <i class="header-logo" style="width:240px"><?php echo file_get_contents(get_stylesheet_directory() . '/images/logo-nats-philanthropies.svg'); ?></i>
       </a>
 
       <?php else: ?>

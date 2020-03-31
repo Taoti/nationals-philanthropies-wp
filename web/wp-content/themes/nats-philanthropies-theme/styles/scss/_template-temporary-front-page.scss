@@ -1,11 +1,25 @@
 // these styles should move elsewhere, maybe be reused as mixins, when we move beyond the temporary landing page.
 
 
-.navContainer-temporary-navigation .menu-link {
-  border-left: 1px solid $border-line;
+.navContainer-temporary-navigation {
 
-  &::before {
+  .menu-link {
     border-left: 1px solid $border-line;
+    letter-spacing: .05em;
+    padding-left: 4.6rem;
+    padding-right: 8rem;
+    padding-top: 3.8rem;
+    padding-bottom: 3.7rem;
+
+    &::before {
+      border-left: 1px solid $border-line;
+    }
+
+  }
+
+  .menu-item {
+    max-width: 294px;
+    width: 100%;
   }
 
 }
