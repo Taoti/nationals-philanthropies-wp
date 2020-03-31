@@ -18,7 +18,17 @@
 @import 'scss/template-temporary-front-page';
 
 // Modules
-// @import '../modules/cta/scss/cta';
+@import '../modules/accordion/scss/accordion';
+@import '../modules/cta/scss/cta';
+@import '../modules/fullWidthMedia/scss/fullWidthMedia';
+@import '../modules/listingItem/scss/listingItem';
+@import '../modules/peopleCard/scss/peopleCard';
+@import '../modules/postCard/scss/postCard';
+@import '../modules/postColumns/scss/postColumns';
+@import '../modules/postGrid/scss/postGrid';
+@import '../modules/quote/scss/quote';
+@import '../modules/stats/scss/stats';
+@import '../modules/textBlock/scss/textBlock';
 
 // Parts, utility, other one-offs
 // @import 'scss/pagination';
