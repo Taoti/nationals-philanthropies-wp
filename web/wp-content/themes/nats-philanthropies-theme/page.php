@@ -1,5 +1,5 @@
 <?php
-// use Modules\CTA;
+use Modules\Hero;
 
 
 ### Critical CSS for the default page template
@@ -14,7 +14,7 @@ the_post();
 <?php
 $args = [
   'heading_line_1' => get_the_title(),
-	'heading_line_2' => 'Give',
+	'heading_line_2' => '',
 	'background_image_url' => '', // get featured image
 ];
 $hero = new Hero($args);

@@ -1,6 +1,16 @@
 // these styles should move elsewhere, maybe be reused as mixins, when we move beyond the temporary landing page.
 
 
+.navContainer-temporary-navigation .menu-link {
+  border-left: 1px solid $border-line;
+
+  &::before {
+    border-left: 1px solid $border-line;
+  }
+
+}
+
+
 // Need to figure out a way to lazyload this after element. Might have to make a noncritical hero file.
 .hero {
   &::after {

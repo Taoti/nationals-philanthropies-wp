@@ -10,7 +10,6 @@
 }
 
 .menu-link {
-  border-left: 1px solid $border-line;
   color: $invert;
   display: block;
   font-family: $sans-2;
@@ -27,7 +26,6 @@
 
   &::before {
     background-color: transparent;
-    border-left: 1px solid $border-line;
     content: '';
     display: block;
     position: absolute;
