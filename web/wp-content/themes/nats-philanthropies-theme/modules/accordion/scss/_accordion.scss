@@ -21,7 +21,7 @@
 }
 
 
-.accordion-questionText {
+.accordion-headingLabel {
     cursor: pointer;
     font-size: 2.7rem;
     font-weight: 900;
@@ -44,7 +44,7 @@
     }
 }
 
-.accordion-question {
+.accordion-heading {
     padding-right: 11rem;
 
     @media screen and ( max-width: 640px ) {
@@ -78,7 +78,7 @@
 
 }
 
-.accordion-answerText {
+.accordion-text {
     max-height: 0;
     font-family: $serif;
     letter-spacing: -.025em;
@@ -99,13 +99,13 @@
 
     &:checked {
 
-        ~ .accordion-answerText {
+        ~ .accordion-text {
             transition: max-height 400ms ease-in, margin 1ms linear;
             max-height: 100vh;
             margin-top: 3rem;
         }
 
-        + .accordion-questionText .accordion-arrow svg {
+        + .accordion-headingLabel .accordion-arrow svg {
             transform: rotateX(180deg);
         }
 

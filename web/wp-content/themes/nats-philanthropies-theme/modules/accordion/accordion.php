@@ -16,8 +16,7 @@ class Accordion {
 
 	public function __construct( $args=[] ){
 		$this->defaults = [
-			'primary_heading' => false,
-			'question_answer_list' => false,
+			'accordion_items' => false,
 			'classes' => [
 				'l-module',
 				'accordion',
@@ -26,11 +25,10 @@ class Accordion {
 
 		extract(array_merge($this->defaults, $args));
 
-		// echo "<pre>"; print_r($question_answer_list); echo "</pre>";
+		// echo "<pre>"; print_r($accordion_items); echo "</pre>";
 
 		$this->context = Timber::get_context();
-		$this->context['primary_heading'] = $primary_heading;
-		$this->context['question_answer_list'] = $question_answer_list;
+		$this->context['accordion_items'] = $accordion_items;
 		$this->context['icon_arrow'] = file_get_contents( get_template_directory().'/images/icon-arrow-down.svg' );
 		$this->context['classes'] = implode(' ', $classes);
 

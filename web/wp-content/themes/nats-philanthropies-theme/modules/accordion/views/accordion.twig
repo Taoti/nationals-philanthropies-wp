@@ -2,25 +2,21 @@
 <div class="{{ classes }}">
     <div class="l-text-column accordion-inner">
 
-        {% if primary_heading %}
-		<h2 class="accordion-primaryHeading">{{ primary_heading }}</h2>
-		{% endif %}
-
-		{% if question_answer_list %}
+		{% if accordion_items %}
 		<ul class="accordion-list">
-            {% for qa_pair in question_answer_list %}
+            {% for row in accordion_items %}
 
             <li class="accordion-listItem">
 
                 <input class="accordion-toggle" type="checkbox" id="faq-{{ loop.index0 }}">
 
-                <label class="accordion-questionText" for="faq-{{ loop.index0 }}">
-                    <span class="accordion-question">{{ qa_pair.question }}</span>
+                <label class="accordion-headingLabel" for="faq-{{ loop.index0 }}">
+                    <span class="accordion-heading">{{ row.heading }}</span>
                     <span class="accordion-arrow">{{ icon_arrow }}</span>
                 </label>
 
-                <div class="accordion-answerText entry-content">
-                    {{ qa_pair.answer }}
+                <div class="accordion-text entry-content">
+                    {{ row.text }}
                 </div>
 
             </li>
