@@ -48,7 +48,7 @@
 
     </ul>
 
-    <p class="footer-copyright footer-gridItem">Nationals Philanthropies – Copyright <?php echo date("Y"); ?>. All Rights Reseved</p>
+    <p class="footer-copyright footer-gridItem">Nationals Philanthropies – Copyright <?php echo date("Y"); ?>. All Rights Reserved</p>
 
     <!-- <div class="footer-emptyItem footer-emptyItem-1 footer-gridItem"></div>
     <div class="footer-emptyItem footer-emptyItem-2 footer-gridItem"></div>
