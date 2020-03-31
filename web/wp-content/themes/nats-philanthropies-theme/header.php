@@ -44,7 +44,7 @@
     <div id="header-inner" class="l-container">
 
       <?php
-      $temporary_page_enabled = ( is_front_page() && get_field( 'temporary_landing_page_is_enabled', 'option' ) );
+      $temporary_page_enabled = ( (is_404() || is_front_page() ) && get_field( 'temporary_landing_page_is_enabled', 'option' ) );
       ?>
 
       <?php if( $temporary_page_enabled ): ?>
