@@ -36,20 +36,26 @@
 
 </head>
 
-<body <?php body_class(); ?>>
+<?php
+// Save a variable to tell if the temporary page is in use. This will determine extra body class(es), and other things in the <header> below.
+$temporary_page_enabled = ( (is_404() || is_front_page() ) && get_field( 'temporary_landing_page_is_enabled', 'option' ) );
+
+$extra_body_classes = [];
+if( $temporary_page_enabled ){
+  $extra_body_classes[] = 'temporary-page';
+}
+
+?>
+<body <?php body_class( $extra_body_classes ); ?>>
 
   <?php do_action('jp_body_start'); ?>
 
   <header id="header">
-    <div id="header-inner" class="l-container">
-
-      <?php
-      $temporary_page_enabled = ( (is_404() || is_front_page() ) && get_field( 'temporary_landing_page_is_enabled', 'option' ) );
-      ?>
+    <div id="header-inner">
 
       <?php if( $temporary_page_enabled ): ?>
       <a href="<?php echo home_url(); ?>" class="header-logoLink">
-        <i class="header-logo" style="width:240px"><?php echo file_get_contents(get_stylesheet_directory() . '/images/logo-nats-philanthropies.svg'); ?></i>
+        <i class="header-logo"><?php echo file_get_contents(get_stylesheet_directory() . '/images/logo-nats-philanthropies.svg'); ?></i>
       </a>
 
       <?php else: ?>

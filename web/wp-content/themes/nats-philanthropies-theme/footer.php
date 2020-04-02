@@ -1,5 +1,5 @@
 <footer id="footer">
-  <div class="footer-inner l-container">
+  <div class="footer-inner">
 
     <!-- <div class="footer-branding"> -->
 

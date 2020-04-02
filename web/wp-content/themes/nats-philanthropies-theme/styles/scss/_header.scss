@@ -23,6 +23,7 @@
 }
 
 #header-inner {
+  @include l-container('header');
   display: flex;
   justify-content: space-between;
   align-items: stretch;
@@ -37,9 +38,9 @@
     height: 1px;
     width: 100vw;
     position: absolute;
-    left: calc(-1 * (100vw - #{$max-width}) / 2);
+    left: calc(-1 * (100vw - #{$design-width}) / 2);
 
-    @media screen and ( max-width: $max-width ) {
+    @media screen and ( max-width: $design-width ) {
       left: 0;//-$container-padding;
     }
 
@@ -95,15 +96,6 @@
 .header-logo {
     display: block;
     width: 115px;
-
-    @media screen and ( max-width: 840px ) {
-      width: 120px;
-      height: auto;
-    }
-
-    @media screen and ( max-width: 414px ) {
-      width: 80px;
-    }
 
     path {
         fill: $invert;

@@ -1,0 +1,62 @@
+@mixin l-container( $section-name:'' ) {
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: $design-width;
+
+	@if $section-name == 'header' {
+		@include l-header();
+
+	} @else if $section-name == 'footer' {
+		@include l-footer();
+
+	} @else if $section-name == 'hero' {
+		@include l-hero();
+
+	} @else if $section-name == 'content-1' {
+		@include l-content-1();
+
+	} @else if $section-name == 'content-2' {
+		@include l-content-2();
+
+	} @else {
+		padding-left: $container-padding;
+		padding-right: $container-padding;
+	}
+
+	@media screen and ( max-width: 960px ) {
+		padding-left: $container-padding-tablet;
+		padding-right: $container-padding-tablet;
+	}
+
+	@media screen and ( max-width: 700px ) {
+		padding-left: $container-padding-mobile;
+		padding-right: $container-padding-mobile;
+	}
+
+}
+
+@mixin l-header() {
+	padding-left: 11.1rem;
+	padding-right: 11.1rem;
+}
+
+@mixin l-footer() {
+	padding-left: 13.7rem;
+	padding-right: 13.7rem;
+}
+
+@mixin l-hero() {
+	padding-left: 24.4rem;
+	padding-right: 24.4rem;
+}
+
+@mixin l-content-1() {
+	padding-left: 26.7rem;
+	padding-right: 26.7rem;
+}
+
+@mixin l-content-2() {
+	padding-left: 18.1rem;
+	padding-right: 18.1rem;
+}

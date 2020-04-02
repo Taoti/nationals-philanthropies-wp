@@ -10,6 +10,7 @@ $border-line: rgba(255, 255, 255, .075);
 }
 
 .footer-inner {
+  @include l-container('footer');
   display: grid;
   // grid-template-columns: 92px minmax(min-content, 366px) 1fr 1fr 1fr;
   grid-template-columns: 127px 366px 1fr;
@@ -239,10 +240,10 @@ $footer-grid-padding: 1.7rem;
     width: 100vw;
     background-color: $border-line;
     position: absolute;
-    left: calc(-127px - #{$container-padding} - ((100vw - #{$max-width}) / 2) );
+    left: calc(-127px - #{$container-padding} - ((100vw - #{$design-width}) / 2) );
     top: 0;
 
-    @media screen and ( max-width: $max-width ) {
+    @media screen and ( max-width: $design-width ) {
       left: calc(-127px - #{$container-padding});
     }
 

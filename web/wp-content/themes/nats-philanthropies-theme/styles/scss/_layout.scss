@@ -4,23 +4,7 @@
 
 
 .l-container {
-	max-width: $max-width;
-	width: 100%;
-	padding-left: $container-padding;
-	padding-right: $container-padding;
-	margin-left: auto;
-	margin-right: auto;
-
-	@media screen and ( max-width: 960px ) {
-		padding-left: $container-padding-tablet;
-		padding-right: $container-padding-tablet;
-	}
-
-	@media screen and ( max-width: 700px ) {
-		padding-left: $container-padding-mobile;
-		padding-right: $container-padding-mobile;
-	}
-	
+	@include l-container();
 }
 
 
@@ -37,7 +21,7 @@
 .l-module {
 
 	+ .l-module {
-		// margin-top: 7rem;
+		margin-top: 7rem;
 	}
 
 }

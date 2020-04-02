@@ -1,5 +1,19 @@
 // these styles should move elsewhere, maybe be reused as mixins, when we move beyond the temporary landing page.
 
+body.temporary-page {
+  .header-logo {
+    width: 240px;
+
+    @media screen and ( max-width: 840px ) {
+      width: 120px;
+      height: auto;
+    }
+
+    @media screen and ( max-width: 460px ) {
+      width: 80px;
+    }
+  }
+}
 
 .navContainer-temporary-navigation {
 
@@ -10,6 +24,10 @@
     padding-right: 8rem;
     padding-top: 3.8rem;
     padding-bottom: 3.7rem;
+
+    @media screen and (max-width: 568px){
+      padding: 3.8rem 2rem;
+    }
 
     &::before {
       border-left: 1px solid $border-line;
