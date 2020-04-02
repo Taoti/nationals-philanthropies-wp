@@ -57,7 +57,7 @@ function jp_register_post_types() {
 		[
 			'slug' => 'events',
 			'singular' => 'Event',
-			'plural' => 'Event',
+			'plural' => 'Events',
 			'register_args' => [
 				'menu_icon' => 'dashicons-buddicons-groups',
 				'description' => 'Manage your Events.',
@@ -93,7 +93,6 @@ function jp_register_post_types() {
 
 }
 add_action( 'init', 'jp_register_post_types', 0 );
-
 
 
 

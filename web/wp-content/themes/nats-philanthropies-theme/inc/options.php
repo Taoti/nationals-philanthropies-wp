@@ -3,17 +3,15 @@
 
 if( function_exists('acf_add_options_page') ) {
 
-	### Examples for adding parent-level option pages.
+	// Add a temporary options page to have somewhere to toggle the temporary landing page.
 	acf_add_options_page('Temporary Landing Page');
-	// acf_add_options_page('Homepage');
 
-	### Example for adding in a child options page.
-	// Success Stories Options
-	// acf_add_options_page(
-	// 	array(
-	// 		'page_title' => 'Success Stories Intro Text and Options',
-	// 		'parent_slug' => 'edit.php?post_type=success-story'
-	// 	)
-	// );
+	// Options for `events` archive page
+	acf_add_options_page(
+		array(
+			'page_title' => 'Events Listing Page',
+			'parent_slug' => 'edit.php?post_type=events'
+		)
+	);
 
 }

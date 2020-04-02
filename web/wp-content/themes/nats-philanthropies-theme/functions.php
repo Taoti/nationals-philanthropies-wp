@@ -24,6 +24,7 @@ include 'inc/tinyMCE/tinymce.toolbars.php';
 include 'inc/tinyMCE/tinymce.customizations.php';
 include 'inc/user-roles.php';
 include 'inc/gravity-forms.php';
+include 'inc/archives.php';
 
 ### Modules
 include 'inc/modules.php';

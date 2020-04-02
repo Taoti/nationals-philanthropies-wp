@@ -68,3 +68,26 @@ function taoti_get_primary_term( $post_id, $taxonomy_slug='category' ){
     return $primary_term;
 
 }
+
+
+
+
+
+/*
+* PURPOSE : Check if the current page is the one set as the "Page for Posts", under Settings > Reading.
+*  PARAMS : n/a
+* RETURNS : $is_page_for_posts: string - the ID of the page set as the "Page for Posts", or boolean `false` if this is not the right page.
+*   NOTES :
+*/
+function taoti_is_page_for_posts(){
+
+	$is_page_for_posts = false;
+
+	$queried_object = get_queried_object();
+	if( is_a($queried_object, 'WP_Post') && $queried_object->ID == get_option( 'page_for_posts' ) ){
+		$is_page_for_posts = get_option( 'page_for_posts' );
+	}
+
+	return $is_page_for_posts;
+
+}
