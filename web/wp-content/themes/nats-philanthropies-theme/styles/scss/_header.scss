@@ -4,6 +4,9 @@
   position: absolute;//fixed;
   top: 0;
   left: 0;
+  opacity: 0;
+  transform: translate3d(0, -20px, 0);
+  transition: transform 300ms ease-in, opacity 300ms ease-in;
   width: 100%;
   z-index: 10;
 
@@ -22,12 +25,20 @@
   }
 }
 
+  html.wf-active,
+  html.wf-inactive {
+    #header {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
 #header-inner {
   @include l-container('header');
   display: flex;
   justify-content: space-between;
   align-items: stretch;
-  margin-top: 10.7rem;
+  margin-top: 10.2rem;//10.7rem;
   position: relative;
 
   &::before,
@@ -77,6 +88,8 @@
   transform: scale3d(1, 1, 1);
   transform-origin: center;
   transition: transform 125ms $bounce-2;
+  min-width: 174px;
+  position: relative;
 
   &:hover {
     // opacity: .8;
@@ -96,6 +109,9 @@
 .header-logo {
     display: block;
     width: 115px;
+    position: absolute;
+    left: calc(50% - (115px / 2));
+    bottom: 1rem;
 
     path {
         fill: $invert;

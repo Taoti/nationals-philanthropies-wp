@@ -17,10 +17,10 @@
   font-size: 1.6rem;
   font-weight: bold;
   letter-spacing: .1em;
-  padding-left: 1.6rem;//4.6rem;
-  padding-right: 1.6rem;//8rem;
-  // padding-top: 3.8rem;
-  // padding-bottom: 3.7rem;
+  padding-left: 1.6rem;
+  padding-right: 1.6rem;
+  padding-top: 4.8rem;
+  padding-bottom: 4.2rem;
   position: relative;
   text-transform: uppercase;
   transition: background-color 150ms;
@@ -87,6 +87,7 @@
 
 // The last link in the main menu is supposed to look like a giant red button that extends off the screen. The ::before and ::after elements are used to extend the background-color of the button.
 .menu-item:last-child {
+  padding-left: 5.8rem;
 
   .menu-link {
     background-color: $link;

@@ -1,6 +1,11 @@
 // these styles should move elsewhere, maybe be reused as mixins, when we move beyond the temporary landing page.
 
 body.temporary-page {
+
+  .header-logoLink {
+    min-width: none;
+  }
+
   .header-logo {
     width: 240px;
 
