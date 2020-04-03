@@ -9,7 +9,7 @@ if (isset($menuLocations[$theme_location])) :
 
 	if (!empty($main_nav)) : ?>
 <nav class="navContainer navContainer-<?php echo $theme_location; ?>">
-	<ul class="menu menu-mainMenu">
+	<ul class="tempMenu tempMenu-mainMenu">
 		<?php foreach ($main_nav as $nav_item) : ?>
 			<?php
 			// echo "<pre>"; print_r($nav_item); echo "</pre>";
@@ -17,12 +17,12 @@ if (isset($menuLocations[$theme_location])) :
 			$href = $nav_item->url;
 			?>
 
-			<li class="menu-item">
-				<a href="<?php echo $href; ?>" class="menu-link" <?php if ($title === 'Subscribe') : ?> data-modal="menu-modal-subscribe" <?php endif; ?>><?php echo $title; ?><i class="menu-icon"><?php echo file_get_contents(get_stylesheet_directory() . '/images/icon-arrow.svg'); ?></i></a>
+			<li class="tempMenu-item">
+				<a href="<?php echo $href; ?>" class="tempMenu-link" <?php if ($title === 'Subscribe') : ?> data-modal="tempMenu-modal-subscribe" <?php endif; ?>><?php echo $title; ?><i class="tempMenu-icon"><?php echo file_get_contents(get_stylesheet_directory() . '/images/icon-arrow.svg'); ?></i></a>
 
 				<?php if ($title === 'Subscribe') : ?>
-					<div class="modal menu-modal menu-modal-subscribe">
-						<div class="menu-modal-inner">
+					<div class="modal tempMenu-modal tempMenu-modal-subscribe">
+						<div class="tempMenu-modal-inner">
 							<button class="modal-close">Close<i class="modal-closeX">&times;</i></button>
 							<?php echo do_shortcode('[gravityform id="1" title="true" description="false" ajax="true"]'); ?>
 						</div>

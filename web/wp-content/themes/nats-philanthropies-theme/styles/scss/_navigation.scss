@@ -91,6 +91,8 @@
   .menu-link {
     background-color: $link;
     border-left: none;
+    padding-left: 4.5rem;
+    padding-right: 10.5rem;
 
     &::before {
       background-color: $link;
