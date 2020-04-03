@@ -91,6 +91,29 @@
   min-width: 174px;
   position: relative;
 
+  @media screen and ( max-width: 1280px ) {
+    min-width: 0;
+  }
+
+  &::before,
+  &::after {
+    content: '';
+    background-color: $border-line;
+    height: 100%;
+    height: calc(var(--header-height) - 11px); // The height of the header, minus the height of the blue/white/red border on #header::before (11px).
+    width: 1px;
+    position: absolute;
+    bottom: 0;
+  }
+
+  &::before {
+    left: 0;
+  }
+
+  &::after {
+    right: 0;
+  }
+
   &:hover {
     // opacity: .8;
     transform: scale3d(1.33, 1.33, 1.33);
@@ -107,17 +130,22 @@
 }
 
 .header-logo {
-    display: block;
-    width: 115px;
-    position: absolute;
-    left: calc(50% - (115px / 2));
-    bottom: 1rem;
+  display: block;
+  width: 115px;
+  position: absolute;
+  left: calc(50% - (115px / 2));
+  bottom: 1rem;
 
-    path {
-        fill: $invert;
-        // stroke-width: 2pt;
-        // stroke: transparent;
-        // transition: fill 300ms, stroke 300ms;
-    }
+  @media screen and ( max-width: 1280px ) {
+    width: 80px;
+    left: calc(50% - (80px / 2));
+  }
+
+  path {
+    fill: $invert;
+    // stroke-width: 2pt;
+    // stroke: transparent;
+    // transition: fill 300ms, stroke 300ms;
+  }
 
 }
