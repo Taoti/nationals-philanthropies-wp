@@ -1,5 +1,5 @@
 #header {
-  height: var( --header-height, auto );
+  height: auto;
   padding-top: 11px; // account for the height + top of the blue/white/red lines in the ::before element.
   position: absolute;//fixed;
   top: 0;

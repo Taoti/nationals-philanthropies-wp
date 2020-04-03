@@ -11,4 +11,5 @@ function taoti_update_header_height_property(){
   if( header_height ){
     document.documentElement.style.setProperty( '--header-height', header_height + 'px' );
   }
+  console.log( 'new header_height = ' + header_height );
 }

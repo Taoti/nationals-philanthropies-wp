@@ -3,10 +3,11 @@
 body.temporary-page {
 
   .header-logoLink {
-    min-width: none;
+    min-width: 0;
   }
 
   .header-logo {
+    position: static;
     width: 240px;
 
     @media screen and ( max-width: 840px ) {

@@ -30,31 +30,27 @@
   justify-content: center;
   height: 100%;
 
-  &::before {
-    background-color: transparent;
-    content: '';
-    display: block;
-    position: absolute;
-    transition: background-color 150ms;
-    bottom: 100%;
-    left: -1px; // offset the width of the border
-    height: 200px;
-    // width: 200%;
-    width: calc( (100vw - (#{$design-width} - #{$container-padding} - #{$container-padding}) ) / 2 + 100% );
-
-    @media screen and ( max-width: $design-width ) {
-      width: 200%;
-    }
-  }
+  // &::before {
+  //   background-color: transparent;
+  //   content: '';
+  //   display: block;
+  //   position: absolute;
+  //   transition: background-color 150ms;
+  //   bottom: 100%;
+  //   left: 0;//-1px; // offset the width of the border
+  //   height: 200px;
+  //   // width: 200%;
+  //   width: 100%;//calc( (100vw - (#{$design-width} - #{$container-padding} - #{$container-padding}) ) / 2 + 100% );
+  // }
 
   &:hover {
     color: $invert;
-    background-color: $color-2;//$hover;
+    background-color: $color-9;
     text-decoration: none;
 
-    &::before {
-      background-color: $color-2;//$hover;
-    }
+    // &::before {
+    //   background-color: $color-9;
+    // }
   }
 
   @media screen and ( max-width: 568px ) {
@@ -96,6 +92,10 @@
     padding-right: 10.5rem;
 
     &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      transition: background-color 150ms;
       background-color: $link;
       border-left: none;
       bottom: 100%;
