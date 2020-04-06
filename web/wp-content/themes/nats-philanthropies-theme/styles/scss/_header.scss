@@ -84,10 +84,6 @@
 .header-logoLink {
   display: flex;
   align-items: center;
-  // transition: opacity 125ms;
-  transform: scale3d(1, 1, 1);
-  transform-origin: center;
-  transition: transform 125ms $bounce-2;
   min-width: 174px;
   position: relative;
 
@@ -115,15 +111,10 @@
   }
 
   &:hover {
-    // opacity: .8;
-    transform: scale3d(1.33, 1.33, 1.33);
 
-    // path {
-    //   // fill: $link;
-    //   stroke-width: 2pt;
-    //   stroke: $invert;
-    //   fill: transparentize($invert, .8);
-    // }
+    .header-logo {
+      transform: scale3d(1.33, 1.33, 1.33);
+    }
 
   }
 
@@ -135,17 +126,20 @@
   position: absolute;
   left: calc(50% - (115px / 2));
   bottom: 1rem;
+  transform: scale3d(1, 1, 1);
+  transform-origin: center;
+  transition: transform 125ms $bounce-2;
 
   @media screen and ( max-width: 1280px ) {
-    width: 80px;
     left: calc(50% - (80px / 2));
+    padding-left: 2rem;
+    padding-right: 2rem;
+    width: calc(80px + 4rem);
+    position: static;
   }
 
   path {
     fill: $invert;
-    // stroke-width: 2pt;
-    // stroke: transparent;
-    // transition: fill 300ms, stroke 300ms;
   }
 
 }
