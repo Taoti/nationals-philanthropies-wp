@@ -9,6 +9,27 @@ if( isset($menuLocations[$theme_location]) ):
 
 	$nav_item_counter = 1;
 	if( !empty($main_nav) ): ?>
+
+<nav class="navContainer navContainer-mobile">
+	<ul class="menu menu-mobileMenu">
+
+		<li class="menu-item">
+			<a href="#0" class="menu-link menu-link-mobileMenu js-openNav">
+				Menu
+				<i class="menu-icon"><?php echo file_get_contents(get_stylesheet_directory() . '/images/icon-arrow.svg'); ?></i>
+			</a>
+		</li>
+
+		<li class="menu-item">
+			<a href="https://www.mlb.com/nationals/forms/give" class="menu-link">
+				Donate
+				<i class="menu-icon"><?php echo file_get_contents(get_stylesheet_directory() . '/images/icon-arrow.svg'); ?></i>
+			</a>
+		</li>
+
+	</ul>
+</nav>
+
 <nav class="navContainer navContainer-<?php echo $theme_location; ?>">
 	<ul class="menu menu-mainMenu">
 		<?php foreach( $main_nav as $nav_item ): ?>
@@ -18,8 +39,8 @@ if( isset($menuLocations[$theme_location]) ):
 			$href = $nav_item->url;
 			?>
 
-			<li class="menu-item">
-				<a href="<?php echo $href; ?>" class="menu-link">
+			<li class="menu-item menu-item-mainMenu">
+				<a href="<?php echo $href; ?>" class="menu-link menu-link-mainMenu">
 					<?php echo $title; ?>
 					<?php if( $nav_item_counter === count($main_nav) ): ?>
 					<i class="menu-icon"><?php echo file_get_contents(get_stylesheet_directory() . '/images/icon-arrow.svg'); ?></i>

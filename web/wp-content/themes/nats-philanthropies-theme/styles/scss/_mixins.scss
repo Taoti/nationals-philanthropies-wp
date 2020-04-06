@@ -1,8 +1,19 @@
-
-@import 'mixins-layout';
-
 // Mixins that can be used globally go here.
 // This file should not output anything, just include it as a library in other files - so do not add regular CSS rules here.
+
+
+
+// Import other mixins.
+@import 'mixins-layout';
+
+
+
+// This is useful for the <html> and <body> elements when any sort of modal is open. Like when the mobile nav is open and you only want to be able to scroll within the nav.
+@mixin modal-is-open(){
+    overflow: hidden;
+}
+
+
 
 @mixin button() {
     background-color: transparent;

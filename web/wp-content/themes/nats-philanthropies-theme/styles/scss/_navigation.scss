@@ -1,7 +1,49 @@
+/*
+ * Load this file in the main critical scss file.
+ * It should contain the styles necessary for the navigation to look good on page load.
+ */
+
+
 .navContainer {
   width: 100%;
   padding-left: 2rem;
 }
+
+  // Set the visibility of "navContainer-mobile" and "navContainer-main-navigation" as criticial styles. This way it's hidden on page load (for mobile). The mobile styles can be noncritical since they'll be hidden until the user opens the menu, not necessary to have them on page load.
+  .navContainer-mobile {
+    display: none;
+
+    @media screen and ( max-width: $nav-breakpoint-collapse ) {
+      display: block;
+    }
+
+  }
+
+  .navContainer-main-navigation {
+    display: block;
+
+    @media screen and ( max-width: $nav-breakpoint-collapse ) {
+      background-color: $color-2;
+      height: calc(100vh - var(--header-height));
+      left: 0;
+      opacity: 0;
+      padding: 0;
+      position: absolute;
+      top: var(--header-height);
+      transform: translate3d(0, calc(-100vh - var(--header-height)), 0);
+      width: 100vw;
+
+      &.is-open {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+        transition: transform 400ms ease-in, opacity 400ms;
+      }
+
+    }
+
+  }
+
+
 
 .menu {
   display: flex;
@@ -9,6 +51,15 @@
   justify-content: flex-end;
   width: inherit;
 }
+
+  .menu-mainMenu {
+
+    @media screen and (max-width: $nav-breakpoint-collapse) {
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+  }
 
 .menu-link {
   color: $invert;
@@ -92,6 +143,10 @@
 
   @media screen and (max-width: 1280px) {
     padding-left: 1rem;
+  }
+
+  @media screen and (max-width: $nav-breakpoint-collapse) {
+    padding-left: 0;
   }
 
   .menu-link {
@@ -189,168 +244,10 @@
 
 }
 
-.menu-modal-inner {
-  padding-top: 14.5rem;
-}
+// NOTE - more modal styles in the _navigation-noncritical.scss
 
-.menu-modal-subscribe {
-  background-color: $color-2;
-  color: $invert;
-  font-family: $sans-2;
 
-  // Set the gravity forms styles for the form in this modal.
-  .gform_heading,
-  .gform_body {
-    padding: 0 3.5rem;
-  }
 
-  .gfield + .gfield {
-    margin-top: 3rem;
-  }
 
-  .gform_title {
-    text-transform: uppercase;
-    letter-spacing: .07em;
-    margin-bottom: 6rem;
 
-    @media screen and (max-width: 840px) {
-      margin-bottom: 2rem;
-    }
-  }
 
-  .gfield_label {
-    display: none;
-  }
-
-  .ginput_container input {
-    background-color: transparent;
-    border: 1px solid transparentize($invert, .5);
-    color: inherit;
-    padding: 2rem;
-    font-size: 1.6rem;
-    font-family: inherit;
-    width: 100%;
-  }
-
-  .ginput_container input::-webkit-input-placeholder {
-    color: transparentize($invert, .5);
-  }
-  .ginput_container input::-moz-placeholder {
-    color: transparentize($invert, .5);
-  }
-  .ginput_container input::-ms-input-placeholder {
-    color: transparentize($invert, .5);
-  }
-
-  .ginput_container_consent {
-    input[type=checkbox] {
-      display: none;
-
-      &:checked {
-        + .gfield_consent_label::before {
-          content: '\00d7';
-        }
-      }
-
-    }
-  }
-
-  .gfield_consent_label {
-    cursor: pointer;
-    position: relative;
-
-    &::before {
-      border: 1px solid transparentize($invert, .5);
-      content: '';
-      display: inline-block;
-      width: 1.9rem;
-      height: 1.7rem;
-      margin-right: 1rem;
-      vertical-align: top;
-      font-size: 2rem;
-      line-height: .7;
-      font-family: sans-serif;
-      text-align: center;
-    }
-
-  }
-
-  .gform_button {
-    appearance: none;
-    background: $link;
-    border: none;
-    color: inherit;
-    cursor: pointer;
-    display: block;
-    font-size: 1.6rem;
-    font-family: inherit;
-    letter-spacing: .07em;
-    margin-top: 10rem;
-    padding: 6rem 7.3rem;
-    text-align: left;
-    text-transform: uppercase;
-    transition: background 125ms;
-    width: 100%;
-
-    &:hover {
-      background-color: $hover;
-    }
-
-    @media screen and (max-width: 840px) {
-      margin-top: 3rem;
-    }
-
-  }
-
-}
-
-.gform_validation_container {
-  opacity: 0;
-  pointer-events: none;
-  position: absolute;
-}
-
-.gform_confirmation_wrapper {
-  padding: 4.5rem;
-}
-
-.gform_confirmation_message {
-  font-size: 2rem;
-}
-
-.modal-close {
-  appearance: none;
-  background: none;
-  border: none;
-  color: inherit;
-  cursor: pointer;
-  display: inline-block;
-  font-family: $sans-2;
-  font-size: 1.6rem;
-  text-align: left;
-  text-transform: uppercase;
-  letter-spacing: .07em;
-  margin-bottom: 4.4rem;
-  margin-left: 3.5rem;
-  transform: scale3d(1, 1, 1);
-  transform-origin: center;
-  transition: transform 125ms $bounce-2;
-
-  &:hover {
-    transform: scale3d(1.125, 1.125, 1.125);
-  }
-
-  @media screen and (max-width: 840px) {
-    margin-bottom: 2rem;
-    margin-top: 2rem;
-  }
-
-}
-
-.modal-closeX {
-  display: block;
-  line-height: 1;
-  font-size: 2rem;
-  font-weight: 100;
-  font-family: sans-serif;
-}

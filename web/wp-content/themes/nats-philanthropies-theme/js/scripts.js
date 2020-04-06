@@ -918,6 +918,14 @@ jQuery('.modal-close').click( function(e){
 
 });
 
+jQuery('.js-openNav').click( function(e){
+	e.preventDefault();
+
+	jQuery('html').addClass('nav-is-open');
+	jQuery('.navContainer-main-navigation').addClass('is-open');
+
+});
+
 // Use this to load fonts from Google Fonts, Typekit, Fonts.com, and Fontdeck, as well as self-hosted web fonts
 // https://github.com/typekit/webfontloader
 

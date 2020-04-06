@@ -1,0 +1,255 @@
+/*
+ * Load this file in the main non-critical scss file.
+ * It should contain the styles that the navigation doesn't need on page load, e.g., for things that open based on user interaction - mobile nav, sub navs, modals, etc
+ */
+
+// The .nav-is-open class will lock scrolling within the main part of the page. This way overflow scrolling can be done in the nav or modal without affecting the rest of the page.
+html.nav-is-open {
+
+  @media screen and ( max-width: $nav-breakpoint-collapse ) {
+      @include modal-is-open();
+	}
+
+	#header {
+		position: fixed;
+    height: 100%;
+    overflow: scroll;
+    overflow-x: hidden;
+	}
+
+}
+
+ .navContainer-main-navigation {
+	// display: block;
+
+	// @media screen and ( max-width: $nav-breakpoint-collapse ) {
+	// 	background-color: $color-2;
+	// 	position: fixed;
+	// 	top: var(--header-height);
+	// 	width: 100vw;
+	// 	left: 0;
+	// 	padding: 0;
+	// 	height: 100vh;
+	// 	opacity: 0;
+	// 	transform: translate3d(0, calc(-100vh - var(--header-height)), 0);
+	// 	transition: transform 400ms ease-in, opacity 400ms;
+
+	// 	&.is-open {
+	// 		opacity: 1;
+	// 		transform: translate3d(0, 0, 0);
+	// 	}
+
+	// }
+
+}
+
+.menu-mainMenu {
+	@media screen and ( max-width: $nav-breakpoint-collapse ) {
+		padding-top: 5rem;
+	}
+}
+
+.menu-item-mainMenu {
+
+	+ .menu-item-mainMenu {
+		@media screen and ( max-width: $nav-breakpoint-collapse ) {
+			margin-top: 2.8rem;
+		}
+	}
+
+}
+
+.menu-link-mainMenu {
+
+	@media screen and ( max-width: $nav-breakpoint-collapse ) {
+		font-size: 2.4rem;
+		padding: 0 3.8rem;
+    line-height: 1;
+	}
+
+}
+
+// The Donate button
+.menu-item-mainMenu:last-child {
+	margin-top: auto;
+
+	.menu-link {
+		@media screen and ( max-width: $nav-breakpoint-collapse ) {
+			padding: 6.6rem 3.8rem 5.7rem 3.8rem;
+			font-size: 1.4rem;
+		}
+	}
+
+	.menu-icon {
+		top: calc(50% + 1.8em);
+	}
+
+}
+
+
+
+.menu-modal-inner {
+  padding-top: 14.5rem;
+}
+
+.menu-modal-subscribe {
+  background-color: $color-2;
+  color: $invert;
+  font-family: $sans-2;
+
+  // Set the gravity forms styles for the form in this modal.
+  .gform_heading,
+  .gform_body {
+    padding: 0 3.5rem;
+  }
+
+  .gfield + .gfield {
+    margin-top: 3rem;
+  }
+
+  .gform_title {
+    text-transform: uppercase;
+    letter-spacing: .07em;
+    margin-bottom: 6rem;
+
+    @media screen and (max-width: 840px) {
+      margin-bottom: 2rem;
+    }
+  }
+
+  .gfield_label {
+    display: none;
+  }
+
+  .ginput_container input {
+    background-color: transparent;
+    border: 1px solid transparentize($invert, .5);
+    color: inherit;
+    padding: 2rem;
+    font-size: 1.6rem;
+    font-family: inherit;
+    width: 100%;
+  }
+
+  .ginput_container input::-webkit-input-placeholder {
+    color: transparentize($invert, .5);
+  }
+  .ginput_container input::-moz-placeholder {
+    color: transparentize($invert, .5);
+  }
+  .ginput_container input::-ms-input-placeholder {
+    color: transparentize($invert, .5);
+  }
+
+  .ginput_container_consent {
+    input[type=checkbox] {
+      display: none;
+
+      &:checked {
+        + .gfield_consent_label::before {
+          content: '\00d7';
+        }
+      }
+
+    }
+  }
+
+  .gfield_consent_label {
+    cursor: pointer;
+    position: relative;
+
+    &::before {
+      border: 1px solid transparentize($invert, .5);
+      content: '';
+      display: inline-block;
+      width: 1.9rem;
+      height: 1.7rem;
+      margin-right: 1rem;
+      vertical-align: top;
+      font-size: 2rem;
+      line-height: .7;
+      font-family: sans-serif;
+      text-align: center;
+    }
+
+  }
+
+  .gform_button {
+    appearance: none;
+    background: $link;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    display: block;
+    font-size: 1.6rem;
+    font-family: inherit;
+    letter-spacing: .07em;
+    margin-top: 10rem;
+    padding: 6rem 7.3rem;
+    text-align: left;
+    text-transform: uppercase;
+    transition: background 125ms;
+    width: 100%;
+
+    &:hover {
+      background-color: $hover;
+    }
+
+    @media screen and (max-width: 840px) {
+      margin-top: 3rem;
+    }
+
+  }
+
+}
+
+.gform_validation_container {
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+.gform_confirmation_wrapper {
+  padding: 4.5rem;
+}
+
+.gform_confirmation_message {
+  font-size: 2rem;
+}
+
+.modal-close {
+  appearance: none;
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  display: inline-block;
+  font-family: $sans-2;
+  font-size: 1.6rem;
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  margin-bottom: 4.4rem;
+  margin-left: 3.5rem;
+  transform: scale3d(1, 1, 1);
+  transform-origin: center;
+  transition: transform 125ms $bounce-2;
+
+  &:hover {
+    transform: scale3d(1.125, 1.125, 1.125);
+  }
+
+  @media screen and (max-width: 840px) {
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+  }
+
+}
+
+.modal-closeX {
+  display: block;
+  line-height: 1;
+  font-size: 2rem;
+  font-weight: 100;
+  font-family: sans-serif;
+}
