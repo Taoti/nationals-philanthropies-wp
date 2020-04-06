@@ -24,12 +24,12 @@
 
     @media screen and ( max-width: $nav-breakpoint-collapse ) {
       background-color: $color-2;
-      height: calc(100vh - var(--header-height));
+      height: calc(100vh - 100%);
       left: 0;
       opacity: 0;
       padding: 0;
       position: absolute;
-      top: var(--header-height);
+      top: 100%;
       transform: translate3d(0, calc(-100vh - var(--header-height)), 0);
       width: 100vw;
 
@@ -80,6 +80,12 @@
   flex-direction: column;
   justify-content: center;
   height: 100%;
+
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
 
   // &::before {
   //   background-color: transparent;
@@ -212,6 +218,8 @@
 
 }
 
+
+
 .menu-modal {
   box-shadow: 0px 0px 9px 4px rgba(0, 0, 0, 0.4);
   opacity: 0;
@@ -251,3 +259,22 @@
 
 
 
+
+
+
+
+.menu-link-mobileMenu-open {
+  display: flex;
+}
+.menu-link-mobileMenu-close {
+  display: none;
+}
+
+html.nav-is-open {
+  .menu-link-mobileMenu-open {
+    display: none;
+  }
+  .menu-link-mobileMenu-close {
+    display: flex;
+  }
+}

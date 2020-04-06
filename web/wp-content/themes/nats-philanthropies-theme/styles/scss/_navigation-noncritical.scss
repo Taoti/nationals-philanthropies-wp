@@ -88,6 +88,14 @@ html.nav-is-open {
 
 
 
+html.nav-is-open {
+  .menu-item-mobileMenu:last-child {
+		visibility: hidden;
+  }
+}
+
+
+
 .menu-modal-inner {
   padding-top: 14.5rem;
 }

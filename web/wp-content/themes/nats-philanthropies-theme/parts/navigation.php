@@ -13,14 +13,21 @@ if( isset($menuLocations[$theme_location]) ):
 <nav class="navContainer navContainer-mobile">
 	<ul class="menu menu-mobileMenu">
 
-		<li class="menu-item">
-			<a href="#0" class="menu-link menu-link-mobileMenu js-openNav">
+		<li class="menu-item menu-item-mobileMenu">
+
+			<button class="menu-link menu-link-mobileMenu menu-link-mobileMenu-open js-openNav">
 				Menu
 				<i class="menu-icon"><?php echo file_get_contents(get_stylesheet_directory() . '/images/icon-arrow.svg'); ?></i>
-			</a>
+			</button>
+
+			<button class="menu-link menu-link-mobileMenu menu-link-mobileMenu-close js-closeNav">
+				Close
+				<i class="menu-icon">&times;</i>
+			</button>
+
 		</li>
 
-		<li class="menu-item">
+		<li class="menu-item menu-item-mobileMenu">
 			<a href="https://www.mlb.com/nationals/forms/give" class="menu-link">
 				Donate
 				<i class="menu-icon"><?php echo file_get_contents(get_stylesheet_directory() . '/images/icon-arrow.svg'); ?></i>

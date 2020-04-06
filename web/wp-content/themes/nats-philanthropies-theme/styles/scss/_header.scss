@@ -1,10 +1,11 @@
 #header {
   height: auto;
+  left: 0;
+  opacity: 0;
+  overflow: visible;
   padding-top: 11px; // account for the height + top of the blue/white/red lines in the ::before element.
   position: absolute;//fixed;
   top: 0;
-  left: 0;
-  opacity: 0;
   transform: translate3d(0, -20px, 0);
   transition: transform 300ms ease-in, opacity 300ms ease-in;
   width: 100%;
