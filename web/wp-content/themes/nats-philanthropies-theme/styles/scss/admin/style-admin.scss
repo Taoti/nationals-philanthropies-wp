@@ -4,6 +4,17 @@
 @import '../mixins';
 
 
+
+// Add recommended image sizes to the featured image box on different post types.
+body.post-php.post-type-post div#postimagediv .inside::before,
+body.post-php.post-type-page div#postimagediv .inside::before {
+    content: 'Must be jpg. \APreferred size is 1080p (or 1920 x 1080). \AMinimum size is 720p (or 1280 x 720).';
+    display: block;
+    font-style: italic;
+    white-space: pre-wrap;
+}
+
+
 // Hide the field groups that only exist to hide other fields:
 #acf-group_5e7e58255a5f6, // Hidden Fields - News
 #acf-group_5e7e599b4fd45, //Hidden Fields – Events

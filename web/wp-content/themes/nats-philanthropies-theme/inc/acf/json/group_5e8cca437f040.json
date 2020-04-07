@@ -1,0 +1,121 @@
+{
+    "key": "group_5e8cca437f040",
+    "title": "Clone - Home Page Section - Common Fields",
+    "fields": [
+        {
+            "key": "field_5e8cca5dc475a",
+            "label": "Primary Heading - Line 1",
+            "name": "primary_heading_line_1",
+            "type": "text",
+            "instructions": "Appears as an outline.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5e8cca91c475b",
+            "label": "Primary Heading - Line 2",
+            "name": "primary_heading_line_2",
+            "type": "text",
+            "instructions": "Appears in a solid color.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5e8ccaf1c475c",
+            "label": "Description",
+            "name": "description",
+            "type": "text",
+            "instructions": "One or two sentences.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5e8ccb54c475d",
+            "label": "Button Label",
+            "name": "button_label",
+            "type": "text",
+            "instructions": "The text label for the button.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5e8ccb81c475e",
+            "label": "Button URL",
+            "name": "button_url",
+            "type": "url",
+            "instructions": "Copy\/paste the URL for this button.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            },
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1586286002
+}
