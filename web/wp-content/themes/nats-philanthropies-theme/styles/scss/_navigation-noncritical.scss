@@ -71,7 +71,10 @@ html.nav-is-open {
 
 // The Donate button
 .menu-item-mainMenu:last-child {
-	margin-top: auto;
+
+  @media screen and ( max-width: $nav-breakpoint-collapse ) {
+    margin-top: auto;
+  }
 
 	.menu-link {
 		@media screen and ( max-width: $nav-breakpoint-collapse ) {
@@ -81,7 +84,11 @@ html.nav-is-open {
 	}
 
 	.menu-icon {
-		top: calc(50% + 1.8em);
+
+    @media screen and ( max-width: $nav-breakpoint-collapse ) {
+      top: calc(50% + 1.8em);
+    }
+
 	}
 
 }

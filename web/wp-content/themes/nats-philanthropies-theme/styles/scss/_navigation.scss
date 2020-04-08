@@ -116,7 +116,7 @@
   }
 
   @media screen and ( max-width: 568px ) {
-    padding: 2rem;
+    // padding: 2rem;
   }
 
 }
@@ -214,6 +214,34 @@
       }
     }
 
+  }
+
+}
+
+// Items in the main menu
+.menu-item-mainMenu:last-child {
+
+  .menu-icon {
+    top: calc(50% + 1em);
+  }
+
+}
+
+// Items in the mobile menu. Assume these won't be visibile until screen width of $nav-breakpoint-collapse.
+.menu-link-mobileMenu {
+    padding-left: 2rem;
+    padding-right: 6rem;
+
+  @media screen and ( max-width: 568px ) {
+    font-size: 1.4rem;
+  }
+
+}
+
+.menu-item-mobileMenu:last-child {
+
+  .menu-link-mobileMenu {
+    padding-right: 3rem;
   }
 
 }
