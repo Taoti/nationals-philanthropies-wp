@@ -217,7 +217,7 @@
 }
 
 .menu-item {
-  position: relative;
+  // position: relative;
 
   // @media screen and (max-width: 560px) {
   //   position: static;
@@ -259,6 +259,32 @@
 
 
 
+// Sub Menus / subnav
+.subMenu {
+  position: absolute;
+  background-color: #f0f;
+  width: 100vw;
+  left: 0;
+}
+
+.subMenu-inner {
+  @include l-container( 'header' );
+  display: grid;
+  grid-template-columns: minmax(auto, 346px) minmax(auto, 346px);
+  max-width: 692px;
+}
+
+// .subMenu-titleArea {
+//   max-width: 346px;
+// }
+
+// .subMenu-menu {
+//   max-width: 346px;
+// }
+
+
+
+// Modals within the nav items
 .menu-modal {
   box-shadow: 0px 0px 9px 4px rgba(0, 0, 0, 0.4);
   opacity: 0;
@@ -295,13 +321,7 @@
 
 
 
-
-
-
-
-
-
-
+// Mobile Nav, when the "Menu" or "Close" button are visible (plus the donate button).
 .menu-link-mobileMenu-open {
   display: flex;
 }

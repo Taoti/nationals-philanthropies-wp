@@ -5,6 +5,28 @@
 
 
 
+// Add a red color to the last menu item to note that it's the donate link.
+// .menu-item-depth-0:last-child {
+
+// 	.menu-item-bar .menu-item-handle {
+// 		border-left: 3px solid $color-3;
+// 	}
+
+// 	// Add a text note to explain that the last menu item gets the button style.
+// 	&::after {
+// 		border-left: 3px solid $color-3;
+// 		color: #777;
+// 		content: 'Note - The last item in the menu will be styled as the big red button.';
+// 		display: block;
+// 		font-style: italic;
+// 		margin-top: .5em;
+// 		padding-left: 1em;
+// 	}
+
+// }
+
+
+
 // Add recommended image sizes to the featured image box on different post types.
 body.post-php.post-type-post div#postimagediv .inside::before,
 body.post-php.post-type-page div#postimagediv .inside::before {
