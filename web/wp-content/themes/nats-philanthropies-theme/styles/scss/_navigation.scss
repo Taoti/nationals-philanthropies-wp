@@ -87,27 +87,10 @@
   border-radius: 0;
   cursor: pointer;
 
-  // &::before {
-  //   background-color: transparent;
-  //   content: '';
-  //   display: block;
-  //   position: absolute;
-  //   transition: background-color 150ms;
-  //   bottom: 100%;
-  //   left: 0;//-1px; // offset the width of the border
-  //   height: 200px;
-  //   // width: 200%;
-  //   width: 100%;//calc( (100vw - (#{$design-width} - #{$container-padding} - #{$container-padding}) ) / 2 + 100% );
-  // }
-
   &:hover {
     color: $invert;
-    background-color: $color-9;
+    // background-color: $color-9;
     text-decoration: none;
-
-    // &::before {
-    //   background-color: $color-9;
-    // }
   }
 
   @media screen and (max-width: 1280px) {
@@ -119,6 +102,30 @@
     // padding: 2rem;
   }
 
+}
+
+.menu-link-mainMenu {
+
+  // Faux underline for the links
+  &::after {
+    background-color: $invert;
+    content: '';
+    display: block;
+    position: absolute;
+    opacity: 0;
+    transition: opacity 150ms;
+    top: calc(50% + 1.4em); // The extra 1.4em will push it past the line-height of the text, but it should work if the text goes to two lines as well.
+    left: 1.6rem; // offset by the left padding
+    height: 2px;
+    width: calc(100% - 3.2rem); // Subtract the left/right padding so the underline is the same width as the text.
+  }
+
+  &:hover {
+
+    &::after {
+      opacity: 1;
+    }
+  }
 }
 
 .menu-icon {
@@ -168,15 +175,15 @@
     }
 
     &::before {
-      content: '';
-      display: block;
-      position: absolute;
-      transition: background-color 150ms;
       background-color: $link;
       border-left: none;
       bottom: 100%;
-      left: 0;
+      content: '';
+      display: block;
       height: calc(var(--header-height) - 100% - 11px); // The height of the header, minus the height of this .menu-link (100%), minus the height of the blue/white/red border on #header::before (11px).
+      left: 0;
+      position: absolute;
+      transition: background-color 150ms;
       width: calc((100vw - (#{$design-width} - #{$container-padding} - #{$container-padding})) / 2 + 100%);
 
       @media screen and (max-width: $design-width) {
@@ -191,13 +198,15 @@
 
     &::after {
       background-color: $link;
+      bottom: 0;
       content: '';
       display: block;
-      position: absolute;
-      transition: background-color 150ms;
-      bottom: 0;
-      left: 100%;
       height: 100%;
+      left: 100%;
+      opacity: 1;
+      position: absolute;
+      top: auto;
+      transition: background-color 150ms;
       width: calc( (100vw - (#{$design-width} - #{$container-padding} - #{$container-padding}) ) / 2 );//100%;
 
       @media screen and ( max-width: $design-width ) {
