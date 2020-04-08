@@ -24,7 +24,7 @@
 
     @media screen and ( max-width: $nav-breakpoint-collapse ) {
       background-color: $color-2;
-      height: calc(100vh - 100%);
+      height: calc(100vh - 100% - 5.9rem); // The screen height, minus the height of the header, minus the margin-top on the header = the available screen space below the header.
       left: 0;
       opacity: 0;
       padding: 0;
@@ -98,57 +98,8 @@
     padding-bottom: 3.5rem;
   }
 
-  @media screen and ( max-width: 568px ) {
-    // padding: 2rem;
-  }
-
 }
 
-.menu-link-mainMenu {
-
-  // Faux underline for the links
-  &::after {
-    background-color: $invert;
-    content: '';
-    display: block;
-    position: absolute;
-    opacity: 0;
-    transition: opacity 150ms;
-    top: calc(50% + 1.4em); // The extra 1.4em will push it past the line-height of the text, but it should work if the text goes to two lines as well.
-    left: 1.6rem; // offset by the left padding
-    height: 2px;
-    width: calc(100% - 3.2rem); // Subtract the left/right padding so the underline is the same width as the text.
-  }
-
-  &:hover {
-
-    &::after {
-      opacity: 1;
-    }
-  }
-}
-
-.menu-icon {
-  display: block;
-  height: 1rem;
-  width: 1.7rem;
-
-  position: absolute;
-  top: calc(50% + 1em);
-
-  svg {
-    display: block;
-  }
-}
-
-.menu-item {
-  position: relative;
-
-  @media screen and (max-width: 560px) {
-    position: static;
-  }
-
-}
 
 // The last link in the main menu is supposed to look like a giant red button that extends off the screen. The ::before and ::after elements are used to extend the background-color of the button.
 .menu-item:last-child {
@@ -227,6 +178,53 @@
 
 }
 
+
+.menu-link-mainMenu {
+
+  // Faux underline for the links
+  &::after {
+    background-color: $invert;
+    content: '';
+    display: block;
+    position: absolute;
+    opacity: 0;
+    transition: opacity 150ms;
+    top: calc(50% + 1.4em); // The extra 1.4em will push it past the line-height of the text, but it should work if the text goes to two lines as well.
+    left: 1.6rem; // offset by the left padding
+    height: 2px;
+    width: calc(100% - 3.2rem); // Subtract the left/right padding so the underline is the same width as the text.
+  }
+
+  &:hover {
+
+    &::after {
+      opacity: 1;
+    }
+  }
+}
+
+.menu-icon {
+  display: block;
+  height: 1rem;
+  width: 1.7rem;
+
+  position: absolute;
+  top: calc(50% + 1em);
+
+  svg {
+    display: block;
+  }
+}
+
+.menu-item {
+  position: relative;
+
+  // @media screen and (max-width: 560px) {
+  //   position: static;
+  // }
+
+}
+
 // Items in the main menu
 .menu-item-mainMenu:last-child {
 
@@ -238,11 +236,15 @@
 
 // Items in the mobile menu. Assume these won't be visibile until screen width of $nav-breakpoint-collapse.
 .menu-link-mobileMenu {
-    padding-left: 2rem;
-    padding-right: 6rem;
+  padding-left: 2rem;
+  padding-right: 6rem;
 
   @media screen and ( max-width: 568px ) {
     font-size: 1.4rem;
+  }
+
+  @media screen and ( max-width: 400px ) {
+    padding-right: 3rem;
   }
 
 }
@@ -304,7 +306,29 @@
   display: flex;
 }
 .menu-link-mobileMenu-close {
-  display: none;
+  display: flex;
+  position: absolute;
+  top: 0;
+  right: 100%;
+  opacity: 0;
+  transform: translate3d(0, -20px, 0);
+  // transition: opacity 100ms linear, transform 100ms linear;
+  pointer-events: none;
+
+  @media screen and ( max-width: 400px ) {
+    left: 0;
+    right: auto;
+  }
+
+  .menu-icon {
+    font-weight: 100;
+    font-size: 3rem;
+    bottom: .5em;
+    top: auto;
+    font-family: sans-serif;
+    line-height: 0;
+  }
+
 }
 
 html.nav-is-open {
@@ -312,6 +336,10 @@ html.nav-is-open {
     display: none;
   }
   .menu-link-mobileMenu-close {
-    display: flex;
+    // display: flex;
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    transition: opacity 150ms linear 400ms, transform 150ms linear 400ms;
+    pointer-events: all;
   }
 }

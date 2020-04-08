@@ -50,12 +50,9 @@ html.nav-is-open {
 }
 
 .menu-item-mainMenu {
-
-	+ .menu-item-mainMenu {
-		@media screen and ( max-width: $nav-breakpoint-collapse ) {
-			margin-top: 2.8rem;
-		}
-	}
+  @media screen and ( max-width: $nav-breakpoint-collapse ) {
+    margin-bottom: 2.8rem;
+  }
 
 }
 
@@ -73,6 +70,7 @@ html.nav-is-open {
 .menu-item-mainMenu:last-child {
 
   @media screen and ( max-width: $nav-breakpoint-collapse ) {
+    margin-bottom: 0;
     margin-top: auto;
   }
 
