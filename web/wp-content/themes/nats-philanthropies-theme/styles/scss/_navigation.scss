@@ -249,6 +249,12 @@
 
 }
 
+.menu-item-mobileMenu {
+  @media screen and ( max-width: $nav-breakpoint-collapse ) {
+    position: relative;
+  }
+}
+
 .menu-item-mobileMenu:last-child {
 
   .menu-link-mobileMenu {
