@@ -261,26 +261,8 @@
 
 // Sub Menus / subnav
 .subMenu {
-  position: absolute;
-  background-color: #f0f;
-  width: 100vw;
-  left: 0;
+  // display: none;
 }
-
-.subMenu-inner {
-  @include l-container( 'header' );
-  display: grid;
-  grid-template-columns: minmax(auto, 346px) minmax(auto, 346px);
-  max-width: 692px;
-}
-
-// .subMenu-titleArea {
-//   max-width: 346px;
-// }
-
-// .subMenu-menu {
-//   max-width: 346px;
-// }
 
 
 

@@ -93,6 +93,98 @@ html.nav-is-open {
 
 
 
+// Sub menu / subnavs - These styles can pretty much all be noncritical since they are not visible on page load (user must interact with menu first). The only critical styles are those that affect the hiding/toggling of the sub menu.
+.subMenu {
+  box-shadow: 0 2px 5px 2px rgba(0, 0, 0, .15); // Leaving this here for now during development so we can see the edge of the container.
+  color: $invert;
+  position: absolute;
+  background-color: $color-2;
+  width: 100vw;
+  left: calc((100vw - #{$design-width}) / -2);
+  transform: translate3d(0, -15px, 0);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 125ms, opacity 125ms;
+
+  @media screen and ( max-width: $design-width ) {
+    left: 0;
+  }
+
+  @media screen and ( max-width: $nav-breakpoint-collapse ) {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+    pointer-events: all;
+  }
+
+}
+
+.menu-item-mainMenu:hover > .subMenu {
+
+  @media screen and ( min-width: $nav-breakpoint-collapse + 1 ) {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+    pointer-events: all;
+  }
+
+}
+
+.subMenu-inner {
+  @include l-container( 'header' );
+  display: grid;
+  grid-template-columns: minmax(auto, 346px) minmax(auto, 346px);
+  max-width: 910px;
+  padding-top: 4.7rem;
+  padding-bottom: 4.7rem;
+}
+
+.subMenu-menu-link {
+  color: $invert;
+  font-family: $sans-2;
+  font-size: 1.6rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.subMenu-titleArea {
+  border-right: 1px solid $invert;
+  padding-right: 7.5rem;
+}
+
+.submenu-titleAreaLink {
+  display: block;
+  font-size: 3.6rem;
+  letter-spacing: normal;
+  margin-bottom: 4.9rem;
+  position: relative;
+
+  &::after {
+    content: '';
+    display: block;
+    height: 1px;
+    background-color: $invert;
+    width: 4rem;
+    position: absolute;
+    top: calc(100% + 1.7rem);
+  }
+
+}
+
+.subMenu-titleAreaDescription {
+  line-height: 1.75;
+}
+
+.subMenu-menu {
+  padding-left: 8rem;
+}
+
+.subMenu-menu-item {
+  + .subMenu-menu-item {
+    margin-top: .8rem;
+  }
+}
+
+
+// Hide the donate button from the mobile menu when the nav is open. The donate button in the main nav will be visible instead (in the flyout menu).
 html.nav-is-open {
   .menu-item-mobileMenu:last-child {
 		visibility: hidden;
@@ -101,6 +193,7 @@ html.nav-is-open {
 
 
 
+// Modals
 .menu-modal-inner {
   padding-top: 14.5rem;
 }

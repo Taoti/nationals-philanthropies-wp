@@ -79,9 +79,9 @@ if( isset($menuLocations[$theme_location]) ):
 
 						<div class="subMenu-titleArea">
 
-							<a class="submenu-titleAreaLink" href="<?php echo $href; ?>"><?php echo $title; ?></a>
+							<a class="subMenu-menu-link submenu-titleAreaLink" href="<?php echo $href; ?>"><?php echo $title; ?></a>
 
-							<p class="subMenu-titleAreaDescription">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+							<p class="subMenu-titleAreaDescription">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
 
 						</div>
 
