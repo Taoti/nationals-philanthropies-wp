@@ -135,7 +135,9 @@
       display: block;
       height: calc(var(--header-height) - 100% - 11px); // The height of the header, minus the height of this .menu-link (100%), minus the height of the blue/white/red border on #header::before (11px).
       left: 0;
+      opacity: 1;
       position: absolute;
+      top: auto;
       transition: background-color 150ms;
       width: calc((100vw - (#{$design-width} - #{$container-padding} - #{$container-padding})) / 2 + 100%);
 
