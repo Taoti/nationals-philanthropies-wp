@@ -21,7 +21,7 @@ $container-padding: 13.8rem;
 $container-padding-tablet: 6rem;
 $container-padding-mobile: 2rem;
 
-$nav-breakpoint-collapse: 1000px; // This is the point at which the main nav is hidden and the hamburger button is shown.
+$nav-breakpoint-collapse: 1000px; // This is the point at which the main nav is hidden and the hamburger button is shown. NOTE - this must match the nav_breakpoint_collapse variable in js/development/after-libs/navigation.js
 
 //##### Fonts
 $base-sans-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;

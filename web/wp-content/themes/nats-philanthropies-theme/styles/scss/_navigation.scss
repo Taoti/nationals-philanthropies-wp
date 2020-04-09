@@ -28,6 +28,7 @@
       left: 0;
       opacity: 0;
       padding: 0;
+      pointer-events: none;
       position: absolute;
       top: 100%;
       transform: translate3d(0, calc(-100vh - var(--header-height)), 0);
@@ -35,6 +36,7 @@
 
       &.is-open {
         opacity: 1;
+        pointer-events: all;
         transform: translate3d(0, 0, 0);
         transition: transform 400ms ease-in, opacity 400ms;
       }
@@ -182,7 +184,7 @@
 .menu-link-mainMenu {
 
   // Faux underline for the links
-  &::after {
+  &::before {
     background-color: $invert;
     content: '';
     display: block;
@@ -193,11 +195,17 @@
     left: 1.6rem; // offset by the left padding
     height: 2px;
     width: calc(100% - 3.2rem); // Subtract the left/right padding so the underline is the same width as the text.
+
+    @media screen and ( max-width: $nav-breakpoint-collapse ) {
+      top: calc(50% + .8em);
+      width: calc(100% - 7.6rem);
+      left: 3.8rem;
+    }
   }
 
   &:hover {
 
-    &::after {
+    &::before {
       opacity: 1;
     }
   }

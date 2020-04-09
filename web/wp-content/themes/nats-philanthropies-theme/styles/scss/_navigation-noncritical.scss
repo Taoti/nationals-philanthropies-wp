@@ -19,29 +19,29 @@ html.nav-is-open {
 
 }
 
- .navContainer-main-navigation {
-	// display: block;
+//  .navContainer-main-navigation {
+// 	display: block;
 
-	// @media screen and ( max-width: $nav-breakpoint-collapse ) {
-	// 	background-color: $color-2;
-	// 	position: fixed;
-	// 	top: var(--header-height);
-	// 	width: 100vw;
-	// 	left: 0;
-	// 	padding: 0;
-	// 	height: 100vh;
-	// 	opacity: 0;
-	// 	transform: translate3d(0, calc(-100vh - var(--header-height)), 0);
-	// 	transition: transform 400ms ease-in, opacity 400ms;
+// 	@media screen and ( max-width: $nav-breakpoint-collapse ) {
+// 		background-color: $color-2;
+// 		position: fixed;
+// 		top: var(--header-height);
+// 		width: 100vw;
+// 		left: 0;
+// 		padding: 0;
+// 		height: 100vh;
+// 		opacity: 0;
+// 		transform: translate3d(0, calc(-100vh - var(--header-height)), 0);
+// 		transition: transform 400ms ease-in, opacity 400ms;
 
-	// 	&.is-open {
-	// 		opacity: 1;
-	// 		transform: translate3d(0, 0, 0);
-	// 	}
+// 		&.is-open {
+// 			opacity: 1;
+// 			transform: translate3d(0, 0, 0);
+// 		}
 
-	// }
+// 	}
 
-}
+// }
 
 .menu-mainMenu {
 	@media screen and ( max-width: $nav-breakpoint-collapse ) {
@@ -51,7 +51,7 @@ html.nav-is-open {
 
 .menu-item-mainMenu {
   @media screen and ( max-width: $nav-breakpoint-collapse ) {
-    margin-bottom: 2.8rem;
+    margin-bottom: 0.8rem;
   }
 
 }
@@ -60,9 +60,27 @@ html.nav-is-open {
 
 	@media screen and ( max-width: $nav-breakpoint-collapse ) {
 		font-size: 2.4rem;
-		padding: 0 3.8rem;
+		padding: 1rem 3.8rem; //0 3.8rem;
     line-height: 1;
-	}
+    height: auto;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+  }
+
+}
+
+// On the mobile main menu, add a the toggle icon for the items with sub menus.
+.menu-item-hasSubMenu > .menu-link-mainMenu {
+
+  &::after {
+    font-family: sans-serif;
+    font-weight: 400;
+
+    @media screen and ( max-width: $nav-breakpoint-collapse ) {
+      content: '+';
+    }
+  }
 
 }
 
@@ -95,16 +113,16 @@ html.nav-is-open {
 
 // Sub menu / subnavs - These styles can pretty much all be noncritical since they are not visible on page load (user must interact with menu first). The only critical styles are those that affect the hiding/toggling of the sub menu.
 .subMenu {
-  box-shadow: 0 2px 5px 2px rgba(0, 0, 0, .15); // Leaving this here for now during development so we can see the edge of the container.
-  color: $invert;
-  position: absolute;
   background-color: $color-2;
-  width: 100vw;
+  // box-shadow: 0 2px 5px 2px rgba(0, 0, 0, .15); // Leaving this here for now during development so we can see the edge of the container.
+  color: $invert;
   left: calc((100vw - #{$design-width}) / -2);
-  transform: translate3d(0, -15px, 0);
   opacity: 0;
   pointer-events: none;
+  position: absolute;
+  transform: translate3d(0, -15px, 0);
   transition: transform 125ms, opacity 125ms;
+  width: 100vw;
 
   @media screen and ( max-width: $design-width ) {
     left: 0;
@@ -114,6 +132,8 @@ html.nav-is-open {
     transform: translate3d(0, 0, 0);
     opacity: 1;
     pointer-events: all;
+    position: static;
+    background-color: $color-9;
   }
 
 }
@@ -135,6 +155,17 @@ html.nav-is-open {
   max-width: 910px;
   padding-top: 4.7rem;
   padding-bottom: 4.7rem;
+
+  @media screen and ( max-width: 700px ) {
+    padding-left: 6rem;
+    padding-right: 6rem;
+  }
+
+  @media screen and ( max-width: 500px ) {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    grid-gap: 4rem;
+  }
 }
 
 .subMenu-menu-link {
@@ -148,16 +179,27 @@ html.nav-is-open {
 .subMenu-titleArea {
   border-right: 1px solid $invert;
   padding-right: 7.5rem;
+
+  @media screen and ( max-width: 600px ) {
+    padding-right: 3rem;
+  }
+
+  @media screen and ( max-width: 500px ) {
+    border-right: none;
+    padding-right: 0;
+  }
+
 }
 
 .submenu-titleAreaLink {
   display: block;
   font-size: 3.6rem;
   letter-spacing: normal;
-  margin-bottom: 4.9rem;
   position: relative;
+  line-height: 1;
 
-  &::after {
+  // The short underline below the text.
+  &::before {
     content: '';
     display: block;
     height: 1px;
@@ -167,14 +209,38 @@ html.nav-is-open {
     top: calc(100% + 1.7rem);
   }
 
+  // Append 'Overview' to the end of the main title link since the parent menu item is a toggle for the sub menu on mobile.
+  &::after {
+    content: '';
+
+    @media screen and ( max-width: $nav-breakpoint-collapse ) {
+      content: ' Overview';
+    }
+
+  }
+
 }
 
 .subMenu-titleAreaDescription {
   line-height: 1.75;
+  margin-top: 4.9rem;
+
+  @media screen and ( max-width: 500px ) {
+    display: none;
+  }
 }
 
 .subMenu-menu {
   padding-left: 8rem;
+
+  @media screen and ( max-width: 600px ) {
+    padding-left: 3rem;
+  }
+
+  @media screen and ( max-width: 500px ) {
+    padding-left: 0;
+  }
+
 }
 
 .subMenu-menu-item {

@@ -63,9 +63,10 @@ if( isset($menuLocations[$theme_location]) ):
 			$title = $nav_item->title;
 			$href = $nav_item->url;
 			$is_last_item = ( $nav_item_counter === count($main_nav) );
+			$has_sub_menu = ( isset($sub_navs[$nav_item_ID]) && !empty($sub_navs[$nav_item_ID]) );
 			?>
 
-			<li class="menu-item menu-item-mainMenu<?php if( $is_last_item ): ?> menu-item-bigButton<?php endif; ?>">
+			<li class="menu-item menu-item-mainMenu<?php if( $is_last_item ): ?> menu-item-bigButton<?php endif; ?><?php if( $has_sub_menu ): ?> menu-item-hasSubMenu<?php endif; ?>">
 				<a href="<?php echo $href; ?>" class="menu-link menu-link-mainMenu<?php if( $is_last_item ): ?> menu-link-bigButton<?php endif; ?>">
 					<?php echo $title; ?>
 					<?php if( $is_last_item ): ?>
@@ -73,7 +74,7 @@ if( isset($menuLocations[$theme_location]) ):
 					<?php endif; ?>
 				</a>
 
-				<?php if( isset($sub_navs[$nav_item_ID]) && !empty($sub_navs[$nav_item_ID]) ): ?>
+				<?php if( $has_sub_menu ): ?>
 				<div class="subMenu">
 					<div class="subMenu-inner">
 

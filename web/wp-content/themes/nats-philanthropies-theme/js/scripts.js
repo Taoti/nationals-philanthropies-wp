@@ -879,7 +879,7 @@ function taoti_update_header_height_property(){
   if( header_height ){
     document.documentElement.style.setProperty( '--header-height', header_height + 'px' );
   }
-  console.log( 'new header_height = ' + header_height );
+  // console.log( 'new header_height = ' + header_height );
 }
 
 // Use lazysizes to get lazy loading on css background images.
@@ -940,6 +940,23 @@ function taoti_close_mainNav(){
 	jQuery('html').removeClass('nav-is-open');
 	jQuery('.navContainer-main-navigation').removeClass('is-open');
 }
+
+
+
+// If the mobile nav is open, then the window is resized larger than the nav breakpoint, close the mobile nav.
+var timeout_close_mobile_nav = null;
+
+window.addEventListener('resize', function(){
+
+	var nav_breakpoint_collapse = 1000; // NOTE - this must match the $nav-breakpoint-collapse variable in scss/_config.scss.
+
+	timeout_close_mobile_nav = setTimeout( function(){
+		if( window.innerWidth >= nav_breakpoint_collapse ){
+			taoti_close_mainNav();
+		}
+	}, 100 );
+
+});
 
 // Use this to load fonts from Google Fonts, Typekit, Fonts.com, and Fontdeck, as well as self-hosted web fonts
 // https://github.com/typekit/webfontloader
