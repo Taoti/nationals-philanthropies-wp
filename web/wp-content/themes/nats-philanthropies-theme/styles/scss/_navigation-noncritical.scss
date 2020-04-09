@@ -76,9 +76,18 @@ html.nav-is-open {
   &::after {
     font-family: sans-serif;
     font-weight: 400;
+    transition: transform 125ms ease-in;
+    transform: rotate3d(1, 1, 1, 0deg);
 
     @media screen and ( max-width: $nav-breakpoint-collapse ) {
-      content: '+';
+      content: '\002B';
+    }
+  }
+
+  &.is-open::after {
+    @media screen and ( max-width: $nav-breakpoint-collapse ) {
+      content: '\2212';
+      transform: rotate3d(1, 1, 1, 360deg);
     }
   }
 
@@ -129,6 +138,7 @@ html.nav-is-open {
   }
 
   @media screen and ( max-width: $nav-breakpoint-collapse ) {
+    display: none;
     transform: translate3d(0, 0, 0);
     opacity: 1;
     pointer-events: all;

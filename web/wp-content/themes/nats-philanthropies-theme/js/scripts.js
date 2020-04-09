@@ -918,6 +918,10 @@ jQuery('.modal-close').click( function(e){
 
 });
 
+var nav_breakpoint_collapse = 1000; // NOTE - this must match the $nav-breakpoint-collapse variable in scss/_config.scss.
+
+
+
 jQuery('.js-openNav').click( function(e){
 	e.preventDefault();
 	taoti_open_mainNav();
@@ -939,6 +943,8 @@ function taoti_open_mainNav(){
 function taoti_close_mainNav(){
 	jQuery('html').removeClass('nav-is-open');
 	jQuery('.navContainer-main-navigation').removeClass('is-open');
+	jQuery('.subMenu').removeAttr('style');
+	jQuery('.menu-link-mainMenu').removeClass('is-open');
 }
 
 
@@ -948,14 +954,23 @@ var timeout_close_mobile_nav = null;
 
 window.addEventListener('resize', function(){
 
-	var nav_breakpoint_collapse = 1000; // NOTE - this must match the $nav-breakpoint-collapse variable in scss/_config.scss.
-
 	timeout_close_mobile_nav = setTimeout( function(){
-		if( window.innerWidth >= nav_breakpoint_collapse ){
+		if( window.innerWidth > nav_breakpoint_collapse ){
 			taoti_close_mainNav();
 		}
 	}, 100 );
 
+});
+
+
+
+// Toggle sub menus on mobile layout.
+jQuery('.menu-link-mainMenu').click( function(e){
+	if( jQuery(this).next('.subMenu').length && window.innerWidth <= nav_breakpoint_collapse ){
+		e.preventDefault();
+		jQuery(this).toggleClass('is-open');
+		jQuery(this).next('.subMenu').slideToggle('fast');
+	}
 });
 
 // Use this to load fonts from Google Fonts, Typekit, Fonts.com, and Fontdeck, as well as self-hosted web fonts
