@@ -84,12 +84,24 @@ html.nav-is-open {
     }
   }
 
-  &.is-open::after {
-    @media screen and ( max-width: $nav-breakpoint-collapse ) {
-      content: '\2212';
-      transform: rotate3d(1, 1, 1, 360deg);
+  &.is-open{
+
+    &::before {
+      @media screen and ( max-width: $nav-breakpoint-collapse ) {
+        transform: scale3d(1.5, 1, 1);
+      }
     }
+
+    &::after {
+      @media screen and ( max-width: $nav-breakpoint-collapse ) {
+        content: '\2212';
+        transform: rotate3d(1, 1, 1, 360deg);
+      }
+    }
+
   }
+
+
 
 }
 

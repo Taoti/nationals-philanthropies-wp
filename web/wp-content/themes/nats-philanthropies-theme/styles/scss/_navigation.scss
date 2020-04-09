@@ -24,7 +24,7 @@
 
     @media screen and ( max-width: $nav-breakpoint-collapse ) {
       background-color: $color-2;
-      height: calc(100vh - 100% - 5.9rem); // The screen height, minus the height of the header, minus the margin-top on the header = the available screen space below the header.
+      // height: calc(100vh - 100% - 5.9rem); // The screen height, minus the height of the header, minus the margin-top on the header = the available screen space below the header.
       left: 0;
       opacity: 0;
       padding: 0;
@@ -192,7 +192,7 @@
     display: block;
     position: absolute;
     opacity: 0;
-    transition: opacity 150ms;
+    transition: opacity 150ms, transform 150ms ease-in-out;
     top: calc(50% + 1.4em); // The extra 1.4em will push it past the line-height of the text, but it should work if the text goes to two lines as well.
     left: 1.6rem; // offset by the left padding
     height: 2px;
