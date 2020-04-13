@@ -18,7 +18,6 @@ class TextBlock {
 			'content' => false,
 			'classes' => [
 				'l-module',
-				'l-container',
 				'textBlock',
 			]
 		];

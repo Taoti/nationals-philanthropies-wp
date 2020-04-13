@@ -19,12 +19,20 @@
 	p {
 		line-height: 1.7;
 		margin-bottom: 5rem;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
 	}
 
 	ol,
 	ul {
 		margin-bottom: 5rem;
 		padding-left: 1.4em;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
 	}
 
 	ol {

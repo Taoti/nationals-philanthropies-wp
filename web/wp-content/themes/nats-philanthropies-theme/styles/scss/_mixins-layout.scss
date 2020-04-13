@@ -13,9 +13,11 @@
 	} @else if $section-name == 'hero' {
 		@include l-hero();
 
+	// Use 'content-1' for narrower content.
 	} @else if $section-name == 'content-1' {
 		@include l-content-1();
 
+	// Use 'content-2' for wider content.
 	} @else if $section-name == 'content-2' {
 		@include l-content-2();
 

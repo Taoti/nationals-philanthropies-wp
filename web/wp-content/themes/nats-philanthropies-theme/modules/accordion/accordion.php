@@ -29,7 +29,7 @@ class Accordion {
 
 		$this->context = Timber::get_context();
 		$this->context['accordion_items'] = $accordion_items;
-		$this->context['icon_arrow'] = file_get_contents( get_template_directory().'/images/icon-arrow-down.svg' );
+		// $this->context['icon_arrow'] = file_get_contents( get_template_directory().'/images/icon-arrow-down.svg' );
 		$this->context['classes'] = implode(' ', $classes);
 
 	}

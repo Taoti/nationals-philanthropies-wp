@@ -1,6 +1,6 @@
 {% block accordion %}
 <div class="{{ classes }}">
-    <div class="l-text-column accordion-inner">
+    <div class="accordion-inner">
 
 		{% if accordion_items %}
 		<ul class="accordion-list">
@@ -12,7 +12,7 @@
 
                 <label class="accordion-headingLabel" for="faq-{{ loop.index0 }}">
                     <span class="accordion-heading">{{ row.heading }}</span>
-                    <span class="accordion-arrow">{{ icon_arrow }}</span>
+                    <i class="accordion-toggleIcon"></i>
                 </label>
 
                 <div class="accordion-text entry-content">
