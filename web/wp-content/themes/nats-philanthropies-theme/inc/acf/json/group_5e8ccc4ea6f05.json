@@ -242,10 +242,10 @@
                             "prefix_name": 0
                         },
                         {
-                            "key": "field_5e8cd82638a99",
+                            "key": "field_5e948ccd1ec3a",
                             "label": "Statistic Columns",
-                            "name": "columns",
-                            "type": "repeater",
+                            "name": "statistic_columns",
+                            "type": "clone",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -254,70 +254,13 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "collapsed": "",
-                            "min": 0,
-                            "max": 3,
-                            "layout": "row",
-                            "button_label": "Add A Statistic",
-                            "sub_fields": [
-                                {
-                                    "key": "field_5e8cd8a238a9a",
-                                    "label": "Number",
-                                    "name": "number",
-                                    "type": "text",
-                                    "instructions": "Max 2 characters.",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
-                                    "maxlength": ""
-                                },
-                                {
-                                    "key": "field_5e8cd93938a9b",
-                                    "label": "Units",
-                                    "name": "units",
-                                    "type": "text",
-                                    "instructions": "Max 1 character.",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
-                                    "maxlength": 1
-                                },
-                                {
-                                    "key": "field_5e8cd95338a9c",
-                                    "label": "Description",
-                                    "name": "description",
-                                    "type": "textarea",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "placeholder": "",
-                                    "maxlength": "",
-                                    "rows": "",
-                                    "new_lines": ""
-                                }
-                            ]
+                            "clone": [
+                                "group_5e948be91b4c8"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
                         }
                     ],
                     "min": "",
@@ -653,5 +596,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1586289862
+    "modified": 1586793742
 }

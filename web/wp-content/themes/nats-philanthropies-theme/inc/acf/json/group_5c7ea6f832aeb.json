@@ -488,6 +488,37 @@
                     "min": "",
                     "max": ""
                 },
+                "layout_5e948d49b766c": {
+                    "key": "layout_5e948d49b766c",
+                    "name": "statistics",
+                    "label": "Statistics",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5e948d58b766d",
+                            "label": "Statistics Columns",
+                            "name": "statistics_columns",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_5e948be91b4c8"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
                 "5c7ea70e138ad": {
                     "key": "5c7ea70e138ad",
                     "name": "text_block",
@@ -569,5 +600,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1586286192
+    "modified": 1586793877
 }
