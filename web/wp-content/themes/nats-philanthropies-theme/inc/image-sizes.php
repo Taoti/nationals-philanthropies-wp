@@ -11,7 +11,8 @@ function jp_image_size_setup(){
 
 	add_image_size('article', 750, 422, true);
 
-	add_image_size('listing-item', 572, 322, true);
+	// add_image_size('listing-item', 572, 339, true);
+	add_image_size('listing-item', 572, 0, false);
 
 	add_image_size('quote-image', 512, 463, true);
 
