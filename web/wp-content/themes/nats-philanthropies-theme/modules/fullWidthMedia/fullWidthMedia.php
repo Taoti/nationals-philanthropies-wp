@@ -19,10 +19,10 @@ class FullWidthMedia {
 
 	public function __construct( $args=[] ){
 		$this->defaults = [
-		    'image_or_video' => false,
-		    'image_array' => false,
-		    'video_embed' => false,
-		    'caption' => false,
+			'image_or_video' => false,
+			'image_array' => false,
+			'video_embed' => false,
+			'caption' => false,
 			'classes' => [
 				'l-module',
 				'l-module-media',
@@ -33,6 +33,10 @@ class FullWidthMedia {
 		extract(array_merge($this->defaults, $args));
 
 		$classes[] = 'fullWidthMedia-has'.ucwords( $image_or_video );
+
+		if( !$caption && isset($image_array['caption']) && $image_array['caption'] ){
+			$caption = esc_html( $image_array['caption'] );
+		}
 
 		$image_args = [
 			'image_array' => $image_array,
