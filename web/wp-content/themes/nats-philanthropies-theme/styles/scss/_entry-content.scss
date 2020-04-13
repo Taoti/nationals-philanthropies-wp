@@ -2,27 +2,28 @@
 
 .entry-content {
 
-	&:empty {
-		display: none;
-	}
-
 	h1,
 	h2,
 	h3,
 	h4,
 	h5,
 	h6 {
-		margin-bottom: 1rem;
+		margin-bottom: 4rem;
+		margin-top: 10rem;
+
+		&:first-child {
+			margin-top: 0;
+		}
 	}
 
 	p {
 		line-height: 1.7;
-		margin-bottom: 1.4em;
+		margin-bottom: 5rem;
 	}
 
 	ol,
 	ul {
-		margin-bottom: 1.4em;
+		margin-bottom: 5rem;
 		padding-left: 1.4em;
 	}
 
