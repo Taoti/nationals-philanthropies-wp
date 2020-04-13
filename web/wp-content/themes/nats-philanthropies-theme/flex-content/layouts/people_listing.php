@@ -1,6 +1,6 @@
 <?php
 use Modules\PeopleCard;
-use Modules\PostColumns;
+use Modules\CardColumns;
 
 $heading = get_sub_field('heading');
 $people_listing = get_sub_field('people_listing');
@@ -23,9 +23,9 @@ $args = array(
 	'columns' => $people_cards,
 	'classes' => [
 		'l-module',
-		'postColumns',
-		'postColumns-people',
+		'cardColumns',
+		'cardColumns-people',
 	],
 );
-$postColumns = new PostColumns($args);
-$postColumns->render();
+$cardColumns = new CardColumns($args);
+$cardColumns->render();

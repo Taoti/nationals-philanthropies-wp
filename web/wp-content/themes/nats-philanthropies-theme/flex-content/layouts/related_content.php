@@ -1,6 +1,6 @@
 <?php
 use Modules\PostCard;
-use Modules\PostColumns;
+use Modules\CardColumns;
 
 $heading = get_sub_field('heading');
 $related_terms = get_sub_field('related_terms');
@@ -37,9 +37,9 @@ $args = array(
 	'columns' => $postCards,
 	'classes' => [
 		'l-module',
-		'postColumns',
-		'postColumns-people',
+		'cardColumns',
+		'cardColumns-relatedContent',
 	],
 );
-$postColumns = new PostColumns($args);
-$postColumns->render();
+$cardColumns = new CardColumns($args);
+$cardColumns->render();

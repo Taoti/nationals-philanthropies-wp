@@ -6,10 +6,10 @@ use Timber;
 	// $args = [
 	// 	'columns' => [ '<div>array of html strings</div>' ],
 	// ];
-	// $new_module = new PostColumns($args);
+	// $new_module = new CardColumns($args);
 	// $new_module->render();
 
-class PostColumns {
+class CardColumns {
 	protected $defaults;
 	protected $context;
 
@@ -18,7 +18,7 @@ class PostColumns {
 			'columns' => false,
 			'classes' => [
 				'l-module',
-				'postColumns',
+				'cardColumns',
 			]
 		];
 
@@ -31,7 +31,7 @@ class PostColumns {
 	}
 
 	public function render(){
-		Timber::render('postColumns.twig', $this->context);
+		Timber::render('cardColumns.twig', $this->context);
 	}
 
 }

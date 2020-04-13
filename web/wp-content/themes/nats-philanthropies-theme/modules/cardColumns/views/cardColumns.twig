@@ -1,0 +1,11 @@
+{% block cardColumns %}
+<div class="{{ classes }}">
+    <div class="l-inner cardColumns-inner">
+
+    {% for column in columns %}
+		{{ column }}
+		{% endfor %}
+
+    </div>
+</div>
+{% endblock %}
