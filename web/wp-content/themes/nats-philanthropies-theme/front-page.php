@@ -30,7 +30,7 @@ $hero->render();
 ?>
 
 <div class="content">
-  <div class="content-inner l-container">
+  <div class="content-inner">
 
 
 

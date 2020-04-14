@@ -6,7 +6,7 @@
 // The .nav-is-open class will lock scrolling within the main part of the page. This way overflow scrolling can be done in the nav or modal without affecting the rest of the page.
 html.nav-is-open {
 
-  @media screen and ( max-width: $nav-breakpoint-collapse ) {
+  @media screen and ( max-width: $breakpoint-nav-collapse ) {
       @include modal-is-open();
 	}
 
@@ -22,7 +22,7 @@ html.nav-is-open {
 //  .navContainer-main-navigation {
 // 	display: block;
 
-// 	@media screen and ( max-width: $nav-breakpoint-collapse ) {
+// 	@media screen and ( max-width: $breakpoint-nav-collapse ) {
 // 		background-color: $color-2;
 // 		position: fixed;
 // 		top: var(--header-height);
@@ -44,13 +44,13 @@ html.nav-is-open {
 // }
 
 .menu-mainMenu {
-	@media screen and ( max-width: $nav-breakpoint-collapse ) {
+	@media screen and ( max-width: $breakpoint-nav-collapse ) {
 		padding-top: 5rem;
 	}
 }
 
 .menu-item-mainMenu {
-  @media screen and ( max-width: $nav-breakpoint-collapse ) {
+  @media screen and ( max-width: $breakpoint-nav-collapse ) {
     margin-bottom: 0.8rem;
   }
 
@@ -58,7 +58,7 @@ html.nav-is-open {
 
 .menu-link-mainMenu {
 
-	@media screen and ( max-width: $nav-breakpoint-collapse ) {
+	@media screen and ( max-width: $breakpoint-nav-collapse ) {
 		font-size: 2.4rem;
 		padding: 1rem 3.8rem; //0 3.8rem;
     line-height: 1;
@@ -79,7 +79,7 @@ html.nav-is-open {
     transition: transform 125ms ease-in;
     transform: rotate3d(1, 1, 1, 0deg);
 
-    @media screen and ( max-width: $nav-breakpoint-collapse ) {
+    @media screen and ( max-width: $breakpoint-nav-collapse ) {
       content: '\002B';
     }
   }
@@ -87,13 +87,13 @@ html.nav-is-open {
   &.is-open{
 
     &::before {
-      @media screen and ( max-width: $nav-breakpoint-collapse ) {
+      @media screen and ( max-width: $breakpoint-nav-collapse ) {
         transform: scale3d(1.5, 1, 1);
       }
     }
 
     &::after {
-      @media screen and ( max-width: $nav-breakpoint-collapse ) {
+      @media screen and ( max-width: $breakpoint-nav-collapse ) {
         content: '\2212';
         transform: rotate3d(1, 1, 1, 360deg);
       }
@@ -108,13 +108,13 @@ html.nav-is-open {
 // The Donate button
 .menu-item-mainMenu:last-child {
 
-  @media screen and ( max-width: $nav-breakpoint-collapse ) {
+  @media screen and ( max-width: $breakpoint-nav-collapse ) {
     margin-bottom: 0;
     margin-top: auto;
   }
 
 	.menu-link {
-		@media screen and ( max-width: $nav-breakpoint-collapse ) {
+		@media screen and ( max-width: $breakpoint-nav-collapse ) {
 			padding: 6.6rem 3.8rem 5.7rem 3.8rem;
 			font-size: 1.4rem;
 		}
@@ -122,7 +122,7 @@ html.nav-is-open {
 
 	.menu-icon {
 
-    @media screen and ( max-width: $nav-breakpoint-collapse ) {
+    @media screen and ( max-width: $breakpoint-nav-collapse ) {
       top: calc(50% + 1.8em);
     }
 
@@ -149,7 +149,7 @@ html.nav-is-open {
     left: 0;
   }
 
-  @media screen and ( max-width: $nav-breakpoint-collapse ) {
+  @media screen and ( max-width: $breakpoint-nav-collapse ) {
     display: none;
     transform: translate3d(0, 0, 0);
     opacity: 1;
@@ -162,7 +162,7 @@ html.nav-is-open {
 
 .menu-item-mainMenu:hover > .subMenu {
 
-  @media screen and ( min-width: $nav-breakpoint-collapse + 1 ) {
+  @media screen and ( min-width: $breakpoint-nav-collapse + 1 ) {
     transform: translate3d(0, 0, 0);
     opacity: 1;
     pointer-events: all;
@@ -235,7 +235,7 @@ html.nav-is-open {
   &::after {
     content: '';
 
-    @media screen and ( max-width: $nav-breakpoint-collapse ) {
+    @media screen and ( max-width: $breakpoint-nav-collapse ) {
       content: ' Overview';
     }
 
