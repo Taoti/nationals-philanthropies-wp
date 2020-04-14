@@ -22,30 +22,30 @@ $hero->render();
 <div class="CTAs section-homepage">
   <div class="CTAs-inner l-container">
 
-    <div class="cta">
+    <div class="tempCTA">
 
-      <div class="cta-side">
-        <i class="cta-icon cta-icon-letter"></i>
+      <div class="tempCTA-side">
+        <i class="tempCTA-icon tempCTA-icon-letter"></i>
       </div>
 
-      <div class="cta-content">
-        <h3 class="cta-heading">Stay Up To Date</h3>
-        <p class="cta-description">For the latest information on news, events and special offers, register for our email newsletter.</p>
-        <button class="cta-button" data-modal="menu-modal-subscribe">Sign Up <i class="cta-buttonIcon"><?php echo file_get_contents(get_stylesheet_directory() . '/images/icon-arrow.svg'); ?></i></button>
+      <div class="tempCTA-content">
+        <h3 class="tempCTA-heading">Stay Up To Date</h3>
+        <p class="tempCTA-description">For the latest information on news, events and special offers, register for our email newsletter.</p>
+        <button class="tempCTA-button" data-modal="menu-modal-subscribe">Sign Up <i class="tempCTA-buttonIcon"><?php echo file_get_contents(get_stylesheet_directory() . '/images/icon-arrow.svg'); ?></i></button>
       </div>
 
     </div>
 
-    <div class="cta">
+    <div class="tempCTA">
 
-      <div class="cta-side">
-        <i class="cta-icon cta-icon-heart-hand"></i>
+      <div class="tempCTA-side">
+        <i class="tempCTA-icon tempCTA-icon-heart-hand"></i>
       </div>
 
-      <div class="cta-content">
-        <h3 class="cta-heading">Make A Contribution</h3>
-        <p class="cta-description">Give a tax deductible gift today in support of the ongoing work of Nationals Philanthropies.</p>
-        <a class="cta-button" href="https://www.mlb.com/nationals/forms/give">Donate <i class="cta-buttonIcon"><?php echo file_get_contents(get_stylesheet_directory() . '/images/icon-arrow.svg'); ?></i></a>
+      <div class="tempCTA-content">
+        <h3 class="tempCTA-heading">Make A Contribution</h3>
+        <p class="tempCTA-description">Give a tax deductible gift today in support of the ongoing work of Nationals Philanthropies.</p>
+        <a class="tempCTA-button" href="https://www.mlb.com/nationals/forms/give">Donate <i class="tempCTA-buttonIcon"><?php echo file_get_contents(get_stylesheet_directory() . '/images/icon-arrow.svg'); ?></i></a>
       </div>
 
     </div>
