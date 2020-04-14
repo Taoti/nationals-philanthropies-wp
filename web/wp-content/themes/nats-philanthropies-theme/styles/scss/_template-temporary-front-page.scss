@@ -383,7 +383,7 @@ body.temporary-page {
 
 }
 
-.cta {
+.tempCTA {
   display: grid;
   flex-basis: calc(50% - 1.4rem);
   grid-gap: 2.4rem;
@@ -395,7 +395,7 @@ body.temporary-page {
     grid-gap: 1.6rem;
   }
 
-  + .cta {
+  + .tempCTA {
     @media screen and ( max-width: 840px ) {
       margin-top: 6rem;
     }
@@ -403,12 +403,12 @@ body.temporary-page {
 
 }
 
-.cta-side {
+.tempCTA-side {
   display: flex;
   justify-content: center;
 }
 
-.cta-icon {
+.tempCTA-icon {
   display: flex;
   height: 72px;
   width: 72px;
@@ -435,7 +435,7 @@ body.temporary-page {
 
 }
 
-  .cta-icon-letter::before {
+  .tempCTA-icon-letter::before {
       background-image: url('../../images/icon-email.svg');
       width: 27px;
       height: 27px;
@@ -446,7 +446,7 @@ body.temporary-page {
       }
   }
 
-  .cta-icon-heart-hand::before {
+  .tempCTA-icon-heart-hand::before {
       background-image: url('../../images/icon-heart.svg');
       width: 31px;
       height: 31px;
@@ -457,18 +457,18 @@ body.temporary-page {
       }
   }
 
-.cta-heading {
+.tempCTA-heading {
   color: $color-7;
   letter-spacing: .0175em;
   margin-bottom: .8rem;
   text-transform: uppercase;
 }
 
-.cta-description {
+.tempCTA-description {
   line-height: 1.75;
 }
 
-.cta-buttonIcon {
+.tempCTA-buttonIcon {
   display: inline-block;
   height: 1rem;
   padding-left: .8rem;
@@ -486,7 +486,7 @@ body.temporary-page {
   }
 }
 
-.cta-button {
+.tempCTA-button {
   appearance: none;
   border: none;
   background: none;
@@ -507,7 +507,7 @@ body.temporary-page {
     text-decoration: none;
     transform: scale3d(1.25, 1.25, 1.25);
 
-    .cta-buttonIcon {
+    .tempCTA-buttonIcon {
       // transform: translate3d(5px, 0, 0);
     }
 
