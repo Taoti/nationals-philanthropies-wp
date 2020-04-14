@@ -1,0 +1,55 @@
+{% block hero %}
+<div class="{{ classes }}">
+  {% if background_image_url %}
+    <div class="hero-backgroundImage"  style="background-image: url({{ background_image_url }})"></div>
+  {% endif %}
+	<div class="l-container hero-inner">
+
+    <nav class="sectionNavigation">
+      <ul>
+        <li>01</li>
+        <li>02</li>
+        <li>03</li>
+        <li>04</li>
+        <li>05</li>
+      </ul>
+    </nav>
+
+    <div class="hero-row">
+      <div class="hero-column hero-content">
+    
+    		{% if heading_line_1 and heading_line_2 %}
+    		<h1 class="hero-heading">
+
+    			{% if accent_image_1_html %}
+    			{{ accent_image_1_html }}
+    			{% endif %}
+
+    			<span class="hero-headingLine hero-headingOutline">
+
+    				<span class="hero-textWrap">{{ heading_line_1 }}</span>
+
+    			</span>
+
+    			<span class="hero-headingLine">
+    				<span class="hero-textWrap">{{ heading_line_2 }}</span>
+    			</span>
+    		</h1>
+    		{% endif %}
+
+        {% if description %}
+          <div class="hero-description">
+            {{ description}}
+          </div>
+        {% endif %}
+        
+        <a href="{{ button_link }}" class="hero-button">{{ button_label }}</a>
+      </div>
+      <div class="hero-column hero-img">
+        <img src="{{ header_img }}" alt="" />
+      </div>
+    </div>
+
+	</div><!-- END .hero-inner -->
+</div><!-- END .hero -->
+{% endblock %}
