@@ -25,12 +25,16 @@ class PostCard {
 			'excerpt' => '',
 			'subheading_items' => [],
 			'tags' => [],
-			'classes' => [
-				'postCard',
-			]
+			'classes' => []
 		];
 
 		extract(array_merge($this->defaults, $args));
+
+
+		if( !in_array( 'postCard', $classes ) ){
+			$classes[] = 'postCard';
+		}
+
 
 		if( is_a($post_object, 'WP_Post') ){
 

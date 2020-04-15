@@ -20,12 +20,16 @@ class PeopleCard {
 	public function __construct( $args=[] ){
 		$this->defaults = [
 			'post_object' => false,
-			'classes' => [
-				'peopleCard',
-			]
+			'classes' => []
 		];
 
 		extract(array_merge($this->defaults, $args));
+
+
+		if( !in_array( 'peopleCard', $classes ) ){
+			$classes[] = 'peopleCard';
+		}
+
 
 		$name = '';
 		$job_title = '';

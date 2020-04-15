@@ -21,13 +21,20 @@ class FormCard {
 			'background_image' => false,
 			'form' => false,
 			'background_image_url' => '',
-			'classes' => [
-				'formCard',
-				'lazyload',
-			]
+			'classes' => []
 		];
 
 		extract(array_merge($this->defaults, $args));
+
+
+		if( !in_array( 'formCard', $classes ) ){
+			$classes[] = 'formCard';
+		}
+
+		if( !in_array( 'lazyload', $classes ) ){
+			$classes[] = 'lazyload';
+		}
+
 
 		if( !$background_image_url && isset($background_image['sizes']['listing-item']) ){
 			$background_image_url = $background_image['sizes']['listing-item'];

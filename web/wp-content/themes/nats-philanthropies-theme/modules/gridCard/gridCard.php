@@ -27,13 +27,16 @@ class GridCard {
 			'excerpt' => '',
 			'icon_html' => '',
 			'background_image_url' => '',
-			'classes' => [
-				'gridCard',
-				'lazyload',
-			]
+			'classes' => []
 		];
 
 		extract(array_merge($this->defaults, $args));
+
+
+		if( !in_array( 'gridCard', $classes ) ){
+			$classes[] = 'gridCard';
+		}
+
 
 		if( is_string($icon) ){
 			$filepath = get_stylesheet_directory().'/images/' . $icon . '.svg';
@@ -59,6 +62,10 @@ class GridCard {
 				$background_image_url = $featured_image_url;
 			}
 
+		}
+
+		if( $background_image_url && !in_array( 'lazyload', $classes ) ){
+			$classes[] = 'lazyload';
 		}
 
 		$this->context = Timber::get_context();
