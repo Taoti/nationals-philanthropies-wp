@@ -68,6 +68,7 @@ class GridCard {
 		$this->context['excerpt'] = $excerpt;
 		$this->context['background_image_url'] = $background_image_url;
 		$this->context['icon_html'] = $icon_html;
+		$this->context['arrow_icon'] = file_get_contents( get_stylesheet_directory().'/images/icon-arrow.svg' );
 		$this->context['classes'] = implode(' ', $classes);
 
 	}
