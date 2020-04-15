@@ -1,0 +1,26 @@
+.sectionNavigation {
+  position: fixed;
+  left: 5.6rem;
+  top: 50%;
+  transform: translateY(-50%);
+
+  li {
+    font-family: $sans-2;
+    font-size: 1.8rem;
+    padding-left: 25px;
+    padding-bottom: 2.4rem;
+    position: relative;
+
+    &:before {
+      content: "";
+      display: block;
+      top: calc(50% - 13px);
+      position: absolute;
+      left: 0;
+      width: 10px;
+      height: 10px;
+      border: 1px solid white;
+      transform: rotate(45deg) translateY(-50%);
+    }
+  }
+}

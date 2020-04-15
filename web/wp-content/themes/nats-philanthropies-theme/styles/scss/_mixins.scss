@@ -67,7 +67,30 @@
 }
 
 
+@mixin cta-circle() {
+  font-family: $sans-2;
+  color: white;
+  text-align: center;
+  font-size: 1.4rem;
+  border-radius: 100%;
+  width: 104px;
+  height: 104px;
+  text-transform: uppercase;
+  display: block;
+  border: 2px solid $color-4;
+  position: relative;
+  margin-top: 5rem;
 
+  span {
+    max-width: 90px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    line-height: 1.1;
+    letter-spacing: 1px;
+  }
+}
 
 
 @mixin heading-section(){

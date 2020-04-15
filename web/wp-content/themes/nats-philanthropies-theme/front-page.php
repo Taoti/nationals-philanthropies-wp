@@ -1,5 +1,6 @@
 <?php
 use Modules\Hero;
+use Modules\ContentGroup;
 
 $temporary_page_enabled = ( get_field( 'temporary_landing_page_is_enabled', 'option' ) );
 
@@ -16,6 +17,17 @@ taoti_enqueue_critical_css( get_template_directory().'/styles/css/critical/front
 get_header();
 ?>
 
+<nav class="sectionNavigation">
+  <ul>
+    <li>01</li>
+    <li>02</li>
+    <li>03</li>
+    <li>04</li>
+    <li>05</li>
+  </ul>
+</nav>
+
+
 <?php
 $args = [
   'heading_line_1' => 'One Pursuit For',
@@ -29,13 +41,81 @@ $hero = new Hero($args);
 $hero->render();
 ?>
 
-<div class="content">
-  <div class="content-inner l-container">
+        <?php
+        // ContentGroup
+        $args = [
+         'primary_heading' => 'ONE PURSUIT FOR',
+         'sub_heading' => 'MEASURABLE IMPACT',
+         'description' => 'We are commited to holistcally improving the lives of children and families across Washington, D.C. and beyond. Join our movement today.',
+         'cta_url' => 'learn about our impact',
+         'cta_label' => '#',
+        ];
+        $new_module = new ContentGroup($args);
+        $new_module->render();
+        ?>
 
+<section class="home-module home-statistics">
+  <div class="l-container">
+    <div class="home-content-row">
+      <div class="home-content-column">
+        <?php
+        // ContentGroup
+        $args = [
+         'primary_heading' => 'ONE PURSUIT FOR',
+         'sub_heading' => 'MEASURABLE IMPACT',
+         'description' => 'We are commited to holistcally improving the lives of children and families across Washington, D.C. and beyond. Join our movement today.',
+         'cta_url' => 'learn about our impact',
+         'cta_label' => '#',
+        ];
+        $new_module = new ContentGroup($args);
+        $new_module->render();
+        ?>
+      </div>
+      <div class="home-content-column">
+        <div class="statistics">
+          <div class="statistics_row">
+            <div class="statistic">
+              <div class="statistic-number">10</div>
+              <div class="statistic-info">We are commited to holistcally improving the lives of children and families across Washington, D.C. and beyond. Join our movement today.</div>
+            </div>
+            <div class="statistic">
+              <div class="statistic-number statistic-number-m">20</div>
+              <div class="statistic-info">We are commited to holistcally improving the lives of children and families across Washington, D.C. and beyond. Join our movement today.</div>
+            </div>
+            <div class="statistic">
+              <div class="statistic-number">30</div>
+              <div class="statistic-info">We are commited to holistcally improving the lives of children and families across Washington, D.C. and beyond. Join our movement today.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-
-  </div><!-- END .content-inner -->
-</div><!-- END .content -->
+<section class="home-image">
+  <div class="l-container">
+    <div class="home-content-row">
+      <div class="home-content-column">
+        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/NYBA-logo@2x.png" alt="" class="home-image-img">
+      </div>
+      <div class="home-content-column">
+        <?php
+        // ContentGroup
+        $args = [
+         'primary_heading' => 'ONE PURSUIT FOR',
+         'sub_heading' => 'MEASURABLE IMPACT',
+         'description' => 'We are commited to holistcally improving the lives of children and families across Washington, D.C. and beyond. Join our movement today.',
+         'cta_url' => 'learn about our impact',
+         'cta_label' => '#',
+        ];
+        $new_module = new ContentGroup($args);
+        $new_module->render();
+        ?>
+      </div>
+    </div>
+  </div>
+</section>
 
 
 
