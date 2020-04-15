@@ -8,6 +8,6 @@
 *   NOTES : https://docs.gravityforms.com/gform_submit_button/
 */
 function taoti_edit_gf_submit_button( $button, $form ) {
-		return '<button class="button gform_button" id="gform_submit_button_'.$form['id'].'">Submit<i class="menu-icon">'.file_get_contents(get_stylesheet_directory() . '/images/icon-arrow.svg').'</i></button>';
+		return '<button class="button gform_button" id="gform_submit_button_'.$form['id'].'" title="Submit"><i class="gform_button-submitIcon">'.file_get_contents(get_stylesheet_directory() . '/images/icon-arrow.svg').'</i></button>';
 }
 add_filter( 'gform_submit_button', 'taoti_edit_gf_submit_button', 10, 2 );

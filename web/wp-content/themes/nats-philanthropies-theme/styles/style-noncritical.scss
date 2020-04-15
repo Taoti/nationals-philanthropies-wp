@@ -12,7 +12,8 @@
 @import 'scss/entry-content';
 @import 'scss/footer';
 @import 'scss/front-page';
-// @import 'scss/single';
+@import 'scss/gravity-forms';
+
 
 // !!! TEMP !!!
 // This is the CSS for stuff on the temporary landing page. When moving on to the main site, move this CSS to wherever relevant or remove it.
@@ -38,6 +39,7 @@
 
 // Templates ( template-name - including media queries. You can override base module styles here too )
 @import 'scss/page';
+// @import 'scss/single';
 
 
 // Custom ( don't use this unless you have to. This is for anything that doesnt fit anywhere else, which should be nothing )

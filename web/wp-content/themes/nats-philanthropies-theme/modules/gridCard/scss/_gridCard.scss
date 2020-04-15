@@ -1,39 +1,11 @@
 .gridCard {
-	background-color: $color-2;
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center;
-	color: $invert;
-	padding: 3rem 3rem 2.5rem 3rem;
-	min-height: 316px;
+	@include card();
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-end;
-	transition: background-color 125ms;
-	overflow: hidden;
-
-	// Add an overlay on top of the background image so the text is easier to read. If it has the lazyloaded class, that means the background image was added.
-	&.lazyloaded::before {
-		content: '';
-		display: block;
-		position: absolute;
-		top: 0;
-		left: 0;
-		background: linear-gradient(to bottom, rgba(0,0,0,0) 30%, transparentize($color-1, .1) 100%);
-		width: 100%;
-		height: calc(100% + 3rem);
-		transition: transform 125ms ease-in-out;
-		transform: translate3d(0, 0, 0);
-	}
+	min-height: 316px;
 
 	&:hover {
-		background-color: $color-19;
-		color: $invert;
-		text-decoration: none;
-
-		&.lazyloaded::before {
-			transform: translate3d(0, -3rem, 0);
-		}
 
 		.gridCard-iconContainer {
 			transform: scale3d(1.15, 1.15, 1.15);
@@ -57,24 +29,13 @@
 }
 
 .gridCard-heading {
-	text-transform: uppercase;
-	font-size: 2.7rem;
-	line-height: 1;
-	line-height: .875;
-	margin-bottom: 1.5rem;
-	position: relative;
+	@include card-heading();
 }
 
 .gridCard-excerpt {
-	font-size: 1.4rem;
-	line-height: 1.7;
-	position: relative;
+	@include card-excerpt();
 }
 
 .gridCard-more {
-	margin-top: 1.7rem;
-	position: relative;
-	transform: scale3d(1, 1, 1);
-  transform-origin: left center;
-  transition: transform 125ms $bounce-2 50ms;
+	@include card-more();
 }
