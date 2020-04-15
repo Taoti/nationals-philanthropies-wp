@@ -1,9 +1,25 @@
 {% block gridCard %}
-<div class="{{ classes }}">
-    <div class="gridCard-inner">
+{% if permalink %}
+<a class="{{ classes }}" href="{{ permalink }}"{% if image_or_icon == 'image' and background_image_url %} data-bg="{{ background_image_url }}"{% endif %}>
+  <div class="gridCard-inner">
 
+		<div class="gridCard-iconContainer">
+			{% if image_or_icon == 'icon' %}
+			{{ icon_html }}
+			{% endif %}
+		</div>
 
+		{% if title %}
+		<h3 class="gridCard-heading">{{ title }}</h3>
+		{% endif %}
 
-    </div>
-</div>
+		{% if excerpt %}
+		<div class="gridCard-excerpt">{{ excerpt }}</div>
+		{% endif %}
+
+		<div class="gridCard-more">&rarr;</div>
+
+  </div>
+</a>
+{% endif %}
 {% endblock %}

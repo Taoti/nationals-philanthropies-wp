@@ -1,0 +1,60 @@
+{
+    "key": "group_5e970c9ea5144",
+    "title": "Clone - Icon Selector",
+    "fields": [
+        {
+            "key": "field_5e970cac32332",
+            "label": "Icon Selector",
+            "name": "icon_selector",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "taoti-iconSelector",
+                "id": ""
+            },
+            "choices": {
+                "icon-baseball": "Baseball",
+                "icon-baseballField": "Baseball Field",
+                "icon-calendar": "Calendar",
+                "icon-graduateCap": "Graduate Cap",
+                "icon-jersey": "Jersey",
+                "icon-licensePlate": "License Plate",
+                "logo-5050-raffle": "Logo - 50\/50 Raffle",
+                "logo-rev-up-the-park": "Logo - Rev Up The Park"
+            },
+            "default_value": [],
+            "allow_null": 1,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            },
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1586958900
+}

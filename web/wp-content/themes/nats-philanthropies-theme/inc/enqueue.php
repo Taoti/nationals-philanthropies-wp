@@ -60,8 +60,17 @@ add_action('taoti_do_css', 'taoti_styles');
  * PURPOSE : Admin area enqueues
  */
 function taoti_admin_theme_style(){
+
 	// CSS for admin
-    wp_enqueue_style('admin-theme', get_template_directory_uri().'/styles/css/style-admin.min.css', array(), filemtime( get_template_directory().'/styles/css/style-admin.min.css' ) );
+		wp_enqueue_style('admin-theme', get_template_directory_uri().'/styles/css/style-admin.min.css', array(), filemtime( get_template_directory().'/styles/css/style-admin.min.css' ) );
+
+	// JS for admin
+	wp_enqueue_script('admin-scripts', get_template_directory_uri().'/js/admin/icon-selector.js', array('jquery'), filemtime( get_template_directory().'/js/admin/icon-selector.js' ), true);
+
+	wp_localize_script( 'admin-scripts', 'taoti_admin_js', array(
+		'theme_path' => get_template_directory_uri(),
+	) );
+
 }
 add_action('admin_enqueue_scripts', 'taoti_admin_theme_style');
 

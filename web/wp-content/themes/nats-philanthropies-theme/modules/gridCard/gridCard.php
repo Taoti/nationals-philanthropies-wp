@@ -4,10 +4,9 @@ use Timber;
 
 ### Example usage
 	// $args = [
-	// 	'primary_heading' => get_field('primary_heading'),
-	// 	'description' => get_field('description'),
-	// 	'button_url' => get_field('button_url'),
-	// 	'button_label' => get_field('button_label'),
+	// 	'post_object' => get_sub_field('post_object'),
+	// 	'image_or_icon' => get_sub_field('image_or_icon'),
+	// 	'icon' => get_sub_field('icon'),
 	// ];
 	// $new_module = new GridCard($args);
 	// $new_module->render();
@@ -20,11 +19,12 @@ class GridCard {
 		$this->defaults = [
 			'post_object' => false,
 			'image_or_icon' => 'icon',
+			'icon' => false,
 			'title' => '',
 			'permalink' => '',
 			'excerpt' => '',
-			'icon' => '',
-			'background_image' => '',
+			'icon_html' => '',
+			'background_image_url' => '',
 			'classes' => [
 				'l-module',
 				'gridCard',
@@ -33,11 +33,38 @@ class GridCard {
 
 		extract(array_merge($this->defaults, $args));
 
+		if( is_a($post_object, 'WP_Post') ){
+			$post_id = $post_object->ID;
+
+			$title = get_the_title( $post_id );
+			$permalink = get_permalink( $post_id );
+			$excerpt = get_the_excerpt( $post_id );
+
+			if( $image_or_icon === 'image' ){
+
+				$featured_image_url = Get::featured_image_url( 'listing-item', $post_id );
+				if( !$background_image_url && $featured_image_url ){
+					$background_image_url = $featured_image_url;
+				}
+
+			}
+
+			if( $image_or_icon === 'icon' ){
+				$filepath = get_stylesheet_directory().'/images/' . $icon . '.svg';
+				if( file_exists($filepath) ){
+					$icon_html = file_get_contents($filepath);
+				}
+			}
+
+		}
+
 		$this->context = Timber::get_context();
 		$this->context['image_or_icon'] = $image_or_icon;
 		$this->context['title'] = $title;
 		$this->context['permalink'] = $permalink;
 		$this->context['excerpt'] = $excerpt;
+		$this->context['background_image_url'] = $background_image_url;
+		$this->context['icon_html'] = $icon_html;
 		$this->context['classes'] = implode(' ', $classes);
 
 	}
