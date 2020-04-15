@@ -25,20 +25,34 @@ class Hero {
 		$this->defaults = [
 			'heading_line_1' => false,
 			'heading_line_2' => false,
-			'background_image_url' => get_stylesheet_directory_uri() . '/images/bg-home-hero2.jpg',
+      'header_img' => false,
+      'use_homepage_template' => false,
+      'description' => false,
+      'button_label' => false,
+      'button_link' => false,
+			'background_image_url' => false,
 			'accent_image_1_html' => $accent_image_1_html_default,
 			'accent_image_2_html' => $accent_image_2_html_default,
 			'classes' => [
 				'lazyload',
 				'hero',
+        'hero-home',
 			]
 		];
 
 		extract(array_merge($this->defaults, $args));
 
+    if($background_image_url) {
+      $background_image_url = $background_image_url[0];
+    }
+
 		$this->context = Timber::get_context();
 		$this->context['heading_line_1'] = $heading_line_1;
 		$this->context['heading_line_2'] = $heading_line_2;
+    $this->context['header_img'] = get_stylesheet_directory_uri() . '/images/hero-header-img.png';
+    $this->context['description'] = $description;
+    $this->context['button_label'] = $button_label;
+    $this->context['button_link'] = $button_link;
 		$this->context['background_image_url'] = $background_image_url;
 		$this->context['accent_image_1_html'] = $accent_image_1_html;
 		$this->context['accent_image_2_html'] = $accent_image_2_html;
@@ -46,7 +60,11 @@ class Hero {
 	}
 
 	public function render(){
-		Timber::render('hero.twig', $this->context);
+    if(is_front_page()){
+		  Timber::render('hero-home.twig', $this->context);
+    } else {
+      Timber::render('hero.twig', $this->context);
+    }
 	}
 
 }

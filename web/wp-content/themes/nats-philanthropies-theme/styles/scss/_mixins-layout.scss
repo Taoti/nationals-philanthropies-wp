@@ -1,3 +1,15 @@
+$padding-header-max: 18.7rem;
+$padding-hero-max: 34.1rem;
+$padding-content-1-max: 37.5rem;
+$padding-content-2-max: 25.5rem;
+$padding-footer-max: 25.5rem;
+
+$padding-header-desktop: 11.1rem;
+$padding-hero-desktop: 24.4rem;
+$padding-content-1-desktop: 26.7rem;
+$padding-content-2-desktop: 18.1rem;
+$padding-footer-desktop: 13.7rem;
+
 @mixin l-container( $section-name:'' ) {
 	width: 100%;
 	margin-left: auto;
@@ -39,26 +51,51 @@
 }
 
 @mixin l-header() {
-	padding-left: 11.1rem;
-	padding-right: 11.1rem;
+	padding-left: $padding-header-max;
+	padding-right: $padding-header-max;
+
+	@media screen and ( max-width: $breakpoint-desktop ) {
+    padding-left: $padding-header-desktop;
+		padding-right: $padding-header-desktop;
+	}
 }
 
 @mixin l-footer() {
-	padding-left: 13.7rem;
-	padding-right: 13.7rem;
+	padding-left: $padding-footer-max;
+	padding-right: $padding-footer-max;
+
+	@media screen and ( max-width: $breakpoint-desktop ) {
+    padding-left: $padding-footer-desktop;
+		padding-right: $padding-footer-desktop;
+	}
 }
 
 @mixin l-hero() {
-	padding-left: 24.4rem;
-	padding-right: 24.4rem;
+	padding-left: $padding-hero-max;
+	padding-right: $padding-hero-max;
+
+	@media screen and ( max-width: $breakpoint-desktop ) {
+    padding-left: $padding-hero-desktop;
+		padding-right: $padding-hero-desktop;
+	}
 }
 
 @mixin l-content-1() {
-	padding-left: 26.7rem;
-	padding-right: 26.7rem;
+	padding-left: $padding-content-1-max;
+	padding-right: $padding-content-1-max;
+
+	@media screen and ( max-width: $breakpoint-desktop ) {
+    padding-left: $padding-content-1-desktop;
+		padding-right: $padding-content-1-desktop;
+	}
 }
 
 @mixin l-content-2() {
-	padding-left: 18.1rem;
-	padding-right: 18.1rem;
+	padding-left: $padding-content-2-max;
+	padding-right: $padding-content-2-max;
+
+	@media screen and ( max-width: $breakpoint-desktop ) {
+    padding-left: $padding-content-2-desktop;
+		padding-right: $padding-content-2-desktop;
+	}
 }

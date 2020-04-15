@@ -918,7 +918,7 @@ jQuery('.modal-close').click( function(e){
 
 });
 
-var nav_breakpoint_collapse = 1000; // NOTE - this must match the $nav-breakpoint-collapse variable in scss/_config.scss.
+var nav_breakpoint_collapse = 1000; // NOTE - this must match the $breakpoint-nav-collapse variable in scss/_config.scss.
 
 
 
@@ -998,6 +998,7 @@ function taoti_fonts_active_cb(){
     taoti_update_header_height_property();
 
 }
+
 
 
 

@@ -1,3 +1,29 @@
 .section-homepage {
   // border: 1px solid #f0f;
 }
+
+
+
+// Grid Section
+.postGrid-home {
+
+  .postGrid-grid {
+    grid-template-areas:
+		"bigLink bigLink otherLink1 otherLink2"
+		"otherLink3 otherLink4 form form";
+  }
+
+}
+
+.postGridItem-home {
+  position: relative;
+
+  &:first-child {
+    grid-area: bigLink;
+  }
+
+  &.formCard {
+    grid-area: form;
+  }
+
+}

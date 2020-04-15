@@ -1,0 +1,9 @@
+.postGrid-inner {
+	@include l-container('content-2');
+}
+
+.postGrid-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-gap: 2.2rem;
+}

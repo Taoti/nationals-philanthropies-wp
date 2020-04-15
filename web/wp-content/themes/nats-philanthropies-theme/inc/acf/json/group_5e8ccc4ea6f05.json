@@ -309,10 +309,10 @@
                             "layout": "block",
                             "sub_fields": [
                                 {
-                                    "key": "field_5e8cda82e5938",
-                                    "label": "Heading",
-                                    "name": "heading",
-                                    "type": "text",
+                                    "key": "field_5e9715d647578",
+                                    "label": "Grid Card Common Fields",
+                                    "name": "grid_card_common_fields",
+                                    "type": "clone",
                                     "instructions": "",
                                     "required": 0,
                                     "conditional_logic": 0,
@@ -321,70 +321,13 @@
                                         "class": "",
                                         "id": ""
                                     },
-                                    "default_value": "",
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
-                                    "maxlength": ""
-                                },
-                                {
-                                    "key": "field_5e8cda8ae5939",
-                                    "label": "Description",
-                                    "name": "description",
-                                    "type": "text",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
-                                    "maxlength": ""
-                                },
-                                {
-                                    "key": "field_5e8cdaa4e593a",
-                                    "label": "Background Image",
-                                    "name": "background_image",
-                                    "type": "image",
-                                    "instructions": "JPG only",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "return_format": "array",
-                                    "preview_size": "medium",
-                                    "library": "all",
-                                    "min_width": "",
-                                    "min_height": "",
-                                    "min_size": "",
-                                    "max_width": "",
-                                    "max_height": "",
-                                    "max_size": "",
-                                    "mime_types": "jpg"
-                                },
-                                {
-                                    "key": "field_5e8cdad3e593b",
-                                    "label": "Link To",
-                                    "name": "link_to",
-                                    "type": "url",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "placeholder": ""
+                                    "clone": [
+                                        "group_5e9713c8b1f02"
+                                    ],
+                                    "display": "seamless",
+                                    "layout": "block",
+                                    "prefix_label": 0,
+                                    "prefix_name": 0
                                 }
                             ]
                         },
@@ -408,10 +351,10 @@
                             "button_label": "Add A Block",
                             "sub_fields": [
                                 {
-                                    "key": "field_5e8cdb3fe593d",
-                                    "label": "Heading",
-                                    "name": "heading",
-                                    "type": "text",
+                                    "key": "field_5e97160647579",
+                                    "label": "Gird Card Common Fields",
+                                    "name": "gird_card_common_fields",
+                                    "type": "clone",
                                     "instructions": "",
                                     "required": 0,
                                     "conditional_logic": 0,
@@ -420,73 +363,13 @@
                                         "class": "",
                                         "id": ""
                                     },
-                                    "default_value": "",
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
-                                    "maxlength": ""
-                                },
-                                {
-                                    "key": "field_5e8cdb8fe593e",
-                                    "label": "Description",
-                                    "name": "description",
-                                    "type": "text",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
-                                    "maxlength": ""
-                                },
-                                {
-                                    "key": "field_5e8cdb99e593f",
-                                    "label": "Icon",
-                                    "name": "icon",
-                                    "type": "select",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "choices": {
-                                        "raffle": "50\/50 Raffle",
-                                        "field": "Baseball Field",
-                                        "calendar": "Calendar",
-                                        "rev_up": "Rev Up The Park"
-                                    },
-                                    "default_value": [],
-                                    "allow_null": 1,
-                                    "multiple": 0,
-                                    "ui": 0,
-                                    "return_format": "value",
-                                    "ajax": 0,
-                                    "placeholder": ""
-                                },
-                                {
-                                    "key": "field_5e8cdc04e5940",
-                                    "label": "Link To",
-                                    "name": "link_to",
-                                    "type": "url",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "placeholder": ""
+                                    "clone": [
+                                        "group_5e9713c8b1f02"
+                                    ],
+                                    "display": "seamless",
+                                    "layout": "block",
+                                    "prefix_label": 0,
+                                    "prefix_name": 0
                                 }
                             ]
                         },
@@ -596,5 +479,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1586793742
+    "modified": 1586959937
 }
