@@ -9,6 +9,8 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-end;
+	transition: background-color 125ms;
+	overflow: hidden;
 
 	// Add an overlay on top of the background image so the text is easier to read. If it has the lazyloaded class, that means the background image was added.
 	&.lazyloaded::before {
@@ -17,9 +19,30 @@
 		position: absolute;
 		top: 0;
 		left: 0;
-		background: linear-gradient(to bottom, rgba(0,0,0,0) 30%, transparentize($color-1, .125) 100%);
+		background: linear-gradient(to bottom, rgba(0,0,0,0) 30%, transparentize($color-1, .1) 100%);
 		width: 100%;
-		height: 100%;
+		height: calc(100% + 3rem);
+		transition: transform 125ms ease-in-out;
+		transform: translate3d(0, 0, 0);
+	}
+
+	&:hover {
+		background-color: $color-19;
+		color: $invert;
+		text-decoration: none;
+
+		&.lazyloaded::before {
+			transform: translate3d(0, -3rem, 0);
+		}
+
+		.gridCard-iconContainer {
+			transform: scale3d(1.15, 1.15, 1.15);
+		}
+
+		.gridCard-more {
+			transform: scale3d(1.33, 1.33, 1.33);
+		}
+
 	}
 
 }
@@ -28,6 +51,9 @@
 	justify-self: flex-start;
 	margin-bottom: auto;
 	position: relative;
+	transform: scale3d(1, 1, 1);
+  transform-origin: left center;
+  transition: transform 125ms $bounce-2;
 }
 
 .gridCard-heading {
@@ -48,4 +74,7 @@
 .gridCard-more {
 	margin-top: 1.7rem;
 	position: relative;
+	transform: scale3d(1, 1, 1);
+  transform-origin: left center;
+  transition: transform 125ms $bounce-2 50ms;
 }
