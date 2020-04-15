@@ -1,6 +1,7 @@
 <?php
 use Modules\PostGrid;
 use Modules\GridCard;
+use Modules\FormCard;
 
 $grid_items = [];
 
@@ -49,12 +50,6 @@ if( !empty($other_links_group) ){
 	}
 }
 
-$signup_form_group = get_sub_field('signup_form');
-// echo "<pre>"; print_r($signup_form_group); echo "</pre>";
-// heading
-// background_image
-// form (shortcode)
-
 // echo "<pre>"; print_r($grid_items); echo "</pre>";
 
 $grid_cards = [];
@@ -73,6 +68,20 @@ foreach( $grid_items as $grid_item ){
 
 }
 
+$signup_form_group = get_sub_field('signup_form');
+// echo "<pre>"; print_r($signup_form_group); echo "</pre>";
+if( $signup_form_group['heading'] && $signup_form_group['form'] ){
+	$form_card_args = [
+		'heading' => $signup_form_group['heading'],
+		'background_image' => $signup_form_group['background_image'],
+		'form' => do_shortcode( $signup_form_group['form'] ),
+	];
+
+	$form_card = new FormCard($form_card_args);
+	$grid_cards[] = $form_card->compile();
+
+}
+
 // echo "<pre>"; print_r($grid_cards); echo "</pre>";
 
 $args = array(
@@ -84,4 +93,4 @@ $args = array(
 	'button_url' =>get_sub_field('button_url'),
 );
 $post_grid = new PostGrid($args);
-// $post_grid->render();
+$post_grid->render();

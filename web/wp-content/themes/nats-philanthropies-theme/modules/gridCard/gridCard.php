@@ -29,6 +29,7 @@ class GridCard {
 			'background_image_url' => '',
 			'classes' => [
 				'gridCard',
+				'lazyload',
 			]
 		];
 
