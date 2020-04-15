@@ -1,6 +1,7 @@
 <?php
 namespace Modules;
 use Timber;
+use JP\Get;
 
 ### Example usage
 	// $args = [
@@ -19,6 +20,7 @@ class GridCard {
 		$this->defaults = [
 			'post_object' => false,
 			'image_or_icon' => 'icon',
+			'image' => false,
 			'icon' => false,
 			'title' => '',
 			'permalink' => '',
@@ -26,13 +28,24 @@ class GridCard {
 			'icon_html' => '',
 			'background_image_url' => '',
 			'classes' => [
-				'l-module',
 				'gridCard',
 			]
 		];
 
 		extract(array_merge($this->defaults, $args));
 
+		if( is_string($icon) ){
+			$filepath = get_stylesheet_directory().'/images/' . $icon . '.svg';
+			if( $image_or_icon === 'icon' && file_exists($filepath) ){
+				$icon_html = file_get_contents($filepath);
+			}
+		}
+
+		if( $image_or_icon === 'image' && isset($image['sizes']['listing-item']) ){
+			$background_image_url = $image['sizes']['listing-item'];
+		}
+
+		// If a post object was given, use that to set the field values.
 		if( is_a($post_object, 'WP_Post') ){
 			$post_id = $post_object->ID;
 
@@ -40,20 +53,9 @@ class GridCard {
 			$permalink = get_permalink( $post_id );
 			$excerpt = get_the_excerpt( $post_id );
 
-			if( $image_or_icon === 'image' ){
-
-				$featured_image_url = Get::featured_image_url( 'listing-item', $post_id );
-				if( !$background_image_url && $featured_image_url ){
-					$background_image_url = $featured_image_url;
-				}
-
-			}
-
-			if( $image_or_icon === 'icon' ){
-				$filepath = get_stylesheet_directory().'/images/' . $icon . '.svg';
-				if( file_exists($filepath) ){
-					$icon_html = file_get_contents($filepath);
-				}
+			$featured_image_url = Get::featured_image_url( 'listing-item', $post_id );
+			if( $image_or_icon === 'image' && !$background_image_url && $featured_image_url ){
+				$background_image_url = $featured_image_url;
 			}
 
 		}
@@ -71,6 +73,10 @@ class GridCard {
 
 	public function render(){
 		Timber::render('gridCard.twig', $this->context);
+	}
+
+	public function compile(){
+		return Timber::compile('gridCard.twig', $this->context);
 	}
 
 }

@@ -26,7 +26,6 @@ class PostCard {
 			'subheading_items' => [],
 			'tags' => [],
 			'classes' => [
-				'l-module',
 				'postCard',
 			]
 		];

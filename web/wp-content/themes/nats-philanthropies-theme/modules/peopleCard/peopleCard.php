@@ -21,7 +21,6 @@ class PeopleCard {
 		$this->defaults = [
 			'post_object' => false,
 			'classes' => [
-				'l-module',
 				'peopleCard',
 			]
 		];

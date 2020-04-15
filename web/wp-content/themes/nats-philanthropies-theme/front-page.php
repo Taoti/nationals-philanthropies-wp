@@ -16,6 +16,8 @@ taoti_enqueue_critical_css( get_template_directory().'/styles/css/critical/front
 get_header();
 ?>
 
+
+
 <?php
 $args = [
   'heading_line_1' => 'One Pursuit For',
@@ -29,13 +31,9 @@ $hero = new Hero($args);
 $hero->render();
 ?>
 
-<div class="content">
-  <div class="content-inner">
 
 
-
-  </div><!-- END .content-inner -->
-</div><!-- END .content -->
+<?php the_page_builder( 'modules_homePage' ); ?>
 
 
 
