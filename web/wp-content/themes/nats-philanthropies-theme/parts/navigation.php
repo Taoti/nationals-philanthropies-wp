@@ -62,7 +62,7 @@ if( isset($menuLocations[$theme_location]) ):
 			$nav_item_ID = $nav_item->ID;
 			$title = $nav_item->title;
 			$href = $nav_item->url;
-			$is_last_item = ( $nav_item_counter === count($main_nav) );
+			$is_last_item = ( $nav_item_counter === count($top_level_nav) );
 			$has_sub_menu = ( isset($sub_navs[$nav_item_ID]) && !empty($sub_navs[$nav_item_ID]) );
 			?>
 
