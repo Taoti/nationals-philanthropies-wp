@@ -13,6 +13,13 @@
     position: relative;
     color: white;
 
+    &.active {
+      &:before {
+        border: none;
+        background: white;
+      }
+    }
+
     &:before {
       content: "";
       display: block;

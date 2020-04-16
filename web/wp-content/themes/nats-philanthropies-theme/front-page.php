@@ -19,7 +19,7 @@ get_header();
 
 <nav class="sectionNavigation">
   <ul>
-    <li>01</li>
+    <li class="active">01</li>
     <li>02</li>
     <li>03</li>
     <li>04</li>
