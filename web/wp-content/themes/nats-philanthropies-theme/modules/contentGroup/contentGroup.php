@@ -28,7 +28,6 @@ class ContentGroup {
 			'cta_label' => false,
 			'cta_link' => false,
 			'classes' => [
-				'l-module',
 				'contentGroup',
 			]
 		];
