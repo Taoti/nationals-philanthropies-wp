@@ -10,4 +10,17 @@
       color: $color-3;
     }
   }
+  
+  .home-content-row {
+    justify-content: space-between;
+  }
+
+  .home-content-column {
+    &:first-child {
+      flex-basis: 30%;
+    }
+    &:last-child {
+      flex-basis: 60%;
+    }
+  }
 }

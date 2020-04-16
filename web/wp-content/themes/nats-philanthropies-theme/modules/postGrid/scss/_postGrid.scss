@@ -7,3 +7,13 @@
 	grid-template-columns: 1fr 1fr 1fr 1fr;
 	grid-gap: 2.2rem;
 }
+
+
+// Home
+.postGrid-home {
+  padding: 15rem 0;
+
+  .postGrid-description {
+    display: none;
+  }
+}

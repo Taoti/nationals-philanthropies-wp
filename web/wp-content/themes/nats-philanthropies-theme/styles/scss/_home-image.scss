@@ -1,11 +1,11 @@
 .home-image {
   padding: 15rem 0;
-  background: url(../../images/bg-home-image.jpg);
+  background: url(../../images/bg-home-image.png);
   background-size: cover;
   background-position: center;
 
-  .contentGroup .l-container {
-    padding: 0 12.6rem;
+  .contentGroup-inner {
+    max-width: 400px;
   }
 
   .contentGroup-heading,
@@ -32,10 +32,10 @@
   }
 
   .home-content-column {
-    flex-basis: 48%;
 
     &:first-child {
       text-align: center;
+      flex-basis: 60%;
     }
 
     img {

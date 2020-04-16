@@ -104,6 +104,43 @@ $hero->render();
   </div>
 </section>
 
+
+<section class="home-quote">
+  <div class="l-container">
+    <div class="home-content-row">
+      <div class="home-content-column">
+        <?php
+        // ContentGroup
+        $args = [
+         'primary_heading' => 'ONE PURSUIT FOR',
+         'secondary_heading' => 'Supporting Family',
+         'description' => 'We are commited to holistcally improving the lives of children and families across Washington, D.C. and beyond. Join our movement today.',
+        ];
+        $new_module = new ContentGroup($args);
+        $new_module->render();
+        ?>
+      </div>
+      <div class="home-content-column">
+        <div class="quote">
+          <div class="quote-row">
+            <div class="quote-column quote-column-image">
+              <div class="quote-image"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/home-quote-header-image.png" alt=""></div>
+            </div>
+            <div class="quote-column quote-column-text">
+              <span class="quotoe-icon">“</span>
+              <div class="quote-quoteText">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+              </div>
+              <div class="quote-author">JANE SMITH</div>
+              <div class="quote-location">ORGANIZATION POSITION</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <?php the_page_builder( 'modules_homePage' ); ?>
 
 
