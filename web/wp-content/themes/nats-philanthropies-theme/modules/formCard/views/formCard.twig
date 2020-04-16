@@ -1,0 +1,15 @@
+{% block formCard %}
+{% if form %}
+<div class="{{ classes }}"{% if background_image_url %} data-bg="{{ background_image_url }}"{% endif %}>
+  <div class="formCard-inner">
+
+		{% if heading %}
+		<h3 class="formCard-heading">{{ heading }}</h3>
+		{% endif %}
+
+		{{ form }}
+
+  </div>
+</div>
+{% endif %}
+{% endblock %}

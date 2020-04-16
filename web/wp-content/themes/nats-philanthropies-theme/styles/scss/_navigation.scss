@@ -13,7 +13,7 @@
   .navContainer-mobile {
     display: none;
 
-    @media screen and ( max-width: $nav-breakpoint-collapse ) {
+    @media screen and ( max-width: $breakpoint-nav-collapse ) {
       display: block;
     }
 
@@ -22,7 +22,7 @@
   .navContainer-main-navigation {
     display: block;
 
-    @media screen and ( max-width: $nav-breakpoint-collapse ) {
+    @media screen and ( max-width: $breakpoint-nav-collapse ) {
       background-color: $color-2;
       // height: calc(100vh - 100% - 5.9rem); // The screen height, minus the height of the header, minus the margin-top on the header = the available screen space below the header.
       left: 0;
@@ -56,7 +56,7 @@
 
   .menu-mainMenu {
 
-    @media screen and (max-width: $nav-breakpoint-collapse) {
+    @media screen and (max-width: $breakpoint-nav-collapse) {
       flex-direction: column;
       justify-content: flex-start;
     }
@@ -111,7 +111,7 @@
     padding-left: 1rem;
   }
 
-  @media screen and (max-width: $nav-breakpoint-collapse) {
+  @media screen and (max-width: $breakpoint-nav-collapse) {
     padding-left: 0;
   }
 
@@ -198,7 +198,7 @@
     height: 2px;
     width: calc(100% - 3.2rem); // Subtract the left/right padding so the underline is the same width as the text.
 
-    @media screen and ( max-width: $nav-breakpoint-collapse ) {
+    @media screen and ( max-width: $breakpoint-nav-collapse ) {
       top: calc(50% + .8em);
       width: calc(100% - 7.6rem);
       left: 3.8rem;
@@ -244,7 +244,7 @@
 
 }
 
-// Items in the mobile menu. Assume these won't be visibile until screen width of $nav-breakpoint-collapse.
+// Items in the mobile menu. Assume these won't be visibile until screen width of $breakpoint-nav-collapse.
 .menu-link-mobileMenu {
   padding-left: 2rem;
   padding-right: 6rem;
@@ -260,7 +260,7 @@
 }
 
 .menu-item-mobileMenu {
-  @media screen and ( max-width: $nav-breakpoint-collapse ) {
+  @media screen and ( max-width: $breakpoint-nav-collapse ) {
     position: relative;
   }
 }

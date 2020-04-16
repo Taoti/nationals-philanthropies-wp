@@ -1,8 +1,9 @@
 .sectionNavigation {
   position: fixed;
-  left: 5.6rem;
+  left: 2%;
   top: 50%;
   transform: translateY(-50%);
+  z-index: 10;
 
   li {
     font-family: $sans-2;
@@ -10,6 +11,7 @@
     padding-left: 25px;
     padding-bottom: 2.4rem;
     position: relative;
+    color: white;
 
     &:before {
       content: "";

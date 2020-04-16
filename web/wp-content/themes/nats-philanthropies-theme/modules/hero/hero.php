@@ -49,7 +49,7 @@ class Hero {
 		$this->context = Timber::get_context();
 		$this->context['heading_line_1'] = $heading_line_1;
 		$this->context['heading_line_2'] = $heading_line_2;
-    $this->context['header_img'] = get_stylesheet_directory_uri() . '/images/hero-header-img.png';
+    $this->context['header_img'] = get_stylesheet_directory_uri() . '/images/hero-header-img-withShadows.png';
     $this->context['description'] = $description;
     $this->context['button_label'] = $button_label;
     $this->context['button_link'] = $button_link;

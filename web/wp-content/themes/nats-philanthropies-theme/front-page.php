@@ -41,19 +41,6 @@ $hero = new Hero($args);
 $hero->render();
 ?>
 
-        <?php
-        // ContentGroup
-        $args = [
-         'primary_heading' => 'ONE PURSUIT FOR',
-         'sub_heading' => 'MEASURABLE IMPACT',
-         'description' => 'We are commited to holistcally improving the lives of children and families across Washington, D.C. and beyond. Join our movement today.',
-         'cta_url' => 'learn about our impact',
-         'cta_label' => '#',
-        ];
-        $new_module = new ContentGroup($args);
-        $new_module->render();
-        ?>
-
 <section class="home-module home-statistics">
   <div class="l-container">
     <div class="home-content-row">
@@ -62,10 +49,10 @@ $hero->render();
         // ContentGroup
         $args = [
          'primary_heading' => 'ONE PURSUIT FOR',
-         'sub_heading' => 'MEASURABLE IMPACT',
+         'secondary_heading' => 'MEASURABLE IMPACT',
          'description' => 'We are commited to holistcally improving the lives of children and families across Washington, D.C. and beyond. Join our movement today.',
-         'cta_url' => 'learn about our impact',
-         'cta_label' => '#',
+         'cta_link' => '#',
+         'cta_label' => 'learn about our impact',
         ];
         $new_module = new ContentGroup($args);
         $new_module->render();
@@ -76,15 +63,15 @@ $hero->render();
           <div class="statistics_row">
             <div class="statistic">
               <div class="statistic-number">10</div>
-              <div class="statistic-info">We are commited to holistcally improving the lives of children and families across Washington, D.C. and beyond. Join our movement today.</div>
+              <div class="statistic-info">We are commited to holistcally improving the lives of children and families across Washington, D.C. and</div>
             </div>
             <div class="statistic">
               <div class="statistic-number statistic-number-m">20</div>
-              <div class="statistic-info">We are commited to holistcally improving the lives of children and families across Washington, D.C. and beyond. Join our movement today.</div>
+              <div class="statistic-info">We are commited to holistcally improving the lives of children and families across Washington, D.C. and</div>
             </div>
             <div class="statistic">
               <div class="statistic-number">30</div>
-              <div class="statistic-info">We are commited to holistcally improving the lives of children and families across Washington, D.C. and beyond. Join our movement today.</div>
+              <div class="statistic-info">We are commited to holistcally improving the lives of children and families across Washington, D.C. and</div>
             </div>
           </div>
         </div>
@@ -104,10 +91,10 @@ $hero->render();
         // ContentGroup
         $args = [
          'primary_heading' => 'ONE PURSUIT FOR',
-         'sub_heading' => 'MEASURABLE IMPACT',
+         'secondary_heading' => 'Supporting Family',
          'description' => 'We are commited to holistcally improving the lives of children and families across Washington, D.C. and beyond. Join our movement today.',
-         'cta_url' => 'learn about our impact',
-         'cta_label' => '#',
+         'cta_link' => '#',
+         'cta_label' => 'about the academy',
         ];
         $new_module = new ContentGroup($args);
         $new_module->render();
@@ -116,6 +103,8 @@ $hero->render();
     </div>
   </div>
 </section>
+
+<?php the_page_builder( 'modules_homePage' ); ?>
 
 
 

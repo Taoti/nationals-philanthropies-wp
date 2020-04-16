@@ -11,6 +11,10 @@
     z-index: 0;
   }
 
+  .l-container {
+    max-width: 1350px;
+  }
+
   .hero-heading {
     text-align: left;
     font-size: 8.5rem;
@@ -80,4 +84,5 @@
 
 .hero-button {
   @include cta-circle;
+  z-index: 3;
 }

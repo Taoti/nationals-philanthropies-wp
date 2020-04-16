@@ -18,6 +18,14 @@
 // This is the CSS for stuff on the temporary landing page. When moving on to the main site, move this CSS to wherever relevant or remove it.
 @import 'scss/template-temporary-front-page';
 
+// Homepage Flex Content Layouts
+@import 'scss/home-page-builder';
+@import 'scss/home-statistics';
+@import 'scss/home-image';
+@import 'scss/home-quote';
+
+
+
 // Modules
 @import '../modules/accordion/scss/accordion';
 @import '../modules/cta/scss/cta';
@@ -32,6 +40,8 @@
 @import '../modules/textBlock/scss/textBlock';
 @import '../modules/contentGroup/scss/contentGroup';
 @import '../modules/sectionNavigation/scss/sectionNavigation';
+@import '../modules/formCard/scss/formCard';
+@import '../modules/gridCard/scss/gridCard';
 
 // Parts, utility, other one-offs
 // @import 'scss/pagination';

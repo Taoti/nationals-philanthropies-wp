@@ -2,17 +2,27 @@
 <div class="{{ classes }}">
     <div class="postGrid-inner">
 
-        {% if primary_heading %}
-		<h2 class="postGrid-primaryHeading">{{ primary_heading }}</h2>
-		{% endif %}
+			{% if primary_heading %}
+			<h2 class="postGrid-primaryHeading">{{ primary_heading }}</h2>
+			{% endif %}
 
-		{% if description %}
-		<div class="postGrid-description">{{ description }}</div>
-	    {% endif %}
+			{% if description %}
+			<div class="postGrid-description">{{ description }}</div>
+				{% endif %}
 
-		{% if button_url and button_label %}
-		<a class="postGrid-button" href="{{ button_url }}">{{ button_label }}</a>
-		{% endif %}
+			{% if button_url and button_label %}
+			<a class="postGrid-button" href="{{ button_url }}">{{ button_label }}</a>
+			{% endif %}
+
+			{% if grid_items %}
+			<div class="postGrid-grid">
+
+				{% for grid_item in grid_items %}
+				{{ grid_item }}
+				{% endfor %}
+
+			</div>
+			{% endif %}
 
     </div>
 </div>

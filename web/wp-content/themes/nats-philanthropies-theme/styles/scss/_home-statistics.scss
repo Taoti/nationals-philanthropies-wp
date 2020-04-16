@@ -1,0 +1,13 @@
+.home-statistics {
+  background: url('../../images/bg-home-statistics.png');
+  padding: 20rem 0 15rem;
+  margin-top: -7rem;
+  position: relative;
+
+  .contentGroup-cta {
+    &:hover span,
+    span {
+      color: $color-3;
+    }
+  }
+}

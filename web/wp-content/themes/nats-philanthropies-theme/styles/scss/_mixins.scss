@@ -80,15 +80,28 @@
   border: 2px solid $color-4;
   position: relative;
   margin-top: 5rem;
+  transform: translate3d(0,0,0);
+  transition: transform .5s $bounce;
+
+  &:hover {
+    transform: translate3d(0,-4%,0);
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: white;
+  }
 
   span {
-    max-width: 90px;
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%,-50%);
     line-height: 1.1;
     letter-spacing: 1px;
+    max-width: 68px;
+    width: 100%;
   }
 }
 

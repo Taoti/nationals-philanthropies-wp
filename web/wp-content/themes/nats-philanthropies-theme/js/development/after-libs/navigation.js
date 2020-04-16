@@ -1,4 +1,4 @@
-var nav_breakpoint_collapse = 1000; // NOTE - this must match the $nav-breakpoint-collapse variable in scss/_config.scss.
+var nav_breakpoint_collapse = 1000; // NOTE - this must match the $breakpoint-nav-collapse variable in scss/_config.scss.
 
 
 
