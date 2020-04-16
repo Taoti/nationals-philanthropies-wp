@@ -20,7 +20,7 @@ class ContentGroup {
 
     $accent_image_1_html_default = '<img class="hero-accent hero-accent-1 lazyload" data-srcset="' . get_stylesheet_directory_uri() . '/images/accent-spatter-1.png 1x, ' . get_stylesheet_directory_uri() . '/images/accent-spatter-1@2x.png 2x" width="477" height="82" alt="Paint splatter accent">';
     $accent_image_2_html_default = '<img class="hero-accent hero-accent-2 lazyload" data-srcset="' . get_stylesheet_directory_uri() . '/images/accent-spatter-2.png 1x, ' . get_stylesheet_directory_uri() . '/images/accent-spatter-2@2x.png 2x" width="690" height="67" alt="Paint splatter accent">';
-		
+
     $this->defaults = [
 			'primary_heading' => false,
       'secondary_heading' => false,
@@ -47,6 +47,10 @@ class ContentGroup {
 
 	public function render(){
 		Timber::render('contentGroup.twig', $this->context);
+	}
+
+	public function compile(){
+		return Timber::compile('contentGroup.twig', $this->context);
 	}
 
 }
