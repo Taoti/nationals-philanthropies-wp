@@ -169,7 +169,7 @@
                             "label": "Background Image",
                             "name": "background_image",
                             "type": "image",
-                            "instructions": "Must be a jpg. At least 720p in size (1280 x 720).",
+                            "instructions": "Must be a jpg. It is fullscreen, must be at least 720p in size (1280 x 720).",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -187,6 +187,27 @@
                             "max_height": "",
                             "max_size": "",
                             "mime_types": "jpg"
+                        },
+                        {
+                            "key": "field_5e97a9aec14cd",
+                            "label": "Overlay Color",
+                            "name": "overlay_color",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_5e97a9772dfb7"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
                         }
                     ],
                     "min": "",
@@ -640,5 +661,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1586794966
+    "modified": 1586997718
 }
