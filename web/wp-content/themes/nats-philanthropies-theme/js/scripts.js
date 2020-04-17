@@ -901,51 +901,93 @@ function taoti_get_section_positions_cb(homepage_sections){
 // });
 
 var scrollspy_navItems = jQuery('.scrollspy-navItem');
+var homepage_sections = jQuery('.scrollspy');
+
+var homepage_section_boundaries = [];
+
+for( i=0; i<homepage_sections.length; i++ ){
+	var this_homepage_section_shape = homepage_sections[i].getBoundingClientRect();
+	// console.log(this_homepage_section_shape);
+
+	var new_homepage_section_boundary = [];
+	new_homepage_section_boundary['top'] = this_homepage_section_shape.top + window.pageYOffset;
+	new_homepage_section_boundary['bottom'] = this_homepage_section_shape.top + this_homepage_section_shape.height + window.pageYOffset;
+
+	if( jQuery(homepage_sections[i]).hasClass('scrollspy-dark') ){
+		new_homepage_section_boundary['class'] = 'scrollspy-dark';
+	} else if( jQuery(homepage_sections[i]).hasClass('scrollspy-light') ){
+		new_homepage_section_boundary['class'] = 'scrollspy-light';
+	}
+
+	homepage_section_boundaries.push( new_homepage_section_boundary );
+
+}
+console.log(homepage_section_boundaries);
+
+
+var scrollspy_navItem_boundaries = [];
+
+for( i=0; i<scrollspy_navItems.length; i++ ){
+	var this_scrollspy_navItem_shape = scrollspy_navItems[i].getBoundingClientRect();
+	console.log(this_scrollspy_navItem_shape);
+
+	var new_scrollspy_navItem_boundary = [];
+	new_scrollspy_navItem_boundary['top'] = this_scrollspy_navItem_shape.top;
+	new_scrollspy_navItem_boundary['bottom'] = this_scrollspy_navItem_shape.top + this_scrollspy_navItem_shape.height;
+
+	scrollspy_navItem_boundaries.push( new_scrollspy_navItem_boundary );
+
+}
+console.log(scrollspy_navItem_boundaries);
+
 
 window.addEventListener( 'scroll', function(){
 	// console.log('scrolling');
 	var height_offset = 1;//0.66;
 	var current_scroll_distance = window.pageYOffset + (window.innerHeight * height_offset);
-	console.log( current_scroll_distance );
+	// console.log( current_scroll_distance );
 
 	var active_section_index = 0;
 
-	var homepage_sections = jQuery('.scrollspy');
+
 	// console.log( homepage_sections );
 
 	for( i=0; i<scrollspy_navItems.length; i++){
 
 		var this_navItems_shape = scrollspy_navItems[i].getBoundingClientRect();
 		var this_navItems_bottom_edge = this_navItems_shape.top + this_navItems_shape.height;
-		console.log(this_navItems_shape);
+		// console.log(this_navItems_shape);
 
 		for( j=0; j<homepage_sections.length; j++){
 
-			var this_section_shape = homepage_sections[j].getBoundingClientRect();
-			this_section_bottom_edge = this_section_shape.top + this_section_shape.height;
+			// var this_section_shape = homepage_sections[j].getBoundingClientRect();
+			// this_section_bottom_edge = this_section_shape.top + this_section_shape.height;
 
-			// TODO: This works for scrolling down. But if scrolling up, check if this_navItems_top_edge is greater than the section edge.
+			// // TODO: This works for scrolling down. But if scrolling up, check if this_navItems_top_edge is greater than the section edge.
 			// var edges_have_crossed = false;
+
 			// if( window.scroll_direction === 'down' ){
-			// 	edges_have_crossed = (this_navItems_bottom_edge > this_section_bottom_edge);
+			// 	edges_have_crossed = this_navItems_bottom_edge > this_section_bottom_edge && this_section_bottom_edge > 0;
+
 			// } else if( window.scroll_direction === 'up' ){
-			// 	edges_have_crossed = (this_navItems_shape.top > this_section_bottom_edge);
+			// 	edges_have_crossed = this_navItems_shape.top < this_section_bottom_edge;
 			// }
 
-			if( this_navItems_bottom_edge > this_section_bottom_edge && this_section_bottom_edge > 0 ){
-			// if( edges_have_crossed && this_section_bottom_edge > 0 ){
-				// active_section_index = j;
+			// // if( this_navItems_bottom_edge > this_section_bottom_edge && this_section_bottom_edge > 0 ){
+			// // if( edges_have_crossed && this_section_bottom_edge > 0 ){
+			// if( edges_have_crossed ){
+			// 	// active_section_index = j;
 
-				if( jQuery(homepage_sections[j]).hasClass('scrollspy-dark') ){
-					jQuery(scrollspy_navItems[i]).addClass('scrollspy-dark');
-					// jQuery(scrollspy_navItems[i]).removeClass('scrollspy-light');
+			// 	if( jQuery(homepage_sections[j]).hasClass('scrollspy-dark') ){
+			// 		jQuery(scrollspy_navItems[i]).addClass('scrollspy-dark');
+			// 		// jQuery(scrollspy_navItems[i]).removeClass('scrollspy-light');
 
-				} else {
-					// jQuery(scrollspy_navItems[i]).addClass('scrollspy-light');
-					jQuery(scrollspy_navItems[i]).removeClass('scrollspy-dark');
-				}
+			// 	} else {
+			// 		// jQuery(scrollspy_navItems[i]).addClass('scrollspy-light');
+			// 		jQuery(scrollspy_navItems[i]).removeClass('scrollspy-dark');
+			// 	}
 
-			}
+			// }
 
 		}
 
@@ -1009,8 +1051,12 @@ window.addEventListener("scroll", function(){ // or window.addEventListener("scr
    } else {
     window.scroll_direction = 'up';
    }
-   lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+	 lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+
+	 console.log(window.scroll_direction);
 }, false);
+
+
 
 
 // There is a CSS custom property `--header-height` that controls the size/position of the mega nav. The height must be updated when the window is resized or scrolled, since the height of the header can change after either of those events.
