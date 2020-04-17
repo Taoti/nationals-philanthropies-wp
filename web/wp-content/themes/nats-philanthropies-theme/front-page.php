@@ -20,7 +20,11 @@ get_header();
 <?php
 // The total number of sections on the homepage is the hero plus the number of modules in the home page builder.
 $modules_homePage = get_field('modules_homePage');
-$total_sections = 1 + count($modules_homePage); // The 1 is the hero.
+
+$total_sections = 1; // The 1 is the hero.
+if( is_array($modules_homePage) && !empty($modules_homePage) ){
+  $total_sections = $total_sections + count($modules_homePage);
+}
 
 $total_sections = 5; // tmporary hardcode to 5
 
