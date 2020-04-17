@@ -5,6 +5,9 @@
 	color: $invert;
 	padding: 3rem;
 	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
 
 	// Add an overlay on top of the background image so the text is easier to read. If it has the lazyloaded class, that means the background image was added.
 	&.lazyloaded::before {
@@ -17,8 +20,49 @@
 		width: 100%;
 		height: 100%;
 	}
+
+	// Override some gravity form styles for the form that appears within the card.
+	.gform_heading,
+	.gfield_label {
+		display: none;
+	}
+
+	.gform_form {
+		align-items: baseline;
+		display: grid;
+    grid-template-columns: 1fr 52px;
+    grid-gap: 2rem;
+	}
+
+	.gform_fields {
+		align-items: baseline;
+		display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 2rem;
+	}
+
+	.gform_button {
+		width: 52px;
+    height: 52px;
+    border: 1px solid $invert;
+    border-radius: 50%;
+    position: relative;
+	}
+
+	.gform_button-submitIcon {
+		position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 36%;
+	}
+
 }
 
 .formCard-inner {
 	position: relative;
+}
+
+.formCard-heading {
+	@include card-heading();
 }

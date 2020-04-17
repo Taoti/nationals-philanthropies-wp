@@ -1,0 +1,53 @@
+{
+    "key": "group_5e97a9772dfb7",
+    "title": "Clone - Overlay Color",
+    "fields": [
+        {
+            "key": "field_5e97a98228139",
+            "label": "Overlay Color",
+            "name": "overlay_color",
+            "type": "radio",
+            "instructions": "The semi-transparent color that covers the background image.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "red": "Red",
+                "blue": "Blue"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": "red",
+            "layout": "horizontal",
+            "return_format": "value",
+            "save_other_choice": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            },
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1586997665
+}

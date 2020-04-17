@@ -1,0 +1,30 @@
+.gform_form {
+
+}
+
+.ginput_container_text,
+.ginput_container_email {
+	input {
+		@include form-text();
+
+		&::placeholder {
+			color: $invert;
+			font-size: 1.4rem;
+			font-family: $sans-2;
+			text-transform: uppercase;
+		}
+
+	}
+}
+
+.gfield_label {
+	@include form-label();
+}
+
+.gform_button {
+	@include form-submit();
+}
+
+.gform_button-submitIcon {
+
+}

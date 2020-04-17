@@ -1,0 +1,28 @@
+
+@mixin form-label() {
+	font-family: $sans-2;
+	font-size: 1.8rem;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+@mixin form-text() {
+	appearance: none;
+	border: none;
+	border-radius: 0;
+	background-color: transparent;
+	font-size: 1.6rem;
+	color: $invert;
+	border-bottom: 1px solid $invert;
+}
+
+@mixin form-submit() {
+	appearance: none;
+	border: none;
+	border-radius: 0;
+	background-color: transparent;
+	font-size: 1.6rem;
+	color: $invert;
+	cursor: pointer;
+	display: inline-block;
+}
