@@ -1,7 +1,7 @@
 .home-statistics {
   background: url('../../images/bg-home-statistics.png');
   padding: 20rem 0 15rem;
-  margin-top: -7rem;
+  // margin-top: -7rem; // negative margins mess up the scrollspy
   position: relative;
 
   .contentGroup-cta {
@@ -10,7 +10,7 @@
       color: $color-3;
     }
   }
-  
+
   .home-content-row {
     justify-content: space-between;
   }
