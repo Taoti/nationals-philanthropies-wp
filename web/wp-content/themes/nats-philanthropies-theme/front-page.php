@@ -17,13 +17,27 @@ taoti_enqueue_critical_css( get_template_directory().'/styles/css/critical/front
 get_header();
 ?>
 
+<?php
+// The total number of sections on the homepage is the hero plus the number of modules in the home page builder.
+$modules_homePage = get_field('modules_homePage');
+$total_sections = 1 + count($modules_homePage); // The 1 is the hero.
+
+$total_sections = 5; // tmporary hardcode to 5
+
+// Output the numbered page based on the total number of homepage sections. The number should be at least 2 digits with a leading zero if it's only one digit.
+?>
 <nav class="sectionNavigation">
   <ul>
-    <li class="scrollspy-navItem active">01</li>
+    <?php for( $i = 1; $i <= $total_sections; $i++ ): ?>
+      <li class="scrollspy-navItem"><?php echo sprintf('%02d', $i); ?></li>
+    <?php endfor; ?>
+
+    <!-- <li class="scrollspy-navItem active">01</li>
     <li class="scrollspy-navItem">02</li>
     <li class="scrollspy-navItem">03</li>
     <li class="scrollspy-navItem">04</li>
-    <li class="scrollspy-navItem">05</li>
+    <li class="scrollspy-navItem">05</li> -->
+
   </ul>
 </nav>
 
