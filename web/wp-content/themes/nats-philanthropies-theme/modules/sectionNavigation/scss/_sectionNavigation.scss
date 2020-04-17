@@ -11,14 +11,8 @@
     padding-left: 25px;
     padding-bottom: 2.4rem;
     position: relative;
-    color: white;
-
-    &.active {
-      &:before {
-        border: none;
-        background: white;
-      }
-    }
+    color: $invert;
+    transition: color 200ms;
 
     &:before {
       content: "";
@@ -30,6 +24,30 @@
       height: 10px;
       border: 1px solid white;
       transform: rotate(45deg) translateY(-50%);
+      transition: background-color 100ms;
+    }
+
+    &.active {
+      &:before {
+        // border: none;
+        background: $invert;
+      }
+    }
+
+    &.scrollspy-dark {
+      color: $color-4;
+
+      &:before {
+        border: 1px solid $color-4;
+      }
+
+      &.active {
+        &:before {
+          // border: none;
+          background: $color-4;
+        }
+      }
+
     }
   }
 }

@@ -19,11 +19,11 @@ get_header();
 
 <nav class="sectionNavigation">
   <ul>
-    <li class="active">01</li>
-    <li>02</li>
-    <li>03</li>
-    <li>04</li>
-    <li>05</li>
+    <li class="scrollspy-navItem active">01</li>
+    <li class="scrollspy-navItem">02</li>
+    <li class="scrollspy-navItem">03</li>
+    <li class="scrollspy-navItem">04</li>
+    <li class="scrollspy-navItem">05</li>
   </ul>
 </nav>
 
@@ -41,7 +41,7 @@ $hero = new Hero($args);
 $hero->render();
 ?>
 
-<section class="home-module home-statistics">
+<section class="l-homePageModule home-module home-statistics scrollspy scrollspy-light">
   <div class="l-container">
     <div class="home-content-row">
       <div class="home-content-column">
@@ -80,7 +80,7 @@ $hero->render();
   </div>
 </section>
 
-<section class="home-image">
+<section class="l-homePageModule home-image scrollspy scrollspy-dark">
   <div class="l-container">
     <div class="home-content-row">
       <div class="home-content-column">
@@ -105,7 +105,7 @@ $hero->render();
 </section>
 
 
-<section class="home-quote">
+<section class="l-homePageModule home-quote scrollspy scrollspy-dark">
   <div class="l-container">
     <div class="home-content-row">
       <div class="home-content-column">

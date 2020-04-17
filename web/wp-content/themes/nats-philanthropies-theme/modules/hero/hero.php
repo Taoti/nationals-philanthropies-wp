@@ -36,11 +36,16 @@ class Hero {
 			'classes' => [
 				'lazyload',
 				'hero',
-        'hero-home',
 			]
 		];
 
 		extract(array_merge($this->defaults, $args));
+
+		if( is_front_page() ){
+			$classes[] = 'hero-home';
+			$classes[] = 'scrollspy';
+			$classes[] = 'scrollspy-dark';
+		}
 
     if($background_image_url) {
       $background_image_url = $background_image_url[0];
