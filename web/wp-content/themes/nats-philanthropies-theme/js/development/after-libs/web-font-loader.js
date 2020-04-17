@@ -22,4 +22,6 @@ function taoti_fonts_active_cb(){
     // The fonts loading in will change the height of the header.
     taoti_update_header_height_property();
 
+    taoti_set_homepage_section_boundaries();
+
 }

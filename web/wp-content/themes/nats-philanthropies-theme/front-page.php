@@ -105,7 +105,7 @@ $hero->render();
 </section>
 
 
-<section class="l-homePageModule home-quote scrollspy scrollspy-dark">
+<section class="l-homePageModule home-quote scrollspy scrollspy-light">
   <div class="l-container">
     <div class="home-content-row">
       <div class="home-content-column">

@@ -866,160 +866,117 @@ function Da(a){for(var b=a.f.length,c=0;c<b;c++){var d=a.f[c].split(":"),e=d[0].
 g,0<d.length&&(d=za[d[0]])&&(a.c[e]=d))}a.c[e]||(d=za[e])&&(a.c[e]=d);for(d=0;d<f.length;d+=1)a.a.push(new G(e,f[d]))}};function Ea(a,b){this.c=a;this.a=b}var Fa={Arimo:!0,Cousine:!0,Tinos:!0};Ea.prototype.load=function(a){var b=new B,c=this.c,d=new ta(this.a.api,this.a.text),e=this.a.families;va(d,e);var f=new ya(e);Da(f);z(c,wa(d),C(b));E(b,function(){a(f.a,f.c,Fa)})};function Ga(a,b){this.c=a;this.a=b}Ga.prototype.load=function(a){var b=this.a.id,c=this.c.o;b?A(this.c,(this.a.api||"https://use.typekit.net")+"/"+b+".js",function(b){if(b)a([]);else if(c.Typekit&&c.Typekit.config&&c.Typekit.config.fn){b=c.Typekit.config.fn;for(var e=[],f=0;f<b.length;f+=2)for(var g=b[f],m=b[f+1],h=0;h<m.length;h++)e.push(new G(g,m[h]));try{c.Typekit.load({events:!1,classes:!1,async:!0})}catch(l){}a(e)}},2E3):a([])};function Ha(a,b){this.c=a;this.f=b;this.a=[]}Ha.prototype.load=function(a){var b=this.f.id,c=this.c.o,d=this;b?(c.__webfontfontdeckmodule__||(c.__webfontfontdeckmodule__={}),c.__webfontfontdeckmodule__[b]=function(b,c){for(var g=0,m=c.fonts.length;g<m;++g){var h=c.fonts[g];d.a.push(new G(h.name,ga("font-weight:"+h.weight+";font-style:"+h.style)))}a(d.a)},A(this.c,(this.f.api||"https://f.fontdeck.com/s/css/js/")+ea(this.c)+"/"+b+".js",function(b){b&&a([])})):a([])};var Y=new oa(window);Y.a.c.custom=function(a,b){return new sa(b,a)};Y.a.c.fontdeck=function(a,b){return new Ha(b,a)};Y.a.c.monotype=function(a,b){return new ra(b,a)};Y.a.c.typekit=function(a,b){return new Ga(b,a)};Y.a.c.google=function(a,b){return new Ea(b,a)};var Z={load:p(Y.load,Y)};"function"===typeof define&&define.amd?define(function(){return Z}):"undefined"!==typeof module&&module.exports?module.exports=Z:(window.WebFont=Z,window.WebFontConfig&&Y.load(window.WebFontConfig));}());
 
 // scrollspy cb
-// Populates the tab_section_positions[] array (which must already exist on a global scope) with the scroll positions of the elements in the homepage_sections[] array. Used as callback on page load and on window resize event.
-function taoti_get_section_positions_cb(homepage_sections){
-
-	for( i=0; i<homepage_sections.length; i++ ){
-		var this_tab_section = document.getElementById( homepage_sections[i] );
-
-		if( this_tab_section !== null ){
-			var this_tab_section_shape = this_tab_section.getBoundingClientRect();
-			tab_section_positions.push( {
-				id: homepage_sections[i],
-				position: this_tab_section_shape.top + window.pageYOffset
-			} );
-		}
-
-	}
-
-}
-
-
-// Determines if a section on the page has been scrolled to, highlights the navigation link of that section.
-// var homepage_sections = [
-// 	'the-challenge',
-// 	'the-solutions',
-// 	'the-results'
-// ];
-
-// var tab_section_positions = [];
-// kp_get_section_positions_cb(homepage_sections);
-// console.log( tab_section_positions );
-
-// window.addEventListener( 'resize', function(){
-// 	kp_get_section_positions_cb(homepage_sections);
-// });
-
-var scrollspy_navItems = jQuery('.scrollspy-navItem');
-var homepage_sections = jQuery('.scrollspy');
-
+// Populates the homepage_section_boundaries[] array (which must already exist on a global scope) with the scroll positions of the homepage sections.
 var homepage_section_boundaries = [];
+taoti_set_homepage_section_boundaries();
 
-for( i=0; i<homepage_sections.length; i++ ){
-	var this_homepage_section_shape = homepage_sections[i].getBoundingClientRect();
-	// console.log(this_homepage_section_shape);
+window.addEventListener( 'resize', taoti_set_homepage_section_boundaries );
 
-	var new_homepage_section_boundary = [];
-	new_homepage_section_boundary['top'] = this_homepage_section_shape.top + window.pageYOffset;
-	new_homepage_section_boundary['bottom'] = this_homepage_section_shape.top + this_homepage_section_shape.height + window.pageYOffset;
+function taoti_set_homepage_section_boundaries(){
 
-	if( jQuery(homepage_sections[i]).hasClass('scrollspy-dark') ){
-		new_homepage_section_boundary['class'] = 'scrollspy-dark';
-	} else if( jQuery(homepage_sections[i]).hasClass('scrollspy-light') ){
-		new_homepage_section_boundary['class'] = 'scrollspy-light';
+	try {
+		homepage_section_boundaries = [];
+
+		var homepage_sections = jQuery('.scrollspy');
+
+		for( i=0; i<homepage_sections.length; i++ ){
+			var this_homepage_section_shape = homepage_sections[i].getBoundingClientRect();
+			// console.log(this_homepage_section_shape);
+
+			var new_homepage_section_boundary = [];
+			new_homepage_section_boundary['top'] = this_homepage_section_shape.top + window.pageYOffset;
+			new_homepage_section_boundary['bottom'] = this_homepage_section_shape.top + this_homepage_section_shape.height + window.pageYOffset;
+
+			if( jQuery(homepage_sections[i]).hasClass('scrollspy-dark') ){
+				new_homepage_section_boundary['class'] = 'scrollspy-dark';
+			} else if( jQuery(homepage_sections[i]).hasClass('scrollspy-light') ){
+				new_homepage_section_boundary['class'] = 'scrollspy-light';
+			}
+
+			homepage_section_boundaries.push( new_homepage_section_boundary );
+
+		}
+		// console.log(homepage_section_boundaries);
+
+	}
+	catch(e){
+		console.log(e);
 	}
 
-	homepage_section_boundaries.push( new_homepage_section_boundary );
-
 }
-console.log(homepage_section_boundaries);
-
-
-var scrollspy_navItem_boundaries = [];
-
-for( i=0; i<scrollspy_navItems.length; i++ ){
-	var this_scrollspy_navItem_shape = scrollspy_navItems[i].getBoundingClientRect();
-	console.log(this_scrollspy_navItem_shape);
-
-	var new_scrollspy_navItem_boundary = [];
-	new_scrollspy_navItem_boundary['top'] = this_scrollspy_navItem_shape.top;
-	new_scrollspy_navItem_boundary['bottom'] = this_scrollspy_navItem_shape.top + this_scrollspy_navItem_shape.height;
-
-	scrollspy_navItem_boundaries.push( new_scrollspy_navItem_boundary );
-
-}
-console.log(scrollspy_navItem_boundaries);
-
 
 window.addEventListener( 'scroll', function(){
 	// console.log('scrolling');
-	var height_offset = 1;//0.66;
-	var current_scroll_distance = window.pageYOffset + (window.innerHeight * height_offset);
+	// var current_scroll_distance = window.pageYOffset + window.innerHeight;
+	// console.log( window.pageYOffset );
 	// console.log( current_scroll_distance );
 
-	var active_section_index = 0;
+	try {
 
+		var scrollspy_navItems = jQuery('.scrollspy-navItem');
 
-	// console.log( homepage_sections );
+		for( i=0; i<scrollspy_navItems.length; i++){
 
-	for( i=0; i<scrollspy_navItems.length; i++){
+			var this_navItems_shape = scrollspy_navItems[i].getBoundingClientRect();
+			var this_navItems_bottom_edge = this_navItems_shape.top + this_navItems_shape.height;
+			// console.log(this_navItems_shape);
 
-		var this_navItems_shape = scrollspy_navItems[i].getBoundingClientRect();
-		var this_navItems_bottom_edge = this_navItems_shape.top + this_navItems_shape.height;
-		// console.log(this_navItems_shape);
+			for( j=0; j<homepage_section_boundaries.length; j++){
 
-		for( j=0; j<homepage_sections.length; j++){
+				var this_navItems_fauxScrollDistance = 0;
 
-			// var this_section_shape = homepage_sections[j].getBoundingClientRect();
-			// this_section_bottom_edge = this_section_shape.top + this_section_shape.height;
+				if( window.taoti_scrollDirection === 'down' ){
+					this_navItems_fauxScrollDistance = this_navItems_shape.top + window.pageYOffset;
 
-			// // TODO: This works for scrolling down. But if scrolling up, check if this_navItems_top_edge is greater than the section edge.
-			// var edges_have_crossed = false;
+				} else if( window.taoti_scrollDirection === 'up' ){
+					this_navItems_fauxScrollDistance = this_navItems_shape.top + this_navItems_shape.height + window.pageYOffset;
+				}
 
-			// if( window.scroll_direction === 'down' ){
-			// 	edges_have_crossed = this_navItems_bottom_edge > this_section_bottom_edge && this_section_bottom_edge > 0;
+				var edges_have_crossed = this_navItems_fauxScrollDistance > homepage_section_boundaries[j]['top'] && this_navItems_fauxScrollDistance < homepage_section_boundaries[j]['bottom'];
 
-			// } else if( window.scroll_direction === 'up' ){
-			// 	edges_have_crossed = this_navItems_shape.top < this_section_bottom_edge;
-			// }
+				if( edges_have_crossed ){
+					var this_section_class = homepage_section_boundaries[j]['class'];
 
-			// // if( this_navItems_bottom_edge > this_section_bottom_edge && this_section_bottom_edge > 0 ){
-			// // if( edges_have_crossed && this_section_bottom_edge > 0 ){
-			// if( edges_have_crossed ){
-			// 	// active_section_index = j;
+					if( this_section_class === 'scrollspy-dark' ){
+						jQuery(scrollspy_navItems[i]).addClass('scrollspy-dark');
+						jQuery(scrollspy_navItems[i]).removeClass('scrollspy-light');
 
-			// 	if( jQuery(homepage_sections[j]).hasClass('scrollspy-dark') ){
-			// 		jQuery(scrollspy_navItems[i]).addClass('scrollspy-dark');
-			// 		// jQuery(scrollspy_navItems[i]).removeClass('scrollspy-light');
+					} else if( this_section_class === 'scrollspy-light' ){
+						jQuery(scrollspy_navItems[i]).removeClass('scrollspy-dark');
+						jQuery(scrollspy_navItems[i]).addClass('scrollspy-light');
+					}
 
-			// 	} else {
-			// 		// jQuery(scrollspy_navItems[i]).addClass('scrollspy-light');
-			// 		jQuery(scrollspy_navItems[i]).removeClass('scrollspy-dark');
-			// 	}
+				}
 
-			// }
+			}
 
 		}
 
 	}
-
-
-	// console.log( 'active section = ');
-	// console.log( homepage_sections[active_section_index] );
-	// console.log( '%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%');
-
-
-
-	// var tabs = document.querySelectorAll('.case-study-tabs-link');
-	// if( active_tab ){
-	// 	try {
-	// 		kpRemoveClass(tabs, 'is-active');
-	// 		kpAddClass(active_tab, 'is-active');
-
-	// 	} catch( error ){
-	// 		console.log(error);
-	// 	}
-
-	// } else {
-	// 	try {
-	// 		kpRemoveClass(tabs, 'is-active');
-
-	// 	} catch( error ){
-	// 		console.log(error);
-	// 	}
-	// }
+	catch(e){
+		console.log(e);
+	}
 
 });
+
+window.taoti_lastScrollTop = 0;
+window.taoti_scrollDirection = '';
+window.addEventListener("scroll", function(){
+   var st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
+   if (st > window.taoti_lastScrollTop){
+		window.taoti_scrollDirection = 'down';
+   } else {
+    window.taoti_scrollDirection = 'up';
+   }
+	 window.taoti_lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+
+	//  console.log(window.taoti_scrollDirection);
+}, false);
+
+
+
+
+
 
 
 
@@ -1039,24 +996,6 @@ function isElementInViewport (el) {
 			rect.right <= (window.innerWidth || document.documentElement.clientWidth) /* or $(window).width() */
 	);
 }
-
-
-
-var lastScrollTop = 0;
-window.scroll_direction = '';
-window.addEventListener("scroll", function(){ // or window.addEventListener("scroll"....
-   var st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
-   if (st > lastScrollTop){
-		window.scroll_direction = 'down';
-   } else {
-    window.scroll_direction = 'up';
-   }
-	 lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
-
-	 console.log(window.scroll_direction);
-}, false);
-
-
 
 
 // There is a CSS custom property `--header-height` that controls the size/position of the mega nav. The height must be updated when the window is resized or scrolled, since the height of the header can change after either of those events.
@@ -1189,6 +1128,8 @@ function taoti_fonts_active_cb(){
 
     // The fonts loading in will change the height of the header.
     taoti_update_header_height_property();
+
+    taoti_set_homepage_section_boundaries();
 
 }
 

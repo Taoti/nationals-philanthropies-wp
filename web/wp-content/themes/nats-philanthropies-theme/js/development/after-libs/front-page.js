@@ -1,158 +1,115 @@
 // scrollspy cb
-// Populates the tab_section_positions[] array (which must already exist on a global scope) with the scroll positions of the elements in the homepage_sections[] array. Used as callback on page load and on window resize event.
-function taoti_get_section_positions_cb(homepage_sections){
-
-	for( i=0; i<homepage_sections.length; i++ ){
-		var this_tab_section = document.getElementById( homepage_sections[i] );
-
-		if( this_tab_section !== null ){
-			var this_tab_section_shape = this_tab_section.getBoundingClientRect();
-			tab_section_positions.push( {
-				id: homepage_sections[i],
-				position: this_tab_section_shape.top + window.pageYOffset
-			} );
-		}
-
-	}
-
-}
-
-
-// Determines if a section on the page has been scrolled to, highlights the navigation link of that section.
-// var homepage_sections = [
-// 	'the-challenge',
-// 	'the-solutions',
-// 	'the-results'
-// ];
-
-// var tab_section_positions = [];
-// kp_get_section_positions_cb(homepage_sections);
-// console.log( tab_section_positions );
-
-// window.addEventListener( 'resize', function(){
-// 	kp_get_section_positions_cb(homepage_sections);
-// });
-
-var scrollspy_navItems = jQuery('.scrollspy-navItem');
-var homepage_sections = jQuery('.scrollspy');
-
+// Populates the homepage_section_boundaries[] array (which must already exist on a global scope) with the scroll positions of the homepage sections.
 var homepage_section_boundaries = [];
+taoti_set_homepage_section_boundaries();
 
-for( i=0; i<homepage_sections.length; i++ ){
-	var this_homepage_section_shape = homepage_sections[i].getBoundingClientRect();
-	// console.log(this_homepage_section_shape);
+window.addEventListener( 'resize', taoti_set_homepage_section_boundaries );
 
-	var new_homepage_section_boundary = [];
-	new_homepage_section_boundary['top'] = this_homepage_section_shape.top + window.pageYOffset;
-	new_homepage_section_boundary['bottom'] = this_homepage_section_shape.top + this_homepage_section_shape.height + window.pageYOffset;
+function taoti_set_homepage_section_boundaries(){
 
-	if( jQuery(homepage_sections[i]).hasClass('scrollspy-dark') ){
-		new_homepage_section_boundary['class'] = 'scrollspy-dark';
-	} else if( jQuery(homepage_sections[i]).hasClass('scrollspy-light') ){
-		new_homepage_section_boundary['class'] = 'scrollspy-light';
+	try {
+		homepage_section_boundaries = [];
+
+		var homepage_sections = jQuery('.scrollspy');
+
+		for( i=0; i<homepage_sections.length; i++ ){
+			var this_homepage_section_shape = homepage_sections[i].getBoundingClientRect();
+			// console.log(this_homepage_section_shape);
+
+			var new_homepage_section_boundary = [];
+			new_homepage_section_boundary['top'] = this_homepage_section_shape.top + window.pageYOffset;
+			new_homepage_section_boundary['bottom'] = this_homepage_section_shape.top + this_homepage_section_shape.height + window.pageYOffset;
+
+			if( jQuery(homepage_sections[i]).hasClass('scrollspy-dark') ){
+				new_homepage_section_boundary['class'] = 'scrollspy-dark';
+			} else if( jQuery(homepage_sections[i]).hasClass('scrollspy-light') ){
+				new_homepage_section_boundary['class'] = 'scrollspy-light';
+			}
+
+			homepage_section_boundaries.push( new_homepage_section_boundary );
+
+		}
+		// console.log(homepage_section_boundaries);
+
+	}
+	catch(e){
+		console.log(e);
 	}
 
-	homepage_section_boundaries.push( new_homepage_section_boundary );
-
 }
-console.log(homepage_section_boundaries);
-
-
-var scrollspy_navItem_boundaries = [];
-
-for( i=0; i<scrollspy_navItems.length; i++ ){
-	var this_scrollspy_navItem_shape = scrollspy_navItems[i].getBoundingClientRect();
-	console.log(this_scrollspy_navItem_shape);
-
-	var new_scrollspy_navItem_boundary = [];
-	new_scrollspy_navItem_boundary['top'] = this_scrollspy_navItem_shape.top;
-	new_scrollspy_navItem_boundary['bottom'] = this_scrollspy_navItem_shape.top + this_scrollspy_navItem_shape.height;
-
-	scrollspy_navItem_boundaries.push( new_scrollspy_navItem_boundary );
-
-}
-console.log(scrollspy_navItem_boundaries);
-
 
 window.addEventListener( 'scroll', function(){
 	// console.log('scrolling');
-	var height_offset = 1;//0.66;
-	var current_scroll_distance = window.pageYOffset + (window.innerHeight * height_offset);
+	// var current_scroll_distance = window.pageYOffset + window.innerHeight;
+	// console.log( window.pageYOffset );
 	// console.log( current_scroll_distance );
 
-	var active_section_index = 0;
+	try {
 
+		var scrollspy_navItems = jQuery('.scrollspy-navItem');
 
-	// console.log( homepage_sections );
+		for( i=0; i<scrollspy_navItems.length; i++){
 
-	for( i=0; i<scrollspy_navItems.length; i++){
+			var this_navItems_shape = scrollspy_navItems[i].getBoundingClientRect();
+			var this_navItems_bottom_edge = this_navItems_shape.top + this_navItems_shape.height;
+			// console.log(this_navItems_shape);
 
-		var this_navItems_shape = scrollspy_navItems[i].getBoundingClientRect();
-		var this_navItems_bottom_edge = this_navItems_shape.top + this_navItems_shape.height;
-		// console.log(this_navItems_shape);
+			for( j=0; j<homepage_section_boundaries.length; j++){
 
-		for( j=0; j<homepage_sections.length; j++){
+				var this_navItems_fauxScrollDistance = 0;
 
-			// var this_section_shape = homepage_sections[j].getBoundingClientRect();
-			// this_section_bottom_edge = this_section_shape.top + this_section_shape.height;
+				if( window.taoti_scrollDirection === 'down' ){
+					this_navItems_fauxScrollDistance = this_navItems_shape.top + window.pageYOffset;
 
-			// // TODO: This works for scrolling down. But if scrolling up, check if this_navItems_top_edge is greater than the section edge.
-			// var edges_have_crossed = false;
+				} else if( window.taoti_scrollDirection === 'up' ){
+					this_navItems_fauxScrollDistance = this_navItems_shape.top + this_navItems_shape.height + window.pageYOffset;
+				}
 
-			// if( window.scroll_direction === 'down' ){
-			// 	edges_have_crossed = this_navItems_bottom_edge > this_section_bottom_edge && this_section_bottom_edge > 0;
+				var edges_have_crossed = this_navItems_fauxScrollDistance > homepage_section_boundaries[j]['top'] && this_navItems_fauxScrollDistance < homepage_section_boundaries[j]['bottom'];
 
-			// } else if( window.scroll_direction === 'up' ){
-			// 	edges_have_crossed = this_navItems_shape.top < this_section_bottom_edge;
-			// }
+				if( edges_have_crossed ){
+					var this_section_class = homepage_section_boundaries[j]['class'];
 
-			// // if( this_navItems_bottom_edge > this_section_bottom_edge && this_section_bottom_edge > 0 ){
-			// // if( edges_have_crossed && this_section_bottom_edge > 0 ){
-			// if( edges_have_crossed ){
-			// 	// active_section_index = j;
+					if( this_section_class === 'scrollspy-dark' ){
+						jQuery(scrollspy_navItems[i]).addClass('scrollspy-dark');
+						jQuery(scrollspy_navItems[i]).removeClass('scrollspy-light');
 
-			// 	if( jQuery(homepage_sections[j]).hasClass('scrollspy-dark') ){
-			// 		jQuery(scrollspy_navItems[i]).addClass('scrollspy-dark');
-			// 		// jQuery(scrollspy_navItems[i]).removeClass('scrollspy-light');
+					} else if( this_section_class === 'scrollspy-light' ){
+						jQuery(scrollspy_navItems[i]).removeClass('scrollspy-dark');
+						jQuery(scrollspy_navItems[i]).addClass('scrollspy-light');
+					}
 
-			// 	} else {
-			// 		// jQuery(scrollspy_navItems[i]).addClass('scrollspy-light');
-			// 		jQuery(scrollspy_navItems[i]).removeClass('scrollspy-dark');
-			// 	}
+				}
 
-			// }
+			}
 
 		}
 
 	}
-
-
-	// console.log( 'active section = ');
-	// console.log( homepage_sections[active_section_index] );
-	// console.log( '%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%');
-
-
-
-	// var tabs = document.querySelectorAll('.case-study-tabs-link');
-	// if( active_tab ){
-	// 	try {
-	// 		kpRemoveClass(tabs, 'is-active');
-	// 		kpAddClass(active_tab, 'is-active');
-
-	// 	} catch( error ){
-	// 		console.log(error);
-	// 	}
-
-	// } else {
-	// 	try {
-	// 		kpRemoveClass(tabs, 'is-active');
-
-	// 	} catch( error ){
-	// 		console.log(error);
-	// 	}
-	// }
+	catch(e){
+		console.log(e);
+	}
 
 });
+
+window.taoti_lastScrollTop = 0;
+window.taoti_scrollDirection = '';
+window.addEventListener("scroll", function(){
+   var st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
+   if (st > window.taoti_lastScrollTop){
+		window.taoti_scrollDirection = 'down';
+   } else {
+    window.taoti_scrollDirection = 'up';
+   }
+	 window.taoti_lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+
+	//  console.log(window.taoti_scrollDirection);
+}, false);
+
+
+
+
+
 
 
 
@@ -172,21 +129,3 @@ function isElementInViewport (el) {
 			rect.right <= (window.innerWidth || document.documentElement.clientWidth) /* or $(window).width() */
 	);
 }
-
-
-
-var lastScrollTop = 0;
-window.scroll_direction = '';
-window.addEventListener("scroll", function(){ // or window.addEventListener("scroll"....
-   var st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
-   if (st > lastScrollTop){
-		window.scroll_direction = 'down';
-   } else {
-    window.scroll_direction = 'up';
-   }
-	 lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
-
-	 console.log(window.scroll_direction);
-}, false);
-
-

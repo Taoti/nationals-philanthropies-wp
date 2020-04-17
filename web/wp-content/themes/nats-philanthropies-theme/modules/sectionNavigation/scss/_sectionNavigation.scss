@@ -34,7 +34,7 @@
       }
     }
 
-    &.scrollspy-dark {
+    &.scrollspy-light {
       color: $color-4;
 
       &:before {
@@ -49,5 +49,22 @@
       }
 
     }
+
+    // &.scrollspy-dark {
+    //   color: $invert;
+
+    //   &:before {
+    //     border: 1px solid $invert;
+    //   }
+
+    //   &.active {
+    //     &:before {
+    //       // border: none;
+    //       background: $invert;
+    //     }
+    //   }
+
+    // }
+
   }
 }
