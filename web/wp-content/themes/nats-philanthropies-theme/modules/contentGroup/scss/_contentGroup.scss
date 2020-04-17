@@ -1,0 +1,125 @@
+.contentGroup-heading {
+  color: $color-3;  
+  text-align: left;
+  letter-spacing: -.025em;
+  line-height: .8;
+  position: relative;
+  opacity: 0;
+  text-transform: uppercase;
+  transition: opacity 1500ms;
+  font-size: 6rem;
+
+  &:before {
+    content: "";
+    width: 81px;
+    height: 1px;
+    background: $color-3;
+    transform: translatey(-5rem);
+    display: block;
+    position: absolute;
+  }
+}
+
+.contentGroup-accent {
+  display: block;
+  position: absolute;
+  opacity: 0;
+}
+
+.contentGroup-accent-1 {
+  bottom: 0;
+  left: 0;
+  transform: translate3d(-100%, 0, 0);
+  transition: opacity 600ms 360ms, transform 800ms $bounce 260ms;
+
+  @media screen and ( max-width: $design-width ) {
+    left: calc(100vw - 13.8rem - 13.8rem - 90%);
+  }
+
+  @media screen and (max-width: 480px) {
+    left: auto;
+    right: 0;
+  }
+}
+
+  .hero-accent-2 {
+    bottom: 0;
+    right: -10%;
+    transform: translate3d(100%, 0, 0);
+    transition: opacity 600ms 200ms,
+    transform 800ms $bounce 100ms;
+
+    @media screen and (max-width: $design-width) {
+      right: calc(100vw - 13.8rem - 13.8rem - 100%);
+    }
+
+    @media screen and (max-width: 480px) {
+      right: auto;
+      left: 0;
+    }
+  }
+
+.contentGroup-headingLine {
+  display: block;
+  white-space: nowrap;
+  position: relative;
+
+  &:not(.contentGroup-headingOutline){
+    transform: translate3d(0, 2em, 0);
+    transition: transform 775ms $bounce 260ms;
+  }
+
+  @media screen and ( max-width: 480px ) {
+    white-space: normal;
+  }
+
+}
+
+.contentGroup-headingOutline {
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 1.5px $color-3;
+  transform: translate3d(0, 1.5em, 0);
+  transition: transform 700ms $bounce 100ms;
+  position: relative;
+
+  @media screen and ( max-width: 400px ) {
+    -webkit-text-stroke: 1px $invert;
+  }
+}
+
+.contentGroup-textWrap {
+  position: relative;
+  z-index: 1;
+}
+
+
+html.wf-active,
+html.wf-inactive {
+
+  .contentGroup-heading {
+    opacity: 1;
+  }
+
+  .contentGroup-headingLine,
+  .contentGroup-headingOutline {
+    transform: translate3d(0, 0, 0);
+  }
+
+  .contentGroup-accent.lazyloaded {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+
+}
+
+.contentGroup-description {
+  font-size: 1.4rem;
+  margin-top: 2rem;
+  max-width: 710px;
+  line-height: 1.8;
+}
+
+.contentGroup-cta {
+  @include cta-circle;
+  margin-top: 2rem;
+}

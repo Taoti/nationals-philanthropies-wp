@@ -1,7 +1,19 @@
 .hero.hero-home {
   color: white;
-  background: $color-2;
   position: relative;
+
+  &:before {
+    width: 100%;
+    height: 100%;
+    background: $color-2;
+    mix-blend-mode: multiply;
+    opacity: 1;
+    z-index: 0;
+  }
+
+  .l-container {
+    max-width: 1350px;
+  }
 
   .hero-heading {
     text-align: left;
@@ -12,45 +24,28 @@
     background: white;
     border: none;
   }
+
+  .hero-accent-1 {
+    z-index: 1;
+    left: 10%;
+    bottom: -10px;
+  }
+
+  .hero-headingLine {
+    position: relative;
+    z-index: 3;
+  }
 }
 
 .hero-backgroundImage {
   width: 100%;
   height: 100%;
   position: absolute;
-  background-blend-mode: overlay;
+  mix-blend-mode: overlay;
   opacity: .4;
   background-size: cover;
   background-position: center;
-}
-
-
-
-.sectionNavigation {
-  position: absolute;
-  left: 0;
-  top: calc(50% - 50px);
-  transform: translateY(-50%);
-
-  li {
-    font-family: $sans-2;
-    font-size: 1.8rem;
-    padding-left: 25px;
-    padding-bottom: 2.4rem;
-    position: relative;
-
-    &:before {
-      content: "";
-      display: block;
-      top: calc(50% - 13px);
-      position: absolute;
-      left: 0;
-      width: 10px;
-      height: 10px;
-      border: 1px solid white;
-      transform: rotate(45deg) translateY(-50%);
-    }
-  }
+  z-index: 1;
 }
 
 .hero-row {
@@ -61,15 +56,20 @@
 
 .hero-content {
   flex-basis: 60%;
-  z-index: 3;
   position: relative;
+}
+
+.hero-description {
+  font-size: 1.4rem;
+  margin-top: 2.5rem;
+  max-width: 500px;
+  line-height: 1.8;
 }
 
 .hero-img {
   flex-basis: 40%;
-  position: relative;
   min-height: 730px;
-  z-index: 2;
+  position: relative;
 
   > img {
     position: absolute;
@@ -78,5 +78,11 @@
     right: 0;
     transform: translateY(-50%);
     width: auto;
+    z-index: 2;
   }
+}
+
+.hero-button {
+  @include cta-circle;
+  z-index: 3;
 }

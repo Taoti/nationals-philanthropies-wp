@@ -90,9 +90,11 @@ $args = [
 	'button_label' => get_sub_field('button_label'),
 	'button_url' => get_sub_field('button_url'),
 	'classes' => [
-		'l-module',
+		'l-homePageModule',
 		'postGrid',
 		'postGrid-home',
+		'scrollspy',
+		'scrollspy-light',
 	],
 ];
 $post_grid = new PostGrid($args);

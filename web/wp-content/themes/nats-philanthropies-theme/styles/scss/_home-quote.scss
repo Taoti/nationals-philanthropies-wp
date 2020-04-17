@@ -1,0 +1,21 @@
+.home-quote {
+  padding: 15rem 0;
+  position: relative;
+  z-index: 0;
+
+  .home-content-row {
+    justify-content: space-between;
+  }
+
+  .home-content-column:first-child {
+    flex-basis: 35%;
+  }
+
+  .home-content-column:last-child {
+    flex-basis: 56%;
+  }
+
+  .contentGroup {
+    max-width: 410px;
+  }
+}

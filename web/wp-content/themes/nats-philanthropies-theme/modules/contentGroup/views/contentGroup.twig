@@ -1,0 +1,33 @@
+{% block contentGroup %}
+<div class="{{ classes }}">
+    <div class="contentGroup-inner">
+    {% if primary_heading and secondary_heading %}
+        <h1 class="contentGroup-heading">
+
+          {% if accent_image_1_html %}
+          {{ accent_image_1_html }}
+          {% endif %}
+
+          <span class="contentGroup-headingLine contentGroup-headingOutline">
+
+            <span class="contentGroup-textWrap">{{ primary_heading }}</span>
+
+          </span>
+
+          <span class="contentGroup-headingLine">
+            <span class="contentGroup-textWrap">{{ secondary_heading }}</span>
+          </span>
+        </h1>
+        {% endif %}
+
+		{% if description %}
+		<div class="contentGroup-description">{{ description }}</div>
+    {% endif %}
+
+		{% if cta_link and cta_label %}
+		<a class="contentGroup-cta" href="{{ cta_url }}"><span>{{ cta_label }}</span></a>
+		{% endif %}
+
+    </div>
+</div>
+{% endblock %}

@@ -36,11 +36,16 @@ class Hero {
 			'classes' => [
 				'lazyload',
 				'hero',
-        'hero-home',
 			]
 		];
 
 		extract(array_merge($this->defaults, $args));
+
+		if( is_front_page() ){
+			$classes[] = 'hero-home';
+			$classes[] = 'scrollspy';
+			$classes[] = 'scrollspy-dark';
+		}
 
     if($background_image_url) {
       $background_image_url = $background_image_url[0];
@@ -49,7 +54,7 @@ class Hero {
 		$this->context = Timber::get_context();
 		$this->context['heading_line_1'] = $heading_line_1;
 		$this->context['heading_line_2'] = $heading_line_2;
-    $this->context['header_img'] = get_stylesheet_directory_uri() . '/images/hero-header-img.png';
+    $this->context['header_img'] = get_stylesheet_directory_uri() . '/images/hero-header-img-withShadows.png';
     $this->context['description'] = $description;
     $this->context['button_label'] = $button_label;
     $this->context['button_link'] = $button_link;

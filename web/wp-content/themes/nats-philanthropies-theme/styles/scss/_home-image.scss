@@ -1,0 +1,47 @@
+.home-image {
+  padding: 15rem 0;
+  background: url(../../images/bg-home-image.png);
+  background-size: cover;
+  background-position: center;
+
+  .contentGroup-inner {
+    max-width: 400px;
+  }
+
+  .contentGroup-heading,
+  .contentGroup-cta span,
+  .contentGroup-cta span:hover,
+  .contentGroup-description {
+    color: white;
+  }
+
+  .contentGroup-heading:before {
+    background: white;
+  }
+
+  .contentGroup-cta {
+    border-color: white;
+
+    span {
+      max-width: 50px;
+    }
+  }
+
+  .contentGroup-headingOutline {
+    -webkit-text-stroke: 1.5px white;
+  }
+
+  .home-content-column {
+
+    &:first-child {
+      text-align: center;
+      flex-basis: 60%;
+    }
+
+    img {
+      max-width: 100%;
+      width: 462px;
+      margin: 0 auto;
+    }
+  }
+}
