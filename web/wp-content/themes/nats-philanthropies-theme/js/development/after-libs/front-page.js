@@ -103,3 +103,18 @@ window.addEventListener( 'scroll', function(){
 
 });
 
+
+
+
+
+// inView for homepage sections
+// When a homepage section scrolls into view, assign the 'active' class to the related scrollspy pager nav item.
+// inView('.scrollspy')
+// 	.on('enter', function(el){
+// 		jQuery(el).addClass('in-view');
+// 	})
+// 	.on('exit', function(el){
+// 		jQuery(el).removeClass('in-view');
+// 	});
+
+// TODO: emit an 'enter' event like they explain in the documentation. Hopefully can emit an event to the window with the in-view section. Then the callback on that event can match the section to one of the pager items.
