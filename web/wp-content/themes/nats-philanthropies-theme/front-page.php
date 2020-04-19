@@ -45,7 +45,6 @@ $total_sections = 5; // tmporary hardcode to 5
   </ul>
 </nav>
 
-
 <?php
 $args = [
   'heading_line_1' => 'One Pursuit For',
@@ -59,108 +58,7 @@ $hero = new Hero($args);
 $hero->render();
 ?>
 
-<section class="l-homePageModule home-module home-statistics scrollspy scrollspy-light">
-  <div class="l-container">
-    <div class="home-content-row">
-      <div class="home-content-column">
-        <?php
-        // ContentGroup
-        $args = [
-         'primary_heading' => 'ONE PURSUIT FOR',
-         'secondary_heading' => 'MEASURABLE IMPACT',
-         'description' => 'We are commited to holistcally improving the lives of children and families across Washington, D.C. and beyond. Join our movement today.',
-         'cta_link' => '#',
-         'cta_label' => 'learn about our impact',
-        ];
-        $new_module = new ContentGroup($args);
-        $new_module->render();
-        ?>
-      </div>
-      <div class="home-content-column">
-        <div class="statistics">
-          <div class="statistics_row">
-            <div class="statistic">
-              <div class="statistic-number">10</div>
-              <div class="statistic-info">We are commited to holistcally improving the lives of children and families across Washington, D.C. and</div>
-            </div>
-            <div class="statistic">
-              <div class="statistic-number statistic-number-m">20</div>
-              <div class="statistic-info">We are commited to holistcally improving the lives of children and families across Washington, D.C. and</div>
-            </div>
-            <div class="statistic">
-              <div class="statistic-number">30</div>
-              <div class="statistic-info">We are commited to holistcally improving the lives of children and families across Washington, D.C. and</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="l-homePageModule home-image scrollspy scrollspy-dark">
-  <div class="l-container">
-    <div class="home-content-row">
-      <div class="home-content-column">
-        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/NYBA-logo@2x.png" alt="" class="home-image-img">
-      </div>
-      <div class="home-content-column">
-        <?php
-        // ContentGroup
-        $args = [
-         'primary_heading' => 'ONE PURSUIT FOR',
-         'secondary_heading' => 'Supporting Family',
-         'description' => 'We are commited to holistcally improving the lives of children and families across Washington, D.C. and beyond. Join our movement today.',
-         'cta_link' => '#',
-         'cta_label' => 'about the academy',
-        ];
-        $new_module = new ContentGroup($args);
-        $new_module->render();
-        ?>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<section class="l-homePageModule home-quote scrollspy scrollspy-light">
-  <div class="l-container">
-    <div class="home-content-row">
-      <div class="home-content-column">
-        <?php
-        // ContentGroup
-        $args = [
-         'primary_heading' => 'ONE PURSUIT FOR',
-         'secondary_heading' => 'Supporting Family',
-         'description' => 'We are commited to holistcally improving the lives of children and families across Washington, D.C. and beyond. Join our movement today.',
-        ];
-        $new_module = new ContentGroup($args);
-        $new_module->render();
-        ?>
-      </div>
-      <div class="home-content-column">
-        <div class="quote">
-          <div class="quote-row">
-            <div class="quote-column quote-column-image">
-              <div class="quote-image"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/home-quote-header-image.png" alt=""></div>
-            </div>
-            <div class="quote-column quote-column-text">
-              <span class="quotoe-icon">“</span>
-              <div class="quote-quoteText">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-              </div>
-              <div class="quote-author">JANE SMITH</div>
-              <div class="quote-location">ORGANIZATION POSITION</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <?php the_page_builder( 'modules_homePage' ); ?>
-
 
 
 <?php
