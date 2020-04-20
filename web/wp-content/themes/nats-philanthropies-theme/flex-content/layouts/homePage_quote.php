@@ -1,9 +1,8 @@
 <?php
 use Modules\ContentGroup;
-use Modules\Stats;
+use Modules\Quote;
 ?>
-
-<section class="l-homePageModule home-module home-statistics scrollspy scrollspy-light">
+<section class="l-homePageModule home-quote scrollspy scrollspy-light">
   <div class="home-module-inner">
     <div class="home-content-row">
       <div class="home-content-column">
@@ -22,12 +21,15 @@ use Modules\Stats;
       </div>
       <div class="home-content-column">
         <?php
-        // Stats
+        // Quote
         $args = [
-         'stats' => get_sub_field('statistic_columns'),
+         'image' => get_sub_field('image'),
+         'description' => get_sub_field('quoted_text'),
+         'author' => get_sub_field('attribution_name'),
+         'location' => get_sub_field('attribution_description'),
         ];
-        $stats = new Stats($args);
-        $stats->render();
+        $quote = new Quote($args);
+        $quote->render();
         ?>
       </div>
     </div>

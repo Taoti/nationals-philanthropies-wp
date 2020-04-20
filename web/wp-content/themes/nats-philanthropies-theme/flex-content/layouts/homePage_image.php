@@ -1,11 +1,18 @@
 <?php
 use Modules\ContentGroup;
-use Modules\Stats;
 ?>
-
-<section class="l-homePageModule home-module home-statistics scrollspy scrollspy-light">
+<section class="l-homePageModule home-image scrollspy scrollspy-dark">
   <div class="home-module-inner">
     <div class="home-content-row">
+      <div class="home-content-column">
+        <?php
+        $image = get_sub_field('image');
+        if($image) {
+          $image = $image['sizes']['large'];
+        }
+        ?>
+        <img src="<?php echo $image; ?>" alt="" class="home-image-img">
+      </div>
       <div class="home-content-column">
         <?php
         // ContentGroup
@@ -18,16 +25,6 @@ use Modules\Stats;
         ];
         $contentGroup = new ContentGroup($args);
         $contentGroup->render();
-        ?>
-      </div>
-      <div class="home-content-column">
-        <?php
-        // Stats
-        $args = [
-         'stats' => get_sub_field('statistic_columns'),
-        ];
-        $stats = new Stats($args);
-        $stats->render();
         ?>
       </div>
     </div>

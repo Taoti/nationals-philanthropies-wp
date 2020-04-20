@@ -3,7 +3,7 @@
 // Examples: `window.taoti_scrollDirection === 'up'`
 // 				or `window.taoti_scrollDirection === 'down'`
 window.taoti_lastScrollTop = 0;
-window.taoti_scrollDirection = '';
+window.taoti_scrollDirection = 'down';
 window.addEventListener("scroll", function(){
    var st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
    if (st > window.taoti_lastScrollTop){

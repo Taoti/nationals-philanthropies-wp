@@ -18,10 +18,10 @@ class Quote {
 
 	public function __construct( $args=[] ){
 		$this->defaults = [
-			'primary_heading' => false,
+			'image' => false,
 			'description' => false,
-			'button_url' => false,
-			'button_label' => false,
+			'author' => false,
+			'location' => false,
 			'classes' => [
 				'l-module',
 				'quote',
@@ -30,11 +30,15 @@ class Quote {
 
 		extract(array_merge($this->defaults, $args));
 
+    if($image){
+      $image = $image['sizes']['medium'];
+    }
+
 		$this->context = Timber::get_context();
-		$this->context['primary_heading'] = $primary_heading;
+		$this->context['image'] = $image;
 		$this->context['description'] = $description;
-		$this->context['button_url'] = $button_url;
-		$this->context['button_label'] = $button_label;
+		$this->context['author'] = $author;
+		$this->context['location'] = $location;
 		$this->context['classes'] = implode(' ', $classes);
 
 	}

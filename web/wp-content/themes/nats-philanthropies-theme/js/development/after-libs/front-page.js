@@ -1,4 +1,9 @@
-// scrollspy for the pager (sectionNavigation) that will add/remove a class to each pager item based on the class of the section beneath it. The purpose is to change the color of the pager item so it is readable on a light/dark background as the user scrolls down the page.
+/*
+ * Scrollspy for the pager (sectionNavigation) that will add/remove a class to each pager item based on the class of the section beneath it.
+ * This will work in two ways.
+ * 1. Change the color of each navItem.
+ * 2. Set the active navItem.
+ */
 
 // Populate the homepage_section_boundaries[] array (which must already exist on a global scope) with the scroll positions of the homepage sections. This is run here on page load, and should also be ran inside the callback function in web-font-loader.js, so it will run after the fonts are loaded.
 var homepage_section_boundaries = [];
@@ -45,13 +50,19 @@ function taoti_set_homepage_section_boundaries(){
 
 }
 
-window.addEventListener( 'scroll', function(){
-	// console.log('scrolling');
-	// var current_scroll_distance = window.pageYOffset + window.innerHeight;
-	// console.log( window.pageYOffset );
-	// console.log( current_scroll_distance );
 
+// Scrollspy - set navItem colors, and set active navItem
+// Will change the color of each navItem so it is readable on a light/dark background as the user scrolls down the page. Also will set the 'active' navItem based on which section is under the pager.
+taoti_determine_navItem_status(); // Also run in the callback in web-font-loader.js
+window.addEventListener( 'scroll', taoti_determine_navItem_status );
+
+function taoti_determine_navItem_status(){
+	console.log( 'running taoti_determine_navItem_status()' );
 	try {
+		// console.log('scrolling');
+		// var current_scroll_distance = window.pageYOffset + window.innerHeight;
+		// console.log( window.pageYOffset );
+		// console.log( current_scroll_distance );
 
 		// Go through each scrollspy item and store the info from getBoundingClientRect. That will be comparent to the position data from the homepage sections.
 		var scrollspy_navItems = jQuery('.scrollspy-navItem');
@@ -90,6 +101,11 @@ window.addEventListener( 'scroll', function(){
 						jQuery(scrollspy_navItems[i]).addClass('scrollspy-light');
 					}
 
+					// Set `active` navItem
+					// Also set the section's corresponding navItem to active. Using the `j` counter, which is counting the sections, to target the navItem for this section. The number of navitems and homepage is supposed to be the same when output in PHP, so the counters will match up.
+					jQuery(scrollspy_navItems).removeClass('active');
+					jQuery(scrollspy_navItems[j]).addClass('active');
+
 				}
 
 			}
@@ -100,21 +116,28 @@ window.addEventListener( 'scroll', function(){
 	catch(e){
 		console.log(e);
 	}
-
-});
-
+}
 
 
+// Scrollspy - jump links
+// Each navItem should be a jump link to the corresponding section.
+var scrollspy_sections = document.querySelectorAll('.scrollspy');
+var scrollspy_navItems = document.querySelectorAll('.scrollspy-navItem');
 
+for( i=0; i<scrollspy_navItems.length; i++ ){
 
-// inView for homepage sections
-// When a homepage section scrolls into view, assign the 'active' class to the related scrollspy pager nav item.
-// inView('.scrollspy')
-// 	.on('enter', function(el){
-// 		jQuery(el).addClass('in-view');
-// 	})
-// 	.on('exit', function(el){
-// 		jQuery(el).removeClass('in-view');
-// 	});
+	// Bind scrollspy_navItems[i] and scrollspy_sections[i] to this function (enclosure) so each navItem click will scroll to its corresponding section.
+	( function( this_navItem, this_section ){
 
-// TODO: emit an 'enter' event like they explain in the documentation. Hopefully can emit an event to the window with the in-view section. Then the callback on that event can match the section to one of the pager items.
+		this_navItem.addEventListener( 'click', function(){
+			taoti_scrollspy_scrollTo( this_section );
+		});
+
+	}(scrollspy_navItems[i], scrollspy_sections[i]));
+
+}
+
+// This had to be its own function so that `this_section` could be passed in as a parameter in the above for loop.
+function taoti_scrollspy_scrollTo( target ){
+	target.scrollIntoView({ behavior: 'smooth' });
+}

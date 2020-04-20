@@ -833,13 +833,13 @@ function jp_jump_link_cb(event){
       location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') &&
       location.hostname == this.hostname
     ) {
-        var target = document.querySelectorAll(this.hash);
-        target = target.length ? target : document.querySelectorAll('[name=' + this.hash.slice(1) + ']');
+        var target = document.querySelector(this.hash);
+        target = target.length ? target : document.querySelector('[name=' + this.hash.slice(1) + ']');
 
         // Does a scroll target exist?
         if (target.length) {
             event.preventDefault();
-            target[0].scrollIntoView({ behavior: 'smooth' });
+            target.scrollIntoView({ behavior: 'smooth' });
         }
 
     }
@@ -865,7 +865,12 @@ Ca=/^(thin|(?:(?:extra|ultra)-?)?light|regular|book|medium|(?:(?:semi|demi|extra
 function Da(a){for(var b=a.f.length,c=0;c<b;c++){var d=a.f[c].split(":"),e=d[0].replace(/\+/g," "),f=["n4"];if(2<=d.length){var g;var m=d[1];g=[];if(m)for(var m=m.split(","),h=m.length,l=0;l<h;l++){var k;k=m[l];if(k.match(/^[\w-]+$/)){var n=Ca.exec(k.toLowerCase());if(null==n)k="";else{k=n[2];k=null==k||""==k?"n":Ba[k];n=n[1];if(null==n||""==n)n="4";else var r=Aa[n],n=r?r:isNaN(n)?"4":n.substr(0,1);k=[k,n].join("")}}else k="";k&&g.push(k)}0<g.length&&(f=g);3==d.length&&(d=d[2],g=[],d=d?d.split(","):
 g,0<d.length&&(d=za[d[0]])&&(a.c[e]=d))}a.c[e]||(d=za[e])&&(a.c[e]=d);for(d=0;d<f.length;d+=1)a.a.push(new G(e,f[d]))}};function Ea(a,b){this.c=a;this.a=b}var Fa={Arimo:!0,Cousine:!0,Tinos:!0};Ea.prototype.load=function(a){var b=new B,c=this.c,d=new ta(this.a.api,this.a.text),e=this.a.families;va(d,e);var f=new ya(e);Da(f);z(c,wa(d),C(b));E(b,function(){a(f.a,f.c,Fa)})};function Ga(a,b){this.c=a;this.a=b}Ga.prototype.load=function(a){var b=this.a.id,c=this.c.o;b?A(this.c,(this.a.api||"https://use.typekit.net")+"/"+b+".js",function(b){if(b)a([]);else if(c.Typekit&&c.Typekit.config&&c.Typekit.config.fn){b=c.Typekit.config.fn;for(var e=[],f=0;f<b.length;f+=2)for(var g=b[f],m=b[f+1],h=0;h<m.length;h++)e.push(new G(g,m[h]));try{c.Typekit.load({events:!1,classes:!1,async:!0})}catch(l){}a(e)}},2E3):a([])};function Ha(a,b){this.c=a;this.f=b;this.a=[]}Ha.prototype.load=function(a){var b=this.f.id,c=this.c.o,d=this;b?(c.__webfontfontdeckmodule__||(c.__webfontfontdeckmodule__={}),c.__webfontfontdeckmodule__[b]=function(b,c){for(var g=0,m=c.fonts.length;g<m;++g){var h=c.fonts[g];d.a.push(new G(h.name,ga("font-weight:"+h.weight+";font-style:"+h.style)))}a(d.a)},A(this.c,(this.f.api||"https://f.fontdeck.com/s/css/js/")+ea(this.c)+"/"+b+".js",function(b){b&&a([])})):a([])};var Y=new oa(window);Y.a.c.custom=function(a,b){return new sa(b,a)};Y.a.c.fontdeck=function(a,b){return new Ha(b,a)};Y.a.c.monotype=function(a,b){return new ra(b,a)};Y.a.c.typekit=function(a,b){return new Ga(b,a)};Y.a.c.google=function(a,b){return new Ea(b,a)};var Z={load:p(Y.load,Y)};"function"===typeof define&&define.amd?define(function(){return Z}):"undefined"!==typeof module&&module.exports?module.exports=Z:(window.WebFont=Z,window.WebFontConfig&&Y.load(window.WebFontConfig));}());
 
-// scrollspy for the pager (sectionNavigation) that will add/remove a class to each pager item based on the class of the section beneath it. The purpose is to change the color of the pager item so it is readable on a light/dark background as the user scrolls down the page.
+/*
+ * Scrollspy for the pager (sectionNavigation) that will add/remove a class to each pager item based on the class of the section beneath it.
+ * This will work in two ways.
+ * 1. Change the color of each navItem.
+ * 2. Set the active navItem.
+ */
 
 // Populate the homepage_section_boundaries[] array (which must already exist on a global scope) with the scroll positions of the homepage sections. This is run here on page load, and should also be ran inside the callback function in web-font-loader.js, so it will run after the fonts are loaded.
 var homepage_section_boundaries = [];
@@ -912,13 +917,19 @@ function taoti_set_homepage_section_boundaries(){
 
 }
 
-window.addEventListener( 'scroll', function(){
-	// console.log('scrolling');
-	// var current_scroll_distance = window.pageYOffset + window.innerHeight;
-	// console.log( window.pageYOffset );
-	// console.log( current_scroll_distance );
 
+// Scrollspy - set navItem colors, and set active navItem
+// Will change the color of each navItem so it is readable on a light/dark background as the user scrolls down the page. Also will set the 'active' navItem based on which section is under the pager.
+taoti_determine_navItem_status(); // Also run in the callback in web-font-loader.js
+window.addEventListener( 'scroll', taoti_determine_navItem_status );
+
+function taoti_determine_navItem_status(){
+	console.log( 'running taoti_determine_navItem_status()' );
 	try {
+		// console.log('scrolling');
+		// var current_scroll_distance = window.pageYOffset + window.innerHeight;
+		// console.log( window.pageYOffset );
+		// console.log( current_scroll_distance );
 
 		// Go through each scrollspy item and store the info from getBoundingClientRect. That will be comparent to the position data from the homepage sections.
 		var scrollspy_navItems = jQuery('.scrollspy-navItem');
@@ -957,6 +968,11 @@ window.addEventListener( 'scroll', function(){
 						jQuery(scrollspy_navItems[i]).addClass('scrollspy-light');
 					}
 
+					// Set `active` navItem
+					// Also set the section's corresponding navItem to active. Using the `j` counter, which is counting the sections, to target the navItem for this section. The number of navitems and homepage is supposed to be the same when output in PHP, so the counters will match up.
+					jQuery(scrollspy_navItems).removeClass('active');
+					jQuery(scrollspy_navItems[j]).addClass('active');
+
 				}
 
 			}
@@ -967,31 +983,38 @@ window.addEventListener( 'scroll', function(){
 	catch(e){
 		console.log(e);
 	}
-
-});
-
+}
 
 
+// Scrollspy - jump links
+// Each navItem should be a jump link to the corresponding section.
+var scrollspy_sections = document.querySelectorAll('.scrollspy');
+var scrollspy_navItems = document.querySelectorAll('.scrollspy-navItem');
 
+for( i=0; i<scrollspy_navItems.length; i++ ){
 
-// inView for homepage sections
-// When a homepage section scrolls into view, assign the 'active' class to the related scrollspy pager nav item.
-// inView('.scrollspy')
-// 	.on('enter', function(el){
-// 		jQuery(el).addClass('in-view');
-// 	})
-// 	.on('exit', function(el){
-// 		jQuery(el).removeClass('in-view');
-// 	});
+	// Bind scrollspy_navItems[i] and scrollspy_sections[i] to this function (enclosure) so each navItem click will scroll to its corresponding section.
+	( function( this_navItem, this_section ){
 
-// TODO: emit an 'enter' event like they explain in the documentation. Hopefully can emit an event to the window with the in-view section. Then the callback on that event can match the section to one of the pager items.
+		this_navItem.addEventListener( 'click', function(){
+			taoti_scrollspy_scrollTo( this_section );
+		});
+
+	}(scrollspy_navItems[i], scrollspy_sections[i]));
+
+}
+
+// This had to be its own function so that `this_section` could be passed in as a parameter in the above for loop.
+function taoti_scrollspy_scrollTo( target ){
+	target.scrollIntoView({ behavior: 'smooth' });
+}
 
 
 // Simple helper function to determine if the user is scrolling up or down.
 // Examples: `window.taoti_scrollDirection === 'up'`
 // 				or `window.taoti_scrollDirection === 'down'`
 window.taoti_lastScrollTop = 0;
-window.taoti_scrollDirection = '';
+window.taoti_scrollDirection = 'down';
 window.addEventListener("scroll", function(){
    var st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
    if (st > window.taoti_lastScrollTop){
@@ -1136,6 +1159,8 @@ function taoti_fonts_active_cb(){
     taoti_update_header_height_property();
 
     taoti_set_homepage_section_boundaries();
+
+    taoti_determine_navItem_status();
 
 }
 
