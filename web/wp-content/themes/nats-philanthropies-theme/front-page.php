@@ -26,21 +26,15 @@ if( is_array($modules_homePage) && !empty($modules_homePage) ){
   $total_sections = $total_sections + count($modules_homePage);
 }
 
-$total_sections = 5; // tmporary hardcode to 5
+// $total_sections = 5; // tmporary hardcode to 5
 
-// Output the numbered page based on the total number of homepage sections. The number should be at least 2 digits with a leading zero if it's only one digit.
+// Output the numbered page based on the total number of homepage sections. The number should be at least 2 digits with a leading zero if it's only one digit, like 01, 02, 03, etc.
 ?>
 <nav class="sectionNavigation">
   <ul>
     <?php for( $i = 1; $i <= $total_sections; $i++ ): ?>
       <li class="scrollspy-navItem"><?php echo sprintf('%02d', $i); ?></li>
     <?php endfor; ?>
-
-    <!-- <li class="scrollspy-navItem active">01</li>
-    <li class="scrollspy-navItem">02</li>
-    <li class="scrollspy-navItem">03</li>
-    <li class="scrollspy-navItem">04</li>
-    <li class="scrollspy-navItem">05</li> -->
 
   </ul>
 </nav>
