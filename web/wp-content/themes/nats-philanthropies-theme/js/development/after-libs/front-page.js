@@ -53,13 +53,16 @@ function taoti_set_homepage_section_boundaries(){
 
 // Scrollspy - set navItem colors, and set active navItem
 // Will change the color of each navItem so it is readable on a light/dark background as the user scrolls down the page. Also will set the 'active' navItem based on which section is under the pager.
-window.addEventListener( 'scroll', function(){
-	// console.log('scrolling');
-	// var current_scroll_distance = window.pageYOffset + window.innerHeight;
-	// console.log( window.pageYOffset );
-	// console.log( current_scroll_distance );
+taoti_determine_navItem_status(); // Also run in the callback in web-font-loader.js
+window.addEventListener( 'scroll', taoti_determine_navItem_status );
 
+function taoti_determine_navItem_status(){
+	console.log( 'running taoti_determine_navItem_status()' );
 	try {
+		// console.log('scrolling');
+		// var current_scroll_distance = window.pageYOffset + window.innerHeight;
+		// console.log( window.pageYOffset );
+		// console.log( current_scroll_distance );
 
 		// Go through each scrollspy item and store the info from getBoundingClientRect. That will be comparent to the position data from the homepage sections.
 		var scrollspy_navItems = jQuery('.scrollspy-navItem');
@@ -113,8 +116,7 @@ window.addEventListener( 'scroll', function(){
 	catch(e){
 		console.log(e);
 	}
-
-});
+}
 
 
 // Scrollspy - jump links
