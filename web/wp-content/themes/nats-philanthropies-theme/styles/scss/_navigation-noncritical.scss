@@ -138,9 +138,6 @@ html.nav-is-open {
   // box-shadow: 0 2px 5px 2px rgba(0, 0, 0, .15); // Leaving this here for now during development so we can see the edge of the container.
   color: $invert;
   left: calc((100vw - #{$design-width}) / -2);
-  opacity: 0;
-  pointer-events: none;
-  position: absolute;
   transform: translate3d(0, -15px, 0);
   transition: transform 125ms, opacity 125ms;
   width: 100vw;
@@ -196,6 +193,10 @@ html.nav-is-open {
   font-size: 1.6rem;
   letter-spacing: .1em;
   text-transform: uppercase;
+
+  &:hover {
+    color: $invert;
+  }
 }
 
 .subMenu-titleArea {
