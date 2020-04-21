@@ -1,19 +1,23 @@
 {% block quote %}
 <div class="{{ classes }}">
-    <div class="quote-inner">
-
-        {% if primary_heading %}
-		<h2 class="quote-primaryHeading">{{ primary_heading }}</h2>
-		{% endif %}
-
-		{% if description %}
-		<div class="quote-description">{{ description }}</div>
-	    {% endif %}
-
-		{% if button_url and button_label %}
-		<a class="quote-button" href="{{ button_url }}">{{ button_label }}</a>
-		{% endif %}
-
+  <div class="quote-row">
+    {% if image %}
+    <div class="quote-column quote-column-image">
+      <div class="quote-image"><img src="{{ image }}" alt=""></div>
     </div>
+    {% endif %}
+    <div class="quote-column quote-column-text">
+      <span class="quotoe-icon">“</span>
+      <div class="quote-quoteText">
+        {{ description }}
+      </div>
+      {% if author %}
+      <div class="quote-author">{{ author }}</div>
+      {% endif %}
+      {% if location %}
+      <div class="quote-location">{{ location }}</div>
+      {% endif %}
+    </div>
+  </div>
 </div>
 {% endblock %}

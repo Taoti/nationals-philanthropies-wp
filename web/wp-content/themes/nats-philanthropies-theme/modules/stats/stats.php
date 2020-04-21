@@ -31,10 +31,7 @@ class Stats {
 		extract(array_merge($this->defaults, $args));
 
 		$this->context = Timber::get_context();
-		$this->context['primary_heading'] = $primary_heading;
-		$this->context['description'] = $description;
-		$this->context['button_url'] = $button_url;
-		$this->context['button_label'] = $button_label;
+		$this->context['stats'] = $stats;
 		$this->context['classes'] = implode(' ', $classes);
 
 	}

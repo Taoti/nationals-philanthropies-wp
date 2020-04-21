@@ -3,68 +3,69 @@
   left: 2%;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 10;
+  z-index: 5;
+}
 
-  li {
-    font-family: $sans-2;
-    font-size: 1.8rem;
-    padding-left: 25px;
-    padding-bottom: 2.4rem;
-    position: relative;
-    color: $invert;
-    transition: color 200ms;
+.scrollspy-navItem {
+  font-family: $sans-2;
+  font-size: 1.8rem;
+  padding-left: 25px;
+  padding-bottom: 2.4rem;
+  position: relative;
+  color: $invert;
+  transition: color 200ms;
+  cursor: pointer;
+
+  &:before {
+    content: "";
+    display: block;
+    top: calc(50% - 13px);
+    position: absolute;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    border: 1px solid white;
+    transform: rotate(45deg) translateY(-50%);
+    transition: background-color 125ms, border-color 125ms;
+  }
+
+  &.active {
+    &:before {
+      // border: none;
+      background: $invert;
+    }
+  }
+
+  &.scrollspy-light {
+    color: $color-4;
 
     &:before {
-      content: "";
-      display: block;
-      top: calc(50% - 13px);
-      position: absolute;
-      left: 0;
-      width: 10px;
-      height: 10px;
-      border: 1px solid white;
-      transform: rotate(45deg) translateY(-50%);
-      transition: background-color 100ms;
+      border: 1px solid $color-4;
     }
 
     &.active {
       &:before {
         // border: none;
-        background: $invert;
+        background: $color-4;
       }
     }
-
-    &.scrollspy-light {
-      color: $color-4;
-
-      &:before {
-        border: 1px solid $color-4;
-      }
-
-      &.active {
-        &:before {
-          // border: none;
-          background: $color-4;
-        }
-      }
-
-    }
-
-    // &.scrollspy-dark {
-    //   color: $invert;
-
-    //   &:before {
-    //     border: 1px solid $invert;
-    //   }
-
-    //   &.active {
-    //     &:before {
-    //       // border: none;
-    //       background: $invert;
-    //     }
-    //   }
-
-    // }
 
   }
+
+  // &.scrollspy-dark {
+  //   color: $invert;
+
+  //   &:before {
+  //     border: 1px solid $invert;
+  //   }
+
+  //   &.active {
+  //     &:before {
+  //       // border: none;
+  //       background: $invert;
+  //     }
+  //   }
+
+  // }
+
 }

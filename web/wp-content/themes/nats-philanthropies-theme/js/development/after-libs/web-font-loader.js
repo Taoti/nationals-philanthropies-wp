@@ -24,4 +24,6 @@ function taoti_fonts_active_cb(){
 
     taoti_set_homepage_section_boundaries();
 
+    taoti_determine_navItem_status();
+
 }

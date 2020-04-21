@@ -6,6 +6,7 @@
 .ginput_container_email {
 	input {
 		@include form-text();
+		width: 100%;
 
 		&::placeholder {
 			color: $invert;
@@ -26,5 +27,23 @@
 }
 
 .gform_button-submitIcon {
+
+}
+
+.ginput_container_consent,
+.ginput_container_checkbox {
+
+	label {
+		@include form-checkboxLabel();
+	}
+
+	input[type=checkbox] {
+		@include form-checkbox();
+
+		&:checked + label {
+			@include form-checkboxLabel-checked();
+		}
+
+	}
 
 }
