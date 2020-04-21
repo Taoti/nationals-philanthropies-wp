@@ -126,7 +126,7 @@ function taoti_customize_register_cb($wp_customize){
 
 
     ### Remove default sections and panels
-    $wp_customize->remove_section('title_tagline');
+    // $wp_customize->remove_section('title_tagline');
     $wp_customize->remove_section('colors');
     $wp_customize->remove_section('header_image');
     $wp_customize->remove_section('background_image');
@@ -150,3 +150,15 @@ function taoti_customizer_live_preview(){
 
 }
 add_action( 'customize_preview_init', 'taoti_customizer_live_preview', 0, 99 );
+
+
+
+// Load the CSS that modifies the customizer's appearance/styles.
+function taoti_customizer_custom_css(){
+    ?>
+    <style>
+		<?php echo file_get_contents( get_template_directory().'/styles/css/style-customizer.min.css' ); ?>
+	</style>
+    <?php
+}
+add_action( 'customize_controls_print_styles', 'taoti_customizer_custom_css', 9999, 0 );

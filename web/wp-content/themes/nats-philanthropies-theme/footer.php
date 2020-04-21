@@ -11,9 +11,7 @@
 
         <h4 class="footer-heading"><a href="<?php echo home_url(); ?>">Nationals Philanthropies</a></h4>
 
-        <p class="footer-siteDescription">
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-        </p>
+        <p class="footer-siteDescription"><?php echo get_bloginfo('description'); ?></p>
 
       </div>
 
