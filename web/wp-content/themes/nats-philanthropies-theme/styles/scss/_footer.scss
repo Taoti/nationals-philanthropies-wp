@@ -11,21 +11,31 @@ $border-line: rgba(255, 255, 255, .075);
 .footer-inner {
   @include l-container('footer');
   display: grid;
-  // grid-template-columns: 92px minmax(min-content, 366px) 1fr 1fr 1fr;
-  grid-template-columns: 1fr 1fr 1fr;
+  // grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr .75fr .75fr;
   grid-auto-rows: minmax(78px,auto);
   // grid-gap: 3.5rem;
   grid-template-areas:
     "branding info contact"
     "copyright empty-1 social";
 
-  @media screen and ( max-width: 768px ) {
+  @media screen and ( max-width: 1100px ) {
     grid-template-columns: 1fr 1fr;
     grid-template-areas:
       "branding info"
       "contact contact"
       "social social"
       "copyright copyright";
+  }
+
+  @media screen and ( max-width: 720px ) {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "branding"
+      "info"
+      "contact"
+      "social"
+      "copyright";
   }
 
   @media screen and ( max-width: 568px ) {
@@ -125,29 +135,7 @@ $footer-grid-padding: 5.5rem;//1.7rem;
 }
 
 .footer-brandingText {
-  position: relative;
 
-  &::before {
-    background-color: $border-line;
-    bottom: 0;
-    content: '';
-    display: block;
-    height: 1px;
-    opacity: 0;
-    pointer-events: none;
-    position: absolute;
-    width: 100vw;
-
-    @media screen and (max-width: 768px) {
-      right: -$container-padding-tablet;
-      opacity: 1;
-    }
-
-    @media screen and (max-width: 700px) {
-      right: -$container-padding-mobile;
-      opacity: 1;
-    }
-  }
 }
 
 
@@ -168,6 +156,34 @@ $footer-grid-padding: 5.5rem;//1.7rem;
   grid-area: contact;
   position: relative;
 
+  // Faux border-top
+  &::before{
+    content: '';
+    display: block;
+    height: 1px;
+    width: 100vw;
+    background-color: $border-line;
+    position: absolute;
+    left: calc(-#{$padding-footer-desktop});
+    top: 0;
+    opacity: 0;
+    pointer-events: none;
+
+    @media screen and ( max-width: 1100px ) {
+      opacity: 1;
+    }
+
+    @media screen and ( max-width: 960px ) {
+  		left: calc(-#{$container-padding-tablet});
+  	}
+
+  	@media screen and ( max-width: 700px ) {
+  		left: calc(-#{$container-padding-mobile});
+    }
+
+  }
+
+  // Faux border-left
   &::after {
     content: '';
     width: 1px;
@@ -177,6 +193,12 @@ $footer-grid-padding: 5.5rem;//1.7rem;
     position: absolute;
     left: 0;
     top: -2.5rem;
+
+    @media screen and ( max-width: 1100px ) {
+      height: 100%;
+      top: 0;
+    }
+
   }
 
   // Override some gravity form styles for the form that appears within the footer.
@@ -228,9 +250,36 @@ $footer-grid-padding: 5.5rem;//1.7rem;
   display: flex;
   justify-content: flex-end;
   grid-area: social;
-  // padding-left: 0;
-  // padding-right: 0;
   padding: 0;
+  position: relative;
+
+  // Faux border-top
+  &::before{
+    content: '';
+    display: block;
+    height: 1px;
+    width: 100vw;
+    background-color: $border-line;
+    position: absolute;
+    left: calc(-#{$padding-footer-desktop});
+    top: 0;
+    opacity: 0;
+    pointer-events: none;
+
+    @media screen and ( max-width: 1100px ) {
+      opacity: 1;
+    }
+
+    @media screen and ( max-width: 960px ) {
+  		left: calc(-#{$container-padding-tablet});
+  	}
+
+  	@media screen and ( max-width: 700px ) {
+  		left: calc(-#{$container-padding-mobile});
+    }
+
+  }
+
 }
 
 .footer-socialItem {
@@ -357,25 +406,26 @@ $footer-grid-padding: 5.5rem;//1.7rem;
     width: 100vw;
     background-color: $border-line;
     position: absolute;
-    left: calc(-127px - #{$container-padding} - ((100vw - #{$design-width}) / 2) );
+    left: calc(-#{$padding-footer-max} - ((100vw - #{$design-width}) / 2) );
     top: 0;
 
     @media screen and ( max-width: $design-width ) {
-      left: calc(-127px - #{$container-padding});
+      left: calc(-#{$padding-footer-max});
+    }
+
+    @media screen and ( max-width: $breakpoint-desktop ) {
+      left: calc(-#{$padding-footer-desktop});
+
     }
 
     @media screen and ( max-width: 960px ) {
-  		left: calc(-127px - #{$container-padding-tablet});
+  		left: calc(-#{$container-padding-tablet});
   	}
 
   	@media screen and ( max-width: 700px ) {
-  		left: calc(-127px - #{$container-padding-mobile});
-  	}
+  		left: calc(-#{$container-padding-mobile});
+    }
 
-  	@media screen and ( max-width: 568px ) {
-  		left: calc(-25vw - #{$container-padding-mobile});
-      width: 150vw;
-  	}
   }
 
   &::after {
