@@ -16,30 +16,34 @@ function taoti_customize_register_cb($wp_customize){
     ) );
 
     // Phone Number
-    // $wp_customize->add_setting( 'taoti_phone_number' , array(
-    //     'default'   => '(123) 456-7890',
-    // ) );
+    $wp_customize->add_setting( 'taoti_phone_number' , array(
+        'default'   => '(123) 456-7890',
+    ) );
 
-    // $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'taoti_phone_number', array(
-    // 	'label' => __( 'Phone Number', 'taoti' ),
-    // 	'section' => 'taoti_section_contact_details',
-    // 	'settings' => 'taoti_phone_number',
-    //     'type' => 'text',
-    //     'description' => 'This is for the phone number as it would appear within copy for a person to read, e.g., (123) 456-7890',
-    // ) ) );
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'taoti_phone_number', array(
+    	'label' => __( 'Phone Number', 'taoti' ),
+    	'section' => 'taoti_section_contact_details',
+    	'settings' => 'taoti_phone_number',
+        'type' => 'text',
+        'description' => 'This is for the phone number as it would appear within copy for a person to read, e.g., (123) 456-7890',
+    ) ) );
 
     // Street Address
-    // $wp_customize->add_setting( 'taoti_address' , array(
-    //     'default'   => '',
-    // ) );
+    $wp_customize->add_setting( 'taoti_address' , array(
+        'default'   => '',
+    ) );
 
-    // $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'taoti_address', array(
-    // 	'label' => __( 'Street Address', 'taoti' ),
-    // 	'section' => 'taoti_section_contact_details',
-    // 	'settings' => 'taoti_address',
-    //     'type' => 'textarea',
-    //     'description' => 'Enter your address as it will appear throughout the website.'
-    // ) ) );
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'taoti_address', array(
+    	'label' => __( 'Street Address', 'taoti' ),
+    	'section' => 'taoti_section_contact_details',
+    	'settings' => 'taoti_address',
+        'type' => 'textarea',
+        'description' => 'Enter your address as it will appear throughout the website.'
+    ) ) );
+
+
+
+
 
     // Twitter
     $wp_customize->add_setting('taoti_twitter_url', array(
@@ -79,6 +83,8 @@ function taoti_customize_register_cb($wp_customize){
         'type' => 'url',
         'description' => 'Copy and paste the URL to your Facebook page here.',
     ) ) );
+
+
 
 
 

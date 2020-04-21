@@ -1,28 +1,53 @@
 <footer id="footer">
   <div class="footer-inner">
 
-    <!-- <div class="footer-branding"> -->
+    <div class="footer-branding footer-gridItem">
 
-    <a href="<?php echo home_url(); ?>" class="footer-logoLink footer-gridItem">
-      <!-- <img class="footer-logo lazyload" data-srcset="<?php echo get_stylesheet_directory_uri(); ?>/images/logo-nats-philanthropies-small.png 1x, <?php echo get_stylesheet_directory_uri(); ?>/images/logo-nats-philanthropies-small@2x.png 2x" width="92" height="92" alt="Washington Nationals Philanthropies Logo (small)"> -->
-      <i class="footer-logo"><?php echo file_get_contents(get_stylesheet_directory() . '/images/logo-nats-philanthropies-mark.svg'); ?></i>
-    </a>
+      <a href="<?php echo home_url(); ?>" class="footer-logoLink">
+        <i class="footer-logo"><?php echo file_get_contents(get_stylesheet_directory() . '/images/logo-nats-philanthropies-mark.svg'); ?></i>
+      </a>
 
-    <div class="footer-brandingText footer-gridItem">
+      <div class="footer-brandingText">
 
-      <h4 class="footer-heading">Nationals Philanthropies</h4>
+        <h4 class="footer-heading"><a href="<?php echo home_url(); ?>">Nationals Philanthropies</a></h4>
 
-      <p class="footer-siteDescription">
-        A nonprofit fueled by collective action in pursuit of a better Washington region. The official charitable arm of the Washington Nationals, including the signature program of the Nationals Youth Baseball Academy.
-      </p>
+        <p class="footer-siteDescription">
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+        </p>
+
+      </div>
 
     </div>
 
-    <!-- </div> -->
 
-    <ul class="footer-socialItems">
 
-      <li class="footer-socialItem footer-socialItem-twitter footer-gridItem">
+    <div class="footer-info footer-gridItem">
+
+      <h4 class="footer-heading">Get In Touch</h4>
+
+      <address class="footer-address">
+        <?php echo nl2br( get_theme_mod( 'taoti_address' ) ); ?>
+      </address>
+
+      <p class="footer-phone"><?php echo get_theme_mod( 'taoti_phone_number' ); ?></p>
+
+    </div>
+
+
+
+    <div class="footer-contact footer-gridItem">
+
+      <h4 class="footer-heading">Stay In The Know</h4>
+
+      <?php echo do_shortcode( '[gravityform id="1" title="false"]' ); ?>
+
+    </div>
+
+
+
+    <ul class="footer-socialItems footer-gridItem">
+
+      <li class="footer-socialItem footer-socialItem-twitter">
         <?php if( get_theme_mod('taoti_twitter_url') && !is_preview() ): ?>
           <a class="footer-socialLink js-customizer-twitter" href="<?php echo get_theme_mod('taoti_twitter_url'); ?>">
             <i class="footer-socialIcon footer-socialIcon-twitter"><?php echo file_get_contents(get_stylesheet_directory() . '/images/social-twitter.svg'); ?></i>
@@ -30,7 +55,7 @@
         <?php endif; ?>
       </li>
 
-      <li class="footer-socialItem footer-socialItem-instagram footer-gridItem">
+      <li class="footer-socialItem footer-socialItem-instagram">
         <?php if( get_theme_mod('taoti_instagram_url') && !is_preview() ): ?>
         <a class="footer-socialLink js-customizer-instagram" href="<?php echo get_theme_mod('taoti_instagram_url'); ?>">
           <i class="footer-socialIcon footer-socialIcon-instagram"><?php echo file_get_contents(get_stylesheet_directory() . '/images/social-instagram.svg'); ?></i>
@@ -38,7 +63,7 @@
         <?php endif; ?>
       </li>
 
-      <li class="footer-socialItem footer-socialItem-facebook footer-gridItem">
+      <li class="footer-socialItem footer-socialItem-facebook">
         <?php if( get_theme_mod('taoti_facebook_url') && !is_preview() ): ?>
         <a class="footer-socialLink js-customizer-facebook" href="<?php echo get_theme_mod('taoti_facebook_url'); ?>">
           <i class="footer-socialIcon footer-socialIcon-facebook"><?php echo file_get_contents(get_stylesheet_directory() . '/images/social-facebook2.svg'); ?></i>
@@ -48,12 +73,9 @@
 
     </ul>
 
-    <p class="footer-copyright footer-gridItem">Nationals Philanthropies – Copyright <?php echo date("Y"); ?>. All Rights Reserved</p>
 
-    <!-- <div class="footer-emptyItem footer-emptyItem-1 footer-gridItem"></div>
-    <div class="footer-emptyItem footer-emptyItem-2 footer-gridItem"></div>
-    <div class="footer-emptyItem footer-emptyItem-3 footer-gridItem"></div>
-    <div class="footer-emptyItem footer-emptyItem-4 footer-gridItem"></div> -->
+
+    <p class="footer-copyright footer-gridItem">Nationals Philanthropies – Copyright <?php echo date("Y"); ?>. All Rights Reserved</p>
 
   </div>
 </footer>
