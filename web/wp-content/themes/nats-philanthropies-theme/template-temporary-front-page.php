@@ -54,4 +54,5 @@ $hero->render();
 </div>
 
 <?php
-get_footer();
+// get_footer();
+get_template_part( 'parts/footer', 'temp' );
