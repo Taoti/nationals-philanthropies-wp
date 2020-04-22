@@ -6,6 +6,7 @@ function taoti_get_post_types_with_page_builder(){
     $post_types_with_page_builder = [
 		'post',
 		'page',
+		'events'
 	];
 
     return $post_types_with_page_builder;

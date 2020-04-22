@@ -3,8 +3,7 @@ $border-line: rgba(255, 255, 255, .075);
 #footer {
   background-color: $color-1;
   color: transparentize($invert, .5);
-  padding-top: 3.5rem;
-  padding-bottom: 1.5rem;
+  padding-top: 2.5rem;
   position: relative;
   overflow: hidden;
 }
@@ -12,41 +11,87 @@ $border-line: rgba(255, 255, 255, .075);
 .footer-inner {
   @include l-container('footer');
   display: grid;
-  // grid-template-columns: 92px minmax(min-content, 366px) 1fr 1fr 1fr;
-  grid-template-columns: 127px 366px 1fr;
-  grid-auto-rows: minmax(100px, auto);
+  // grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr .75fr .75fr;
+  grid-auto-rows: minmax(78px,auto);
   // grid-gap: 3.5rem;
   grid-template-areas:
-    "logo branding social"
-    "empty-1 copyright empty-2";
+    "branding info contact"
+    "copyright empty-1 social";
 
-  @media screen and ( max-width: 768px ) {
-    grid-template-columns: 127px minmax(366px, 3fr);
+  @media screen and ( max-width: 1100px ) {
+    grid-template-columns: 1fr 1fr;
     grid-template-areas:
-      "logo branding"
-      "empty-1 social"
-      "empty-2 copyright";
+      "branding info"
+      "contact contact"
+      "social social"
+      "copyright copyright";
+  }
+
+  @media screen and ( max-width: 720px ) {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "branding"
+      "info"
+      "contact"
+      "social"
+      "copyright";
   }
 
   @media screen and ( max-width: 568px ) {
-    grid-template-columns: 1fr 3fr;
+    // grid-template-columns: 1fr 3fr;
   }
 
 }
 
-$footer-grid-padding: 1.7rem;
+$footer-grid-padding: 5.5rem;//1.7rem;
 
 .footer-gridItem {
   // border: 1px solid $border-line;
   padding-top: $footer-grid-padding;
   padding-bottom: $footer-grid-padding;
+  padding-left: 3.5rem;
+  padding-right: 3.5rem;
+  line-height: 1.8;
+  font-size: 1.33rem;
+  letter-spacing: -.01em;
 }
 
-.footer-logoLink {
-  grid-area: logo;
-  height: fit-content;
-  padding-right: 35px;
+
+
+.footer-heading {
+  color: $invert;
+  text-transform: uppercase;
+  font-size: 2.4rem;
+  line-height: 1;
+  letter-spacing: .025em;
   position: relative;
+  padding-bottom: 2.5rem;
+  margin-bottom: 2.2rem;
+
+  &::after {
+    background: $border-line;
+    content: '';
+    height: 1px;
+    width: 40px;
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+  }
+}
+
+
+
+.footer-logoLink {
+  // grid-area: logo;
+  height: fit-content;
+  margin-right: 2.7rem;
+  position: relative;
+  width: 7.5rem;
+  min-width: 7.5rem;
+  height: 7.5rem;
+  display: block;
 
   @media screen and ( max-width: 360px ) {
     padding-right: 24px;
@@ -71,64 +116,178 @@ $footer-grid-padding: 1.7rem;
   transition: transform 125ms $bounce-2;
 }
 
-.footer-brandingText {
+.footer-branding {
   grid-area: branding;
+  display: flex;
   position: relative;
 
-  &::before {
+  &::after {
+    content: '';
+    width: 1px;
+    height: calc(100% + 2.5rem);
     background-color: $border-line;
-    bottom: 0;
+    display: block;
+    position: absolute;
+    right: 0;
+    top: -2.5rem;
+  }
+
+}
+
+.footer-brandingText {
+
+}
+
+
+
+.footer-info {
+  grid-area: info;
+  position: relative;
+
+}
+
+.footer-address {
+  font-size: 1.4rem;
+}
+
+
+
+.footer-contact {
+  grid-area: contact;
+  position: relative;
+
+  // Faux border-top
+  &::before{
     content: '';
     display: block;
     height: 1px;
+    width: 100vw;
+    background-color: $border-line;
+    position: absolute;
+    left: calc(-#{$padding-footer-desktop});
+    top: 0;
     opacity: 0;
     pointer-events: none;
-    position: absolute;
-    width: 100vw;
 
-    @media screen and (max-width: 768px) {
-      right: -$container-padding-tablet;
+    @media screen and ( max-width: 1100px ) {
       opacity: 1;
     }
 
-    @media screen and (max-width: 700px) {
-      right: -$container-padding-mobile;
-      opacity: 1;
+    @media screen and ( max-width: 960px ) {
+  		left: calc(-#{$container-padding-tablet});
+  	}
+
+  	@media screen and ( max-width: 700px ) {
+  		left: calc(-#{$container-padding-mobile});
     }
+
   }
+
+  // Faux border-left
+  &::after {
+    content: '';
+    width: 1px;
+    height: calc(100% + 2.5rem);
+    background-color: $border-line;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: -2.5rem;
+
+    @media screen and ( max-width: 1100px ) {
+      height: 100%;
+      top: 0;
+    }
+
+  }
+
+  // Override some gravity form styles for the form that appears within the footer.
+  .gform_wrapper {
+    margin-top: 5rem;
+  }
+
+	.gform_heading,
+	.gfield_label {
+		display: none;
+	}
+
+	.gform_form {
+
+	}
+
+	.gform_fields {
+		align-items: baseline;
+		display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 2rem;
+  }
+
+  .ginput_container_text input,
+  .ginput_container_email input {
+    opacity: .5;
+    padding-bottom: 1.2rem;
+  }
+
+	.gform_button {
+    position: relative;
+    margin-top: 1.8rem;
+    opacity: .5;
+	}
+
+	.gform_button-submitIcon {
+
+	}
+
 }
 
-.footer-heading {
-  color: $color-4;
-  text-transform: uppercase;
-  font-size: 2.4rem;
-}
 
-// .footer-brandingText {
-//   @media screen and ( max-width: 768px ) {
-//     background-color: $color-1;
-//     position: relative;
-//     z-index: 1;
-//   }
-// }
 
 .footer-siteDescription {
-  font-size: 1.33rem;
-  line-height: 1.75;
+
 }
 
 .footer-socialItems {
   display: flex;
   justify-content: flex-end;
   grid-area: social;
+  padding: 0;
+  position: relative;
+
+  // Faux border-top
+  &::before{
+    content: '';
+    display: block;
+    height: 1px;
+    width: 100vw;
+    background-color: $border-line;
+    position: absolute;
+    left: calc(-#{$padding-footer-desktop});
+    top: 0;
+    opacity: 0;
+    pointer-events: none;
+
+    @media screen and ( max-width: 1100px ) {
+      opacity: 1;
+    }
+
+    @media screen and ( max-width: 960px ) {
+  		left: calc(-#{$container-padding-tablet});
+  	}
+
+  	@media screen and ( max-width: 700px ) {
+  		left: calc(-#{$container-padding-mobile});
+    }
+
+  }
+
 }
 
 .footer-socialItem {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-left: $footer-grid-padding;
-    padding-right: $footer-grid-padding;
+    padding-left: 1.7rem;
+    padding-right: 1.7rem;
     position: relative;
     width: 100%;
 
@@ -140,7 +299,7 @@ $footer-grid-padding: 1.7rem;
       display: block;
       position: absolute;
       pointer-events: none;
-      height: 100vh;
+      height: 100%;//calc(100% + (1.7rem * 2) );
 
       @media screen and ( max-width: 768px ) {
         height: 100%;
@@ -226,12 +385,19 @@ $footer-grid-padding: 1.7rem;
     width: 17px;
   }
 
+
+
 .footer-copyright {
   grid-area: copyright;
   font-size: 1.1rem;
   color: $invert;
-  padding-top: 3rem;
   position: relative;
+  text-align: center;
+  padding-top: 0;
+  padding-bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   &::before{
     content: '';
@@ -240,25 +406,37 @@ $footer-grid-padding: 1.7rem;
     width: 100vw;
     background-color: $border-line;
     position: absolute;
-    left: calc(-127px - #{$container-padding} - ((100vw - #{$design-width}) / 2) );
+    left: calc(-#{$padding-footer-max} - ((100vw - #{$design-width}) / 2) );
     top: 0;
 
     @media screen and ( max-width: $design-width ) {
-      left: calc(-127px - #{$container-padding});
+      left: calc(-#{$padding-footer-max});
+    }
+
+    @media screen and ( max-width: $breakpoint-desktop ) {
+      left: calc(-#{$padding-footer-desktop});
+
     }
 
     @media screen and ( max-width: 960px ) {
-  		left: calc(-127px - #{$container-padding-tablet});
+  		left: calc(-#{$container-padding-tablet});
   	}
 
   	@media screen and ( max-width: 700px ) {
-  		left: calc(-127px - #{$container-padding-mobile});
-  	}
+  		left: calc(-#{$container-padding-mobile});
+    }
 
-  	@media screen and ( max-width: 568px ) {
-  		left: calc(-25vw - #{$container-padding-mobile});
-      width: 150vw;
-  	}
+  }
+
+  &::after {
+    content: '';
+    width: 1px;
+    height: 100%;
+    background-color: $border-line;
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
   }
 
   @media screen and ( max-width: 768px ) {

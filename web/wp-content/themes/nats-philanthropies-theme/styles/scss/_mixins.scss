@@ -17,56 +17,31 @@
 
 
 
-@mixin button() {
-    background-color: transparent;
-    border-radius: .25em;
-    border: none;
-    border: 1px solid $link;
-    color: $link;
-    cursor: pointer;
-    display: inline-block;
-    font-size: 1rem;
-    padding: .7em 1.4em;
-    text-align: center;
-    transition: border-color 100ms linear, color 100ms linear, background-color 100ms linear;
+@mixin button(){
+	align-items: center;
+	border-radius: 50%;
+	border: 1px solid $link;
+	color: $link;
+	display: flex;
+	font-family: $sans-2;
+	font-size: 1.4rem;
+	height: 10.4rem;
+	justify-content: center;
+	line-height: 1.2;
+	padding: 1.5rem 1.5rem 1rem 1.5rem;
+	text-transform: uppercase;
+	width: 10.4rem;
+	transform: scale3d(1, 1, 1);
+	transform-origin: center;
+	transition: transform 125ms $bounce-2;
 
-    &:hover {
-        background-color: $hover;
-        border-color: $hover;
-        color: $invert;
-        text-decoration: none;
-    }
-
+	&:hover {
+		color: $link;
+		text-decoration: none;
+		transform: scale3d(1.25, 1.25, 1.25);
+	}
 }
 
-
-
-@mixin button-filled() {
-    @include button();
-    background-color: $link;
-    border: none;
-    color: $invert;
-
-    &:hover {
-        background-color: $hover;
-        color: $invert;
-    }
-
-}
-
-
-
-@mixin button-action() {
-    @include button();
-    background-color: $link;
-    border: none;
-    color: $invert;
-
-    &:hover {
-        background-color: $hover;
-    }
-
-}
 
 
 @mixin cta-circle() {

@@ -79,29 +79,14 @@
 }
 
 .cta-button {
-	align-items: center;
-	border-radius: 50%;
-	border: 1px solid $invert;
-	color: $invert;
-	display: flex;
-	font-family: $sans-2;
-	font-size: 1.4rem;
-	height: 10.4rem;
-	justify-content: center;
-	line-height: 1.2;
+	@include button();
 	margin-top: 4.3rem;
 	margin-left: auto;
 	margin-right: auto;
-	padding: 1.5rem 1.5rem 1rem 1.5rem;
-	text-transform: uppercase;
-	width: 10.4rem;
-	transform: scale3d(1, 1, 1);
-  transform-origin: center;
-	transition: transform 125ms $bounce-2;
+	border: 1px solid $invert;
+	color: $invert;
 
 	&:hover {
 		color: $invert;
-		text-decoration: none;
-		transform: scale3d(1.25, 1.25, 1.25);
 	}
 }

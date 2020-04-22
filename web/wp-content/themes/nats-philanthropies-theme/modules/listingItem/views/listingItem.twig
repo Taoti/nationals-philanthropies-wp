@@ -1,19 +1,65 @@
 {% block listingItem %}
 <div class="{{ classes }}">
-    <div class="listingItem-inner">
+  <div class="listingItem-inner">
 
-        {% if primary_heading %}
-		<h2 class="listingItem-primaryHeading">{{ primary_heading }}</h2>
+    {% if image_html %}
+		<div class="listItem-imageContainer">
+			{% if permalink %}
+			<a class="listingItem-imageLink" href="{{ permalink }}">
+			{% endif %}
+
+				{{ image_html }}
+
+			{% if permalink %}
+			</a>
+			{% endif %}
 		{% endif %}
+		</div>
 
-		{% if description %}
-		<div class="listingItem-description">{{ description }}</div>
-	    {% endif %}
+		<div class="listingItem-info">
 
-		{% if button_url and button_label %}
-		<a class="listingItem-button" href="{{ button_url }}">{{ button_label }}</a>
-		{% endif %}
+			{% if subtitle %}
+			<p class="listingItem-subtitle">{{ subtitle }}</p>
+			{% endif %}
 
-    </div>
-</div>
+			{% if primary_heading %}
+			<h2 class="listingItem-primaryHeading">
+				{% if permalink %}
+				<a class="listingItem-primaryHeadingLink" href="{{ permalink }}">
+				{% endif %}
+
+					{{ primary_heading }}
+
+				{% if permalink %}
+				</a>
+				{% endif %}
+			</h2>
+			{% endif %}
+
+			{% if excerpt %}
+			<div class="listingItem-excerpt">{{ excerpt }}</div>
+			{% endif %}
+
+			{% if primary_button_url and secondary_button_url %}
+			<ul class="listingItem-linkList">
+
+				{% if primary_button_url and primary_button_label %}
+				<li class="listingItem-linkListItem">
+					<a class="listingItem-button listingItem-button-primary" href="{{ primary_button_url }}">{{ primary_button_label }}</a>
+				</li>
+				{% endif %}
+
+				{% if secondary_button_url and secondary_button_label %}
+				<li class="listingItem-linkListItem">
+					<a class="listingItem-button listingItem-button-secondary" href="{{ secondary_button_url }}">{{ secondary_button_label }}</a>
+				</li>
+				{% endif %}
+
+			</ul>
+			{% endif %}
+
+		</div><!-- END .listingItem-info -->
+
+  </div><!-- END .listingItem-inner -->
+</div><!-- END .listingItem -->
 {% endblock %}
