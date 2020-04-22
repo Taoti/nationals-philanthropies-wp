@@ -36,15 +36,3 @@ function form_tag( $form_tag, $form ) {
   return $form_tag;
 }
 add_filter( 'gform_form_tag', 'form_tag', 10, 2 );
-
-
-
-
-
-function smashing_filter_posts_columns( $columns ) {
-  $columns['image'] = __( 'Image' );
-  $columns['price'] = __( 'Price', 'smashing' );
-  $columns['area'] = __( 'Area', 'smashing' );
-  return $columns;
-}
-add_filter( 'manage_realestate_posts_columns', 'smashing_filter_posts_columns' );
