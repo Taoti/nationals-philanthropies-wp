@@ -1,23 +1,33 @@
 {% block quote %}
-<div class="{{ classes }}">
-  <div class="quote-row">
-    {% if image %}
-    <div class="quote-column quote-column-image">
-      <div class="quote-image"><img src="{{ image }}" alt=""></div>
+<blockquote class="{{ classes }}">
+  <div class="quote-inner">
+
+    {% if image_html %}
+    <div class="quote-imageContainer">
+      <div class="quote-image">{{ image_html }}</div>
     </div>
     {% endif %}
+
+    {% if quoted_text %}
     <div class="quote-column quote-column-text">
-      <span class="quotoe-icon">“</span>
+
+      <i class="quote-icon">&ldquo;</i>
+
       <div class="quote-quoteText">
-        {{ description }}
+        {{ quoted_text }}
       </div>
-      {% if author %}
-      <div class="quote-author">{{ author }}</div>
+
+      {% if attribution_name %}
+      <div class="quote-attributionName">{{ attribution_name }}</div>
       {% endif %}
-      {% if location %}
-      <div class="quote-location">{{ location }}</div>
+
+      {% if attribution_description %}
+      <div class="quote-attributionDescription">{{ attribution_description }}</div>
       {% endif %}
+
     </div>
-  </div>
-</div>
+    {% endif %}
+
+  </div><!-- END .quote-inner -->
+</blockquote><!-- END .quote -->
 {% endblock %}

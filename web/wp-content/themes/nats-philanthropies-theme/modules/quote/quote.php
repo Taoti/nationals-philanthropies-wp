@@ -1,6 +1,7 @@
 <?php
 namespace Modules;
 use Timber;
+use JP\Get;
 
 ### Example usage
 	// $args = [
@@ -19,9 +20,11 @@ class Quote {
 	public function __construct( $args=[] ){
 		$this->defaults = [
 			'image' => false,
-			'description' => false,
-			'author' => false,
-			'location' => false,
+			'quoted_text' => false,
+			'attribution_name' => false,
+			'attribution_description' => false,
+			'overlay_color' => 'blue',
+			'image_html' => '',
 			'classes' => [
 				'l-module',
 				'quote',
@@ -30,15 +33,25 @@ class Quote {
 
 		extract(array_merge($this->defaults, $args));
 
-    if($image){
-      $image = $image['sizes']['medium'];
-    }
+    if( is_array($image) ){
+			$image_args = [
+				'image_array' => $image,
+				'size' => 'medium',
+				'classes' => ['quote-image'],
+			];
+      $image_html = Get::image_html( $image_args );
+		}
+
+		if( $overlay_color ){
+			$classes[] = 'quote-overlay-' . $overlay_color;
+		}
 
 		$this->context = Timber::get_context();
 		$this->context['image'] = $image;
-		$this->context['description'] = $description;
-		$this->context['author'] = $author;
-		$this->context['location'] = $location;
+		$this->context['image_html'] = $image_html;
+		$this->context['quoted_text'] = $quoted_text;
+		$this->context['attribution_name'] = $attribution_name;
+		$this->context['attribution_description'] = $attribution_description;
 		$this->context['classes'] = implode(' ', $classes);
 
 	}
