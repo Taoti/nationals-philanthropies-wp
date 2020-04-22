@@ -35,9 +35,9 @@
 
     <div class="footer-contact footer-gridItem">
 
-      <h4 class="footer-heading">Stay In The Know</h4>
+      <h4 class="footer-heading"><?php echo get_theme_mod( 'taoti_footer_form_heading' ); ?></h4>
 
-      <?php echo do_shortcode( '[gravityform id="1" title="false"]' ); ?>
+      <?php echo do_shortcode( get_theme_mod( 'taoti_footer_form_shortcode' ) ); ?>
 
     </div>
 
