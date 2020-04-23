@@ -1,5 +1,5 @@
 .contentGroup-heading {
-  color: $color-3;  
+  color: $color-3;
   text-align: left;
   letter-spacing: -.025em;
   line-height: .8;
@@ -120,6 +120,6 @@ html.wf-inactive {
 }
 
 .contentGroup-cta {
-  @include cta-circle;
+  @include button;
   margin-top: 2rem;
 }

@@ -24,10 +24,6 @@
 
   }
 
-  .home-module-inner {
-    position: relative;
-  }
-
   .contentGroup-inner {
     max-width: 400px;
   }
@@ -45,10 +41,7 @@
 
   .contentGroup-cta {
     border-color: $invert;
-
-    span {
-      max-width: 50px;
-    }
+    color: $invert;
   }
 
   .contentGroup-headingOutline {
