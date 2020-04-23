@@ -24,7 +24,7 @@
 
   }
 
-  .home-image-inner {
+  .home-module-inner {
     position: relative;
   }
 
@@ -36,15 +36,15 @@
   .contentGroup-cta span,
   .contentGroup-cta span:hover,
   .contentGroup-description {
-    color: white;
+    color: $invert;
   }
 
   .contentGroup-heading:before {
-    background: white;
+    background: $invert;
   }
 
   .contentGroup-cta {
-    border-color: white;
+    border-color: $invert;
 
     span {
       max-width: 50px;
@@ -52,7 +52,7 @@
   }
 
   .contentGroup-headingOutline {
-    -webkit-text-stroke: 1.5px white;
+    -webkit-text-stroke: 1.5px $invert;
   }
 
   .home-content-column {

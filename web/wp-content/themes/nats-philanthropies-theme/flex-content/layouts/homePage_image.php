@@ -1,5 +1,6 @@
 <?php
 use Modules\ContentGroup;
+use JP\Get;
 ?>
 <section class="l-homePageModule home-image scrollspy scrollspy-dark">
   <div class="home-module-inner home-image-inner">
@@ -7,11 +8,19 @@ use Modules\ContentGroup;
       <div class="home-content-column">
         <?php
         $image = get_sub_field('image');
-        if($image) {
-          $image = $image['sizes']['large'];
+        $image_html = '';
+
+        if( is_array($image) ){
+          $image_args = [
+            'image_array' => $image,
+            'size' => 'quote-image',
+            'classes' => ['home-image-img'],
+          ];
+          $image_html = Get::image_html( $image_args );
         }
+
+        echo $image_html;
         ?>
-        <img src="<?php echo $image; ?>" alt="" class="home-image-img">
       </div>
       <div class="home-content-column">
         <?php
