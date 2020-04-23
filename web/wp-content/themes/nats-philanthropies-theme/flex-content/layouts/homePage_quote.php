@@ -2,11 +2,10 @@
 use Modules\ContentGroup;
 use JP\Get;
 ?>
-<section class="l-homePageModule home-quote scrollspy scrollspy-light">
-  <div class="home-module-inner">
-    <div class="home-content-row">
+<section class="l-homePageModule homeQuote scrollspy scrollspy-light">
+  <div class="homeQuote-inner">
 
-      <div class="home-content-column">
+      <div class="homeQuote-contentGroup">
         <?php
         // ContentGroup
         $args = [
@@ -21,7 +20,7 @@ use JP\Get;
         ?>
       </div>
 
-      <div class="home-content-column">
+      <div class="homeQuote-body">
         <?php
         // Quote
         $image = get_sub_field('image');
@@ -40,39 +39,31 @@ use JP\Get;
         }
         ?>
 
-        <div class="homeQuote">
-          <div class="homeQuote-row">
+        <?php if( $image_html ): ?>
+        <div class="homeQuote-imageContainer"><?php echo $image_html; ?></div>
+        <?php endif; ?>
 
-            <?php if( $image_html ): ?>
-            <div class="homeQuote-column homeQuote-column-image">
-              <div class="homeQuote-imageContainer"><?php echo $image_html; ?></div>
-            </div>
-            <?php endif; ?>
+        <?php if( $quoted_text ) : ?>
+        <blockquote class="homeQuote-quote">
 
-            <?php if( $quoted_text ) : ?>
-            <div class="homeQuote-column homeQuote-column-text">
+          <span class="homeQuote-icon">&ldquo;</span>
 
-              <span class="homeQuote-icon">&ldquo;</span>
-
-              <div class="homeQuote-quoteText">
-                <?php echo $quoted_text; ?>
-              </div>
-
-              <?php if( $author ) : ?>
-              <div class="homeQuote-author"><?php echo $author; ?></div>
-              <?php endif; ?>
-
-              <?php if( $location ) : ?>
-              <div class="homeQuote-location"><?php echo $location; ?></div>
-              <?php endif; ?>
-
-            </div>
-            <?php endif; ?>
-
+          <div class="homeQuote-quoteText">
+            <?php echo $quoted_text; ?>
           </div>
-        </div>
+
+          <?php if( $author ) : ?>
+          <div class="homeQuote-author"><?php echo $author; ?></div>
+          <?php endif; ?>
+
+          <?php if( $location ) : ?>
+          <div class="homeQuote-location"><?php echo $location; ?></div>
+          <?php endif; ?>
+
+        </blockquote>
+        <?php endif; ?>
+
       </div>
 
-    </div>
   </div>
 </section>

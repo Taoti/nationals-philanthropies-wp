@@ -1,7 +1,5 @@
-.home-statistics {
-  // background: url('../../images/bg-home-statistics.png');
+.homeStatistics {
   padding: 20rem 0 15rem;
-  // margin-top: -7rem; // negative margins mess up the scrollspy
   position: relative;
 
   .contentGroup-cta {
@@ -11,16 +9,19 @@
     }
   }
 
-  .home-content-row {
-    justify-content: space-between;
-  }
+}
 
-  .home-content-column {
-    &:first-child {
-      flex-basis: 30%;
-    }
-    &:last-child {
-      flex-basis: 60%;
-    }
-  }
+.homeStatistics-inner {
+  @include l-container('content-2');
+  display: flex;
+  // align-items: flex-start;
+  justify-content: space-between;
+}
+
+.homeStatistics-contentGroup {
+  flex-basis: 30%;
+}
+
+.homeStatistics-statsContainer {
+  flex-basis: 60%;
 }

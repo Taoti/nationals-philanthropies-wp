@@ -1,8 +1,10 @@
-.home-content-row {
-  display: flex;
-  align-items: flex-start;
-}
+// .home-content-row {
+//   display: flex;
+//   align-items: flex-start;
+// }
 
 .home-module-inner {
   @include l-container('content-2');
+  display: flex;
+  align-items: flex-start;
 }

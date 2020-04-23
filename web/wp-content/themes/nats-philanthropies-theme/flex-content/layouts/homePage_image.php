@@ -2,10 +2,10 @@
 use Modules\ContentGroup;
 use JP\Get;
 ?>
-<section class="l-homePageModule home-image scrollspy scrollspy-dark">
-  <div class="home-module-inner home-image-inner">
-    <div class="home-content-row">
-      <div class="home-content-column">
+<section class="l-homePageModule homeImage scrollspy scrollspy-dark">
+  <div class="homeImage-inner">
+
+      <div class="homeImage-imageContainer">
         <?php
         $image = get_sub_field('image');
         $image_html = '';
@@ -14,7 +14,7 @@ use JP\Get;
           $image_args = [
             'image_array' => $image,
             'size' => 'quote-image',
-            'classes' => ['home-image-img'],
+            'classes' => ['homeImage-img'],
           ];
           $image_html = Get::image_html( $image_args );
         }
@@ -22,7 +22,8 @@ use JP\Get;
         echo $image_html;
         ?>
       </div>
-      <div class="home-content-column">
+
+      <div class="homeImage-contentGroup">
         <?php
         // ContentGroup
         $args = [
@@ -36,6 +37,6 @@ use JP\Get;
         $contentGroup->render();
         ?>
       </div>
-    </div>
+
   </div>
 </section>

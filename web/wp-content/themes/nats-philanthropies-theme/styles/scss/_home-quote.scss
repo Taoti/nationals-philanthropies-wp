@@ -1,4 +1,4 @@
-.home-quote {
+.homeQuote {
   padding: 15rem 0;
   position: relative;
   z-index: 0;
@@ -19,60 +19,91 @@
     justify-content: space-between;
   }
 
-  .home-content-column:first-child {
-    flex-basis: 35%;
-  }
-
-  .home-content-column:last-child {
-    flex-basis: 56%;
-  }
-
   .contentGroup {
     max-width: 410px;
   }
 }
 
-.homeQuote-row {
+.homeQuote-inner {
+  @include l-container('content-2');
+  align-items: flex-start;
+  display: flex;
+}
+
+.homeQuote-contentGroup {
+  flex-basis: 35%;
+}
+
+.homeQuote-body {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  flex-basis: 56%;
 }
 
-.homeQuote-column-image {
-  flex-basis: 20%
+
+
+.homeQuote-imageContainer {
+  flex-basis: 20%;
+  position: relative;
+
+  &::before,
+	&::after {
+		content: '';
+		display: block;
+		width: 65.86%;
+    height: 73.74%;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		border: 1px solid transparentize($invert, 0.6);
+		transform: translate(-50%, -50%) rotate(45deg);
+		transform-origin: center;
+		z-index: 1;
+	}
+
+	&::before {
+		left: calc(50% - 3rem);
+	}
+
+	&::after {
+		left: calc(50% + 3rem);;
+  }
+
 }
 
-.homeQuote-column-text {
+.homeQuote-image {
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+	display: block;
+	max-width: 174px;
+	height: auto;
+  object-fit: cover;
+  width: 100%;
+}
+
+
+
+.homeQuote-quote {
   flex-basis: 76%;
   max-width: 450px;
 }
 
 .homeQuote-icon {
-  font-family: $sans-2;
-  display: block;
+  @include quote-icon();
   color: $color-3;
-  font-size: 13.8rem;
-  line-height: .2;
 }
 
 .homeQuote-quoteText {
-  font-family: $sans-2;
-  font-size: 3.56rem;
-  line-height: 1.3;
-  color: black;
+  @include quoted-text()
+  color: $color-7;
 }
 
 .homeQuote-author {
-  font-family: $sans-2;
-  font-size: 1.6rem;
+  @include quote-attribution-name()
   color: $color-3;
-  margin-top: 2rem;
-  line-height: 1;
 }
 
 .homeQuote-location {
-  font-family: $sans-2;
-  font-size: 1.6rem;
-  color: #8E8E8E;
-  line-height: 1;
+  @include quote-attribution-description()
+  color: $color-21;
 }

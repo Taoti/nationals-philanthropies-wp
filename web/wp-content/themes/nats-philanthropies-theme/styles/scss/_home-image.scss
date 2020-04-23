@@ -1,4 +1,4 @@
-.home-image {
+.homeImage {
   padding: 15rem 0;
   background-image: url('../../images/bg-map-dmv.jpg');
   background-size: cover;
@@ -55,17 +55,23 @@
     -webkit-text-stroke: 1.5px $invert;
   }
 
-  .home-content-column {
+}
 
-    &:first-child {
-      text-align: center;
-      flex-basis: 60%;
-    }
+.homeImage-inner {
+  @include l-container('content-2');
+  display: flex;
+  position: relative;
+}
 
-    img {
-      max-width: 100%;
-      width: 462px;
-      margin: 0 auto;
-    }
-  }
+.homeImage-imageContainer {
+  text-align: center;
+  flex-basis: 60%;
+}
+
+.homeImage-img {
+  max-width: 100%;
+  width: 462px;
+  margin: 0 auto;
+  height: auto;
+  display: block;
 }
