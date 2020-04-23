@@ -7,10 +7,10 @@
 * RETURNS : string - the possibly modified HTML string for the submit button
 *   NOTES : https://docs.gravityforms.com/gform_submit_button/
 */
-function taoti_edit_gf_submit_button( $button, $form ) {
+function taoti_gf_edit_submit_button( $button, $form ) {
 		return '<button class="button gform_button" id="gform_submit_button_'.$form['id'].'" title="Submit"><i class="gform_button-submitIcon">'.file_get_contents(get_stylesheet_directory() . '/images/icon-arrow.svg').'</i></button>';
 }
-add_filter( 'gform_submit_button', 'taoti_edit_gf_submit_button', 10, 2 );
+add_filter( 'gform_submit_button', 'taoti_gf_edit_submit_button', 10, 2 );
 
 
 
@@ -21,7 +21,7 @@ add_filter( 'gform_submit_button', 'taoti_edit_gf_submit_button', 10, 2 );
 * RETURNS : string - the possibly modified HTML string for the <form ...> tag
 *   NOTES : https://docs.gravityforms.com/gform_form_tag/
 */
-function form_tag( $form_tag, $form ) {
+function taoti_gf_form_tag( $form_tag, $form ) {
 	// $form['id']
 
 	// If there is already a class attribute, add to that.
@@ -35,4 +35,21 @@ function form_tag( $form_tag, $form ) {
 
   return $form_tag;
 }
-add_filter( 'gform_form_tag', 'form_tag', 10, 2 );
+add_filter( 'gform_form_tag', 'taoti_gf_form_tag', 10, 2 );
+
+
+
+
+
+function taoti_gf_add_column_shortcode( $columns ) {
+  $columns['shortcode'] = esc_html__( 'Shortcode', 'gravityforms' );
+  return $columns;
+}
+add_filter( 'gform_form_list_columns', 'taoti_gf_add_column_shortcode' );
+
+function taoti_gf_display_column_shortcode( $item ){
+	echo "<input readonly value='[gravityform id=\"" . $item->id . "\" title=\"false\" description=\"false\"]' onclick='this.select();' style='font-family:monospace'>";
+
+}
+add_action( 'gform_form_list_column_shortcode', 'taoti_gf_display_column_shortcode' );
+

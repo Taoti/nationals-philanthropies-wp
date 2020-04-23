@@ -88,6 +88,43 @@ function taoti_customize_register_cb($wp_customize){
 
 
 
+    ### Section - Footer Options
+    $wp_customize->add_section( 'taoti_section_footer_options' , array(
+        'title' => __( 'Footer Options', 'taoti' ),
+        'description' => 'Modify things in the footer.',
+        'priority' => 20,
+    ) );
+
+    // Contact Form Heading
+    $wp_customize->add_setting( 'taoti_footer_form_heading' , array(
+        'default'   => '',
+    ) );
+
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'taoti_footer_form_heading', array(
+    	'label' => __( 'Contact Form Heading', 'taoti' ),
+    	'section' => 'taoti_section_footer_options',
+    	'settings' => 'taoti_footer_form_heading',
+        'type' => 'text',
+        'description' => 'The heading displayed above the contact form.',
+    ) ) );
+
+    // Contact Form Shortcode
+    $wp_customize->add_setting( 'taoti_footer_form_shortcode' , array(
+        'default'   => '',
+    ) );
+
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'taoti_footer_form_shortcode', array(
+    	'label' => __( 'Phone Number', 'taoti' ),
+    	'section' => 'taoti_section_footer_options',
+    	'settings' => 'taoti_footer_form_shortcode',
+        'type' => 'text',
+        'description' => 'Copy and paste a shortcode from one of the <a href="'.admin_url('/admin.php?page=gf_edit_forms').'" target="_blank">Gravity Forms</a>.',
+    ) ) );
+
+
+
+
+
     ### Section - 404 Page
     $wp_customize->add_section( 'taoti_section_404_page' , array(
         'title' => __( '404 Page', 'taoti' ),

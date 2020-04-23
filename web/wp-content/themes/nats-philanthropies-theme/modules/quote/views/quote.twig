@@ -4,16 +4,16 @@
 
     {% if image_html %}
     <div class="quote-imageContainer">
-      <div class="quote-image">{{ image_html }}</div>
+      {{ image_html }}
     </div>
     {% endif %}
 
     {% if quoted_text %}
-    <div class="quote-column quote-column-text">
+    <div class="quote-body">
 
       <i class="quote-icon">&ldquo;</i>
 
-      <div class="quote-quoteText">
+      <div class="quote-quotedText">
         {{ quoted_text }}
       </div>
 

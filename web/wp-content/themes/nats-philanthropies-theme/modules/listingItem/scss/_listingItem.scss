@@ -1,5 +1,22 @@
 .listingItem {
 
+	&.is-offset-left {
+
+		.listItem-imageContainer {
+			left: -14.7rem;
+
+			@media screen and ( max-width: $design-width ) {
+				left: -7.6vw;
+			}
+
+			@media screen and ( max-width: 1100px ) {
+				left: 0;
+			}
+
+		}
+
+	}
+
 }
 
 .listingItem-inner {
@@ -17,11 +34,11 @@
 .listItem-imageContainer {
 	flex-shrink: 0;
 	position: relative;
-	left: -14.7rem;
+	// left: -14.7rem;
 
-	@media screen and ( max-width: $design-width ) {
-    left: -7.6vw;
-	}
+	// @media screen and ( max-width: $design-width ) {
+  //   left: -7.6vw;
+	// }
 
 	@media screen and ( max-width: 1600px ) {
     flex-shrink: .5;
@@ -29,7 +46,7 @@
 
 	@media screen and ( max-width: 1100px ) {
 		margin-bottom: 3rem;
-    position: static;
+    // position: static;
 	}
 
 }

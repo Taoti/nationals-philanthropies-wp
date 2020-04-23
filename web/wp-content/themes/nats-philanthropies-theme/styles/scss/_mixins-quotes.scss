@@ -1,0 +1,28 @@
+// Use these to apply the font, but apply your own color after including a mixin.
+@mixin quoted-text(){
+	font-family: $sans-2;
+  font-size: 3.56rem;
+  line-height: 1.22;
+}
+
+@mixin quote-attribution-name(){
+  font-family: $sans-2;
+  font-size: 1.6rem;
+  line-height: 1;
+  margin-top: 2.3rem;
+  text-transform: uppercase;
+}
+
+@mixin quote-attribution-description(){
+  font-family: $sans-2;
+  font-size: 1.6rem;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+@mixin quote-icon(){
+  display: block;
+  font-family: $sans-2;
+  font-size: 13.8rem;
+  line-height: .075;
+}
