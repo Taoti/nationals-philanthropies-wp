@@ -3,6 +3,18 @@
   position: relative;
   z-index: 0;
 
+	&::before {
+		content: '';
+		position: absolute;
+		bottom: 100%;
+		left: 0;
+		width: 100%;
+		height: 49px;
+		background-repeat: repeat-x;
+		background-image: url('../../images/border-page-tear-1.png');
+		display: block;
+	}
+
   .home-content-row {
     justify-content: space-between;
   }
