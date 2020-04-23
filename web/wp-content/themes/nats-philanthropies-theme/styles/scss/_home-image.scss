@@ -1,8 +1,32 @@
 .home-image {
   padding: 15rem 0;
-  background: url(../../images/bg-home-image.png);
+  background-image: url('../../images/bg-map-dmv.jpg');
   background-size: cover;
-  background-position: center;
+	background-repeat: no-repeat;
+	background-position: center;
+  position: relative;
+
+	&::before {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: $color-4;
+    opacity: .75;
+
+    @supports (mix-blend-mode: hard-light){
+      opacity: 1;
+      mix-blend-mode: hard-light;
+		}
+
+  }
+
+  .home-image-inner {
+    position: relative;
+  }
 
   .contentGroup-inner {
     max-width: 400px;

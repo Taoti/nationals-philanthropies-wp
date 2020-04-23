@@ -2,7 +2,7 @@
 use Modules\ContentGroup;
 ?>
 <section class="l-homePageModule home-image scrollspy scrollspy-dark">
-  <div class="home-module-inner">
+  <div class="home-module-inner home-image-inner">
     <div class="home-content-row">
       <div class="home-content-column">
         <?php
