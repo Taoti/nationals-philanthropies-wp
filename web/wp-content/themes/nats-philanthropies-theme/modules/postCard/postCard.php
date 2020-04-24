@@ -24,7 +24,7 @@ class PostCard {
 			'permalink' => '',
 			'excerpt' => '',
 			'subheading_items' => [],
-			'tags' => [],
+			'topics' => [],
 			'classes' => []
 		];
 
@@ -49,7 +49,10 @@ class PostCard {
 
 			$subheading_items[] = get_the_date( null, $post_object );
 
-			// Get post tags into the array
+			$subheading = implode( '<span class="postCard-seperator">|</span>', $subheading_items );
+
+			// Get post topics into the array
+			$topics = wp_get_post_terms( $post_object->ID, 'topic' );
 
 		}
 
@@ -57,14 +60,20 @@ class PostCard {
 		$this->context['title'] = $title;
 		$this->context['permalink'] = $permalink;
 		$this->context['excerpt'] = $excerpt;
+		$this->context['subheading'] = $subheading;
 		$this->context['subheading_items'] = $subheading_items;
-		$this->context['tags'] = $tags;
+		$this->context['topics'] = $topics;
+		$this->context['arrow_icon'] = file_get_contents( get_stylesheet_directory().'/images/icon-arrow.svg' );
 		$this->context['classes'] = implode(' ', $classes);
 
 	}
 
 	public function render(){
 		Timber::render('postCard.twig', $this->context);
+	}
+
+	public function compile(){
+		return Timber::compile('postCard.twig', $this->context);
 	}
 
 }

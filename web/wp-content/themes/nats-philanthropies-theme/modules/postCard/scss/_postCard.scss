@@ -1,0 +1,43 @@
+.postCard {
+	@include card();
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	min-height: 316px;
+
+	&:hover {
+
+		.postCard-more {
+			transform: scale3d(1.33, 1.33, 1.33);
+		}
+
+	}
+
+}
+
+.postCard-subHeading {
+	@include card-subHeading();
+	color: $color-22;
+	justify-self: flex-start;
+	margin-bottom: auto;
+}
+
+.postCard-seperator {
+	padding: 0 .5rem;
+}
+
+.postCard-heading {
+	@include card-heading();
+}
+
+.postCard-excerpt {
+	@include card-excerpt();
+}
+
+.postCard-topicItem {
+	@include card-subHeading();
+}
+
+.postCard-more {
+	@include card-more();
+}
