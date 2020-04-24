@@ -3,10 +3,10 @@ use Modules\ContentGroup;
 use Modules\Stats;
 ?>
 
-<section class="l-homePageModule home-module home-statistics scrollspy scrollspy-light">
-  <div class="home-module-inner">
-    <div class="home-content-row">
-      <div class="home-content-column">
+<section class="l-homePageModule home-module homeStatistics scrollspy scrollspy-light">
+  <div class="homeStatistics-inner">
+
+      <div class="homeStatistics-contentGroup">
         <?php
         // ContentGroup
         $args = [
@@ -20,7 +20,8 @@ use Modules\Stats;
         $contentGroup->render();
         ?>
       </div>
-      <div class="home-content-column">
+
+      <div class="homeStatistics-statsContainer">
         <?php
         // Stats
         $args = [
@@ -30,6 +31,6 @@ use Modules\Stats;
         $stats->render();
         ?>
       </div>
-    </div>
+
   </div>
 </section>

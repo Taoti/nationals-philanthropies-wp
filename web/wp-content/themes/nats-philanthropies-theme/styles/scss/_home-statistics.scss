@@ -1,26 +1,39 @@
-.home-statistics {
-  background: url('../../images/bg-home-statistics.png');
+.homeStatistics {
+  background-image: url('../../images/bg-lines.png');
+  background-size: 100%;
+  background-repeat: repeat-y;
+  background-position: center top -50px;
   padding: 20rem 0 15rem;
-  // margin-top: -7rem; // negative margins mess up the scrollspy
   position: relative;
+}
 
-  .contentGroup-cta {
-    &:hover span,
-    span {
-      color: $color-3;
-    }
+.homeStatistics-inner {
+  @include l-container('content-2');
+  display: flex;
+  justify-content: space-between;
+
+  @media screen and ( max-width: 1575px ) {
+    @include l-container('header');
   }
 
-  .home-content-row {
-    justify-content: space-between;
+  @media screen and ( max-width: 1150px ) {
+    flex-wrap: wrap;
   }
+}
 
-  .home-content-column {
-    &:first-child {
-      flex-basis: 30%;
-    }
-    &:last-child {
-      flex-basis: 60%;
-    }
+.homeStatistics-contentGroup {
+  flex-basis: 30%;
+
+  @media screen and ( max-width: 1150px ) {
+    flex-basis: 100%;
+  }
+}
+
+.homeStatistics-statsContainer {
+  flex-basis: 60%;
+
+  @media screen and ( max-width: 1150px ) {
+    flex-basis: 100%;
+    margin-top: 2rem;
   }
 }

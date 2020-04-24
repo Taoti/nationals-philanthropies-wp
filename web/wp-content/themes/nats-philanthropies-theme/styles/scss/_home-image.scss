@@ -1,47 +1,95 @@
-.home-image {
+.homeImage {
   padding: 15rem 0;
-  background: url(../../images/bg-home-image.png);
+  background-image: url('../../images/bg-map-dmv.jpg');
   background-size: cover;
-  background-position: center;
+	background-repeat: no-repeat;
+	background-position: center;
+  position: relative;
+
+	&::before {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: $color-4;
+    opacity: .75;
+
+    @supports (mix-blend-mode: hard-light){
+      opacity: 1;
+      mix-blend-mode: hard-light;
+		}
+
+  }
 
   .contentGroup-inner {
     max-width: 400px;
+
+    @media screen and ( max-width: 1150px ) {
+      max-width: inherit;
+    }
   }
 
   .contentGroup-heading,
   .contentGroup-cta span,
   .contentGroup-cta span:hover,
   .contentGroup-description {
-    color: white;
+    color: $invert;
   }
 
   .contentGroup-heading:before {
-    background: white;
+    background: $invert;
   }
 
   .contentGroup-cta {
-    border-color: white;
-
-    span {
-      max-width: 50px;
-    }
+    border-color: $invert;
+    color: $invert;
   }
 
   .contentGroup-headingOutline {
-    -webkit-text-stroke: 1.5px white;
+    -webkit-text-stroke: 1.5px $invert;
   }
 
-  .home-content-column {
+}
 
-    &:first-child {
-      text-align: center;
-      flex-basis: 60%;
-    }
+.homeImage-inner {
+  @include l-container('content-2');
+  display: flex;
+  position: relative;
 
-    img {
-      max-width: 100%;
-      width: 462px;
-      margin: 0 auto;
-    }
+  @media screen and ( max-width: 1575px ) {
+    @include l-container('header');
+  }
+
+  @media screen and ( max-width: 1150px ) {
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
+  }
+}
+
+.homeImage-imageContainer {
+  text-align: center;
+  flex-basis: 60%;
+
+  @media screen and ( max-width: 1150px ) {
+    flex-basis: 100%;
+  }
+}
+
+.homeImage-img {
+  max-width: 100%;
+  width: 462px;
+  margin: 0 auto;
+  height: auto;
+  display: block;
+
+  @media screen and ( max-width: 1100px ) {
+    max-width: 400px;
+  }
+
+  @media screen and ( max-width: 450px ) {
+    max-width: 100%;
   }
 }

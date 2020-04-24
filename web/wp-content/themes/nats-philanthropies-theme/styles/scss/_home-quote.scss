@@ -1,66 +1,193 @@
-.home-quote {
-  padding: 15rem 0;
+.homeQuote {
+  padding: 22.5rem 0;
   position: relative;
   z-index: 0;
+
+	&::before {
+		content: '';
+		position: absolute;
+		bottom: 100%;
+		left: 0;
+		width: 100%;
+		height: 49px;
+		background-repeat: repeat-x;
+		background-image: url('../../images/border-page-tear-1.png');
+		display: block;
+	}
 
   .home-content-row {
     justify-content: space-between;
   }
 
-  .home-content-column:first-child {
-    flex-basis: 35%;
-  }
-
-  .home-content-column:last-child {
-    flex-basis: 56%;
-  }
-
   .contentGroup {
     max-width: 410px;
+
+    @media screen and ( max-width: 1150px ) {
+      max-width: 100%;
+    }
   }
 }
 
-.homeQuote-row {
+.homeQuote-inner {
+  @include l-container('content-2');
+  align-items: flex-start;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+
+  @media screen and ( max-width: 1575px ) {
+    @include l-container('header');
+  }
+
+  @media screen and ( max-width: 1150px ) {
+    flex-wrap: wrap;
+  }
+
 }
 
-.homeQuote-column-image {
-  flex-basis: 20%
+.homeQuote-contentGroup {
+  flex-basis: 32%;
+  margin-right: 4rem;
+  position: relative;
+  top: -3.5rem; // This is meant to push the image's top edge to be aligned with the top of the quotes (icon). The quotes are tough to align since they're not a solid object.
+
+  @media screen and ( max-width: 1150px ) {
+    flex-basis: 100%;
+    margin-right: 0;
+  }
+
+  @media screen and ( max-width: 1250px ) {
+    margin-bottom: 6rem;
+    top: 0;
+  }
 }
 
-.homeQuote-column-text {
-  flex-basis: 76%;
-  max-width: 450px;
+.homeQuote-body {
+  display: flex;
+  justify-content: flex-end;
+  flex-basis: 68%;
+
+  @media screen and ( max-width: 1150px ) {
+    flex-basis: 100%;
+  }
+
+  @media screen and ( max-width: 500px ) {
+    display: block;
+  }
+}
+
+
+
+.homeQuote-imageContainer {
+  flex-basis: 155px;
+  flex-shrink: 0;
+  margin-right: 3rem;
+  position: relative;
+  top: -5rem; // This is meant to push the image's top edge to be aligned with the top of the quotes (icon). The quotes are tough to align since they're not a solid object.
+
+  @media screen and ( max-width: 1250px ) {
+    margin-bottom: 4rem;
+    top: 0;
+  }
+
+  @media screen and ( max-width: 500px ) {
+    margin-bottom: 7rem;
+    margin-right: 0;
+  }
+
+  &::before,
+	&::after {
+		border: 1px solid transparentize($color-7, 0.8);
+		content: '';
+		display: block;
+		left: 50%;
+		position: absolute;
+		transform-origin: center;
+		transform: translate(-50%, 0) rotate(45deg);
+		z-index: 1;
+    height: 110px;
+    top: 2.2rem;
+    width: 110px;
+
+    @media screen and ( max-width: 1250px ) {
+      transform: translate(0,0) rotate(45deg);
+    }
+
+    @media screen and ( max-width: 500px ) {
+      transform: translate(-50%, 0) rotate(45deg);
+    }
+	}
+
+	&::before {
+		left: calc(50% - 1rem);
+
+    @media screen and ( max-width: 1250px ) {
+      left: 1rem;
+    }
+
+    @media screen and ( max-width: 500px ) {
+      left: calc(50% - 1rem);
+    }
+	}
+
+	&::after {
+		left: calc(50% + 1rem);
+
+    @media screen and ( max-width: 1250px ) {
+      left: 3rem;
+    }
+
+    @media screen and ( max-width: 500px ) {
+      left: calc(50% + 1rem);
+    }
+  }
+
+}
+
+.homeQuote-image {
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+	display: block;
+	max-width: 155px;
+	height: auto;
+  width: 100%;
+
+  @media screen and ( max-width: 500px ) {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+
+
+.homeQuote-quote {
+  flex-basis: calc(100% - 155px - 3rem);
+  max-width: 560px;
+
+  @media screen and ( max-width: 1150px ) {
+    flex-basis: 100%;
+    max-width: 100%;
+    margin-top: 2rem;
+  }
+
+  @media screen and ( max-width: $container-contentGroup-mobile ) {
+    text-align: center;
+  }
 }
 
 .homeQuote-icon {
-  font-family: $sans-2;
-  display: block;
+  @include quote-icon();
   color: $color-3;
-  font-size: 13.8rem;
-  line-height: .2;
 }
 
 .homeQuote-quoteText {
-  font-family: $sans-2;
-  font-size: 3.56rem;
-  line-height: 1.3;
-  color: black;
+  @include quoted-text()
+  color: $color-7;
 }
 
 .homeQuote-author {
-  font-family: $sans-2;
-  font-size: 1.6rem;
+  @include quote-attribution-name()
   color: $color-3;
-  margin-top: 2rem;
-  line-height: 1;
 }
 
 .homeQuote-location {
-  font-family: $sans-2;
-  font-size: 1.6rem;
-  color: #8E8E8E;
-  line-height: 1;
+  @include quote-attribution-description()
+  color: $color-21;
 }

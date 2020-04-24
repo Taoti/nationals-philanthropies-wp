@@ -3,43 +3,46 @@
   {% if background_image_url %}
     <div class="hero-backgroundImage"  style="background-image: url({{ background_image_url }})"></div>
   {% endif %}
-	<div class="l-container hero-inner">
+	<div class="hero-inner">
 
-    <div class="hero-row">
-      <div class="hero-column hero-content">
-    
-    		{% if heading_line_1 and heading_line_2 %}
-    		<h1 class="hero-heading">
+    <div class="hero-column hero-content">
 
-    			{% if accent_image_1_html %}
-    			{{ accent_image_1_html }}
-    			{% endif %}
+      {% if heading_line_1 and heading_line_2 %}
+      <h1 class="hero-heading">
 
-    			<span class="hero-headingLine hero-headingOutline">
-
-    				<span class="hero-textWrap">{{ heading_line_1 }}</span>
-
-    			</span>
-
-    			<span class="hero-headingLine">
-    				<span class="hero-textWrap">{{ heading_line_2 }}</span>
-    			</span>
-    		</h1>
-    		{% endif %}
-
-        {% if description %}
-          <div class="hero-description">
-            {{ description}}
-          </div>
+        {% if accent_image_1_html %}
+        {{ accent_image_1_html }}
         {% endif %}
-        
-        {% if button_link and button_label %}
-          <a href="{{ button_link }}" class="hero-button"><span>{{ button_label }}</span></a>
-        {% endif %}
-      </div>
-      <div class="hero-column hero-img">
-        <img src="{{ header_img }}" alt="" />
-      </div>
+
+        <span class="hero-headingLine hero-headingOutline">
+
+          <span class="hero-textWrap">{{ heading_line_1 }}</span>
+
+          {% if accent_image_2_html %}
+          {{ accent_image_2_html }}
+          {% endif %}
+
+        </span>
+
+        <span class="hero-headingLine">
+          <span class="hero-textWrap">{{ heading_line_2 }}</span>
+        </span>
+      </h1>
+      {% endif %}
+
+      {% if description %}
+        <div class="hero-description">
+          {{ description}}
+        </div>
+      {% endif %}
+
+      {% if button_link and button_label %}
+        <a href="{{ button_link }}" class="hero-button"><span>{{ button_label }}</span></a>
+      {% endif %}
+    </div>
+
+    <div class="hero-column hero-img">
+      <img src="{{ header_img }}" alt="" />
     </div>
 
 	</div><!-- END .hero-inner -->

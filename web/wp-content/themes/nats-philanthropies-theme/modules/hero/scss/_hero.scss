@@ -5,6 +5,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  z-index: 1;
 
   &::before {
     content: '';
@@ -29,6 +30,9 @@
 }
 
 .hero-inner {
+  @include l-container('hero');
+  display: flex;
+  align-items: stretch;
   padding-top: var(--header-height);
   padding-bottom: 22.8rem;
   position: relative;

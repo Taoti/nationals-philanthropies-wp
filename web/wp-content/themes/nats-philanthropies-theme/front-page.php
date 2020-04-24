@@ -45,7 +45,7 @@ $args = [
   'heading_line_2' => 'A Better Washington',
   'description' => 'We are committed to holistically improving the lives of children and families across Washington, D.C. and beyond. Join our movement today.',
   'button_label' => 'make a donation',
-  'button_link' => '#',
+  'button_link' => '#0',
   'background_image_url' => wp_get_attachment_image_src( get_post_thumbnail_id( get_the_id()), 'large')
 ];
 $hero = new Hero($args);

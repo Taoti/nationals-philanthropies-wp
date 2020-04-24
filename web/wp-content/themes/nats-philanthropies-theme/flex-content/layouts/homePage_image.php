@@ -1,19 +1,29 @@
 <?php
 use Modules\ContentGroup;
+use JP\Get;
 ?>
-<section class="l-homePageModule home-image scrollspy scrollspy-dark">
-  <div class="home-module-inner">
-    <div class="home-content-row">
-      <div class="home-content-column">
+<section class="l-homePageModule homeImage scrollspy scrollspy-dark">
+  <div class="homeImage-inner">
+
+      <div class="homeImage-imageContainer">
         <?php
         $image = get_sub_field('image');
-        if($image) {
-          $image = $image['sizes']['large'];
+        $image_html = '';
+
+        if( is_array($image) ){
+          $image_args = [
+            'image_array' => $image,
+            'size' => 'quote-image',
+            'classes' => ['homeImage-img'],
+          ];
+          $image_html = Get::image_html( $image_args );
         }
+
+        echo $image_html;
         ?>
-        <img src="<?php echo $image; ?>" alt="" class="home-image-img">
       </div>
-      <div class="home-content-column">
+
+      <div class="homeImage-contentGroup">
         <?php
         // ContentGroup
         $args = [
@@ -27,6 +37,6 @@ use Modules\ContentGroup;
         $contentGroup->render();
         ?>
       </div>
-    </div>
+
   </div>
 </section>
