@@ -1,0 +1,35 @@
+// Grid Section
+.postGrid-home {
+
+  .postGrid-grid {
+    grid-template-areas:
+			"bigLink bigLink otherLink1 otherLink2"
+			"otherLink3 otherLink4 form form";
+
+		@media screen and ( max-width: 1150px ) {
+			grid-template-areas: initial;
+		}
+  }
+
+}
+
+.postGridItem-home {
+  position: relative;
+
+  &:first-child {
+    grid-area: bigLink;
+
+		@media screen and ( max-width: 1150px ) {
+			grid-area: auto;
+		}
+  }
+
+  &.formCard {
+    grid-area: form;
+
+		@media screen and ( max-width: 1150px ) {
+			grid-area: auto;
+		}
+  }
+
+}
