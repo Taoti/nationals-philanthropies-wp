@@ -6,9 +6,9 @@ Description: A plugin to manage ALL your tracking code and conversion pixels, si
 Author: IntellyWP
 Author URI: http://intellywp.com/
 Email: info@intellywp.com
-Version: 1.12.1
+Version: 1.12.2
 WC requires at least: 3.0.0
-WC tested up to: 3.8
+WC tested up to: 4
 */
 if(defined('TCMP_PLUGIN_NAME')) {
     function tcmp_admin_notices() {
@@ -26,7 +26,7 @@ define('TCMP_PLUGIN_PREFIX', 'TCMP_');
 define('TCMP_PLUGIN_FILE',__FILE__);
 define('TCMP_PLUGIN_SLUG', 'tracking-code-manager');
 define('TCMP_PLUGIN_NAME', 'Tracking Code Manager');
-define('TCMP_PLUGIN_VERSION', '1.12.1');
+define('TCMP_PLUGIN_VERSION', '1.12.2');
 define('TCMP_PLUGIN_AUTHOR', 'IntellyWP');
 
 define('TCMP_PLUGIN_DIR', dirname(__FILE__).'/');
