@@ -101,6 +101,13 @@ Have a look at the source code of your page (search for: Tracking Code Manager) 
 
 == Changelog ==
 
+= 1.12.2 =
+*Release Date - 2020-03-19*
+
+* Tested with WooCommerce 3.8. Plugin updated and supported.
+
+== Changelog ==
+
 = 1.12.1 =
 *Release Date - 2019-12-02*
 
