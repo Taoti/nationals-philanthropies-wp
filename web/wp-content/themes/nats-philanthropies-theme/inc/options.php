@@ -14,4 +14,12 @@ if( function_exists('acf_add_options_page') ) {
 		)
 	);
 
+	// Options for `post` (News) archive page
+	acf_add_options_page(
+		array(
+			'page_title' => 'News Listing Page',
+			'parent_slug' => 'edit.php'
+		)
+	);
+
 }
