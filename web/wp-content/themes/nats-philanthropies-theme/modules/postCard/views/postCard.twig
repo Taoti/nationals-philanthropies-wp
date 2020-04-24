@@ -14,6 +14,16 @@
 	<div class="postCard-excerpt">{{ excerpt }}</div>
 	{% endif %}
 
+	{% if topics %}
+	<ul class="postCard-topicList">
+		{% for topic in topics %}
+
+		<li class="postCard-topicItem">{{ topic.name }}</li>
+
+		{% endfor %}
+	</ul>
+	{% endif %}
+
 	<div class="postCard-more">{{ arrow_icon }}</div>
 
 </a>

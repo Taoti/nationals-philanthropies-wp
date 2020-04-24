@@ -43,6 +43,14 @@
 	text-transform: uppercase;
 }
 
+@mixin card-subHeading() {
+	font-family: $sans-2;
+	font-size: 1.6rem;
+	line-height: 1.5;
+	position: relative;
+	text-transform: uppercase;
+}
+
 @mixin card-excerpt() {
 	font-size: 1.4rem;
 	line-height: 1.7;
