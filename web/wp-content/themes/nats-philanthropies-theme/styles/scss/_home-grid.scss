@@ -11,6 +11,12 @@
 		}
   }
 
+  .postGrid-inner {
+    @media screen and ( max-width: 1575px ) {
+      @include l-container('header');
+    }
+  }
+
 }
 
 .postGridItem-home {
