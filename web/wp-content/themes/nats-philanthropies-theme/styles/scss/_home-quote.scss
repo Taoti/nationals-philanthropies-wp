@@ -1,5 +1,5 @@
 .homeQuote {
-  padding: 15rem 0;
+  padding: 22.5rem 0;
   position: relative;
   z-index: 0;
 
@@ -28,46 +28,82 @@
   @include l-container('content-2');
   align-items: flex-start;
   display: flex;
+
+  @media screen and ( max-width: 1250px ) {
+    display: block;
+  }
+
 }
 
 .homeQuote-contentGroup {
-  flex-basis: 35%;
+  flex-basis: 32%;
+  margin-right: 4rem;
+  position: relative;
+  top: -3.5rem; // This is meant to push the image's top edge to be aligned with the top of the quotes (icon). The quotes are tough to align since they're not a solid object.
+
+  @media screen and ( max-width: 1250px ) {
+    margin-bottom: 6rem;
+    top: 0;
+  }
 }
 
 .homeQuote-body {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  flex-basis: 56%;
+  justify-content: flex-end;
+  flex-basis: 68%;
+
+  // @media screen and ( max-width: 1250px ) {
+  //   display: block;
+  // }
 }
 
 
 
 .homeQuote-imageContainer {
-  flex-basis: 20%;
+  flex-basis: 155px;
+  flex-shrink: 0;
+  margin-right: 3rem;
   position: relative;
+  top: -5rem; // This is meant to push the image's top edge to be aligned with the top of the quotes (icon). The quotes are tough to align since they're not a solid object.
+
+  @media screen and ( max-width: 1250px ) {
+    margin-bottom: 4rem;
+    top: 0;
+  }
 
   &::before,
 	&::after {
+		border: 1px solid transparentize($color-7, 0.8);
 		content: '';
 		display: block;
-		width: 65.86%;
-    height: 73.74%;
-		position: absolute;
-		top: 50%;
 		left: 50%;
-		border: 1px solid transparentize($invert, 0.6);
-		transform: translate(-50%, -50%) rotate(45deg);
+		position: absolute;
 		transform-origin: center;
+		transform: translate(-50%, 0) rotate(45deg);
 		z-index: 1;
+    height: 110px;
+    top: 2.2rem;
+    width: 110px;
+
+    @media screen and ( max-width: 1250px ) {
+      transform: translate(0,0) rotate(45deg);
+    }
 	}
 
 	&::before {
-		left: calc(50% - 3rem);
+		left: calc(50% - 1rem);
+
+    @media screen and ( max-width: 1250px ) {
+      left: 1rem;
+    }
 	}
 
 	&::after {
-		left: calc(50% + 3rem);;
+		left: calc(50% + 1rem);
+
+    @media screen and ( max-width: 1250px ) {
+      left: 3rem;
+    }
   }
 
 }
@@ -75,17 +111,16 @@
 .homeQuote-image {
   clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
 	display: block;
-	max-width: 174px;
+	max-width: 155px;
 	height: auto;
-  object-fit: cover;
   width: 100%;
 }
 
 
 
 .homeQuote-quote {
-  flex-basis: 76%;
-  max-width: 450px;
+  flex-basis: calc(100% - 155px - 3rem);
+  max-width: 560px;
 }
 
 .homeQuote-icon {

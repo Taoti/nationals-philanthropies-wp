@@ -32,7 +32,7 @@ use JP\Get;
         if( is_array($image) ){
           $image_args = [
             'image_array' => $image,
-            'size' => 'medium',
+            'size' => 'thumbnail',
             'classes' => ['homeQuote-image'],
           ];
           $image_html = Get::image_html( $image_args );

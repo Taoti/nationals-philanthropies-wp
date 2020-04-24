@@ -4,6 +4,14 @@
   top: 50%;
   transform: translateY(-50%);
   z-index: 5;
+
+  @media screen and ( max-width: 960px ) {
+    left: .7rem;
+  }
+
+  @media screen and ( max-width: 700px ) {
+    display: none;
+  }
 }
 
 .scrollspy-navItem {
@@ -15,6 +23,10 @@
   color: $invert;
   transition: color 200ms;
   cursor: pointer;
+
+  @media screen and ( max-width: 960px ) {
+    font-size: 1.4rem;
+  }
 
   &:before {
     content: "";
