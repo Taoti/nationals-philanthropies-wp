@@ -49,7 +49,10 @@ class PostCard {
 
 			$subheading_items[] = get_the_date( null, $post_object );
 
+			$subheading = implode( '<span class="postCard-seperator">|</span>', $subheading_items );
+
 			// Get post tags into the array
+			$tags = wp_get_post_tags( $post_object->ID );
 
 		}
 
@@ -57,8 +60,10 @@ class PostCard {
 		$this->context['title'] = $title;
 		$this->context['permalink'] = $permalink;
 		$this->context['excerpt'] = $excerpt;
+		$this->context['subheading'] = $subheading;
 		$this->context['subheading_items'] = $subheading_items;
 		$this->context['tags'] = $tags;
+		$this->context['arrow_icon'] = file_get_contents( get_stylesheet_directory().'/images/icon-arrow.svg' );
 		$this->context['classes'] = implode(' ', $classes);
 
 	}
