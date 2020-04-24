@@ -34,8 +34,16 @@
 	@include card-excerpt();
 }
 
+.postCard-topicList {
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: 3rem;
+}
+
 .postCard-topicItem {
 	@include card-subHeading();
+	margin-right: 2.6rem;
+	text-decoration: underline;
 }
 
 .postCard-more {
