@@ -1,11 +1,15 @@
 {% block cardColumns %}
 <div class="{{ classes }}">
-    <div class="l-inner cardColumns-inner">
+    <div class="cardColumns-inner">
 
     {% for column in columns %}
-		{{ column }}
+		<div class="cardColumn-column">
+
+			{{ column }}
+
+		</div><!-- END .cardColumn-column -->
 		{% endfor %}
 
-    </div>
-</div>
+    </div><!-- END .cardColumns-inner -->
+</div><!-- END .cardColumns -->
 {% endblock %}
