@@ -10,18 +10,30 @@
 .homeStatistics-inner {
   @include l-container('content-2');
   display: flex;
-  // align-items: flex-start;
   justify-content: space-between;
 
   @media screen and ( max-width: 1575px ) {
     @include l-container('header');
   }
+
+  @media screen and ( max-width: 1150px ) {
+    flex-wrap: wrap;
+  }
 }
 
 .homeStatistics-contentGroup {
   flex-basis: 30%;
+
+  @media screen and ( max-width: 1150px ) {
+    flex-basis: 100%;
+  }
 }
 
 .homeStatistics-statsContainer {
   flex-basis: 60%;
+
+  @media screen and ( max-width: 1150px ) {
+    flex-basis: 100%;
+    margin-top: 2rem;
+  }
 }

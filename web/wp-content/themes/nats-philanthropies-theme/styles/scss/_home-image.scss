@@ -26,6 +26,10 @@
 
   .contentGroup-inner {
     max-width: 400px;
+
+    @media screen and ( max-width: 1150px ) {
+      max-width: inherit;
+    }
   }
 
   .contentGroup-heading,
@@ -58,11 +62,20 @@
   @media screen and ( max-width: 1575px ) {
     @include l-container('header');
   }
+
+  @media screen and ( max-width: 1150px ) {
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
+  }
 }
 
 .homeImage-imageContainer {
   text-align: center;
   flex-basis: 60%;
+
+  @media screen and ( max-width: 1150px ) {
+    flex-basis: 100%;
+  }
 }
 
 .homeImage-img {
@@ -71,4 +84,8 @@
   margin: 0 auto;
   height: auto;
   display: block;
+
+  @media screen and ( max-width: 1100px ) {
+    max-width: 400px;
+  }
 }
