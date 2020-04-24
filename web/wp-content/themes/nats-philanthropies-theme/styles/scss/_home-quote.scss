@@ -52,9 +52,9 @@
   justify-content: flex-end;
   flex-basis: 68%;
 
-  // @media screen and ( max-width: 1250px ) {
-  //   display: block;
-  // }
+  @media screen and ( max-width: 500px ) {
+    display: block;
+  }
 }
 
 
@@ -69,6 +69,11 @@
   @media screen and ( max-width: 1250px ) {
     margin-bottom: 4rem;
     top: 0;
+  }
+
+  @media screen and ( max-width: 500px ) {
+    margin-bottom: 7rem;
+    margin-right: 0;
   }
 
   &::before,
@@ -88,6 +93,10 @@
     @media screen and ( max-width: 1250px ) {
       transform: translate(0,0) rotate(45deg);
     }
+
+    @media screen and ( max-width: 500px ) {
+      transform: translate(-50%, 0) rotate(45deg);
+    }
 	}
 
 	&::before {
@@ -96,6 +105,10 @@
     @media screen and ( max-width: 1250px ) {
       left: 1rem;
     }
+
+    @media screen and ( max-width: 500px ) {
+      left: calc(50% - 1rem);
+    }
 	}
 
 	&::after {
@@ -103,6 +116,10 @@
 
     @media screen and ( max-width: 1250px ) {
       left: 3rem;
+    }
+
+    @media screen and ( max-width: 500px ) {
+      left: calc(50% + 1rem);
     }
   }
 
@@ -114,6 +131,11 @@
 	max-width: 155px;
 	height: auto;
   width: 100%;
+
+  @media screen and ( max-width: 500px ) {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 
@@ -121,6 +143,10 @@
 .homeQuote-quote {
   flex-basis: calc(100% - 155px - 3rem);
   max-width: 560px;
+
+  @media screen and ( max-width: 500px ) {
+    text-align: center;
+  }
 }
 
 .homeQuote-icon {

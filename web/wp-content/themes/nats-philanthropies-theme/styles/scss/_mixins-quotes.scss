@@ -3,6 +3,10 @@
 	font-family: $sans-2;
   font-size: 3.56rem;
   line-height: 1.22;
+
+  @media screen and ( max-width: 500px ) {
+    font-size: 3rem;
+  }
 }
 
 @mixin quote-attribution-name(){
@@ -25,4 +29,8 @@
   font-family: $sans-2;
   font-size: 13.8rem;
   line-height: .075;
+
+  @media screen and ( max-width: 500px ) {
+    font-size: 10rem;
+  }
 }
