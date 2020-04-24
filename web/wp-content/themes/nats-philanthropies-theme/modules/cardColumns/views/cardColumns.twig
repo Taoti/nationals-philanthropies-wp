@@ -1,15 +1,22 @@
 {% block cardColumns %}
 <div class="{{ classes }}">
-    <div class="cardColumns-inner">
+	<div class="cardColumns-inner">
 
-    {% for column in columns %}
-		<div class="cardColumn-column">
+		{% if primary_heading %}
+		<h2 class="cardColumns-primaryHeading">{{ primary_heading }}</h2>
+		{% endif %}
 
-			{{ column }}
+		<ul class="cardColumn-columns">
+			{% for column in columns %}
+			<li class="cardColumn-column">
 
-		</div><!-- END .cardColumn-column -->
-		{% endfor %}
+				{{ column }}
 
-    </div><!-- END .cardColumns-inner -->
+			</li><!-- END .cardColumn-column -->
+			{% endfor %}
+		</ul>
+
+
+	</div><!-- END .cardColumns-inner -->
 </div><!-- END .cardColumns -->
 {% endblock %}
