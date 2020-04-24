@@ -39,7 +39,7 @@ class PeopleCard {
 
 			$name = get_the_title( $post_object );
 
-			$job_title = get_field( 'job_title', $post_object->ID );
+			$job_title = get_field( 'people_job_title', $post_object->ID );
 
 			$image_args = [
 				'image_array' => Get::featured_image_array( $post_object->ID ),
@@ -62,6 +62,10 @@ class PeopleCard {
 
 	public function render(){
 		Timber::render('peopleCard.twig', $this->context);
+	}
+
+	public function compile(){
+		return Timber::compile('peopleCard.twig', $this->context);
 	}
 
 }

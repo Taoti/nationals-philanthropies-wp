@@ -1,19 +1,15 @@
 {% block peopleCard %}
 <div class="{{ classes }}">
-    <div class="peopleCard-inner">
 
-        {% if primary_heading %}
-		<h2 class="peopleCard-primaryHeading">{{ primary_heading }}</h2>
-		{% endif %}
+	{{ image_html }}
 
-		{% if description %}
-		<div class="peopleCard-description">{{ description }}</div>
-	    {% endif %}
+	{% if name %}
+	<h2 class="peopleCard-name">{{ name }}</h2>
+	{% endif %}
 
-		{% if button_url and button_label %}
-		<a class="peopleCard-button" href="{{ button_url }}">{{ button_label }}</a>
-		{% endif %}
+	{% if job_title %}
+	<div class="peopleCard-jobTitle">{{ job_title }}</div>
+	{% endif %}
 
-    </div>
 </div>
 {% endblock %}

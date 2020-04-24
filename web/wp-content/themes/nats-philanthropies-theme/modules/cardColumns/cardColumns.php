@@ -15,6 +15,7 @@ class CardColumns {
 
 	public function __construct( $args=[] ){
 		$this->defaults = [
+			'primary_heading' => false,
 			'columns' => false,
 			'classes' => [
 				'l-module',
@@ -25,6 +26,7 @@ class CardColumns {
 		extract(array_merge($this->defaults, $args));
 
 		$this->context = Timber::get_context();
+		$this->context['primary_heading'] = $primary_heading;
 		$this->context['columns'] = $columns;
 		$this->context['classes'] = implode(' ', $classes);
 
