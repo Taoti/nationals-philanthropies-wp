@@ -183,37 +183,6 @@
                     "min": "",
                     "max": ""
                 },
-                "layout_5e8cccf525bea": {
-                    "key": "layout_5e8cccf525bea",
-                    "name": "homePage_basic",
-                    "label": "Basic",
-                    "display": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_5e8ccd4225beb",
-                            "label": "Common Fields",
-                            "name": "common_fields",
-                            "type": "clone",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "clone": [
-                                "group_5e8cca437f040"
-                            ],
-                            "display": "seamless",
-                            "layout": "block",
-                            "prefix_label": 0,
-                            "prefix_name": 0
-                        }
-                    ],
-                    "min": "",
-                    "max": ""
-                },
                 "layout_5e8ccec038a98": {
                     "key": "layout_5e8ccec038a98",
                     "name": "homePage_statistics",
@@ -479,5 +448,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1587751454
+    "modified": 1588009449
 }
