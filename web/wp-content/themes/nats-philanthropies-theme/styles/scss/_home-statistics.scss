@@ -4,7 +4,12 @@
   background-repeat: repeat-y;
   background-position: center top -50px;
   padding: 20rem 0 15rem;
-  position: relative;
+	position: relative;
+
+	.stats-inner {
+		padding: 0;
+	}
+
 }
 
 .homeStatistics-inner {

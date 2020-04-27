@@ -1,14 +1,20 @@
 {% block stats %}
 <div class="{{ classes }}">
-  {% if stats %}
-  <div class="stats_row">
-    {% for stat in stats %}
-    <div class="stat">
-      <div class="stat-number">{{ stat.number }}<span class="stat-number-unit {% if stat.units == 'k' or stat.units == 'K' %}stat-number-unit-reverse{% endif %}">{{ stat.units}}</span></div>
-      <div class="stat-info">{{ stat.description }}</div>
-    </div>
-    {% endfor %}
-  </div>
-  {% endif %}
+	<div class="stats-inner">
+
+		{% if stats %}
+		<div class="stats_row">
+
+			{% for stat in stats %}
+			<div class="stat">
+				<div class="stat-number">{{ stat.number }}<span class="stat-number-unit {% if stat.units == 'k' or stat.units == 'K' %}stat-number-unit-reverse{% endif %}">{{ stat.units}}</span></div>
+				<div class="stat-info">{{ stat.description }}</div>
+			</div>
+			{% endfor %}
+
+		</div>
+		{% endif %}
+
+	</div>
 </div>
 {% endblock %}

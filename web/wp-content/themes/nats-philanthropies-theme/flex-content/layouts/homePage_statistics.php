@@ -25,7 +25,10 @@ use Modules\Stats;
         <?php
         // Stats
         $args = [
-         'stats' => get_sub_field('statistic_columns'),
+				 'stats' => get_sub_field('statistic_columns'),
+				 'classes' => [
+					 'stats',
+				 ]
         ];
         $stats = new Stats($args);
         $stats->render();

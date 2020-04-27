@@ -1,3 +1,7 @@
+.stats-inner {
+	@include l-container('content-2');
+}
+
 .stats_row {
   display: flex;
   flex-wrap: wrap;
