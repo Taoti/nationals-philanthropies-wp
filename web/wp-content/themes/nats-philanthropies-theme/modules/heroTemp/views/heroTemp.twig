@@ -1,0 +1,31 @@
+{% block heroTemp %}
+<div class="{{ classes }}"{% if background_image_url %} data-bg="{{ background_image_url }}"{% endif %}>
+	<div class="heroTemp-inner l-container">
+
+		{% if heading_line_1 and heading_line_2 %}
+		<h1 class="heroTemp-heading">
+
+			{% if accent_image_1_html %}
+			{{ accent_image_1_html }}
+			{% endif %}
+
+			<span class="heroTemp-headingLine heroTemp-headingOutline">
+
+				<span class="heroTemp-textWrap">{{ heading_line_1 }}</span>
+
+				{% if accent_image_2_html %}
+				{{ accent_image_2_html }}
+				{% endif %}
+
+			</span>
+
+			<span class="heroTemp-headingLine">
+				<span class="heroTemp-textWrap">{{ heading_line_2 }}</span>
+			</span>
+
+		</h1>
+		{% endif %}
+
+	</div><!-- END .heroTemp-inner -->
+</div><!-- END .heroTemp -->
+{% endblock %}

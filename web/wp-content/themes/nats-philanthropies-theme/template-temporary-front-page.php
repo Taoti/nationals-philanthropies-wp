@@ -1,9 +1,9 @@
 <?php
-use Modules\Hero;
+use Modules\HeroTemp;
 
 
 ### Critical CSS for the front page template
-// taoti_enqueue_critical_css( get_template_directory().'/styles/css/critical/temp-front-page-critical.min.css' );
+taoti_enqueue_critical_css( get_template_directory().'/styles/css/critical/temp-front-page-critical.min.css' );
 
 
 get_header();
@@ -15,7 +15,7 @@ $args = [
   'heading_line_2' => 'New Pursuit',
   // 'background_image_url' => get_stylesheet_directory_uri() . '/images/bg-home-hero.jpg',
 ];
-$hero = new Hero($args);
+$hero = new HeroTemp($args);
 $hero->render();
 ?>
 
