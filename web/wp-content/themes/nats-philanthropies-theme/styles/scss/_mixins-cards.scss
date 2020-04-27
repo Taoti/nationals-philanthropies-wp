@@ -4,6 +4,7 @@
 	background-repeat: no-repeat;
 	background-size: cover;
 	color: $invert;
+	height: 100%;
 	overflow: hidden;
 	padding: 3rem 3rem 2.5rem 3rem;
 	transition: background-color 125ms, color 125ms;
@@ -39,7 +40,7 @@
 	font-size: 2.7rem;
 	line-height: .875;
 	margin-bottom: 1.5rem;
-	margin-top: 1.5rem;
+	margin-top: 5rem;
 	position: relative;
 	text-transform: uppercase;
 }

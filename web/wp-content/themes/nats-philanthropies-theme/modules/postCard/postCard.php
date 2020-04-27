@@ -40,7 +40,7 @@ class PostCard {
 
 			$title = get_the_title( $post_object );
 			$permalink = get_permalink( $post_object );
-			$excerpt = get_the_excerpt( $post_object );
+			$excerpt = wp_trim_words( get_the_excerpt( $post_object ), 15 );
 
 			$primary_type = taoti_get_primary_term( $post_object->ID, 'type' );
 			if( is_a($primary_type, 'WP_Term') ){
