@@ -89,7 +89,7 @@ if( isset($menuLocations[$theme_location]) ):
 						<ul class="subMenu-menu">
 					<?php foreach( $sub_navs[$nav_item_ID] as $sub_nav_item ): ?>
 							<li class="subMenu-menu-item">
-								<a class="subMenu-menu-link" href="<?php $sub_nav_item->href; ?>"><?php echo $sub_nav_item->title; ?></a>
+								<a class="subMenu-menu-link" href="<?php echo $sub_nav_item->url; ?>"><?php echo $sub_nav_item->title; ?></a>
 							</li>
 					<?php endforeach; ?>
 						</ul>
