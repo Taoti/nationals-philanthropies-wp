@@ -1,6 +1,7 @@
 <?php
 use Modules\Hero;
 use Modules\ContentGroup;
+use JP\Get;
 
 $temporary_page_enabled = ( get_field( 'temporary_landing_page_is_enabled', 'option' ) );
 
@@ -40,13 +41,18 @@ if( is_array($modules_homePage) && !empty($modules_homePage) ){
 </nav>
 
 <?php
+$featured_image_url = Get::featured_image_url( '1080p', get_the_ID() );
+if( !$featured_image_url ){
+	$featured_image_url = Get::featured_image_url( '720p', get_the_ID() );
+}
+
 $args = [
-  'heading_line_1' => 'One Pursuit For',
-  'heading_line_2' => 'A Better Washington',
-  'description' => 'We are committed to holistically improving the lives of children and families across Washington, D.C. and beyond. Join our movement today.',
-  'button_label' => 'make a donation',
-  'button_link' => '#0',
-  'background_image_url' => wp_get_attachment_image_src( get_post_thumbnail_id( get_the_id()), 'large')
+  'heading_line_1' => get_field( 'home_hero_primary_heading_line_1' ),
+  'heading_line_2' => get_field( 'home_hero_primary_heading_line_2' ),
+  'description' => get_field( 'home_hero_description' ),
+  'button_label' => get_field( 'home_hero_button_label' ),
+  'button_link' => get_field( 'home_hero_button_url' ),
+  'background_image_url' => $featured_image_url,
 ];
 $hero = new Hero($args);
 $hero->render();
