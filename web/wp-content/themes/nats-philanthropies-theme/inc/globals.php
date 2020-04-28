@@ -11,7 +11,7 @@ function admin_menu_new_items() {
 		$edit_posts_page_url = get_edit_post_link( get_option( 'page_for_posts' ) );
 
 		if( $edit_posts_page_url ){
-			$submenu['edit.php'][500] = array( 'News Archive Page', 'manage_options', $edit_posts_page_url );
+			$submenu['edit.php'][500] = array( 'News Listing Page', 'manage_options', $edit_posts_page_url );
 		}
 
 }

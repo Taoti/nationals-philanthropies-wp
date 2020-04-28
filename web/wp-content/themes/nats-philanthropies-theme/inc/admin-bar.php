@@ -41,40 +41,6 @@ function taoti_admin_bar_customize(){
 
 
 
-		// If viewing the events archive, add a link to the toolbar to the ACF edit screen.
-    if( is_post_type_archive('post') ){
-
-			$args = array(
-					'id' => 'edit', // This is what adds the pencil icon to the button.
-					'title' => 'Edit News Listing Page',
-					'href' => admin_url('edit.php?page=acf-options-news-listing-page'),
-			);
-
-			$wp_admin_bar->add_node( $args );
-
-	}
-
-	// If on the ACF edit screen for the events archive, add a 'view' link to the toolbar.
-	if( function_exists('get_current_screen') ){
-			$screen = get_current_screen();
-			// echo "<pre>"; print_r($screen); echo "</pre>"; die();
-
-			if( is_admin() && isset($screen->id) && $screen->id=='posts_page_acf-options-news-listing-page' ){
-					$args = array(
-							'id' => 'view-news',
-							'title' => 'View News',
-							'href' => get_post_type_archive_link( 'post' ),
-					);
-
-					$wp_admin_bar->add_node( $args );
-			}
-
-	}
-
-
-
-
-
 }
 
 add_action( 'admin_bar_menu', 'taoti_admin_bar_customize', 75 );
