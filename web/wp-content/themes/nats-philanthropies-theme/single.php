@@ -12,6 +12,15 @@ the_post();
 ?>
 
 
+<?php
+$args = [
+	'description' => get_the_excerpt(),
+];
+$hero = new Hero($args);
+$hero->render();
+?>
+
+
 
 <?php the_page_builder(); ?>
 

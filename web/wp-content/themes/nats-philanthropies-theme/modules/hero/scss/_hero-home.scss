@@ -1,4 +1,4 @@
-.hero.hero-home {
+.hero-home {
   color: white;
   position: relative;
 
@@ -12,6 +12,11 @@
   }
 
   .hero-inner {
+		display: flex;
+		align-items: stretch;
+		height: 883px;
+		padding-bottom: 22.8rem;
+
      @media screen and ( max-width: 1840px ) {
       padding-left: 20rem;
       padding-right: 20rem;
@@ -23,21 +28,18 @@
     }
 
     @media screen and ( max-width: $home-hero-breakpoint ) {
-      flex-wrap: wrap;
+			flex-wrap: wrap;
+			height: auto;
+			text-align: center;
     }
   }
 
   .hero-heading {
-    text-align: left;
-    font-size: 8.5rem;
-
-    @media screen and ( max-width: $home-hero-breakpoint ) {
-      text-align: center;
-    }
+		font-size: 8.5rem;
 
     @media screen and ( max-width: $container-contentGroup-mobile ) {
       font-size: 4rem;
-    }
+		}
   }
 
   .sectionNavigation li:first-child:before {
@@ -71,6 +73,8 @@
   }
 
   .hero-headingLine {
+		display: block;
+		white-space: nowrap;
     position: relative;
     z-index: 3;
   }

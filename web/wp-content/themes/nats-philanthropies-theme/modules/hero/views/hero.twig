@@ -2,7 +2,7 @@
 <div class="{{ classes }}"{% if background_image_url %} data-bg="{{ background_image_url }}"{% endif %}>
 	<div class="hero-inner">
 
-		{% if heading_line_1 and heading_line_2 %}
+		{% if heading_line_1 %}
 		<h1 class="hero-heading">
 
 			{% if accent_image_1_html %}
@@ -10,20 +10,22 @@
 			{% endif %}
 
 			<span class="hero-headingLine hero-headingOutline">
-
 				<span class="hero-textWrap">{{ heading_line_1 }}</span>
-
-				{% if accent_image_2_html %}
-				{{ accent_image_2_html }}
-				{% endif %}
-
 			</span>
 
+			{% if heading_line_2 %}
 			<span class="hero-headingLine">
 				<span class="hero-textWrap">{{ heading_line_2 }}</span>
 			</span>
+			{% endif %}
 
 		</h1>
+		{% endif %}
+
+		{% if description %}
+		<div class="hero-description">
+			{{ description}}
+		</div>
 		{% endif %}
 
 	</div><!-- END .hero-inner -->

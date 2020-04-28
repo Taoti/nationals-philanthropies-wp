@@ -13,9 +13,7 @@ the_post();
 
 <?php
 $args = [
-  'heading_line_1' => get_the_title(),
-	'heading_line_2' => '',
-	'background_image_url' => '', // get featured image
+	'description' => get_the_excerpt(),
 ];
 $hero = new Hero($args);
 $hero->render();

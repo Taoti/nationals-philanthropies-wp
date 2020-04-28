@@ -41,18 +41,12 @@ if( is_array($modules_homePage) && !empty($modules_homePage) ){
 </nav>
 
 <?php
-$featured_image_url = Get::featured_image_url( '1080p', get_the_ID() );
-if( !$featured_image_url ){
-	$featured_image_url = Get::featured_image_url( '720p', get_the_ID() );
-}
-
 $args = [
   'heading_line_1' => get_field( 'home_hero_primary_heading_line_1' ),
   'heading_line_2' => get_field( 'home_hero_primary_heading_line_2' ),
   'description' => get_field( 'home_hero_description' ),
   'button_label' => get_field( 'home_hero_button_label' ),
   'button_link' => get_field( 'home_hero_button_url' ),
-  'background_image_url' => $featured_image_url,
 ];
 $hero = new Hero($args);
 $hero->render();

@@ -1,7 +1,7 @@
 .hero {
   // border: 1px solid #f0f;
   position: relative;
-  height: 883px;
+  // height: 883px;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -31,25 +31,33 @@
 
 .hero-inner {
   @include l-container('hero');
-  display: flex;
-  align-items: stretch;
+  // display: flex;
+  // align-items: stretch;
   padding-top: var(--header-height);
-  padding-bottom: 22.8rem;
+	// padding-bottom: 22.8rem;
+	padding-bottom: 17rem;
   position: relative;
+  color: $invert;
+
+	@media screen and ( max-width: $home-hero-breakpoint ) {
+		text-align: center;
+	}
 }
 
 .hero-heading {
   // background-position: -66% bottom;
   // background-repeat: no-repeat;
   // background-size: 50%;//477px 82px;
-  color: $invert;
-  font-size: 15rem;
+	// color: $invert;
+	display: inline-block;
+  font-size: 11rem;
   letter-spacing: -.025em;
   line-height: .8;
-  margin-top: 16rem;
+	// margin-top: 16rem;
+	padding-top: 4.8rem;
+	margin-top: 12rem;
   position: relative;
   opacity: 0;
-  text-align: center;
   text-transform: uppercase;
   transition: opacity 1500ms;
 
@@ -61,7 +69,22 @@
   @media screen and ( max-width: 480px ) {
     font-size: 7rem; //4rem;
     word-break: break-word;
-  }
+	}
+
+	&::before {
+		content: '';
+		display: block;
+		height: 1px;
+		width: 8.1rem;
+		position: absolute;
+		top: 0;
+		left: 0;
+		background-color: $invert;
+
+		@media screen and ( max-width: $home-hero-breakpoint ) {
+			left: calc(50% - 4rem);
+		}
+	}
 
 }
 
@@ -72,41 +95,27 @@
 }
 
   .hero-accent-1 {
-    bottom: 0;
-    left: 0;
+    bottom: -.25em;
+		// left: 0;
+		right: -7rem;
     transform: translate3d(-100%, 0, 0);
     transition: opacity 600ms 360ms, transform 800ms $bounce 260ms;
 
-    @media screen and ( max-width: $design-width ) {
-      left: calc(100vw - 13.8rem - 13.8rem - 90%);
-    }
+    // @media screen and ( max-width: $design-width ) {
+    //   left: calc(100vw - 13.8rem - 13.8rem - 90%);
+    // }
 
     @media screen and (max-width: 480px) {
-      left: auto;
+      // left: auto;
       right: 0;
     }
   }
 
-  .hero-accent-2 {
-    bottom: 0;
-    right: -10%;
-    transform: translate3d(100%, 0, 0);
-    transition: opacity 600ms 200ms,
-    transform 800ms $bounce 100ms;
 
-    @media screen and (max-width: $design-width) {
-      right: calc(100vw - 13.8rem - 13.8rem - 100%);
-    }
-
-    @media screen and (max-width: 480px) {
-      right: auto;
-      left: 0;
-    }
-  }
 
 .hero-headingLine {
-  display: block;
-  white-space: nowrap;
+  // display: block;
+  // white-space: nowrap;
   position: relative;
 
   &:not(.hero-headingOutline){
@@ -135,6 +144,19 @@
 .hero-textWrap {
   position: relative;
   z-index: 1;
+}
+
+.hero-description {
+  font-size: 1.4rem;
+  margin-top: 2.5rem;
+  max-width: 500px;
+  line-height: 1.8;
+
+  @media screen and ( max-width: $home-hero-breakpoint ) {
+    text-align: center;
+    margin: 1.4rem auto 0;
+    max-width: 320px;
+  }
 }
 
 // Activate the opacity/transform transitions when the fonts are loaded (or not loaded). This way the animations won't happen until after the font is ready. The "wf-" prefix is from the webfontloader script.
