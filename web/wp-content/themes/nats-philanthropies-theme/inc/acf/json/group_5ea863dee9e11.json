@@ -1,0 +1,71 @@
+{
+    "key": "group_5ea863dee9e11",
+    "title": "Events Archive - Hero Options",
+    "fields": [
+        {
+            "key": "field_5ea864366615d",
+            "label": "Common Fields",
+            "name": "events_archive_hero",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "field_5e8cca5dc475a",
+                "field_5e8cca91c475b",
+                "field_5e8ccaf1c475c"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 1
+        },
+        {
+            "key": "field_5ea864826615e",
+            "label": "Background Image",
+            "name": "events_archive_hero_background_image",
+            "type": "image",
+            "instructions": "Must be jpg. Recommended size is 1080p, or 1920 x 1080. Minimum size is 720p, or 1280 x 720.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "720p",
+            "library": "all",
+            "min_width": 1280,
+            "min_height": 720,
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "jpg"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "acf-options-events-listing-page"
+            }
+        ]
+    ],
+    "menu_order": 10,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1588094216
+}

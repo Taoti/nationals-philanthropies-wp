@@ -1,6 +1,6 @@
 {
     "key": "group_5ea6d93fd5028-copy",
-    "title": "Featured News Article",
+    "title": "News Archive - Featured News Article",
     "fields": [
         {
             "key": "field_5ea6ff1f8fe50",
@@ -28,13 +28,13 @@
     "location": [
         [
             {
-                "param": "options_page",
+                "param": "page_type",
                 "operator": "==",
-                "value": "acf-options-events-listing-page"
+                "value": "posts_page"
             }
         ]
     ],
-    "menu_order": 0,
+    "menu_order": 10,
     "position": "normal",
     "style": "default",
     "label_placement": "top",
@@ -42,5 +42,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1588002612
+    "modified": 1588094518
 }
