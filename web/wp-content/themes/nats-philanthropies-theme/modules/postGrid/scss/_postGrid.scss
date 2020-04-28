@@ -1,5 +1,6 @@
 .postGrid {
 	background-color: $color-20;
+  padding: 15rem 0;
 	position: relative;
 
 	&::before {
@@ -49,12 +50,6 @@
 
 }
 
-
-// Home
-.postGrid-home {
-  padding: 15rem 0;
-
-  .postGrid-description {
-    display: none;
-  }
+.postGridItem {
+	grid-area: span 1 / span 2;
 }

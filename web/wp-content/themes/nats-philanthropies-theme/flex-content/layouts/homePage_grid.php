@@ -56,7 +56,7 @@ foreach( $grid_items as $grid_item ){
 		'title' => $grid_item['heading'],
 		'permalink' => $grid_item['link_to'],
 		'excerpt' => $grid_item['description'],
-		'classes' => ['postGridItem-home'],
+		'classes' => ['postGridItem', 'postGridItem-home'],
 	];
 	$new_card = new GridCard($card_args);
 	$grid_cards[] = $new_card->compile();
@@ -72,7 +72,7 @@ if( $signup_form_group['heading'] && $signup_form_group['form'] ){
 		'heading' => $signup_form_group['heading'],
 		'background_image' => $signup_form_group['background_image'],
 		'form' => do_shortcode( $signup_form_group['form'] ),
-		'classes' => ['postGridItem-home'],
+		'classes' => ['postGridItem', 'postGridItem-home'],
 	];
 
 	$form_card = new FormCard($form_card_args);

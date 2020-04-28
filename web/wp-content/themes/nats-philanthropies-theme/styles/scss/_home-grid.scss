@@ -20,6 +20,7 @@
 }
 
 .postGridItem-home {
+	grid-area: auto;
   position: relative;
 
   &:first-child {

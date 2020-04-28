@@ -20,13 +20,6 @@
 @import 'scss/template-temporary-front-page';
 @import 'scss/footer-temp';
 
-// Homepage Flex Content Layouts
-@import 'scss/home-page-builder';
-@import 'scss/home-statistics';
-@import 'scss/home-image';
-@import 'scss/home-quote';
-@import 'scss/home-grid';
-
 
 
 // Modules
@@ -45,6 +38,13 @@
 @import '../modules/sectionNavigation/scss/sectionNavigation';
 @import '../modules/formCard/scss/formCard';
 @import '../modules/gridCard/scss/gridCard';
+
+// Homepage Flex Content Layouts
+@import 'scss/home-page-builder';
+@import 'scss/home-statistics';
+@import 'scss/home-image';
+@import 'scss/home-quote';
+@import 'scss/home-grid';
 
 // Parts, utility, other one-offs
 // @import 'scss/pagination';
