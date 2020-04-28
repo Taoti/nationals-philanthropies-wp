@@ -52,6 +52,8 @@
 // Templates ( template-name - including media queries. You can override base module styles here too )
 @import 'scss/page';
 // @import 'scss/single';
+@import 'scss/template-donate';
+@import 'scss/template-landing-page';
 
 
 // Custom ( don't use this unless you have to. This is for anything that doesnt fit anywhere else, which should be nothing )

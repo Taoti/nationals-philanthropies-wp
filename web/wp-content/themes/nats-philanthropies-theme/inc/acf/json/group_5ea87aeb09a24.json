@@ -1,13 +1,13 @@
 {
-    "key": "group_5ea870ec0c90a",
-    "title": "Landing Page - Card Grid",
+    "key": "group_5ea87aeb09a24",
+    "title": "Donate Page - Card Grid",
     "fields": [
         {
-            "key": "field_5ea87118baade",
+            "key": "field_5ea87b128b230",
             "label": "Cards",
             "name": "card_grid",
             "type": "repeater",
-            "instructions": "Add up to 4 links to other pages. The links appear as cards in a 2x2 grid at the bottom of the page.",
+            "instructions": "Add up to 6 links to other pages. The links appear as cards in a grid at the bottom of the page.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -17,12 +17,12 @@
             },
             "collapsed": "",
             "min": 0,
-            "max": 4,
+            "max": 6,
             "layout": "row",
             "button_label": "Add A Card",
             "sub_fields": [
                 {
-                    "key": "field_5ea87196baadf",
+                    "key": "field_5ea87b628b231",
                     "label": "Grid Common Fields",
                     "name": "grid_common_fields",
                     "type": "clone",
@@ -50,7 +50,7 @@
             {
                 "param": "page_template",
                 "operator": "==",
-                "value": "template-landing-page.php"
+                "value": "template-donate.php"
             }
         ]
     ],
@@ -62,5 +62,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1588099919
+    "modified": 1588099967
 }
