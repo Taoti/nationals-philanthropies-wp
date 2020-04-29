@@ -1,0 +1,63 @@
+.archiveList {
+  background: #CECECE;
+  padding: 12rem 0;
+
+  .listingItem:last-child {
+    .listingItem-inner {
+      margin-bottom: 0;
+      padding-bottom: 0;
+
+      &:after {
+        display: none;
+      }
+    }
+  }
+
+  .listingItem-inner {
+    justify-content: space-between;
+    margin-bottom: 8rem;
+    padding-bottom: 8rem;
+    position: relative;
+
+    
+    &:after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 0;
+      width: calc(100% - 740px);
+      height: 1px; 
+      background: rgba(#000, .15);
+
+      @media screen and ( max-width: 1366px ) {
+        width: calc(100% - 534px);
+      }
+
+      @media screen and ( max-width: 960px ) {
+        width: calc(100% - 120px);
+      }
+
+      @media screen and ( max-width: 700px ) {
+        width: calc(100% - 40px);
+      }
+    }
+  }
+
+  .listItem-imageContainer {
+    max-width: 557px;
+    flex-basis: 42%;
+    width: auto;
+  }
+
+  .listingItem-info {
+    flex-basis: 50%;
+  }
+}
+
+// Paged pages
+body.paged {
+  .listingItem-featured {
+    display: none;
+  }
+}
