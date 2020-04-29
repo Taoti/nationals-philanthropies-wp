@@ -64,12 +64,16 @@
 		}
   }
 
-	.gform_button {
+	.gform_submitButton {
 		width: 52px;
     height: 52px;
     border: 1px solid $invert;
     border-radius: 50%;
     position: relative;
+
+		path {
+			fill: $invert;
+		}
 	}
 
 	.gform_button-submitIcon {
