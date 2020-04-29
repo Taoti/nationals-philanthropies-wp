@@ -1,6 +1,7 @@
 <?php
 /* Template Name: Donate Template */
 use Modules\Hero;
+use Modules\ContentGroup;
 use Modules\PostGrid;
 use Modules\GridCard;
 
@@ -27,7 +28,32 @@ $hero->render();
 <div class="content">
 	<div class="content-inner">
 
-		<?php the_page_builder(); ?>
+		<?php if( get_field('donateCTA_primary_heading_line_1') ): ?>
+		<section class="l-module donateCTA">
+			<div class="donateCTA-inner">
+
+					<div class="donateCTA-contentGroup">
+						<?php
+						// ContentGroup
+						$args = [
+						'primary_heading' => get_field('donateCTA_primary_heading_line_1'),
+						'secondary_heading' => get_field('donateCTA_primary_heading_line_2'),
+						'description' => get_field('donateCTA_description'),
+						'cta_link' => get_field('donateCTA_button_url'),
+						'cta_label' => get_field('donateCTA_button_label'),
+						];
+						$contentGroup = new ContentGroup($args);
+						$contentGroup->render();
+						?>
+					</div>
+
+					<div class="donateCTA-imageContainer">
+						<img class="donateCTA-image lazyload" data-src="<?php echo get_stylesheet_directory_uri().'/images/donate-form-example.png'; ?>" width="994" height="758" alt="Example donation form.">
+					</div>
+
+			</div>
+		</section>
+		<?php endif; ?>
 
 		<?php
 		// Create a GridCard for each grid item, store the compiled HTML in the cards array. The array of compiled HTML cards $grid_cards is what is fed to the postGrid module.
