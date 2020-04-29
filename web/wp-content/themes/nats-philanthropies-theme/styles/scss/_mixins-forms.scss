@@ -52,6 +52,31 @@
 
 
 
+@mixin form-button() {
+	appearance: none;
+	border: 1px solid $color-12;
+	border-radius: 0;
+	background-color: transparent;
+	font-size: 1.6rem;
+	// color: $invert;
+	color: $color-12;
+	cursor: pointer;
+	display: inline-block;
+	padding: 1rem;
+	transform: scale3d(1, 1, 1);
+  transform-origin: center center;
+	transition: transform 125ms $bounce-2, background-color 125ms, color 125ms;
+
+	&:hover {
+		background-color: $color-19;
+		color: $invert;
+		transform: scale3d(1.33, 1.33, 1.33);
+	}
+
+}
+
+
+
 @mixin form-submit() {
 	appearance: none;
 	border: none;

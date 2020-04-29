@@ -161,52 +161,6 @@
 	    max-width: 100%;
 	}
 
-	table {
-		border-collapse: collapse;
-		border-spacing: 0;
-		color: $text;
-		margin: 1em 0;
-		width: 100%;
-	}
-
-	td,
-	th {
-		border: 1px solid transparent; // No more visible border
-		height: 3em;
-		transition: background 250ms, color 250ms;  // Simple transition for hover effect
-		vertical-align: middle;
-	}
-
-	th {
-		background: darken( $invert, 25% );  // Darken header a bit
-		font-weight: bold;
-	}
-
-	td {
-		background: darken( $invert, 7.5% );
-		text-align: center;
-	}
-
-
-	tr {
-
-		// Cells in even rows are one color
-		&:nth-child(even) td {
-			background: darken( $invert, 7.5% );
-		}
-
-		// Cells in odd rows are another
-		&:nth-child(odd) td {
-			background: darken( $invert, 15% );
-		}
-
-		td:hover {
-			background: $text;
-			color: $invert;
-		}
-
-	}
-
 	// Gravity forms outputs its fields in an <ul>, so override some of those styles.
 	.gform_fields,
 	.gfield_checkbox,

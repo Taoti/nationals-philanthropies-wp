@@ -8,7 +8,7 @@
 *   NOTES : https://docs.gravityforms.com/gform_submit_button/
 */
 function taoti_gf_edit_submit_button( $button, $form ) {
-		return '<button class="button gform_button" id="gform_submit_button_'.$form['id'].'" title="Submit"><i class="gform_button-submitIcon">'.file_get_contents(get_stylesheet_directory() . '/images/icon-arrow.svg').'</i></button>';
+		return '<button class="button gform_button gform_submitButton" id="gform_submit_button_'.$form['id'].'" title="Send Form"><i class="gform_button-submitIcon">'.file_get_contents(get_stylesheet_directory() . '/images/icon-arrow.svg').'</i></button>';
 }
 add_filter( 'gform_submit_button', 'taoti_gf_edit_submit_button', 10, 2 );
 
@@ -76,3 +76,66 @@ function taoti_gform_honeypot_default( $form ){
 	return $form;
 }
 add_filter( 'gform_form_post_get_meta', 'taoti_gform_honeypot_default', 10, 1 );
+
+
+
+
+
+
+
+
+
+/*
+* PURPOSE : Move the progress bar on multi-page forms to the bottom of the form. It makes more sense this way.
+*  PARAMS : $form_string: string
+						$form: array
+* RETURNS : $form_string: string
+*   NOTES : See https://gist.github.com/n7studios/f0b3ce229fa686ea0184 for where I got this function.
+						Filter documenation - https://docs.gravityforms.com/gform_get_form_filter/
+*/
+function gravity_forms_move_progress_bar( $form_string, $form ) {
+
+	// Check if Pagination is enabled on this form
+	if ( ! is_array( $form['pagination'] ) ) {
+			return $form_string;
+	}
+	if ( empty( $form['pagination']['type'] ) ) {
+			return $form_string;
+	}
+
+	// Check if the first page CSS class is progress-bar-bottom
+	if ( ! isset( $form['firstPageCssClass'] ) ) {
+			return $form_string;
+	}
+	// if ( $form['firstPageCssClass'] != 'progress-bar-bottom' ) {
+	// 		return $form_string;
+	// }
+	if ( strpos($form['firstPageCssClass'], 'progress-bar-bottom' ) !== false) {
+		return $form_string;
+	}
+
+	// If here, the progress bar needs to be at the end of the form
+	// Load form string into DOMDocument
+	$dom = new DOMDocument;
+	@$dom->loadHTML( $form_string );
+
+	// Load Xpath
+	$xpath = new DOMXPath( $dom );
+
+	// Find Progress Bar
+	$progress_bar = $xpath->query( '//div[@class="gf_progressbar_wrapper"]' )->item(0);
+
+	// Find Form
+	$form = $xpath->query( '//form' )->item(0);
+
+	// Move Progress Bar to end of the Form
+	$form->appendChild( $progress_bar );
+
+	// Get HTML string
+	$form_string = $dom->saveHTML();
+
+	// Return modified HTML string
+	return $form_string;
+
+}
+add_filter( 'gform_get_form_filter', 'gravity_forms_move_progress_bar', 10, 3 );

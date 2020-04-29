@@ -2,9 +2,16 @@
 
 }
 
+// All the various plain text inputs
 .ginput_container_text,
 .ginput_container_email,
-.ginput_container_number {
+.ginput_container_number,
+.ginput_container_name,
+.ginput_container_date,
+.ginput_container_time,
+.ginput_container_phone,
+.ginput_container_address,
+.ginput_list {
 	input {
 		@include form-text();
 
@@ -95,26 +102,18 @@
 
 
 
-.gfield + .gfield,
-.gform_page_footer {
-	margin-top: 4rem;
-}
-
-.gsection {
-	border-top: 1px solid $color-23;
-	padding-top: 3rem;
-}
-
-
-
 .gform_next_button {
-	@include button();
+	@include form-button();
+}
+
+.gform_previous_button {
+	@include form-button();
 }
 
 
 
 .gf_progressbar_wrapper {
-	margin-bottom: 4rem;
+	margin-top: 4rem;
 }
 
 .gf_progressbar {
@@ -126,4 +125,152 @@
 	color: $invert;
 	padding: 1rem;
 	text-align: right;
+}
+
+.gf_progressbar_title,
+.entry-content .gf_progressbar_title {
+	margin-bottom: 1rem;
+}
+
+
+
+.gfield + .gfield,
+.gform_page_footer {
+	margin-top: 4rem;
+}
+
+.gsection {
+	border-top: 1px solid $color-23;
+	padding-top: 3rem;
+}
+
+// "Complex" sections are field groups, like Name or Address, that have multiple fields to display in flex/grid.
+.gfield_label_before_complex {
+	margin-bottom: .25em;
+}
+
+.ginput_complex {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+
+	label {
+    font-size: .875em;
+	}
+
+	span {
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 2rem;
+	}
+
+	.ginput_full {
+		flex-basis: 100%;
+	}
+
+	.ginput_left,
+	.ginput_right,
+	.name_first,
+	.name_last {
+		flex-basis: calc(50% - 2rem);
+	}
+}
+
+.gf_clear_complex {
+	display: none;
+}
+
+
+// .ginput_container_address {
+// 	justify-content: space-between;
+// }
+
+.clear-multi {
+	display: flex;
+	align-items: center;
+
+	.ginput_container {
+		margin-right: 2rem;
+	}
+}
+
+.address_country {
+	select {
+		@include form-select();
+	}
+}
+
+.ginput_container_time {
+
+	select {
+		@include form-select();
+	}
+
+	label {
+		font-style: italic;
+	}
+
+}
+
+
+
+.screen-reader-text {
+	display: block;
+	font-size: .875em;
+	font-style: italic;
+}
+
+
+
+.ginput_list {
+	input[type="text"] {
+		width: 90%;
+	}
+
+	.gfield_list_icons img {
+		margin-bottom: 0;
+	}
+
+}
+
+.add_list_item {
+	display: block;
+	height: 16px;
+	margin-top: 3px;
+}
+
+
+
+.gform_page_footer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.gform_submitButton {
+	@include button();
+
+	path {
+		fill: $link;
+	}
+
+	&:hover {
+		path {
+			fill: $invert;
+		}
+
+	}
+}
+
+
+
+// Honeypot field
+.gform_validation_container {
+	bottom: 0;
+	height: 1px;
+	overflow: hidden;
+	pointer-events: none;
+	position: absolute;
+	right: 0;
+	width: 1px;
 }
