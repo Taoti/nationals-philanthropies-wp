@@ -48,13 +48,14 @@
 @import 'scss/home-grid';
 
 // Parts, utility, other one-offs
-// @import 'scss/pagination';
+@import 'scss/pagination';
 
 // Templates ( template-name - including media queries. You can override base module styles here too )
 @import 'scss/page';
-// @import 'scss/single';
 @import 'scss/template-donate';
 @import 'scss/template-landing-page';
+@import 'scss/archive';
+// @import 'scss/single';
 
 
 // Custom ( don't use this unless you have to. This is for anything that doesnt fit anywhere else, which should be nothing )

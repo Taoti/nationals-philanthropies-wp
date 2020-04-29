@@ -50,3 +50,24 @@ function my_theme_archive_title( $title ) {
 }
 
 add_filter( 'get_the_archive_title', 'my_theme_archive_title' );
+
+
+// Archive Events ordered by Start Date
+function events_archive_order( $query ) {
+  if ( ! is_admin() && is_post_type_archive( 'events' ) && $query->is_main_query() ) {
+        $query->set( 'meta_key', 'start_date' );
+        $query->set( 'orderby', 'meta_value_num' );
+        $query->set( 'order', 'ASC');
+
+        // Use below to filter out past events
+        // $query->set( 'meta_query', array(
+        //     array(
+        //         'key'     => 'start_date',
+        //         'compare' => '>=',
+        //         'value'   => date('Ymd'),
+        //         'type'    => 'numeric',
+        //     )
+        // ) );
+   }
+}
+add_action( 'pre_get_posts', 'events_archive_order' );

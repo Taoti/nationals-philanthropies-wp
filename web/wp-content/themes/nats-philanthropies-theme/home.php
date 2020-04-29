@@ -3,6 +3,7 @@ use JP\Get;
 use Modules\Hero;
 use Modules\ListingItem;
 
+$postPage = get_option( 'page_for_posts' );
 
 ### Critical CSS for the main archive template
 // taoti_enqueue_critical_css( get_template_directory().'/styles/css/critical/index-critical.min.css' );
@@ -13,19 +14,15 @@ get_header();
 
 
 <?php
-$common_fields = get_field('events_archive_hero', 'options');
+$common_fields = get_field('news_archive_hero', $postPage);
 $heading_line_1 = $common_fields['primary_heading_line_1'];
 $heading_line_2 = $common_fields['primary_heading_line_2'];
-$description = $common_fields['description'];
-$bg_image = get_field('events_archive_hero_background_image', 'options');
-if($bg_image){
-  $bg_image = $bg_image['sizes']['1080p'];
-}
+$bg_image = Get::featured_image_array( $postPage );
 
 $args = [
   'heading_line_1' => $heading_line_1,
 	'heading_line_2' => $heading_line_2,
-  'description' => $description,
+  'description' => get_the_excerpt($postPage),
 	'background_image_url' => $bg_image, // get featured image
 ];
 $hero = new Hero($args);
@@ -33,19 +30,18 @@ $hero->render();
 ?>
 
 <?php
-// Featured Listing Item
-$featured_item = get_field('featured_event', 'options');
+
+$featured_item = get_field('featured_news_article', $postPage);
 
 if($featured_item) {
+  // Featured Listing Item
   $featured_item_args = [
     'primary_heading' => get_the_title( $featured_item ),
     'subtitle' => 'Featured Event',
     'excerpt' => get_the_excerpt( $featured_item ),
     'permalink' => get_permalink( $featured_item ),
-    'primary_button_url' => get_field( 'rsvp_url', $featured_item->ID ),
-    'primary_button_label' => 'RSVP',
-    'secondary_button_url' => get_field( 'sponsor_url', $featured_item->ID ),
-    'secondary_button_label' => get_field( 'sponsor_name', $featured_item->ID ),
+    'primary_button_url' => get_permalink($featured_item),
+    'primary_button_label' => 'Read More',
     'image_array' => Get::featured_image_array( $featured_item->ID ),
     'classes' => [
       'listingItem-featured',
@@ -54,7 +50,6 @@ if($featured_item) {
   $listingItem_featured = new ListingItem( $featured_item_args );
   $listingItem_featured->render();
 }
-
 ?>
 
 
@@ -65,17 +60,17 @@ if($featured_item) {
         <?php
         $post = get_the_id();
         setup_postdata( $post );
+
+        $newsTypes = wp_get_post_terms( get_the_id(), $taxonomy = 'type', array('fields' => 'names'));
         
         // Featured Listing Item
         $listingItem_args = [
           'primary_heading' => get_the_title(),
-          'subtitle' => 'Sponsored Event',
+          'subtitle' => implode(', ', $newsTypes),
           'excerpt' => get_the_excerpt(),
           'permalink' => get_permalink(),
-          'primary_button_url' => get_field('rsvp_url'),
-          'primary_button_label' => 'RSVP',
-          'secondary_button_url' => get_field('sponsor_url'),
-          'secondary_button_label' => get_field('sponsor_name'),
+          'primary_button_url' => get_permalink($featured_item),
+          'primary_button_label' => 'Read More',
           'image_array' => Get::featured_image_array(get_the_id()),
         ];
         $listingItem = new ListingItem( $listingItem_args );
