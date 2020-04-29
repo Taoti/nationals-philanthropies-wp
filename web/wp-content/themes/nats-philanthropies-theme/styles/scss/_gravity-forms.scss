@@ -3,19 +3,35 @@
 }
 
 .ginput_container_text,
-.ginput_container_email {
+.ginput_container_email,
+.ginput_container_number {
 	input {
 		@include form-text();
-		width: 100%;
 
 		&::placeholder {
-			color: $invert;
+			// color: $invert;
+			color: $color-23;
 			font-size: 1.4rem;
 			font-family: $sans-2;
 			text-transform: uppercase;
 		}
 
 	}
+}
+
+// Gravity forms adds a prefix like ginput_ or gfield_ on all their classes...
+// except textarea...
+// ¯\_(ツ)_/¯
+.textarea {
+	@include form-textarea();
+}
+
+.gfield_select:not([multiple]) {
+	@include form-select();
+}
+
+.gfield_select[multiple] {
+	@include form-textarea();
 }
 
 .gfield_label {
@@ -29,6 +45,8 @@
 .gform_button-submitIcon {
 
 }
+
+
 
 .ginput_container_consent,
 .ginput_container_checkbox {
@@ -46,4 +64,66 @@
 
 	}
 
+}
+
+
+
+.ginput_container_radio {
+
+	label {
+		@include form-radioLabel();
+	}
+
+	input[type=radio] {
+		@include form-radio();
+
+		&:checked + label {
+			@include form-radioLabel-checked();
+		}
+
+	}
+
+}
+
+
+
+// The <ul> element
+.gfield_checkbox,
+.gfield_radio {
+	list-style-type: none;
+}
+
+
+
+.gfield + .gfield,
+.gform_page_footer {
+	margin-top: 4rem;
+}
+
+.gsection {
+	border-top: 1px solid $color-23;
+	padding-top: 3rem;
+}
+
+
+
+.gform_next_button {
+	@include button();
+}
+
+
+
+.gf_progressbar_wrapper {
+	margin-bottom: 4rem;
+}
+
+.gf_progressbar {
+	border: 1px solid $color-7;
+}
+
+.gf_progressbar_percentage {
+	background-color: $color-2;
+	color: $invert;
+	padding: 1rem;
+	text-align: right;
 }

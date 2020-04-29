@@ -207,4 +207,12 @@
 
 	}
 
+	// Gravity forms outputs its fields in an <ul>, so override some of those styles.
+	.gform_fields,
+	.gfield_checkbox,
+	.gfield_radio {
+		list-style: none;
+		padding-left: 0;
+	}
+
 }

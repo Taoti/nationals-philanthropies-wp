@@ -53,6 +53,17 @@
 		}
 	}
 
+	.ginput_container_text input,
+  .ginput_container_email input {
+		color: $invert;
+		border-bottom: 1px solid $invert;
+		width: 100%;
+
+		&::placeholder {
+			color: $invert;
+		}
+  }
+
 	.gform_button {
 		width: 52px;
     height: 52px;

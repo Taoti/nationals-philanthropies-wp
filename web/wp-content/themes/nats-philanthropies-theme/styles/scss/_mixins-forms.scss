@@ -14,8 +14,40 @@
 	border-radius: 0;
 	background-color: transparent;
 	font-size: 1.6rem;
-	color: $invert;
-	border-bottom: 1px solid $invert;
+	// color: $invert;
+	// border-bottom: 1px solid $invert;
+	color: $color-7;
+	border-bottom: 2px solid $color-23;
+}
+
+
+
+@mixin form-textarea() {
+	appearance: none;
+	border: none;
+	border-radius: 0;
+	background-color: $invert;
+	font-size: 1.6rem;
+	color: $color-7;
+	border: 2px solid $color-23;
+	padding: 1.4rem 2rem;
+}
+
+
+
+@mixin form-select() {
+	appearance: none;
+	border: none;
+	background-color: transparent;
+	background-image: url('../../images/icon-arrow-down.svg');
+	background-position: right 2rem center;
+	background-repeat: no-repeat;
+	font-size: 1em;
+	border: 1px solid $color-23;
+	padding: 1rem 2rem;
+	padding-right: calc(1.4rem + 8px + 2rem); // 8px is the width of icon-arrown-down.svg
+	font-family: $sans-2;
+	border-radius: 0;
 }
 
 
@@ -26,15 +58,17 @@
 	border-radius: 0;
 	background-color: transparent;
 	font-size: 1.6rem;
-	color: $invert;
+	// color: $invert;
+	color: $color-12;
 	cursor: pointer;
 	display: inline-block;
 	transform: scale3d(1, 1, 1);
   transform-origin: center center;
-	transition: transform 125ms $bounce-2, background-color 125ms;
+	transition: transform 125ms $bounce-2, background-color 125ms, color 125ms;
 
 	&:hover {
 		background-color: $color-19;
+		color: $invert;
 		transform: scale3d(1.33, 1.33, 1.33);
 	}
 
@@ -46,8 +80,6 @@
 	position: absolute;
 	pointer-events: none;
 	visibility: hidden;
-
-
 }
 
 @mixin form-checkboxLabel(){
@@ -69,6 +101,7 @@
 		margin-right: .5em;
 		width: 2.5rem;
     vertical-align: middle;
+		transition: background 125ms;
 	}
 
 }
@@ -77,6 +110,45 @@
 
 	&::before {
 		background-size: calc(100% - 4px);
+	}
+
+}
+
+
+
+@mixin form-radio(){
+	position: absolute;
+	pointer-events: none;
+	visibility: hidden;
+}
+
+@mixin form-radioLabel(){
+	cursor: pointer;
+	font-size: 1.6rem;
+	font-family: $sans-2;
+	text-transform: uppercase;
+
+	&::before {
+		background-color: transparent;
+		border: 2px solid $color-2;
+		border-radius: 50%;
+		content: '';
+		display: inline-block;
+		height: 2.5rem;
+		margin-bottom: .2em;
+		margin-right: .5em;
+		width: 2.5rem;
+		vertical-align: middle;
+		transition: background 125ms;
+	}
+
+}
+
+@mixin form-radioLabel-checked(){
+
+	&::before {
+		background-color: $color-2;
+		box-shadow: 0 0 0px 2px $invert inset;
 	}
 
 }
