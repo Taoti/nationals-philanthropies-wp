@@ -97,3 +97,52 @@
     font-size: 2.4rem;
 }
 
+
+@mixin image-clip() {
+  flex-shrink: 0;
+  position: relative;
+
+  @media screen and ( max-width: 1600px ) {
+    flex-shrink: .25;
+  }
+
+  @media screen and ( max-width: 1250px ) {
+    flex-shrink: .5;
+  }
+
+  @media screen and ( max-width: 1100px ) {
+    margin-bottom: 3rem;
+  }
+
+  &::before,
+  &::after {
+    content: '';
+    display: block;
+    width: 65.86%;
+    height: 73.74%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border: 1px solid transparentize($invert, 0.6);
+    // transform: rotate(45deg);
+    transform: translate(-50%, -50%) rotate(45deg);
+    transform-origin: center;
+    z-index: 1;
+  }
+
+  &::before {
+    left: calc(50% - 3rem);
+  }
+
+  &::after {
+    left: calc(50% + 3rem);;
+  }
+
+  img {
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    display: block;
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+}

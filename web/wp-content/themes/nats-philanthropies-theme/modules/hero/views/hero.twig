@@ -2,7 +2,7 @@
 <div class="{{ classes }}"{% if background_image_url %} data-bg="{{ background_image_url }}"{% endif %}>
 	<div class="hero-inner">
 
-		{% if heading_line_1 %}
+		{% if heading_line_1 or heading_line_2 %}
 		<h1 class="hero-heading">
 
 			{% if accent_image_1_html %}

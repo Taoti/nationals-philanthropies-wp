@@ -28,27 +28,6 @@ $args = [
 $hero = new Hero($args);
 $hero->render();
 ?>
-<?php
-$featured_item = get_field('featured_event', 'options');
-
-// Featured Listing Item
-$listingItem_args = [
-  'primary_heading' => get_the_title( $selected_event ),
-  'subtitle' => get_sub_field( 'subtitle' ),
-  'excerpt' => get_the_excerpt( $selected_event ),
-  'permalink' => get_permalink( $selected_event ),
-  'primary_button_url' => get_field( 'rsvp_url', $selected_event->ID ),
-  'primary_button_label' => 'RSVP',
-  'secondary_button_url' => get_field( 'sponsor_url', $selected_event->ID ),
-  'secondary_button_label' => get_field( 'sponsor_name', $selected_event->ID ),
-  'image_array' => Get::featured_image_array( $selected_event->ID ),
-  'classes' => [
-    'listingItem-featured',
-  ],
-];
-$listingItem = new ListingItem( $listingItem_args );
-$listingItem->render();
-?>
 
 
 <div class="archiveContent">

@@ -66,6 +66,7 @@
 	font-family: $sans-2;
 	margin-bottom: 3.4rem;
 	text-transform: uppercase;
+  color: #626262;
 }
 
 .listingItem-primaryHeading {
@@ -86,10 +87,24 @@
 		left: 0;
 	}
 
+  .listingItem-primaryHeadingLink {
+    color: $color-1;
+  }
+
 }
 
 .listingItem-button {
 	@include button();
+
+  &.listingItem-button-secondary {
+    border-color: $color-2;
+    color: $color-2;
+
+    &:hover {
+      background: $color-2;
+      color: white;
+    }
+  }
 }
 
 .listingItem-excerpt {

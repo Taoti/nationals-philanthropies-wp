@@ -45,15 +45,15 @@
 			{% if primary_button_url and secondary_button_url %}
 			<ul class="listingItem-linkList">
 
+        {% if secondary_button_url and secondary_button_label %}
+        <li class="listingItem-linkListItem">
+          <a class="listingItem-button listingItem-button-secondary" href="{{ secondary_button_url }}">{{ secondary_button_label }}</a>
+        </li>
+        {% endif %}
+
 				{% if primary_button_url and primary_button_label %}
 				<li class="listingItem-linkListItem">
 					<a class="listingItem-button listingItem-button-primary" href="{{ primary_button_url }}">{{ primary_button_label }}</a>
-				</li>
-				{% endif %}
-
-				{% if secondary_button_url and secondary_button_label %}
-				<li class="listingItem-linkListItem">
-					<a class="listingItem-button listingItem-button-secondary" href="{{ secondary_button_url }}">{{ secondary_button_label }}</a>
 				</li>
 				{% endif %}
 
