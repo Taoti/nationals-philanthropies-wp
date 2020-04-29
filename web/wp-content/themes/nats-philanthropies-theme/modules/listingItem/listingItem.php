@@ -46,7 +46,9 @@ class ListingItem {
 			];
 			$image_html = Get::image_html($image_args);
 
-		}
+		} else {
+      $image_html = get_stylesheet_directory_uri() . '/images/bg-listingItem-default.png';
+    }
 
 		$this->context = Timber::get_context();
 		$this->context['primary_heading'] = $primary_heading;
