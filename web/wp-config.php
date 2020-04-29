@@ -186,7 +186,6 @@ if (isset($_ENV['PANTHEON_ENVIRONMENT']) && php_sapi_name() != 'cli') {
   }
 }
 
-
 /* That's all, stop editing! Happy Pressing. */
 
 
