@@ -674,8 +674,8 @@
             },
             {
                 "param": "page_template",
-                "operator": "==",
-                "value": "default"
+                "operator": "!=",
+                "value": "template-donate.php"
             }
         ],
         [
@@ -701,5 +701,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1587575640
+    "modified": 1588097535
 }

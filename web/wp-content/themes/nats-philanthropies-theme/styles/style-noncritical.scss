@@ -20,13 +20,6 @@
 @import 'scss/template-temporary-front-page';
 @import 'scss/footer-temp';
 
-// Homepage Flex Content Layouts
-@import 'scss/home-page-builder';
-@import 'scss/home-statistics';
-@import 'scss/home-image';
-@import 'scss/home-quote';
-@import 'scss/home-grid';
-
 
 
 // Modules
@@ -47,12 +40,21 @@
 @import '../modules/formCard/scss/formCard';
 @import '../modules/gridCard/scss/gridCard';
 
+// Homepage Flex Content Layouts
+@import 'scss/home-page-builder';
+@import 'scss/home-statistics';
+@import 'scss/home-image';
+@import 'scss/home-quote';
+@import 'scss/home-grid';
+
 // Parts, utility, other one-offs
 // @import 'scss/pagination';
 
 // Templates ( template-name - including media queries. You can override base module styles here too )
 @import 'scss/page';
 // @import 'scss/single';
+@import 'scss/template-donate';
+@import 'scss/template-landing-page';
 
 
 // Custom ( don't use this unless you have to. This is for anything that doesnt fit anywhere else, which should be nothing )
