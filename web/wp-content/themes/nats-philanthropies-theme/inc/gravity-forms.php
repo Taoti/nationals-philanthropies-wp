@@ -53,3 +53,26 @@ function taoti_gf_display_column_shortcode( $item ){
 }
 add_action( 'gform_form_list_column_shortcode', 'taoti_gf_display_column_shortcode' );
 
+
+
+
+
+### Move Gravity Forms jQuery calls to footer
+// https://hereswhatidid.com/2013/01/move-gravity-forms-jquery-calls-to-footer/
+add_filter( 'gform_init_scripts_footer', '__return_true' );
+
+
+
+
+
+/**
+ * Enforce anti-spam honeypot on all Gravity forms.
+ * https://www.timjensen.us/enforce-anti-spam-honeypots-on-gravity-forms/
+ * @param array $form
+ * @return array $form
+ */
+function taoti_gform_honeypot_default( $form ){
+    $form['enableHoneypot'] = true;
+	return $form;
+}
+add_filter( 'gform_form_post_get_meta', 'taoti_gform_honeypot_default', 10, 1 );
