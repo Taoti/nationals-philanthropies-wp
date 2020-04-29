@@ -30,6 +30,7 @@ class ListingItem {
 			'secondary_button_label' => false,
 			'image_array' => false,
 			'image_html' => false,
+      'is_featured' => false,
 			'classes' => []
 		];
 
