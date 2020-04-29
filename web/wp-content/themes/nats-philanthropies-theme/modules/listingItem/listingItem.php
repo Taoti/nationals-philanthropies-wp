@@ -47,7 +47,7 @@ class ListingItem {
 			$image_html = Get::image_html($image_args);
 
 		} else {
-      $image_html = get_stylesheet_directory_uri() . '/images/bg-listingItem-default.png';
+      $image_html = '<img src="'. get_stylesheet_directory_uri() . '/images/bg-listingItem-default.png" class="listingItem-image" />' ;
     }
 
 		$this->context = Timber::get_context();
