@@ -127,6 +127,10 @@
 	@include quote-icon();
 }
 
+	.quote-overlay-blue .quote-icon {
+		color: $color-3;
+	}
+
 .quote-quotedText {
 	@include quoted-text();
 }
@@ -134,6 +138,10 @@
 .quote-attributionName {
 	@include quote-attribution-name();
 }
+
+	.quote-overlay-blue .quote-attributionName {
+		color: $color-3;
+	}
 
 .quote-attributionDescription {
 	@include quote-attribution-description();
