@@ -58,10 +58,14 @@ if( $temporary_page_enabled ){
         <i class="header-logo"><?php echo file_get_contents(get_stylesheet_directory() . '/images/logo-nats-philanthropies.svg'); ?></i>
       </a>
 
-      <?php else: ?>
+			<?php else: ?>
+			<a href="<?php echo home_url(); ?>/?s=" class="header-searchLink">
+				<i class="header-searchIcon"><?php echo file_get_contents(get_stylesheet_directory() . '/images/icon-search.svg'); ?></i>
+			</a>
+
       <a href="<?php echo home_url(); ?>" class="header-logoLink">
         <i class="header-logo"><?php echo file_get_contents(get_stylesheet_directory() . '/images/logo-nats-philanthropies-mark.svg'); ?></i>
-      </a>
+      </>
       <?php endif ?>
 
       <?php
@@ -76,6 +80,6 @@ if( $temporary_page_enabled ){
 
     </div>
   </header>
-  
-  
+
+
 

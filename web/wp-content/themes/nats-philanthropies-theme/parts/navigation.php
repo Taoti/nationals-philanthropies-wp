@@ -1,4 +1,6 @@
 <?php
+
+// Split the main navigation items into two arrays - one for the top level nav items and the other for the sub nav items. This allows us to loop through the arrays to output the navigation with the exact HTML we want, without the output from `wp_nav_menu()`.
 $theme_location = 'main-navigation';
 
 $menuLocations = get_nav_menu_locations();

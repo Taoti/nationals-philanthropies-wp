@@ -53,15 +53,7 @@
     left: calc(-1 * (100vw - #{$design-width}) / 2);
 
     @media screen and ( max-width: $design-width ) {
-      left: 0;//-$container-padding;
-    }
-
-    @media screen and ( max-width: 960px ) {
-      left: 0;//-$container-padding-tablet;
-    }
-
-    @media screen and ( max-width: 700px ) {
-      left: 0;//-$container-padding-mobile;
+      left: 0;
     }
 
   }
@@ -151,5 +143,47 @@
   path {
     fill: $invert;
   }
+
+}
+
+
+
+.header-searchIcon {
+	transition: transform 150ms $bounce-2;
+	transform-origin: center;
+	transform: scale3d(1, 1, 1);
+}
+
+.header-searchLink {
+	display: flex;
+	height: 100%;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	right: calc(100% - #{$padding-header-max});
+	// padding-right: 8rem;
+	width: $padding-header-max;
+
+	@media screen and ( max-width: $breakpoint-desktop ) {
+		right: calc(100% - #{$padding-header-desktop});
+		width: $padding-header-desktop;
+	}
+
+	@media screen and ( max-width: 960px ) {
+		right: calc(100% - #{$container-padding-tablet});
+		width: $container-padding-tablet;
+	}
+
+	@media screen and ( max-width: 700px ) {
+		// right: calc(100% - #{$container-padding-mobile});
+		// width: $container-padding-mobile;
+		display: none;
+	}
+
+	&:hover {
+		.header-searchIcon {
+			transform: scale3d(1.5, 1.5, 1.5);
+		}
+	}
 
 }
