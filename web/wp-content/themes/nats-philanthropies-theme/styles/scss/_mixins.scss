@@ -146,3 +146,31 @@
     object-fit: cover;
   }
 }
+
+
+
+
+// Include this page tear as a ::before or ::after element.
+@mixin page-tear-leather() {
+	background-image: url('../../images/border-page-tear-1.png');
+	background-repeat: repeat-x;
+	bottom: calc(100% - 1px);
+	content: '';
+	display: block;
+	height: 49px;
+	left: 0;
+	position: absolute;
+	width: 100%;
+}
+
+@mixin page-tear-gray() {
+	background-image: url('../../images/border-page-tear-3.png');
+	background-repeat: repeat-x;
+	bottom: calc(100% - 1px);
+	content: '';
+	display: block;
+	height: 87px;
+	left: 0;
+	position: absolute;
+	width: 100%;
+}

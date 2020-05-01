@@ -5,15 +5,7 @@
 	position: relative;
 
 	&::before {
-		content: '';
-		position: absolute;
-		bottom: 100%;
-		left: 0;
-		width: 100%;
-		height: 87px;
-		background-repeat: repeat-x;
-		background-image: url('../../images/border-page-tear-3.png');
-		display: block;
+		@include page-tear-gray();
 	}
 
 }
