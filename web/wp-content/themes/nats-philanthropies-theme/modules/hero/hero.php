@@ -77,6 +77,9 @@ class Hero {
 
 		}
 
+		$statsTitle = '';
+		$statsDescription = '';
+		$stats = false;
 		if( $this->use_home_template ){
 			$classes[] = 'hero-home';
 			$classes[] = 'scrollspy';

@@ -333,7 +333,7 @@ body.temporary-page {
 
 
 // Need to figure out a way to lazyload this after element. Might have to make a noncritical hero file.
-.hero {
+.heroTemp {
   &::after {
     content: '';
     background-image: url('../../images/border-page-tear-1.png');
