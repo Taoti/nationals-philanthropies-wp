@@ -21,6 +21,7 @@ class Hero {
 
 		// Save a boolean as to whether or not this should use the home page twig template. This of course depends on `is_front_page()`, and also on the use of the temporary landing page (which has its own hero).
 		$this->use_home_template = is_front_page() && !get_field( 'temporary_landing_page_is_enabled', 'option' );
+    $this->use_youth_baseball_academy_template = get_page_template_slug() == 'template-youth-baseball-academy.php';
 
 		// Set up the default <img> html for the "paint splatter" accent image.
 		$accent_image_1_html_default = '<img class="hero-accent hero-accent-1 lazyload" data-srcset="' . get_stylesheet_directory_uri() . '/images/accent-spatter-1.png 1x, ' . get_stylesheet_directory_uri() . '/images/accent-spatter-1@2x.png 2x" width="477" height="82" alt="Paint splatter accent">';
@@ -80,17 +81,31 @@ class Hero {
 			$classes[] = 'hero-home';
 			$classes[] = 'scrollspy';
 			$classes[] = 'scrollspy-dark';
-		}
+      $header_img = get_stylesheet_directory_uri() . '/images/hero-header-img-withShadows.png';
+		} elseif($this->use_youth_baseball_academy_template){
+      $classes[] = 'hero-youth-baseball-academy';
+      $header_img = get_stylesheet_directory_uri() . '/images/bg-hero-youth-baseball-academy-header-img.png';
+      $accent_image_1_html = '<img class="hero-accent hero-accent-1 lazyload" data-srcset="' . get_stylesheet_directory_uri() . '/images/accent-spatter-2-blue.png 1x, ' . get_stylesheet_directory_uri() . '/images/accent-spatter-2-blue@2x.png 2x" width="477" height="82" alt="Paint splatter accent">';
+      $tba_logo = get_stylesheet_directory_uri() . '/images/img-TBA-logo.png';
+      $stats = get_field('hero_stats');
+      $statsTitle = $stats['title'];
+      $statsDescription = $stats['description'];
+      $stats = $stats['statistic_columns'];
+
+    }
 
 		$this->context = Timber::get_context();
 		$this->context['heading_line_1'] = $heading_line_1;
 		$this->context['heading_line_2'] = $heading_line_2;
-    $this->context['header_img'] = get_stylesheet_directory_uri() . '/images/hero-header-img-withShadows.png';
+    $this->context['header_img'] = $header_img;
     $this->context['description'] = $description;
     $this->context['button_label'] = $button_label;
     $this->context['button_link'] = $button_link;
 		$this->context['background_image_url'] = $background_image_url;
 		$this->context['accent_image_1_html'] = $accent_image_1_html;
+    $this->context['statsTitle'] = $statsTitle;
+    $this->context['statsDescription'] = $statsDescription;
+    $this->context['stats'] = $stats;
 		$this->context['classes'] = implode(' ', $classes);
 	}
 
@@ -98,7 +113,8 @@ class Hero {
 
     if( $this->use_home_template ){
 			Timber::render('hero-home.twig', $this->context);
-
+    } elseif( $this->use_youth_baseball_academy_template ) {
+      Timber::render('hero-youth-baseball-academy.twig', $this->context);
     } else {
       Timber::render('hero.twig', $this->context);
 		}

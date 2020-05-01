@@ -1,0 +1,241 @@
+.hero-youth-baseball-academy {
+  color: $color-1;
+  position: relative;
+  background: none;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+
+  &:before {
+    display: none;
+  }
+
+  .hero-inner {
+		display: flex;
+		align-items: stretch;
+    padding-bottom: 6rem;
+
+     @media screen and ( max-width: 1840px ) {
+      padding-left: 20rem;
+      padding-right: 20rem;
+    }
+
+    @media screen and ( max-width: 1575px ) {
+      @include l-container('header');
+    }
+
+    @media screen and ( max-width: $home-hero-breakpoint ) {
+			flex-wrap: wrap;
+			height: auto;
+			text-align: center;
+    }
+  }
+
+  .hero-heading {
+		font-size: 8.5rem;
+    color: $color-3;
+
+    @media screen and ( max-width: $container-contentGroup-mobile ) {
+      font-size: 4rem;
+		}
+  }
+
+  .sectionNavigation li:first-child:before {
+    background: white;
+    border: none;
+  }
+
+  .hero-accent-1 {
+    z-index: 1;
+    left: 10%;
+    bottom: -10px;
+
+    @media screen and ( max-width: $home-hero-breakpoint ) {
+      left: inherit;
+      right: 5%;
+    }
+
+    @media screen and ( max-width: $container-contentGroup-mobile ) {
+      max-width: 200px;
+      height: auto;
+      left: calc(50% + 40px);
+      right: inherit;
+      transform: translateX(-50%) !important;
+    }
+  }
+
+  .hero-accent-2 {
+    @media screen and ( max-width: $home-hero-breakpoint ) {
+      display: none;
+    }
+  }
+
+  .hero-headingLine {
+		display: block;
+		white-space: nowrap;
+    position: relative;
+    z-index: 3;
+  }
+
+
+  .hero-headingOutline {
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1.5px $color-3;
+  }
+
+  .hero-textWrap {
+    color: $color-3;
+  }
+
+  .hero-content {
+    color: $color-1;
+  }
+
+  .hero-button {
+    &:hover {
+      span {
+        color: white;
+      }
+    }
+    span {
+      color: $color-3;
+    }
+  }
+}
+
+.hero-backgroundImage {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  mix-blend-mode: overlay;
+  opacity: .4;
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+}
+
+
+.hero-content {
+  flex-basis: 60%;
+  position: relative;
+  z-index: 5;
+
+  @media screen and ( max-width: $home-hero-breakpoint ) {
+    flex-basis: 100%;
+  }
+}
+
+.hero-description {
+  font-size: 1.4rem;
+  margin-top: 2.5rem;
+  max-width: 500px;
+  line-height: 1.8;
+
+  @media screen and ( max-width: $home-hero-breakpoint ) {
+    text-align: center;
+    margin: 1.4rem auto 0;
+    max-width: 320px;
+  }
+}
+
+.hero-img {
+  flex-basis: 40%;
+  min-height: 730px;
+  position: relative;
+
+  @media screen and ( max-width: 1575px ) {
+    flex-basis: 100%;
+    padding-top: 80%;
+    min-height: inherit;
+    z-index: 1;
+  }
+
+  @media screen and ( max-width: $home-hero-breakpoint ) {
+    padding-top: 80%;
+  }
+
+  > img {
+    position: absolute;
+    height: 100%;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: auto;
+    z-index: 2;
+
+    @media screen and ( max-width: 1575px ) {
+      left: 50%;
+      right: inherit;
+      transform: translate(-50%,-50%);
+      height: 80%;
+    }
+
+    @media screen and ( max-width: $home-hero-breakpoint ) {
+      height: auto;
+      width: 100%;
+      z-index: 0;
+      min-width: 350px;
+      top: 0;
+      transform: translate(-50%, -15%);
+    }
+  }
+}
+
+.hero-button {
+  @include button;
+  color: $invert;
+  z-index: 3;
+  margin-top: 2rem;
+
+  @media screen and ( max-width: $home-hero-breakpoint ) {
+    margin-left: 3rem;
+  }
+}
+
+
+// Hero Stats
+.hero-stats-inner {
+  @include l-container('hero');
+
+  .stats-inner {
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+
+    @media screen and ( max-width: 1000px ) {
+      padding-top: 10rem;
+    }
+  }
+
+  .stat {
+    flex-basis: 20%;
+
+    @media screen and ( max-width: 600px ) {
+      flex-basis: 100%;
+    }
+  }
+}
+
+.hero-stats-content-title {
+  position: relative;
+
+  @media screen and ( max-width: 600px ) {
+    font-size: 2.5rem;
+  }
+
+  &:after {
+    content: "";
+    width: 4.3rem;
+    height: 4px;
+    background: $color-3;
+    display: block;
+    margin-bottom: 2.6rem;
+    margin-top: 2.6rem;
+  }
+}
+
+.hero-stats-content-description {
+  @media screen and ( max-width: 600px ) {
+    font-size: 1.4rem;
+  }
+}
