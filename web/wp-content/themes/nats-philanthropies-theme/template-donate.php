@@ -25,7 +25,7 @@ $hero = new Hero($args);
 $hero->render();
 ?>
 
-<div class="content">
+<div class="content content-donate">
 	<div class="content-inner">
 
 		<?php if( get_field('donateCTA_primary_heading_line_1') ): ?>

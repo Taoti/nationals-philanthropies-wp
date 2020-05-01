@@ -22,7 +22,13 @@ $hero->render();
 
 
 
-<?php the_page_builder(); ?>
+<div class="content content-single">
+	<div class="content-inner">
+
+		<?php the_page_builder(); ?>
+
+	</div><!-- END .content-inner -->
+</div><!-- END .content -->
 
 
 
