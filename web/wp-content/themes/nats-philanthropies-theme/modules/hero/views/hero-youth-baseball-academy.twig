@@ -1,0 +1,74 @@
+{% block hero %}
+<div class="{{ classes }}">
+
+	<div class="hero-inner">
+
+    <div class="hero-column hero-content">
+
+      {% if heading_line_1 and heading_line_2 %}
+      <h1 class="hero-heading">
+        
+        <div class="hero-tbaLogo">
+        {{ tba_logo }}
+        </div>
+
+        {% if accent_image_1_html %}
+        {{ accent_image_1_html }}
+        {% endif %}
+
+        <span class="hero-headingLine hero-headingOutline">
+          <span class="hero-textWrap">{{ heading_line_1 }}</span>
+        </span>
+
+        <span class="hero-headingLine">
+          <span class="hero-textWrap">{{ heading_line_2 }}</span>
+        </span>
+
+      </h1>
+      {% endif %}
+
+      {% if description %}
+        <div class="hero-description">
+          {{ description}}
+        </div>
+      {% endif %}
+
+      {% if button_link and button_label %}
+        <a href="{{ button_link }}" class="hero-button"><span>{{ button_label }}</span></a>
+      {% endif %}
+    </div>
+
+    <div class="hero-column hero-img">
+      <img class="lazyload" data-src="{{ header_img }}" height="1047" width="987" alt="Young Nationals fan, and Soto with fans." />
+    </div>
+
+	</div><!-- END .hero-inner -->
+  
+  <div class="hero-stats">
+    <div class="hero-stats-inner">
+      <div class="hero-stats-content">
+        <h2 class="hero-stats-content-title">{{ statsTitle }}</h2>
+        <div class="hero-stats-content-description entry-content">{{ statsDescription }}</div>
+      </div>
+      <div class="stats">
+        <div class="stats-inner">
+
+          {% if stats %}
+          <div class="stats_row">
+
+            {% for stat in stats %}
+            <div class="stat">
+              <div class="stat-number">{{ stat.number }}<span class="stat-number-unit {% if stat.units == 'k' or stat.units == 'K' %}stat-number-unit-reverse{% endif %}">{{ stat.units}}</span></div>
+              <div class="stat-info">{{ stat.description }}</div>
+            </div>
+            {% endfor %}
+
+          </div>
+          {% endif %}
+
+        </div>
+      </div>
+
+  </div>
+</div><!-- END .hero -->
+{% endblock %}
