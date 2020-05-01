@@ -1,5 +1,6 @@
 <?php
 use Modules\Hero;
+use JP\Get;
 
 
 ### Critical CSS for the main archive template
@@ -20,10 +21,23 @@ get_header();
 
 
 <?php
+$heading_line_1 = get_the_archive_title();
+$description = '';
+
+if( is_search() ){
+	global $wp_query;
+	$heading_line_1 = 'Search';
+
+	if( get_search_query() ){
+		$description = 'Showing '. $wp_query->found_posts . ' results for <em>' . get_search_query() . '</em>';
+	}
+
+}
+
 $args = [
-  'heading_line_1' => get_the_archive_title(),
-	'heading_line_2' => 'ohai',
-	// 'background_image_url' => '', // get featured image
+  'heading_line_1' => $heading_line_1,
+	'heading_line_2' => '',
+	'description' => $description,
 ];
 $hero = new Hero($args);
 $hero->render();
@@ -31,26 +45,29 @@ $hero->render();
 
 
 
-<div class="archiveContent">
-    <div class="l-container archiveContent-inner">
+<?php if ( have_posts() ): ?>
+<div class="archiveList">
+	<div class="archiveList-inner">
+		<?php while ( have_posts() ): the_post(); ?>
+			<?php
+			$post_type = get_post_type();
+			get_template_part( 'parts/listingItem', $post_type );
+			?>
 
-    <?php if( have_posts() ): ?>
-
-        <?php while( have_posts() ): the_post(); ?>
-
-    		<h2><?php the_title(); ?></h2>
-    		<div><?php the_excerpt(); ?></div>
-
-        <?php endwhile; ?>
-
-    <?php else: ?>
-
-        <?php echo 'Not Found.'; ?>
-
-    <?php endif; ?>
-
-    </div><!-- END .archiveContent-inner -->
-</div><!-- END .archiveContent -->
+		<?php endwhile; ?>
+	</div>
+		<div class="paginationWrap l-container">
+			<?php
+			the_posts_pagination( array(
+					'mid_size'  => 2,
+					'prev_text' => '<i class="pagination-arrow pagination-arrow-left"></i>',
+					'next_text' => '<i class="pagination-arrow pagination-arrow-right"></i>',
+					'screen_reader_text' => null
+			));
+			?>
+		</div>
+</div>
+<?php endif; ?>
 
 
 

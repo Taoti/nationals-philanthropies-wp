@@ -50,6 +50,8 @@ function jp_register_post_types() {
 			'register_args' => [
 				'menu_icon' => 'dashicons-id',
 				'description' => 'Manage your People.',
+				'has_archive' => false,
+				'exclude_from_search' => true,
 			],
 
 		],
@@ -65,6 +67,7 @@ function jp_register_post_types() {
 
 		],
 
+		// NEWS
 		// NOTE: If you are looking for the 'news' post type there is none, it is the 'post' post type with customized labels. See `taoti_change_post_labels()` below.
 
 	];
