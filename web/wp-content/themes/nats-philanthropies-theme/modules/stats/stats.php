@@ -18,6 +18,7 @@ class Stats {
 			'stats' => false,
 			'classes' => [
 				'l-module',
+				'l-has-no-background',
 				'stats',
 			]
 		];

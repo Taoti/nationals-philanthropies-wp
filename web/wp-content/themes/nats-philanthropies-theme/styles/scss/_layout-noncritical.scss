@@ -1,0 +1,17 @@
+.l-has-background {
+
+	+ .l-has-no-background {
+		position: relative;
+
+		&::before {
+			@include page-tear-leather();
+			bottom: calc(100% + #{$l-module-spacing} - 1px);
+		}
+
+	}
+
+	+ .l-has-background {
+
+	}
+
+}

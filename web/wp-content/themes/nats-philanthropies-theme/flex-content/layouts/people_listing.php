@@ -24,6 +24,7 @@ $args = array(
 	'columns' => $people_cards,
 	'classes' => [
 		'l-module',
+		'l-has-no-background',
 		'cardColumns',
 		'cardColumns-people',
 	],

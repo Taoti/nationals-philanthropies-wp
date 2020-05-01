@@ -10,9 +10,36 @@
 
 
 .l-module {
+	margin-top: $l-module-spacing;
 
-	+ .l-module {
-		margin-top: 7rem;
+	// + .l-module {
+	// 	margin-top: $l-module-spacing;
+	// }
+
+}
+
+
+
+.l-has-no-background {
+
+	+ .l-has-no-background {
+		// padding-top: $l-module-spacing;
+	}
+
+	+ .l-has-background {
+		// margin-top: $l-module-spacing;
+	}
+
+}
+
+.l-has-background {
+
+	+ .l-has-no-background {
+
+	}
+
+	+ .l-has-background {
+
 	}
 
 }

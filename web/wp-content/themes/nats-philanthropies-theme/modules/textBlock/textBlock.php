@@ -18,6 +18,7 @@ class TextBlock {
 			'content' => false,
 			'classes' => [
 				'l-module',
+				'l-has-no-background',
 				'textBlock',
 			]
 		];

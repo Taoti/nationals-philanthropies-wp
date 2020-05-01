@@ -38,6 +38,7 @@ $args = array(
 	'columns' => $postCards,
 	'classes' => [
 		'l-module',
+		'l-has-no-background',
 		'cardColumns',
 		'cardColumns-relatedContent',
 	],

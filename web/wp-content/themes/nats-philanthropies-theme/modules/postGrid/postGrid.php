@@ -27,6 +27,7 @@ class PostGrid {
 			'grid_items' => false,
 			'classes' => [
 				'l-module',
+				'l-has-background',
 				'postGrid',
 			]
 		];

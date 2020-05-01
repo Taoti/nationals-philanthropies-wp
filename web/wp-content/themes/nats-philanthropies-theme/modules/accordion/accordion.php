@@ -19,6 +19,7 @@ class Accordion {
 			'accordion_items' => false,
 			'classes' => [
 				'l-module',
+				'l-has-no-background',
 				'accordion',
 			]
 		];

@@ -19,6 +19,7 @@ class CardColumns {
 			'columns' => false,
 			'classes' => [
 				'l-module',
+				'l-has-no-background',
 				'cardColumns',
 			]
 		];

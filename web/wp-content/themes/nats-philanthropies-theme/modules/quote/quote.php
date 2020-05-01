@@ -27,6 +27,7 @@ class Quote {
 			'image_html' => '',
 			'classes' => [
 				'l-module',
+				'l-has-background',
 				'quote',
 			]
 		];

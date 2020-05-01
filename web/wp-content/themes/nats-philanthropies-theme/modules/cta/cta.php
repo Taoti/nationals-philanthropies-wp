@@ -27,6 +27,7 @@ class CTA {
 			'overlay_color' => false,
 			'classes' => [
 				'l-module',
+				'l-has-background',
 				'cta',
 			]
 		];

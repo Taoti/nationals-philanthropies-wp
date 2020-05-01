@@ -8,6 +8,7 @@
 
 // Globals ( any classes or elements that are commonly used, like .button or .icon )
 @import 'scss/base-noncritical';
+@import 'scss/layout-noncritical';
 @import 'scss/navigation-noncritical';
 @import 'scss/entry-content';
 @import 'scss/footer';
@@ -23,7 +24,7 @@
 
 
 // Modules
-@import '../modules/hero/scss/hero-home-noncritical';
+@import '../modules/hero/scss/hero-noncritical';
 @import '../modules/accordion/scss/accordion';
 @import '../modules/cta/scss/cta';
 @import '../modules/fullWidthMedia/scss/fullWidthMedia';

@@ -25,7 +25,7 @@ class FullWidthMedia {
 			'caption' => false,
 			'classes' => [
 				'l-module',
-				'l-module-media',
+				'l-has-no-background',
 				'fullWidthMedia',
 			]
 		];
