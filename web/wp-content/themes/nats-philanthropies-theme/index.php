@@ -10,10 +10,10 @@ use JP\Get;
 // In Settings > Reading, if this is the "Page for Posts" page then store the ID of that page to pull ACF options with. Otherwise using stuff like get_the_title() without an ID/post parameter will return results from the last post in the query/listing.
 if( taoti_is_page_for_posts() ){
   $posts_page_id = taoti_is_page_for_posts();
-  echo "<pre>"; var_dump($posts_page_id); echo "</pre>";
+  // echo "<pre>"; var_dump($posts_page_id); echo "</pre>";
 }
 
-echo "<pre>"; var_dump( is_post_type_archive('post') ); echo "</pre>";
+// echo "<pre>"; var_dump( is_post_type_archive('post') ); echo "</pre>";
 
 get_header();
 ?>

@@ -1,5 +1,5 @@
 <?php
-// use Modules\CTA;
+use Modules\Hero;
 
 
 ### Critical CSS for the default single template
