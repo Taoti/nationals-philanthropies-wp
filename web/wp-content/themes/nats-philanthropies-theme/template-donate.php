@@ -25,8 +25,8 @@ $hero = new Hero($args);
 $hero->render();
 ?>
 
-<div class="content content-donate">
-	<div class="content-inner">
+<div class="l-content content-donate">
+	<div class="l-content-inner">
 
 		<?php if( get_field('donateCTA_primary_heading_line_1') ): ?>
 		<section class="l-module donateCTA">
@@ -89,8 +89,8 @@ $hero->render();
 		$postGrid->render();
 		?>
 
-	</div><!-- END .content-inner -->
-</div><!-- END .content -->
+	</div><!-- END .l-content-inner -->
+</div><!-- END .l-content -->
 
 
 

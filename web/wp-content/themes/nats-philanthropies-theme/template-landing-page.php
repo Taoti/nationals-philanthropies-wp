@@ -22,13 +22,13 @@ $hero = new Hero($args);
 $hero->render();
 ?>
 
-<div class="content content-landingPage">
-	<div class="content-inner">
+<div class="l-content content-landingPage">
+	<div class="l-content-inner">
 
 		<?php the_page_builder(); ?>
 
-	</div><!-- END .content-inner -->
-</div><!-- END .content -->
+	</div><!-- END .l-content-inner -->
+</div><!-- END .l-content -->
 
 
 

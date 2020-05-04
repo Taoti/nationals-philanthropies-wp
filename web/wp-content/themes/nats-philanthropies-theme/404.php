@@ -24,7 +24,7 @@ $hero->render();
 
 
 <div class="content">
-    <div class="l-container content-inner">
+    <div class="l-container l-content-inner">
 
         <?php
         // NOTE
@@ -44,7 +44,7 @@ $hero->render();
 
         </div>
 
-    </div><!-- END .content-inner -->
+    </div><!-- END .l-content-inner -->
 </div><!-- END .content -->
 
 
