@@ -136,3 +136,11 @@ body.post-php.post-type-page div#postimagediv .inside::before {
 	}
 
 }
+
+
+
+
+// Hide the WordPress.org link
+#wp-admin-bar-wp-logo {
+	display: none;
+}
