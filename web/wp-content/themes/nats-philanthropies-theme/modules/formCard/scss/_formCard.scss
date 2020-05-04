@@ -84,6 +84,11 @@
     width: 36%;
 	}
 
+	.gfield-consent,
+	.gfield-checkbox {
+		grid-area: span 1 / span 2;
+	}
+
 }
 
 .formCard-inner {

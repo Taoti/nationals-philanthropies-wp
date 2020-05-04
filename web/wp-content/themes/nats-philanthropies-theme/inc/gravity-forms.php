@@ -139,3 +139,21 @@ function gravity_forms_move_progress_bar( $form_string, $form ) {
 
 }
 add_filter( 'gform_get_form_filter', 'gravity_forms_move_progress_bar', 10, 3 );
+
+
+
+
+
+
+/*
+* PURPOSE : Add a class with the field type to each `li.gfield` element. This way we can add styles to the field containers based on the type of field they contain.
+*  PARAMS : 6 parameters, check the documentation
+* RETURNS : (string) The <li> html string for the form field.
+*   NOTES : https://docs.gravityforms.com/gform_field_container/
+*						Use `{FIELD_CONTENT}` to add the contents of the the <li> element.
+*/
+function my_field_container( $field_container, $field, $form, $css_class, $style, $field_content ) {
+	$css_class .= ' gfield-' . $field->type;
+	return '<li id="' . $form['id'] . '" class="' . $css_class . '">{FIELD_CONTENT}</li>';
+}
+add_filter( 'gform_field_container', 'my_field_container', 10, 6 );
