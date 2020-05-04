@@ -44,3 +44,20 @@ function taoti_admin_bar_customize(){
 }
 
 add_action( 'admin_bar_menu', 'taoti_admin_bar_customize', 75 );
+
+
+
+
+
+/*
+* PURPOSE : For logged in users (admins) hide the WordPress link in the admin bar.
+*   NOTES : For the Dashboard area, the same button is hidden in `styles/scss/admin/style-admin.scss`
+*/
+function taoti_hide_wp_link_in_admin_bar(){
+
+	if( is_user_logged_in() ): ?>
+	<style>#wp-admin-bar-wp-logo{display:none}</style>
+	<?php endif;
+
+}
+add_action( 'wp_head', 'taoti_hide_wp_link_in_admin_bar' );
