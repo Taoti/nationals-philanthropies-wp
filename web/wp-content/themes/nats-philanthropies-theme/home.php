@@ -44,7 +44,7 @@ if($featured_item) {
   // Featured Listing Item
   $featured_item_args = [
     'primary_heading' => get_the_title( $featured_item ),
-    'subtitle' => 'Featured Event',
+    'subtitle' => 'Featured News',
     'excerpt' => get_the_excerpt( $featured_item ),
     'permalink' => get_permalink( $featured_item ),
     'primary_button_url' => get_permalink($featured_item),

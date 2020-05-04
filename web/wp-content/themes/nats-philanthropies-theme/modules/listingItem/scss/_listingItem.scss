@@ -17,6 +17,7 @@
 .listItem-imageContainer {
 	flex-shrink: 0;
 	left: -14.7rem;
+	max-width: 572px;
 	position: relative;
 
 	@media screen and ( max-width: $design-width ) {

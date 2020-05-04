@@ -47,7 +47,7 @@ class ListingItem {
 			$image_html = Get::image_html($image_args);
 
 		} else {
-      $image_html = '<img src="'. get_stylesheet_directory_uri() . '/images/bg-listingItem-default.png" class="listingItem-image" />' ;
+      $image_html = '<img src="'. get_stylesheet_directory_uri() . '/images/bg-listingItem-default.png" class="listingItem-image" width="572" height="322" alt="No image found for this post." />' ;
     }
 
 		$this->context = Timber::get_context();
