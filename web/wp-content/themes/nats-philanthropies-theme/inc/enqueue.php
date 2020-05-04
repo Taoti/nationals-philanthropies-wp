@@ -81,7 +81,7 @@ function taoti_login_stylesheet(){
 	// CSS for login screen
 	wp_enqueue_style('login-theme', get_template_directory_uri().'/styles/css/style-login.min.css', array(), filemtime( get_template_directory().'/styles/css/style-login.min.css' ) );
 }
-// add_action( 'login_enqueue_scripts', 'taoti_login_stylesheet' );
+add_action( 'login_enqueue_scripts', 'taoti_login_stylesheet' );
 
 /*
  * PURPOSE : Post content editor (TinyMCE) enqueues (load a CSS file to use for the editor in the iframe)

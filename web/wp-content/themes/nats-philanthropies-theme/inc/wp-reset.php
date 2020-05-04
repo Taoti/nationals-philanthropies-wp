@@ -380,3 +380,18 @@ Array
 
 ### SVG in media uploader
 // You should now use the "Safe SVG" plugin
+
+
+
+
+
+### Login page
+function taoti_login_logo_url() {
+	return home_url();
+}
+add_filter( 'login_headerurl', 'taoti_login_logo_url' );
+
+function taoti_login_logo_url_title() {
+	return get_bloginfo( 'name' );
+}
+add_filter( 'login_headertext', 'taoti_login_logo_url_title' );

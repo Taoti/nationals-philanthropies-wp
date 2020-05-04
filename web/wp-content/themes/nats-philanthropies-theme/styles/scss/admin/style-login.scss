@@ -9,31 +9,36 @@
 */
 
 body {
-	//background-color: #fff;
+	background-color: $color-2;
 }
 
 // ###########################
 // ### Change logo here:
-/*body.login div#login h1 a {
+body.login div#login h1 a {
 	display: block;
-    background-image:url('images/CASE_logo_main.svg');
-    background-size: 100% auto;
-    height: 150px;
-    transition:none;
-    width: 308px;
+	background-image:url('../../images/logo-nats-philanthropies-mark.svg');
+	background-size: contain;
+	height: 150px;
+	transition:none;
+	width: 150px;
+  transform: scale3d(1, 1, 1);
+  transform-origin: center;
+  transition: transform 125ms $bounce-2;
 }
 body.login div#login h1 a:hover {
-    //background-position:center bottom;
-}*/
-
-
-
-body.login div#login form#loginform {
-	//background-color: $background-light-green;
+	transform: scale3d(1.33, 1.33, 1.33);
 }
 
+
+
+.login #backtoblog a, .login #nav a {
+	text-decoration: none;
+	color: transparentize($invert, .4);
+}
+
+
 .login label {
-	//color: $secondary;
+	font-family: $sans-2;
 }
 
 body.login div#login form#loginform p {}
