@@ -31,7 +31,7 @@ $hero->render();
 
 
 <div class="archiveContent">
-    <div class="l-container archivel-content-inner">
+    <div class="l-container archiveContent-inner">
 
     <?php if( have_posts() ): ?>
 
@@ -48,7 +48,7 @@ $hero->render();
 
     <?php endif; ?>
 
-    </div><!-- END .archivel-content-inner -->
+    </div><!-- END .archiveContent-inner -->
 </div><!-- END .archiveContent -->
 
 

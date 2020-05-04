@@ -23,7 +23,7 @@ $hero->render();
 
 
 
-<div class="content">
+<div class="l-content">
     <div class="l-container l-content-inner">
 
         <?php
@@ -45,7 +45,7 @@ $hero->render();
         </div>
 
     </div><!-- END .l-content-inner -->
-</div><!-- END .content -->
+</div><!-- END .l-content -->
 
 
 
