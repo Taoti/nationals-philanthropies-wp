@@ -144,3 +144,15 @@ body.post-php.post-type-page div#postimagediv .inside::before {
 #wp-admin-bar-wp-logo {
 	display: none;
 }
+
+
+
+
+//
+#postimagediv .inside::after {
+	content: 'Please use a square-shaped image. At least 512 x 512 in size.';
+	font-style: italic;
+	opacity: .75;
+	padding-top: 1em;
+	display: block;
+}

@@ -43,7 +43,7 @@ class PeopleCard {
 
 			$image_args = [
 				'image_array' => Get::featured_image_array( $post_object->ID ),
-				'size' => 'medium',
+				'size' => 'small-square',
 				'classes' => [
 					'peopleCard-image'
 				],
