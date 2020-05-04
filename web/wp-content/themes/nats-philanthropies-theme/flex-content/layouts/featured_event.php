@@ -19,7 +19,6 @@ if( is_a( $selected_event, 'WP_Post') ){
 		'classes' => [
 			'l-module',
 			'featuredEvent',
-			'is-offset-left',
 		],
 	];
 	$listingItem = new ListingItem( $listingItem_args );

@@ -1,0 +1,7 @@
+// Featured Event is a layout in the page builder. It uses a ListingItem module and doesn't have its own module.
+
+.featuredEvent {
+	.listingItem-inner {
+		@include l-container( 'content-1' );
+	}
+}

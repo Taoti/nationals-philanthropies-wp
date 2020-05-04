@@ -1,26 +1,9 @@
 .listingItem {
 
-	&.is-offset-left {
-
-		.listItem-imageContainer {
-			left: -14.7rem;
-
-			@media screen and ( max-width: $design-width ) {
-				left: -7.6vw;
-			}
-
-			@media screen and ( max-width: 1100px ) {
-				left: 0;
-			}
-
-		}
-
-	}
-
 }
 
 .listingItem-inner {
-	@include l-container( 'content-1' );
+	// @include l-container( 'content-1' );
 	display: flex;
 
 	@media screen and ( max-width: 1100px ) {
@@ -33,20 +16,20 @@
 
 .listItem-imageContainer {
 	flex-shrink: 0;
+	left: -14.7rem;
 	position: relative;
-	// left: -14.7rem;
 
-	// @media screen and ( max-width: $design-width ) {
-  //   left: -7.6vw;
-	// }
+	@media screen and ( max-width: $design-width ) {
+		left: -7.6vw;
+	}
 
 	@media screen and ( max-width: 1600px ) {
     flex-shrink: .5;
 	}
 
 	@media screen and ( max-width: 1100px ) {
+		left: 0;
 		margin-bottom: 3rem;
-    // position: static;
 	}
 
 }
@@ -119,9 +102,4 @@
 .listingItem-linkListItem {
 	margin-right: 3rem;
 	margin-top: 3rem;
-
-	// + .listingItem-linkListItem {
-	// 	margin-left: 3rem;
-	// }
-
 }
