@@ -12,7 +12,7 @@
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
-                "class": "",
+                "class": "alternate-colors",
                 "id": ""
             },
             "layouts": {
@@ -701,5 +701,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1588097535
+    "modified": 1588603887
 }
