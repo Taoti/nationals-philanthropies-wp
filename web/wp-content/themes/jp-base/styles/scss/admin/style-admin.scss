@@ -48,3 +48,12 @@
         display: block !important;
     }
 }
+
+
+
+
+
+// Hide the WordPress.org link
+#wp-admin-bar-wp-logo {
+	display: none;
+}
