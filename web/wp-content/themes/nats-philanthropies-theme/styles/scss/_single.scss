@@ -1,0 +1,69 @@
+
+// For the sharing links, non-critical styles are mostly stuff like colors.
+.sharing-link {
+
+	&-facebook {
+		&:hover {
+			background-color: $facebook;
+			path {
+				fill: $invert;
+			}
+		}
+	}
+
+	&-twitter {
+		&:hover {
+			background-color: $twitter;
+			path {
+				fill: $invert;
+			}
+		}
+	}
+
+	&-linkedin {
+		&:hover {
+			background-color: $linkedin;
+			path {
+				fill: $invert;
+			}
+		}
+	}
+
+	&-email {
+		&:hover {
+			background-color: $color-2;
+			path {
+				fill: $invert;
+			}
+		}
+	}
+
+}
+
+.sharing-icon {
+
+	&-facebook {
+		path {
+			fill: $facebook;
+		}
+	}
+
+	&-twitter {
+		path {
+			fill: $twitter;
+		}
+	}
+
+	&-linkedin {
+		path {
+			fill: $linkedin;
+		}
+	}
+
+	&-email {
+		path {
+			fill: $color-2;
+		}
+	}
+
+}

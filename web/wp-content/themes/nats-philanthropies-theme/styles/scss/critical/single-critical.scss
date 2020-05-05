@@ -1,0 +1,72 @@
+// Libraries
+// (these should not contain anything that actually outputs to a CSS file, so just stuff like variables and mixins)
+@import '../config';
+@import '../mixins';
+
+
+
+// For the sharing links, critical styles are those that position/size the icons.
+.sharing {
+	background-color: $invert;
+	border: 1px solid transparentize($color-1, .875);
+	left: calc((100vw - #{$design-width}) / 2);
+	position: fixed;
+	top: 50%;
+	transform: translate(0, -50%);
+	width: 4rem;
+	z-index: 1;
+
+	&:hover {
+		.sharing-link {
+			opacity: .5;
+		}
+	}
+
+	@media screen and ( max-width: $design-width ) {
+    left: 0;
+	}
+
+	@media screen and ( max-width: 700px ) {
+    position: static;
+    transform: none;
+    display: flex;
+    width: auto;
+    justify-content: center;
+    max-width: 220px;
+    margin-left: auto;
+    margin-right: auto;
+	}
+}
+
+.sharing .sharing-link:hover {
+	opacity: 1;
+}
+
+.sharing-link {
+	background-color: transparent;
+	display: block;
+	padding: 1rem;
+	transition: background-color 175ms, opacity 175ms;
+	transform: rotate(45deg);
+
+	&:hover {
+		background-color: $color-20;
+	}
+
+}
+
+.sharing-icon {
+	display: block;
+	height: auto;
+	transform: rotate(-45deg);
+	width: 2rem;
+
+	svg {
+		display: block;
+	}
+
+	path {
+		transition: fill 175ms;
+	}
+
+}
