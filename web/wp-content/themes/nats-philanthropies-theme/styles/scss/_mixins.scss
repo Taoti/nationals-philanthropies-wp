@@ -161,6 +161,7 @@
 	left: 0;
 	position: absolute;
 	width: 100%;
+	z-index: 1;
 }
 
 @mixin page-tear-gray() {
@@ -173,4 +174,5 @@
 	left: 0;
 	position: absolute;
 	width: 100%;
+	z-index: 1;
 }

@@ -4,7 +4,12 @@
 
 .archiveList {
   background: $color-20;
-  padding: 12rem 0;
+	padding: 12rem 0;
+	position: relative;
+
+	&::before {
+		@include page-tear-gray();
+	}
 
   .listingItem:last-child {
     .listingItem-inner {
