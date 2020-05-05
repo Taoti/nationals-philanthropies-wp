@@ -24,7 +24,7 @@
 
     @media screen and ( max-width: $breakpoint-nav-collapse ) {
       background-color: $color-2;
-      // height: calc(100vh - 100% - 5.9rem); // The screen height, minus the height of the header, minus the margin-top on the header = the available screen space below the header.
+      height: calc(100vh - 100% - 5.9rem); // The screen height, minus the height of the header, minus the margin-top on the header = the available screen space below the header.
       left: 0;
       opacity: 0;
       padding: 0;

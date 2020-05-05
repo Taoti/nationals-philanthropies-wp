@@ -65,7 +65,7 @@ if( $temporary_page_enabled ){
 
       <a href="<?php echo home_url(); ?>" class="header-logoLink">
         <i class="header-logo"><?php echo file_get_contents(get_stylesheet_directory() . '/images/logo-nats-philanthropies-mark.svg'); ?></i>
-      </>
+      </a>
       <?php endif ?>
 
       <?php
