@@ -34,7 +34,7 @@ class Hero {
 		$post_title_array = explode( ' ', $post_title );
 
 		if( $post_title && count($post_title_array) > 1 ){
-			$post_title_divided_to_lines = array_chunk( $post_title_array, (count($post_title_array) / 2) );
+			$post_title_divided_to_lines = array_chunk( $post_title_array, ceil(count($post_title_array) / 2) );
 			$heading_line_1 = implode( ' ', $post_title_divided_to_lines[0] );
 			$heading_line_2 = implode( ' ', $post_title_divided_to_lines[1] );
 
