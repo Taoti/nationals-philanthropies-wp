@@ -1,18 +1,10 @@
 <?php
 use Modules\Hero;
+use JP\Get;
 
 
-### Critical CSS for the main archive template
-// taoti_enqueue_critical_css( get_template_directory().'/styles/css/critical/index-critical.min.css' );
-
-
-// In Settings > Reading, if this is the "Page for Posts" page then store the ID of that page to pull ACF options with. Otherwise using stuff like get_the_title() without an ID/post parameter will return results from the last post in the query/listing.
-if( taoti_is_page_for_posts() ){
-  $posts_page_id = taoti_is_page_for_posts();
-  // echo "<pre>"; var_dump($posts_page_id); echo "</pre>";
-}
-
-// echo "<pre>"; var_dump( is_post_type_archive('post') ); echo "</pre>";
+### Critical CSS for the search template
+// taoti_enqueue_critical_css( get_template_directory().'/styles/css/critical/search.min.css' );
 
 get_header();
 ?>
@@ -20,16 +12,30 @@ get_header();
 
 
 <?php
+// Use the hero background image from the "Posts Page".
+$postPage = get_option( 'page_for_posts' );
+$featured_image_array = Get::featured_image_array( $postPage );
+
+$background_image_url = '';
+if( isset($featured_image_array['sizes']['1080p']) ){
+	$background_image_url = $featured_image_array['sizes']['1080p'];
+
+} elseif( isset($featured_image_array['sizes']['720p']) ){
+  $background_image_url = $featured_image_array['sizes']['720p'];
+}
+
 $args = [
   'heading_line_1' => 'Search',
 	'heading_line_2' => '',
+	'background_image_url' => $background_image_url,
+
 ];
 $hero = new Hero($args);
 $hero->render();
 ?>
 
 
-<?php if( is_search() ): ?>
+
 <div class="archiveSearch">
 	<div class="archiveSearch-inner">
 
@@ -65,11 +71,11 @@ $hero->render();
 
 	</div>
 </div>
-<?php endif; ?>
 
 
 
-<?php if ( have_posts() ): ?>
+
+<?php if( get_search_query() && have_posts() ): ?>
 <div class="archiveList">
 	<div class="archiveList-inner">
 		<?php while ( have_posts() ): the_post(); ?>
