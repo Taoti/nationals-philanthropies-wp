@@ -169,16 +169,21 @@ class Get
     */
     public static function featured_image_url( $size='full', $post_ID=false ){
 
-        if( !$post_ID ){
-            global $post;
-            $post_ID = $post->ID;
-        }
+			$url = false;
 
-        $array = self::featured_image_array($post_ID);
+      if( !$post_ID ){
+				global $post;
+				if( is_a($post, 'WP_Post') ){
+					$post_ID = $post->ID;
+				}
+			}
 
-		$url = self::size_url($size, $array);
+			if( $post_ID ){
+				$array = self::featured_image_array($post_ID);
+				$url = self::size_url($size, $array);
+			}
 
-        return $url;
+			return $url;
 
     }
 
