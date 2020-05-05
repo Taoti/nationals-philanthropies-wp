@@ -1,7 +1,9 @@
 
-// Simple helper function to determine if the user is scrolling up or down.
-// Examples: `window.taoti_scrollDirection === 'up'`
-// 				or `window.taoti_scrollDirection === 'down'`
+/* Simple helper lisener to determine if the user is scrolling up or down, you can check this at any point in your code.
+ * Examples: `window.taoti_scrollDirection === 'up'`
+ * or `window.taoti_scrollDirection === 'down'`
+ */
+
 window.taoti_lastScrollTop = 0;
 window.taoti_scrollDirection = 'down';
 window.addEventListener("scroll", function(){
