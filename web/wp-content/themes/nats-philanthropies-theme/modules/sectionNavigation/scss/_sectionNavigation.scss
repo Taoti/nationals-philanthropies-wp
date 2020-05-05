@@ -1,3 +1,5 @@
+// The sectionNavigation (pager) element is visible on page load, so load this file as critical css.
+
 .sectionNavigation {
   position: fixed;
   left: 2%;
@@ -36,7 +38,7 @@
     left: 0;
     width: 10px;
     height: 10px;
-    border: 1px solid white;
+    border: 1px solid $invert;
     transform: rotate(45deg) translateY(-50%);
     transition: background-color 125ms, border-color 125ms;
   }
