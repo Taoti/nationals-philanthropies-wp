@@ -68,19 +68,9 @@ if($featured_item) {
         <?php get_template_part( 'parts/listingItem' ); ?>
 			<?php endwhile; ?>
 
-		</div>
+			<?php get_template_part( 'parts/pagination' ); ?>
 
-		<div class="paginationWrap l-container">
-			<?php
-			the_posts_pagination( array(
-					'mid_size'  => 2,
-					'prev_text' => '<i class="pagination-arrow pagination-arrow-left"></i>',
-					'next_text' => '<i class="pagination-arrow pagination-arrow-right"></i>',
-					'screen_reader_text' => null
-			));
-			?>
 		</div>
-
   </div>
 <?php endif; ?>
 

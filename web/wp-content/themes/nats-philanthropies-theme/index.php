@@ -53,19 +53,11 @@ $hero->render();
 			$post_type = get_post_type();
 			get_template_part( 'parts/listingItem', $post_type );
 			?>
-
 		<?php endwhile; ?>
+
+		<?php get_template_part( 'parts/pagination' ); ?>
+
 	</div>
-		<div class="paginationWrap l-container">
-			<?php
-			the_posts_pagination( array(
-					'mid_size'  => 2,
-					'prev_text' => '<i class="pagination-arrow pagination-arrow-left"></i>',
-					'next_text' => '<i class="pagination-arrow pagination-arrow-right"></i>',
-					'screen_reader_text' => null
-			));
-			?>
-		</div>
 </div>
 <?php endif; ?>
 
