@@ -1,0 +1,15 @@
+// Libraries
+// (these should not contain anything that actually outputs to a CSS file, so just stuff like variables and mixins)
+@import '../config';
+@import '../mixins';
+
+
+// Other imports
+@import '../../../modules/hero/scss/hero-youth-baseball-academy';
+
+
+// critical styles go here as normal
+
+// .youthBaseball-thing {
+
+// }

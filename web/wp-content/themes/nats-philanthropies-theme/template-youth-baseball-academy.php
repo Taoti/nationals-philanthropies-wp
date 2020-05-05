@@ -7,7 +7,7 @@ use Modules\PostGrid;
 
 
 ### Critical CSS for the default page template
-// taoti_enqueue_critical_css( get_template_directory().'/styles/css/critical/page-critical.min.css' );
+taoti_enqueue_critical_css( get_template_directory().'/styles/css/critical/template-youth-baseball-academy-critical.min.css' );
 
 
 get_header();
