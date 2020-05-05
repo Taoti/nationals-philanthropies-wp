@@ -10,7 +10,7 @@ if( is_a( $selected_event, 'WP_Post') ){
 		'primary_heading' => get_the_title( $selected_event ),
 		'subtitle' => get_sub_field( 'subtitle' ),
 		'excerpt' => get_the_excerpt( $selected_event ),
-		'permalink' => get_permalink( $selected_event ),
+		'permalink' => false,
 		'primary_button_url' => get_field( 'rsvp_url', $selected_event->ID ),
 		'primary_button_label' => 'RSVP',
 		'secondary_button_url' => get_field( 'sponsor_url', $selected_event->ID ),

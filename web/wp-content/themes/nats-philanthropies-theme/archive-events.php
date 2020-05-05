@@ -41,7 +41,7 @@ if($featured_item) {
     'primary_heading' => get_the_title( $featured_item ),
     'subtitle' => 'Featured Event',
     'excerpt' => get_the_excerpt( $featured_item ),
-    'permalink' => get_permalink( $featured_item ),
+    'permalink' => false,
     'primary_button_url' => get_field( 'rsvp_url', $featured_item->ID ),
     'primary_button_label' => 'RSVP',
     'secondary_button_url' => get_field( 'sponsor_url', $featured_item->ID ),
