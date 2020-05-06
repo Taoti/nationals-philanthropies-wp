@@ -4,7 +4,7 @@ use Modules\ListingItem;
 use JP\Get;
 
 $subtitle = '';
-$newsTypes = wp_get_post_terms( get_the_id(), $taxonomy = 'type', array('fields' => 'names') );
+$newsTypes = wp_get_post_terms( get_the_id(), 'type', array('fields' => 'names') );
 if( $newsTypes && !empty($newsTypes) ){
 	$subtitle = implode(', ', $newsTypes);
 }
