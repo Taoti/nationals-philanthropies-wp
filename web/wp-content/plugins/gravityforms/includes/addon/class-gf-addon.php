@@ -342,6 +342,10 @@ abstract class GFAddOn {
 			$config = $this->get_locking_config();
 			new GFAddonLocking( $config, $this );
 		}
+
+		if ( $this->has_plugin_settings_page() && $this->current_user_can_any( $this->_capabilities_settings_page ) ) {
+			add_filter( 'plugin_action_links', array( $this, 'plugin_settings_link' ), 10, 2 );
+		}
 	}
 
 
