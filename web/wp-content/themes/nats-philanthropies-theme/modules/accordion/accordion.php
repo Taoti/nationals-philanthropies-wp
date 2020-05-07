@@ -3,12 +3,11 @@ namespace Modules;
 use Timber;
 
 ### Example usage
-	// $args = [
-	// 	'primary_heading' => get_sub_field('primary_heading'),
-	// 	'question_answer_list' => get_sub_field('question_answer_list'),
-	// ];
-	// $new_module = new Accordion($args);
-	// $new_module->render();
+	// $args = array(
+	// 	'accordion_items' => get_sub_field('accordion_items'),
+	// );
+	// $accordion = new Accordion($args);
+	// $accordion->render();
 
 class Accordion {
 	protected $defaults;

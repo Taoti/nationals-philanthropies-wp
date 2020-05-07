@@ -12,7 +12,8 @@ if( is_array($people_listing) && !empty($people_listing) ){
 		if( isset($row['people_post']) && is_a( $row['people_post'], 'WP_Post') ){
 			$people_post = $row['people_post'];
 
-			$new_people_card = new PeopleCard( ['post_object' => $people_post] );
+			$args = ['post_object' => $people_post];
+			$new_people_card = new PeopleCard( $args );
 			$people_cards[] = $new_people_card->compile();
 
 		}

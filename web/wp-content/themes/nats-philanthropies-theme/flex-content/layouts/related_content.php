@@ -28,7 +28,8 @@ $postCards = [];
 
 if( $related_query->have_posts() ){
 	foreach( $related_query->posts as $related_post ){
-		$new_postCard = new PostCard( ['post_object' => $related_post] );
+		$args = ['post_object' => $related_post];
+		$new_postCard = new PostCard( $args );
 		$postCards[] = $new_postCard->compile();
 	}
 }

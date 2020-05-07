@@ -4,14 +4,9 @@ use Timber;
 use JP\Get;
 
 ### Example usage
-	// $args = [
-	// 	'primary_heading' => get_field('primary_heading'),
-	// 	'description' => get_field('description'),
-	// 	'button_url' => get_field('button_url'),
-	// 	'button_label' => get_field('button_label'),
-	// ];
-	// $new_module = new PeopleCard($args);
-	// $new_module->render();
+	// $args = ['post_object' => $people_post];
+	// $new_people_card = new PeopleCard( $args );
+	// $people_cards[] = $new_people_card->compile();
 
 class PeopleCard {
 	protected $defaults;

@@ -4,15 +4,16 @@ use Timber;
 use JP\Get;
 
 ### Example usage
-	// $args = [
-	// 	'primary_heading' => get_field('primary_heading'),
-	// 	'description' => get_field('description'),
-	// 	'button_url' => get_field('button_url'),
-	// 	'button_label' => get_field('button_label'),
-	// 	'classes' => ['l-module']
+	// $listingItem_args = [
+	// 	'primary_heading' => get_the_title(),
+	// 	'excerpt' => get_the_excerpt(),
+	// 	'permalink' => get_permalink(),
+	// 	'primary_button_url' => get_permalink(),
+	// 	'primary_button_label' => 'Read More',
+	// 	'image_array' => Get::featured_image_array(get_the_id()),
 	// ];
-	// $new_module = new ListingItem($args);
-	// $new_module->render();
+	// $listingItem = new ListingItem( $listingItem_args );
+	// $listingItem->render();
 
 class ListingItem {
 	protected $defaults;

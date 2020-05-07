@@ -27,8 +27,6 @@ if( is_array($modules_homePage) && !empty($modules_homePage) ){
   $total_sections = $total_sections + count($modules_homePage);
 }
 
-// $total_sections = 5; // tmporary hardcode to 5
-
 // Output the numbered page based on the total number of homepage sections. The number should be at least 2 digits with a leading zero if it's only one digit, like 01, 02, 03, etc.
 ?>
 <nav class="sectionNavigation">

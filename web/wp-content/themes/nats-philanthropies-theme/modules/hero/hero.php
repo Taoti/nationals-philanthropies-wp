@@ -5,13 +5,10 @@ use JP\Get;
 
 ### Example usage
 	// $args = [
-	// 	'heading' => get_field('heading'),
-	// 	'description' => get_field('description'),
-	// 	'button_url' => get_field('button_url'),
-	// 	'button_label' => get_field('button_label'),
+	// 	'description' => get_the_excerpt(),
 	// ];
-	// $new_module = new Hero($args);
-	// $new_module->render();
+	// $hero = new Hero($args);
+	// $hero->render();
 
 class Hero {
 	protected $defaults;

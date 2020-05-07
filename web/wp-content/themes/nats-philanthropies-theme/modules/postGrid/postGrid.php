@@ -4,14 +4,15 @@ use Timber;
 
 ### Example usage
 	// $args = [
-	// 	'primary_heading_line_1' => get_sub_field('primary_heading_line_1'),
-	// 	'primary_heading_line_2' => get_sub_field('primary_heading_line_2'),
-	// 	'description' => get_sub_field('description'),
-	// 	'button_label' => get_sub_field('button_label'),
-	// 	'button_url' =>get_sub_field('button_url'),
+	// 	'grid_items' => [ '<div> Array of compiled card modules HTML </div>' ],
+	// 	'classes' => [
+	// 		'l-module',
+	// 		'postGrid',
+	// 		'postGrid-donate',
+	// 	],
 	// ];
-	// $new_module = new PostGrid($args);
-	// $new_module->render();
+	// $postGrid = new PostGrid($args);
+	// $postGrid->render();
 
 class PostGrid {
 	protected $defaults;

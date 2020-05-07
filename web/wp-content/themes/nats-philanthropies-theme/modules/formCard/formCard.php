@@ -4,12 +4,13 @@ use Timber;
 
 ### Example usage
 	// $args = [
-	// 	'post_object' => get_sub_field('post_object'),
-	// 	'image_or_icon' => get_sub_field('image_or_icon'),
-	// 	'icon' => get_sub_field('icon'),
+	// 	'heading' => $signup_form_group['heading'],
+	// 	'background_image' => $signup_form_group['background_image'],
+	// 	'form' => do_shortcode( get_sub_field('signup_form') ),
+	// 	'classes' => ['postGridItem', 'postGridItem-home'],
 	// ];
-	// $new_module = new GridCard($args);
-	// $new_module->render();
+	// $form_card = new FormCard($form_card_args);
+	// $grid_cards[] = $form_card->compile();
 
 class FormCard {
 	protected $defaults;

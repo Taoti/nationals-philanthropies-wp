@@ -4,13 +4,14 @@ use Timber;
 
 ### Example usage
 	// $args = [
-	// 	'primary_heading' => get_field('primary_heading'),
-	// 	'description' => get_field('description'),
-	// 	'button_url' => get_field('button_url'),
-	// 	'button_label' => get_field('button_label'),
+	// 	'primary_heading' => get_sub_field('primary_heading_line_1'),
+	// 	'secondary_heading' => get_sub_field('primary_heading_line_2'),
+	// 	'description' => get_sub_field('description'),
+	// 	'cta_link' => get_sub_field('button_url'),
+	// 	'cta_label' => get_sub_field('button_label'),
 	// ];
-	// $new_module = new ContentGroup($args);
-	// $new_module->render();
+	// $contentGroup = new ContentGroup($args);
+	// $contentGroup->render();
 
 class ContentGroup {
 	protected $defaults;

@@ -4,14 +4,9 @@ use Timber;
 use JP\Get;
 
 ### Example usage
-	// $args = [
-	// 	'primary_heading' => get_field('primary_heading'),
-	// 	'description' => get_field('description'),
-	// 	'button_url' => get_field('button_url'),
-	// 	'button_label' => get_field('button_label'),
-	// ];
-	// $new_module = new PostCard($args);
-	// $new_module->render();
+	// $args = ['post_object' => $related_post];
+	// $new_postCard = new PostCard( $args );
+	// $postCards[] = $new_postCard->compile();
 
 class PostCard {
 	protected $defaults;
