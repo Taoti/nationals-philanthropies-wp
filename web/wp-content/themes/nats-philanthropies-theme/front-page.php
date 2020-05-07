@@ -1,4 +1,5 @@
 <?php
+use Modules\SectionNavigation;
 use Modules\Hero;
 use Modules\ContentGroup;
 use JP\Get;
@@ -19,24 +20,12 @@ get_header();
 ?>
 
 <?php
-// The total number of sections on the homepage is the hero plus the number of modules in the home page builder.
-$modules_homePage = get_field('modules_homePage');
-
-$total_sections = 1; // The 1 is the hero.
-if( is_array($modules_homePage) && !empty($modules_homePage) ){
-  $total_sections = $total_sections + count($modules_homePage);
-}
-
-// Output the numbered page based on the total number of homepage sections. The number should be at least 2 digits with a leading zero if it's only one digit, like 01, 02, 03, etc.
+$args = [
+	'array_of_sections' => get_field('modules_homePage'),
+];
+$section_navigation = new SectionNavigation($args);
+$section_navigation->render();
 ?>
-<nav class="sectionNavigation">
-  <ul>
-    <?php for( $i = 1; $i <= $total_sections; $i++ ): ?>
-      <li class="scrollspy-navItem"><?php echo sprintf('%02d', $i); ?></li>
-    <?php endfor; ?>
-
-  </ul>
-</nav>
 
 <?php
 $args = [
