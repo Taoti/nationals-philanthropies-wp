@@ -1,8 +1,7 @@
 .hero-home {
 
 	&::after {
-		@include page-tear-leather();
-		bottom: 0;
+    background-image: url('../../images/border-page-tear-1.png');
 	}
 
 }

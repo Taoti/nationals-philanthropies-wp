@@ -25,18 +25,6 @@
     }
   }
 
-	// The page-tear element. The background image is loaded in the noncritical file.
-	// &::after {
-  //   background-repeat: repeat-x;
-  //   bottom: -1px;
-  //   content: '';
-  //   height: 49px;
-  //   left: 0;
-  //   position: absolute;
-	// 	width: 100%;
-	// 	pointer-events: none;
-  // }
-
   @media screen and ( max-width: 1366px ) {
     height: auto;
   }
