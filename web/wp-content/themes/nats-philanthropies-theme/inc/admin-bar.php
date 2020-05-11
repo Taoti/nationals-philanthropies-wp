@@ -1,10 +1,10 @@
 <?php
 
 /*
- * PURPOSE : Add 'Edit' and 'View' buttons to the toolbar for custom options pages that manage post type archives.
+ * PURPOSE : Add 'Edit' and 'View' buttons to the toolbar for the custom options page that manages the Events archive.
  *   NOTES : https://codex.wordpress.org/Function_Reference/add_node
  */
-function taoti_admin_bar_customize(){
+function taoti_admin_bar_customize_events(){
     global $wp_admin_bar;
 
     // If viewing the events archive, add a link to the toolbar to the ACF edit screen.
@@ -37,14 +37,38 @@ function taoti_admin_bar_customize(){
 
 		}
 
+}
+add_action( 'admin_bar_menu', 'taoti_admin_bar_customize_events', 75 );
 
 
 
+
+
+/*
+ * PURPOSE : Add 'Edit' button for the 404 page that really links to the Customizer.
+ *   NOTES :
+ */
+function taoti_admin_bar_customize_404(){
+	global $wp_admin_bar;
+
+	// If viewing the events archive, add a link to the toolbar to the ACF edit screen.
+	if( is_404() ){
+
+			global $wp;
+			$current_url = home_url( add_query_arg( array(), $wp->request ) );
+
+			$args = array(
+					'id' => 'customize', // This will override the default Customizer link in the admin bar.
+					'title' => 'Customize 404 Page', // Want to make it clearer that admins can edit the 404 page content using the Customizer.
+					'href' => admin_url( 'customize.php?url=' . urlencode($current_url) ),
+			);
+
+			$wp_admin_bar->add_node( $args );
+
+	}
 
 }
-
-add_action( 'admin_bar_menu', 'taoti_admin_bar_customize', 75 );
-
+add_action( 'admin_bar_menu', 'taoti_admin_bar_customize_404', 75 );
 
 
 
