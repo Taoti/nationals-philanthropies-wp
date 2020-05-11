@@ -80,7 +80,7 @@
 			"bigLink1 bigLink1 bigLink2 bigLink2"
 			"otherLink1 otherLink2 otherLink3 otherLink4";
 
-		@media screen and ( max-width: 1150px ) {
+		@media screen and ( max-width: $breakpoint-homePageModules-wrap ) {
 			grid-template-areas: initial;
 		}
   }
@@ -94,7 +94,7 @@
   &:first-child {
     grid-area: bigLink1;
 
-		@media screen and ( max-width: 1150px ) {
+		@media screen and ( max-width: $breakpoint-homePageModules-wrap ) {
 			grid-area: auto;
 		}
   }
@@ -102,7 +102,7 @@
   &:nth-child(2) {
     grid-area: bigLink2;
 
-		@media screen and ( max-width: 1150px ) {
+		@media screen and ( max-width: $breakpoint-homePageModules-wrap ) {
 			grid-area: auto;
 		}
   }

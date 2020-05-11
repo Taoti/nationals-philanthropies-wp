@@ -14,7 +14,7 @@
   .contentGroup {
     max-width: 410px;
 
-    @media screen and ( max-width: 1150px ) {
+    @media screen and ( max-width: $breakpoint-homePageModules-wrap ) {
       max-width: 100%;
     }
   }
@@ -29,7 +29,7 @@
     @include l-container('header');
   }
 
-  @media screen and ( max-width: 1150px ) {
+  @media screen and ( max-width: $breakpoint-homePageModules-wrap ) {
     flex-wrap: wrap;
   }
 
@@ -41,7 +41,7 @@
   position: relative;
   top: -3.5rem; // This is meant to push the image's top edge to be aligned with the top of the quotes (icon). The quotes are tough to align since they're not a solid object.
 
-  @media screen and ( max-width: 1150px ) {
+  @media screen and ( max-width: $breakpoint-homePageModules-wrap ) {
     flex-basis: 100%;
     margin-right: 0;
   }
@@ -57,7 +57,7 @@
   justify-content: flex-end;
   flex-basis: 68%;
 
-  @media screen and ( max-width: 1150px ) {
+  @media screen and ( max-width: $breakpoint-homePageModules-wrap ) {
     flex-basis: 100%;
   }
 
@@ -153,13 +153,13 @@
   flex-basis: calc(100% - 155px - 3rem);
   max-width: 560px;
 
-  @media screen and ( max-width: 1150px ) {
+  @media screen and ( max-width: $breakpoint-homePageModules-wrap ) {
     flex-basis: 100%;
     max-width: 100%;
     margin-top: 2rem;
   }
 
-  @media screen and ( max-width: $container-contentGroup-mobile ) {
+  @media screen and ( max-width: $breakpoint-contentGroup-mobile ) {
     text-align: center;
   }
 }

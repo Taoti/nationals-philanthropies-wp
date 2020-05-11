@@ -31,7 +31,8 @@ use JP\Get;
          'secondary_heading' => get_sub_field('primary_heading_line_2'),
          'description' => get_sub_field('description'),
          'cta_link' => get_sub_field('button_url'),
-         'cta_label' => get_sub_field('button_label'),
+				 'cta_label' => get_sub_field('button_label'),
+				 'use_inverted_accent' => true,
         ];
         $contentGroup = new ContentGroup($args);
         $contentGroup->render();

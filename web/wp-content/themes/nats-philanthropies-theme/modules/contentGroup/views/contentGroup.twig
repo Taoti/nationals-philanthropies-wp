@@ -4,17 +4,15 @@
     {% if primary_heading and secondary_heading %}
         <h1 class="contentGroup-heading">
 
-          {% if accent_image_1_html %}
-          {{ accent_image_1_html }}
-          {% endif %}
-
           <span class="contentGroup-headingLine contentGroup-headingOutline">
-
             <span class="contentGroup-textWrap">{{ primary_heading }}</span>
-
           </span>
 
           <span class="contentGroup-headingLine">
+						{% if accent_image_html %}
+						{{ accent_image_html }}
+						{% endif %}
+
             <span class="contentGroup-textWrap">{{ secondary_heading }}</span>
           </span>
         </h1>

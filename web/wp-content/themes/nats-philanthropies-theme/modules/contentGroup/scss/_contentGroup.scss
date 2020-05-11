@@ -1,8 +1,9 @@
 .contentGroup {
-  @media screen and ( max-width: $container-contentGroup-mobile ) {
+  @media screen and ( max-width: $breakpoint-contentGroup-mobile ) {
     margin-bottom: 2rem;
   }
 }
+
 .contentGroup-heading {
   color: $color-3;
   text-align: left;
@@ -14,7 +15,7 @@
   transition: opacity 1500ms;
   font-size: 6rem;
 
-  @media screen and ( max-width: $container-contentGroup-mobile ) {
+  @media screen and ( max-width: $breakpoint-contentGroup-mobile ) {
     font-size: 4rem;
     text-align: center;
   }
@@ -28,7 +29,7 @@
     display: block;
     position: absolute;
 
-    @media screen and ( max-width: $container-contentGroup-mobile ) {
+    @media screen and ( max-width: $breakpoint-contentGroup-mobile ) {
       left: 50%;
       transform: translate(-50%, -5rem);
     }
@@ -38,34 +39,33 @@
 .contentGroup-accent {
   display: block;
   position: absolute;
-  opacity: 0;
-}
+	// opacity: 0;
+	max-width: 253px;
+	height: auto;
+	width: 100%;
+	right: 0;
+	top: calc(100% - 10px);
 
-.contentGroup-accent-1 {
-  z-index: 1;
-  left: 10%;
-  bottom: -10px;
-
-  @media screen and ( max-width: $home-hero-breakpoint ) {
-    left: inherit;
-    right: 5%;
+	@media screen and ( max-width: $breakpoint-homePageModules-wrap ) {
+    // right: auto;
+    // left: 5%;
   }
 
-  @media screen and ( max-width: $container-contentGroup-mobile ) {
-    max-width: 200px;
-    height: auto;
-    left: calc(50% + 40px);
-    right: inherit;
-    transform: translateX(-50%) !important;
-  }
+  @media screen and ( max-width: $breakpoint-contentGroup-mobile ) {
+		max-width: 200px;
+		top: calc(100% - 6px);
+    // left: calc(50% + 10px);
+    // transform: translateX(-50%);
+	}
+
 }
 
 .contentGroup-headingLine {
-  display: block;
+  display: inline-block;
   white-space: nowrap;
   position: relative;
 
-  @media screen and ( max-width: $container-contentGroup-mobile ) {
+  @media screen and ( max-width: $breakpoint-contentGroup-mobile ) {
     font-size: 1
   }
 
@@ -88,7 +88,7 @@
   position: relative;
 
   @media screen and ( max-width: 400px ) {
-    -webkit-text-stroke: 1px $invert;
+    // -webkit-text-stroke: 1px $invert;
   }
 }
 
@@ -103,7 +103,7 @@
   max-width: 710px;
   line-height: 1.8;
 
-  @media screen and ( max-width: $container-contentGroup-mobile ) {
+  @media screen and ( max-width: $breakpoint-contentGroup-mobile ) {
     max-width: 320px;
     margin: 0 auto;
     text-align: center;
@@ -116,7 +116,7 @@
 }
 
 .contentGroup-ctaWrap {
-  @media screen and ( max-width: $container-contentGroup-mobile ) {
+  @media screen and ( max-width: $breakpoint-contentGroup-mobile ) {
     display: flex;
     justify-content: center;
   }
@@ -135,9 +135,9 @@ html.wf-inactive {
     transform: translate3d(0, 0, 0);
   }
 
-  .contentGroup-accent.lazyloaded {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
+  // .contentGroup-accent.lazyloaded {
+  //   opacity: 1;
+  //   transform: translate3d(0, 0, 0);
+  // }
 
 }

@@ -42,7 +42,7 @@
   .hero-heading {
 		font-size: 8.5rem;
 
-    @media screen and ( max-width: $container-contentGroup-mobile ) {
+    @media screen and ( max-width: $breakpoint-contentGroup-mobile ) {
       font-size: 4rem;
 		}
   }
@@ -57,7 +57,7 @@
       right: 5%;
     }
 
-    @media screen and ( max-width: $container-contentGroup-mobile ) {
+    @media screen and ( max-width: $breakpoint-contentGroup-mobile ) {
       max-width: 200px;
       height: auto;
       left: calc(50% + 40px);
@@ -74,7 +74,7 @@
 
   .hero-headingLine {
 		display: block;
-		$invert-space: nowrap;
+		white-space: nowrap;
     position: relative;
     z-index: 3;
   }

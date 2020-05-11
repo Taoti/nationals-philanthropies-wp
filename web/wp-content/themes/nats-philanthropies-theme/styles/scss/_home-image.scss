@@ -27,7 +27,7 @@
   .contentGroup-inner {
     max-width: 400px;
 
-    @media screen and ( max-width: 1150px ) {
+    @media screen and ( max-width: $breakpoint-homePageModules-wrap ) {
       max-width: inherit;
     }
   }
@@ -63,7 +63,7 @@
     @include l-container('header');
   }
 
-  @media screen and ( max-width: 1150px ) {
+  @media screen and ( max-width: $breakpoint-homePageModules-wrap ) {
     flex-wrap: wrap;
     flex-direction: column-reverse;
   }
@@ -73,7 +73,7 @@
   text-align: center;
   flex-basis: 60%;
 
-  @media screen and ( max-width: 1150px ) {
+  @media screen and ( max-width: $breakpoint-homePageModules-wrap ) {
     flex-basis: 100%;
   }
 }
