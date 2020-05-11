@@ -13,6 +13,10 @@
 	min-height: 66vh;
 	padding-top: $l-module-spacing;
 	padding-bottom: $l-module-spacing;
+
+	.l-has-background:last-child {
+		margin-bottom: $l-module-spacing * -1;
+	}
 }
 
 

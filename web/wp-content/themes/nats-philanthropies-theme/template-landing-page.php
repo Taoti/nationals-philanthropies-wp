@@ -57,7 +57,6 @@ foreach( $grid_items as $grid_item ){
 $args = [
 	'grid_items' => $grid_cards,
 	'classes' => [
-		'l-module',
 		'postGrid',
 		'postGrid-landing',
 	],
