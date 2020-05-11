@@ -3,7 +3,7 @@
   left: 0;
   opacity: 0;
   overflow: visible;
-  padding-top: 11px; // account for the height + top of the blue/white/red lines in the ::before element.
+  padding-top: 12px; // account for the height + top of the blue/white/red stripe in the ::before element.
   position: absolute;//fixed;
   top: 0;
   transform: translate3d(0, -20px, 0);
@@ -13,11 +13,11 @@
 
   &::before {
     background-color: $color-2;
-    border-bottom: 2px solid $color-4;
+    border-bottom: 3px solid $color-4;
     border-top: 3px solid $color-8;
     content: '';
     display: block;
-    height: 7px; // The height of 7px, along with the 3px/2px top/bottom borders, will make the background color come through as a 2px tall middle stripe.
+    height: 8px; // The height of 8px, along with the two 3px/3px top/bottom borders, will make the background color come through as a 2px tall middle stripe.
     left: 0;
     position: absolute;
     top: 4px;
@@ -93,7 +93,7 @@
     content: '';
     background-color: $border-line;
     height: 100%;
-    height: calc(var(--header-height) - 11px); // The height of the header, minus the height of the blue/white/red border on #header::before (11px).
+    height: calc(var(--header-height) - 12px); // The height of the header, minus the height of the blue/white/red stripes border on #header::before (12px).
     width: 1px;
     position: absolute;
     bottom: 0;

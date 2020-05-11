@@ -133,7 +133,7 @@
       bottom: 100%;
       content: '';
       display: block;
-      height: calc(var(--header-height) - 100% - 11px); // The height of the header, minus the height of this .menu-link (100%), minus the height of the blue/white/red border on #header::before (11px).
+      height: calc(var(--header-height) - 100% - 12px); // The height of the header, minus the height of this .menu-link (100%), minus the height of the blue/white/red stripes border on #header::before (12px).
       left: 0;
       opacity: 1;
       position: absolute;
