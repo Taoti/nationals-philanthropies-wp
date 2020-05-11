@@ -33,6 +33,10 @@
 		&:last-child {
 			margin-bottom: 0;
 		}
+
+		li + li {
+			margin-top: 1em;
+		}
 	}
 
 	ol {
