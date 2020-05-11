@@ -1,23 +1,16 @@
 .hero-home {
-  color: white;
-  position: relative;
-
-  &:before {
-    width: 100%;
-    height: 100%;
-    background: $color-2;
-    mix-blend-mode: multiply;
-    opacity: 1;
-    z-index: 0;
-	}
+  color: $invert;
+	position: relative;
 
   .hero-inner {
 		display: flex;
 		align-items: stretch;
 		height: 883px;
 		padding-bottom: 22.8rem;
+		position: relative;
+		z-index: 2;
 
-     @media screen and ( max-width: 1840px ) {
+    @media screen and ( max-width: 1840px ) {
       padding-left: 20rem;
       padding-right: 20rem;
     }
@@ -40,11 +33,6 @@
     @media screen and ( max-width: $container-contentGroup-mobile ) {
       font-size: 4rem;
 		}
-  }
-
-  .sectionNavigation li:first-child:before {
-    background: white;
-    border: none;
   }
 
   .hero-accent-1 {
@@ -74,7 +62,7 @@
 
   .hero-headingLine {
 		display: block;
-		white-space: nowrap;
+		$invert-space: nowrap;
     position: relative;
     z-index: 3;
   }

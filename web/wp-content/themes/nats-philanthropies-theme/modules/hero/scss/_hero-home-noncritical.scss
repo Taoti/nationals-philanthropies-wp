@@ -1,0 +1,8 @@
+.hero-home {
+
+	&::after {
+		@include page-tear-leather();
+		bottom: 0;
+	}
+
+}
