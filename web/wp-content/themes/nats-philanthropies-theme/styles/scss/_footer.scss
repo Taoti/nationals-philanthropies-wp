@@ -233,7 +233,13 @@ $footer-grid-padding: 5.5rem;//1.7rem;
 		&::placeholder {
 			color: $invert;
 		}
-  }
+	}
+
+	.gfield_consent_label::before {
+		background-image: url('../../images/icon-checkmark-white.svg');
+		border: 2px solid $invert;
+		opacity: .5;
+	}
 
 	.gform_submitButton {
     position: relative;
