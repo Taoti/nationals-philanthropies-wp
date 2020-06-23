@@ -73,7 +73,7 @@
 
 
 
-    <p class="footer-copyright footer-gridItem">Nationals Philanthropies – Copyright <?php echo date("Y"); ?>. All Rights Reserved ohai</p>
+    <p class="footer-copyright footer-gridItem">Nationals Philanthropies – Copyright <?php echo date("Y"); ?>. All Rights Reserved</p>
 
   </div>
 </footer>
