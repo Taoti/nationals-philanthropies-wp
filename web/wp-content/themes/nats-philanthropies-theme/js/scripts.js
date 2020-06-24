@@ -938,6 +938,28 @@ jQuery('.modal-close').click( function(e){
 
 });
 
+jQuery('.js-openHeaderSearch').click( function(e){
+	e.preventDefault();
+	taoti_toggleHeaderSearch();
+});
+
+jQuery('.js-closeHeaderSearch').click( function(e){
+	e.preventDefault();
+	taoti_closeHeaderSearch();
+});
+
+function taoti_openHeaderSearch(){
+	jQuery('.header-searchContainer').addClass('is-active');
+}
+
+function taoti_closeHeaderSearch(){
+	jQuery('.header-searchContainer').removeClass('is-active');
+}
+
+function taoti_toggleHeaderSearch(){
+	jQuery('.header-searchContainer').toggleClass('is-active');
+}
+
 var nav_breakpoint_collapse = 1000; // NOTE - this must match the $breakpoint-nav-collapse variable in scss/_config.scss.
 
 

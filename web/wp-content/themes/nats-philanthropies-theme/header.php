@@ -59,9 +59,9 @@ if( $temporary_page_enabled ){
       </a>
 
 			<?php else: ?>
-			<a href="<?php echo home_url(); ?>/?s=" class="header-searchLink">
+			<button class="header-searchLink js-openHeaderSearch">
 				<i class="header-searchIcon"><?php echo file_get_contents(get_stylesheet_directory() . '/images/icon-search.svg'); ?></i>
-			</a>
+			</button>
 
       <a href="<?php echo home_url(); ?>" class="header-logoLink">
         <i class="header-logo"><?php echo file_get_contents(get_stylesheet_directory() . '/images/logo-nats-philanthropies-mark.svg'); ?></i>
@@ -76,7 +76,27 @@ if( $temporary_page_enabled ){
         // $theme_location = 'main-navigation';
         get_template_part( 'parts/navigation' );
       }
-      ?>
+			?>
+
+			<?php if( !$temporary_page_enabled ): ?>
+			<div class="header-searchContainer">
+				<div class="header-searchContainerInner">
+
+					<form action="<?php echo home_url(); ?>" class="header-searchForm" method="get">
+
+						<div class="header-searchInputContainer">
+							<input type="search" class="header-searchS" name="s" value="<?php the_search_query(); ?>" placeholder="Enter search terms&hellip;">
+						</div>
+
+					</form>
+
+					<button class="header-searchClose js-closeHeaderSearch" title="Close search.">
+						<i class="header-searchCloseX">&times;</i>
+					</button>
+
+				</div>
+			</div>
+      <?php endif ?>
 
     </div>
   </header>

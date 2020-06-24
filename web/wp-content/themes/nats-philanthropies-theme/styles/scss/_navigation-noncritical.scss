@@ -135,7 +135,6 @@ html.nav-is-open {
 // Sub menu / subnavs - These styles can pretty much all be noncritical since they are not visible on page load (user must interact with menu first). The only critical styles are those that affect the hiding/toggling of the sub menu.
 .subMenu {
   background-color: $color-2;
-  // box-shadow: 0 2px 5px 2px rgba(0, 0, 0, .15); // Leaving this here for now during development so we can see the edge of the container.
   color: $invert;
   left: calc((100vw - #{$design-width}) / -2);
   transform: translate3d(0, -15px, 0);
