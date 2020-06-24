@@ -87,6 +87,12 @@
 	.gfield-consent,
 	.gfield-checkbox {
 		grid-area: span 1 / span 2;
+
+		label::before {
+			background-image: url('../../images/icon-checkmark-white.svg');
+			border: 2px solid $invert;
+		}
+
 	}
 
 }
