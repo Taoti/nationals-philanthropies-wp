@@ -23,6 +23,7 @@ $home-hero-breakpoint: 1000px;
 $breakpoint-desktop: 1366px; // Some designs were done at 1366px to accomodate widths between 1920 and tablet.
 
 $breakpoint-nav-collapse: 1000px; // This is the point at which the main nav is hidden and the hamburger button is shown. NOTE - this must match the nav_breakpoint_collapse variable in js/development/after-libs/navigation.js
+$breakpoint-nav-search: 700px; // The point where the search button is removed from the main nav.
 
 $breakpoint-homePageModules-wrap: 1150px;
 $breakpoint-contentGroup-mobile: 610px;

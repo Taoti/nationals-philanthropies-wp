@@ -58,6 +58,11 @@ if( isset($menuLocations[$theme_location]) ):
 
 <nav class="navContainer navContainer-<?php echo $theme_location; ?>">
 	<ul class="menu menu-mainMenu">
+
+		<li class="menu-item menu-item-mainMenu menu-item-mobileOnly">
+			<a href="<?php echo home_url(); ?>/?s=" class="menu-link menu-link-mainMenu">Search</a>
+		</li>
+
 		<?php $nav_item_counter = 1; ?>
 		<?php foreach( $top_level_nav as $nav_item ): ?>
 			<?php

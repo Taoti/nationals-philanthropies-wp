@@ -178,7 +178,7 @@
 		width: $container-padding-tablet;
 	}
 
-	@media screen and ( max-width: 700px ) {
+	@media screen and ( max-width: $breakpoint-nav-search ) {
 		display: none;
 	}
 
@@ -211,7 +211,7 @@
 		opacity: 1;
 	}
 
-	@media screen and ( max-width: 700px ) {
+	@media screen and ( max-width: $breakpoint-nav-search ) {
 		display: none;
 	}
 }

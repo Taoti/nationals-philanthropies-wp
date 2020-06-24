@@ -146,6 +146,10 @@
         width: calc(100% + #{$container-padding});
       }
 
+      @media screen and (max-width: $breakpoint-nav-collapse) {
+        height: auto;
+      }
+
       @media screen and (max-width: 760px) {
         display: none;
       }
@@ -320,6 +324,15 @@
 }
 
 // NOTE - more modal styles in the _navigation-noncritical.scss
+
+
+.menu-item-mobileOnly {
+	display: none;
+
+	@media screen and ( max-width: $breakpoint-nav-search ) {
+    display: block;
+	}
+}
 
 
 
