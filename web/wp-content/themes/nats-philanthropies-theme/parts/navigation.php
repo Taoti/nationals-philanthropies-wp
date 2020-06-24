@@ -69,6 +69,7 @@ if( isset($menuLocations[$theme_location]) ):
 			$nav_item_ID = $nav_item->ID;
 			$title = $nav_item->title;
 			$href = $nav_item->url;
+			$submenu_description = get_field( 'submenu_description', $nav_item );
 			$is_last_item = ( $nav_item_counter === count($top_level_nav) );
 			$has_sub_menu = ( isset($sub_navs[$nav_item_ID]) && !empty($sub_navs[$nav_item_ID]) );
 			?>
@@ -89,7 +90,9 @@ if( isset($menuLocations[$theme_location]) ):
 
 							<a class="subMenu-menu-link submenu-titleAreaLink" href="<?php echo $href; ?>"><?php echo $title; ?></a>
 
-							<p class="subMenu-titleAreaDescription">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+					<?php if( $submenu_description ): ?>
+							<p class="subMenu-titleAreaDescription"><?php echo $submenu_description; ?></p>
+					<?php endif; ?>
 
 						</div>
 

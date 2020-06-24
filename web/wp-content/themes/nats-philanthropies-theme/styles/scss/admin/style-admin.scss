@@ -23,6 +23,16 @@
 
 
 
+// Make sure that the "Sub-menu Description" field on menu items only appears on top-level items.
+.acf-field-5ef3b8861d6a5 {
+	display: none;
+}
+.menu-item-depth-0 .acf-field-5ef3b8861d6a5 {
+	display: block;
+}
+
+
+
 // Add a red color to the last menu item to note that it's the donate link.
 // .menu-item-depth-0:last-child {
 
