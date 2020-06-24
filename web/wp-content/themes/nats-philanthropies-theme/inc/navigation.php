@@ -7,7 +7,7 @@ function jp_register_menus() {
 	register_nav_menus(
 		array(
 				'main-navigation' => 'Main Navigation',
-				'utility-navigation' => 'Utility Navigation',
+				// 'utility-navigation' => 'Utility Navigation',
 				'temporary-navigation' => 'Temporary Landing Page Navigation',
 		)
 	);
