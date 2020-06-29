@@ -3,17 +3,31 @@
 
 
 
+// .l-container is meant to contain a website within the set margins. Keeps things contained to a max width, and keeps the padding consistent.
+// Most designs will need two or three of these classes, depending on how many "max-widths" there are in a design. For example, you might need something like ".l-header", ".l-body", and ".l-footer", OR something as simple as ".l-container1" and ".l-container2". However many you need, the container layout classes follow this format of setting a max-width and padding, plus adjust the max-width and padding at different breakpoints.
+// You should set any new $max-width or $padding- variables in the config file.
 .l-container {
 	max-width: $max-width;
 	width: 100%;
-	padding-left: 1rem;
-	padding-right: 1rem;
+	padding-left: $padding-max-width;
+	padding-right: $padding-max-width;
 	margin-left: auto;
 	margin-right: auto;
+
+	@media screen and ( max-width: $breakpoint-tablet ) {
+		padding-left: $padding-tablet;
+		padding-right: $padding-tablet;
+	}
+
+	@media screen and ( max-width: $breakpoint-mobile ) {
+		padding-left: $padding-mobile;
+		padding-right: $padding-mobile;
+	}
 }
 
 
 
+// .l-text-column is meant to be added to containers with long columns of text. Like an article on smashingmagazine.com.
 .l-text-column {
 	max-width: $max-width-text;
 	width: 100%;
@@ -23,6 +37,7 @@
 
 
 
+// .l-module is meant to be used on any outer container for a page builder module (AKA flex content layouts). Use this to control the margin between page builder sections.
 .l-module {
 
 	+ .l-module {
