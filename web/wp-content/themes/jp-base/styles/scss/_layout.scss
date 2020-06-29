@@ -25,6 +25,12 @@
 	}
 }
 
+// .l-inner is for the immediate child container within an .l-container. Assuming there are any shared styles there.
+// NOTE - You most likely will not need this class, as the module-specific classes will be more useful (like .cta-inner, .accordion-inner, .quote-inner, etc) so don't feel bad to comment this out.
+.l-inner {
+
+}
+
 
 
 // .l-text-column is meant to be added to containers with long columns of text. Like an article on smashingmagazine.com.
