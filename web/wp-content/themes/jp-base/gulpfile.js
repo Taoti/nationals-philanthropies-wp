@@ -64,7 +64,7 @@ gulp.task('scss', function () {
 gulp.task('scss-other-criticals', function () {
 	var args = {
 		path: [
-			themePath + 'styles/scss/critical/*.scss',
+			themePath + 'styles/scss/critical/singles/*.scss',
 		],
 		messageComplete: 'Scss task complete.',
 		destination: themePath + 'styles/css/critical/'
@@ -122,14 +122,16 @@ gulp.task( 'watch', function() {
 		[
 			themePath + 'styles/*.scss',
 			themePath + 'styles/scss/*.scss',
+			themePath + 'styles/scss/admin/**/*.scss',
+			themePath + 'styles/scss/critical/**/*.scss',
+			themePath + 'styles/scss/inc/**/*.scss',
 			themePath + 'modules/*/scss/**/*.scss',
-			themePath + 'styles/scss/admin/*.scss',
 		],
 		gulp.series([ 'scss', 'scss-other-criticals' ]) // Sometimes there are critical scss files in the modules directory, so they will trigger this watch block. Hence, run the 'scss-other-criticals' here as well.
 	);
 
 	gulp.watch(
-		[ themePath + 'styles/scss/critical/*.scss' ],
+		[ themePath + 'styles/scss/critical/singles/**/*.scss' ],
 		gulp.series([ 'scss-other-criticals' ])
 	);
 
