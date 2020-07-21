@@ -1,12 +1,12 @@
 .postGrid {
-	background-color: $color-20;
-	padding-bottom: 12rem;
-	padding-top: 1.5rem;
+	// background-color: $color-20;
+	// padding-bottom: 12rem;
+	// padding-top: 1.5rem;
 	position: relative;
 
-	&::before {
-		@include page-tear-gray();
-	}
+	// &::before {
+	// 	@include page-tear-gray();
+	// }
 
 }
 
@@ -45,4 +45,30 @@
 
 .postGridItem {
 	grid-area: span 1 / span 2;
+}
+
+
+
+// The standalone grids on the homepage and landing page templates get a background treatment.
+.postGrid-home,
+.postGrid-landing {
+	background-color: $color-20;
+	padding-bottom: 12rem;
+	padding-top: 1.5rem;
+
+	&::before {
+		@include page-tear-gray();
+	}
+
+}
+
+
+// Overrides for new page builder module, "Link Grid" aka ".postGrid-standard".
+.postGrid-standard {
+	padding-bottom: 3rem;
+
+	.postGridItem {
+    grid-area: auto;
+	}
+
 }

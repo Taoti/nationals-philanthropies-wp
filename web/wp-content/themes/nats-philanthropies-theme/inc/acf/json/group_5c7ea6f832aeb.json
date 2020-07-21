@@ -354,6 +354,58 @@
                     "min": "",
                     "max": ""
                 },
+                "layout_5f1741833cc5d": {
+                    "key": "layout_5f1741833cc5d",
+                    "name": "link_grid",
+                    "label": "Link Grid",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5f1741903cc5e",
+                            "label": "Links",
+                            "name": "links",
+                            "type": "repeater",
+                            "instructions": "Add up to four links to a grid.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "collapsed": "",
+                            "min": 0,
+                            "max": 4,
+                            "layout": "row",
+                            "button_label": "Add A Link",
+                            "sub_fields": [
+                                {
+                                    "key": "field_5f1741c03cc5f",
+                                    "label": "Gird Card Common Fields",
+                                    "name": "gird_card_common_fields",
+                                    "type": "clone",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "clone": [
+                                        "group_5e9713c8b1f02"
+                                    ],
+                                    "display": "seamless",
+                                    "layout": "block",
+                                    "prefix_label": 0,
+                                    "prefix_name": 0
+                                }
+                            ]
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
                 "layout_5e7d15cd29df1": {
                     "key": "layout_5e7d15cd29df1",
                     "name": "people_listing",
@@ -701,5 +753,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1588603887
+    "modified": 1595359919
 }
