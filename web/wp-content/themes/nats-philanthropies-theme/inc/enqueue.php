@@ -90,4 +90,4 @@ function taoti_tinymce_style(){
 	// CSS for admin
     add_editor_style( get_template_directory_uri().'/styles/css/style-tinymce.min.css', array(), filemtime( get_template_directory().'/styles/css/style-tinymce.min.css' ) );
 }
-// add_action('admin_init', 'taoti_tinymce_style');
+add_action('admin_init', 'taoti_tinymce_style');

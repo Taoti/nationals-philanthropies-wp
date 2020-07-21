@@ -26,7 +26,7 @@ function taoti_mce_add_formats_options( $settings ){
   		array(
       		'title' => 'Button',
       		'selector' => 'a',
-      		'classes' => 'button'
+      		'classes' => 'content-button'
       	)
     );
 

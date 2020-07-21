@@ -1,31 +1,253 @@
 // Libraries
 // (these should not contain anything that actually outputs to a CSS file, so just stuff like variables and mixins)
+@import url("https://use.typekit.net/prq8jxo.css");
 @import '../config';
 @import '../mixins';
 
+// This file is mostly a combo of _base.scss and _entry-content.scss
 
-.btn-pdf {
-    display: block;
-    font-size: 1rem;
-    line-height: 28px;
-    min-height: 28px;
-    padding-left: calc(28px + .7em);
-    position: relative;
 
-    &:before {
-        background-image: url('../../images/icon-pdf-hover.svg');
-        background-position: left top;
-        background-repeat: no-repeat;
-        background-size: 28px;
-        content: '';
-        height: 28px;
-        left: 0;
-        position: absolute;
-        top: 0;
-        width: 28px;
-    }
-
-    &:hover:before {
-        background-position: left bottom;
-    }
+.content-button {
+	@include button();
 }
+
+
+html {
+	font-size: $base-font-size;
+}
+
+body {
+	color: $text;
+	font-family: $sans;
+	font-size: $body-font-size;
+	line-height: 1.4;
+	position: relative; // This make iOS Safari respect the overflow-x property.
+}
+
+
+
+a {
+	color: $link;
+	text-decoration: none;
+	transition: color 100ms linear;
+
+	&:hover {
+			color: $hover;
+			text-decoration: underline;
+	}
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+	font-family: $sans-2;
+	font-weight: bold;
+	margin-bottom: 1rem;
+}
+
+h1 {
+	font-size: 6rem;
+}
+h2 {
+	font-size: 4.8rem;
+	line-height: .85;
+	text-transform: uppercase;
+}
+h3 {
+	font-size: 3rem;
+}
+h4 {
+	font-size: 2.4rem;
+}
+h5 {
+	font-size: 2rem;
+}
+h6 {
+	font-size: 1.6rem;
+}
+
+strong {
+	font-weight: bold;
+}
+
+em {
+	font-style: italic;
+}
+
+img {
+	image-rendering: -webkit-optimize-contrast;
+}
+
+
+h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		margin-bottom: 4rem;
+		margin-top: 10rem;
+
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+
+	p {
+		line-height: 1.7;
+		margin-bottom: 3rem;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	ol,
+	ul {
+		margin-bottom: 5rem;
+		padding-left: 1.4em;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		li + li {
+			margin-top: 1em;
+		}
+	}
+
+	ol {
+		list-style-type: decimal;
+		margin-left: 1.4em;
+		padding-left: .5em;
+	}
+
+	ul {
+		list-style-type: disc;
+	}
+
+	img {
+		height: auto;
+		max-width: 100%;
+		margin-bottom: .9em;
+	}
+
+	hr {
+		background: #eee;
+		border-bottom: 1px solid #ddd;
+		border: none;
+		height: 2px;
+		margin: 2em 0;
+	}
+
+	// Alignment
+	.alignleft,
+	.alignright,
+	.aligncenter {
+		@media screen and ( max-width: 600px ) {
+			float: none !important;
+			display: block !important;
+			margin: 0 auto !important;
+		}
+	}
+
+	.alignleft {
+	    display: inline;
+	    float: left;
+	    margin-right: 5em;
+	}
+
+	.alignright {
+	    display: inline;
+	    float: right;
+	    margin-left: 5em;
+	}
+
+	.aligncenter {
+	    clear: both;
+	    display: block;
+	    margin: 0 auto;
+	}
+
+
+	// Text meant only for screen readers
+	.assistive-text {
+	    clip: rect(1px, 1px, 1px, 1px);
+	    position: absolute !important;
+	}
+
+
+	// =Media
+	// -----------------------------------------------
+
+	.wp-smiley {
+	    border: none;
+	    margin-bottom: 0;
+	    margin-top: 0;
+	    padding: 0;
+	}
+
+	.wp-caption {
+		border: none;
+	    color: #969697;
+	    font-size: 1.5rem;
+	    margin-bottom: 0;
+	    max-width: 100%;
+
+		&.aligncenter,
+		&.alignleft,
+		&.alignright {
+		    margin-bottom: 0;
+		}
+
+		img {
+		    display: block;
+		    margin: 1.2% auto 0;
+		    max-width: 98%;
+		}
+
+		.wp-caption-text {
+		    margin: 0.8075em 0 0;
+		}
+
+	}
+
+	.wp-caption-text {
+	    text-align: center;
+	}
+
+	.gallery {
+	    margin-bottom: 1.4em;
+
+		a img {
+		    border: none;
+		    height: auto;
+		    max-width: 90%;
+		}
+
+		dd {
+		    margin: 0;
+		}
+
+	}
+
+	.gallery-caption {
+
+	}
+
+	// Make sure embeds and iframes fit their containers
+	embed,
+	iframe,
+	object {
+	    max-width: 100%;
+	}
+
+	// Gravity forms outputs its fields in an <ul>, so override some of those styles.
+	.gform_fields,
+	.gfield_checkbox,
+	.gfield_radio {
+		list-style: none;
+		padding-left: 0;
+	}
