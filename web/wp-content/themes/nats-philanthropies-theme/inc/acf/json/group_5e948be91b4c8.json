@@ -26,7 +26,7 @@
                     "label": "Number",
                     "name": "number",
                     "type": "text",
-                    "instructions": "Max 2 characters.",
+                    "instructions": "Max 3 characters.",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -38,7 +38,7 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": 2
+                    "maxlength": 3
                 },
                 {
                     "key": "field_5e948c6e8d503",
@@ -103,5 +103,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1586793665
+    "modified": 1595358460
 }
