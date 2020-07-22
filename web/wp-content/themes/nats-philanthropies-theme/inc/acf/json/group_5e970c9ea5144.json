@@ -23,9 +23,18 @@
                 "icon-jersey": "Jersey",
                 "icon-licensePlate": "License Plate",
                 "logo-5050-raffle": "Logo - 50\/50 Raffle",
-                "logo-rev-up-the-park": "Logo - Rev Up The Park"
+                "logo-rev-up-the-park": "Logo - Rev Up The Park",
+                "icon-twopeople": "Two People",
+                "icon-cap": "Cap",
+                "icon-dollarsign": "Dollar Sign",
+                "icon-food": "Food",
+                "icon-news": "News",
+                "icon-notebook": "Notebook",
+                "icon-person": "Person",
+                "icon-school": "icon-school",
+                "icon-trophy": "icon-trophy"
             },
-            "default_value": [],
+            "default_value": false,
             "allow_null": 1,
             "multiple": 0,
             "ui": 0,
@@ -56,5 +65,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1586958900
+    "modified": 1595455961
 }
