@@ -1,0 +1,14 @@
+{% block imageWithTextBlock %}
+<div class="{{ classes }}">
+    <div class="l-container imageWithTextBlock-inner">
+        <div class="imageWithTextBlock-image">
+            <img src="{{ image }}" alt="">
+        </div>
+
+        <div class="imageWithTextBlock-content entry-content">
+            {{ content }}
+        </div>
+
+    </div>
+</div>
+{% endblock %}
