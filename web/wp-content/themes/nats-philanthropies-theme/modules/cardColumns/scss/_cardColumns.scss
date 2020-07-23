@@ -13,6 +13,21 @@
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
+  flex-flow: row wrap;
+
+  &:after {
+    content: "";
+    width: calc(25% - 2rem);
+
+    @media screen and ( max-width: 1280px ) {
+      width: calc(50% - 2rem);
+    }
+
+    @media screen and ( max-width: 550px ) {
+      display: none;
+    }
+
+  }
 }
 
 .cardColumn-column {

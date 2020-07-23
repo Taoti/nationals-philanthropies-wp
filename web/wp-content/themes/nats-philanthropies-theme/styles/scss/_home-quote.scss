@@ -24,6 +24,7 @@
   @include l-container('content-2');
   align-items: flex-start;
   display: flex;
+  justify-content: space-between;
 
   @media screen and ( max-width: 1575px ) {
     @include l-container('header');
@@ -31,6 +32,12 @@
 
   @media screen and ( max-width: $breakpoint-homePageModules-wrap ) {
     flex-wrap: wrap;
+  }
+
+  .contentGroup-heading {
+    @media screen and ( max-width: 1700px ) {
+      font-size: 5rem;
+    }
   }
 
 }
@@ -56,6 +63,11 @@
   display: flex;
   justify-content: flex-end;
   flex-basis: 68%;
+
+  @media screen and ( max-width: 1700px ) {
+    display: block;
+    flex-basis: 45%;
+  }
 
   @media screen and ( max-width: $breakpoint-homePageModules-wrap ) {
     flex-basis: 100%;
@@ -111,17 +123,28 @@
 	&::before {
 		left: calc(50% - 1rem);
 
+    @media screen and ( max-width: 1700px ) {
+      left: 1.5rem;
+      transform: rotate(45deg);
+    }
+
     @media screen and ( max-width: 1250px ) {
       left: 1rem;
     }
 
     @media screen and ( max-width: 500px ) {
       left: calc(50% - 1rem);
+      transform: translate(-50%, 0) rotate(45deg);
     }
 	}
 
 	&::after {
 		left: calc(50% + 1rem);
+
+    @media screen and ( max-width: 1700px ) {
+      left: 3.4rem;
+      transform: rotate(45deg);
+    }
 
     @media screen and ( max-width: 1250px ) {
       left: 3rem;
@@ -129,6 +152,7 @@
 
     @media screen and ( max-width: 500px ) {
       left: calc(50% + 1rem);
+      transform: translate(-50%, 0) rotate(45deg);
     }
   }
 
@@ -140,6 +164,8 @@
 	max-width: 155px;
 	height: auto;
   width: 100%;
+  position: relative;
+  z-index: 1;
 
   @media screen and ( max-width: 500px ) {
     margin-left: auto;
