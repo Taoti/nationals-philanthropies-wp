@@ -7,7 +7,8 @@ var themePath = './';
 var gulp = require( 'gulp' ),
 	watch = require( 'gulp-watch' ),
 	cleanCSS = require('gulp-clean-css'),
-	uglify = require( 'gulp-uglify' ),
+	// uglify = require( 'gulp-uglify' ),
+	uglify = require( 'gulp-uglify-es' ).default,
 	rename = require( 'gulp-rename' ),
 	notify = require( 'gulp-notify' ),
 	autoprefixer = require('gulp-autoprefixer'),
@@ -15,7 +16,8 @@ var gulp = require( 'gulp' ),
 	image = require('gulp-image'),
 	sourcemaps = require('gulp-sourcemaps'),
 	newer = require('gulp-newer'),
-	sass = require('gulp-sass');
+	sass = require('gulp-sass'),
+	babel = require("gulp-babel");
 
 sass.compiler = require('node-sass');
 
@@ -33,13 +35,13 @@ var onError = function( err ) {
 function jpProcessCSS(args){
 
 	return gulp.src( args.path )
-	    .pipe( sass().on('error', sass.logError) )
-		// 	.pipe( sourcemaps.init() )
+		.pipe( sass().on('error', sass.logError) )
+		// .pipe( sourcemaps.init() )
 		.pipe( autoprefixer(['last 4 versions', 'iOS 7']) )
 		.pipe( cleanCSS({rebase:false}) )
 		.pipe( rename({suffix: '.min' }) )
 		// .pipe( sourcemaps.write() )
-	    .pipe( gulp.dest( args.destination ) )
+		.pipe( gulp.dest( args.destination ) )
 		.pipe( notify({ message: args.messageComplete + ' <%= file.relative %>' }) );
 
 }
@@ -88,6 +90,9 @@ gulp.task('scripts', function() {
 			themePath + 'modules/*/js/*.js'
 		])
 		.pipe(concat('js/scripts.js'))
+		.pipe(babel({
+			presets: ['@babel/env']
+		}))
 		.pipe(gulp.dest(themePath))
 		.pipe(rename({suffix: '.min'}))
 		.pipe(uglify())
