@@ -84,15 +84,13 @@ gulp.task('scss-other-criticals', function () {
 // In this way, you can set up any JS that needs to happen before libraries are loaded (like configs). Then it after it loads the libraries, you can set up JS that is dependent on those libraries.
 gulp.task('scripts', function() {
 	return gulp.src([
-			themePath + 'js/development/before-libs/*.js',
+			themePath + 'js/development/before-libs/**/*.js',
 			themePath + 'js/development/libs/**/*.js',
-			themePath + 'js/development/after-libs/*.js',
+			themePath + 'js/development/after-libs/**/*.js',
 			themePath + 'modules/*/js/*.js'
 		])
 		.pipe(concat('js/scripts.js'))
-		.pipe(babel({
-			presets: ['@babel/env']
-		}))
+		.pipe(babel())
 		.pipe(gulp.dest(themePath))
 		.pipe(rename({suffix: '.min'}))
 		.pipe(uglify())
