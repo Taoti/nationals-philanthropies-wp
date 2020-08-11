@@ -275,7 +275,9 @@ $footer-grid-padding: 5.5rem;//1.7rem;
 
 
 .footer-siteDescription {
-
+  p {
+    margin-bottom: 20px;
+  }
 }
 
 .footer-socialItems {
