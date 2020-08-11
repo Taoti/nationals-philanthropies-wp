@@ -23,6 +23,11 @@
   }
 }
 
+.stat-dollarSign {
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1.5px #ab0003;
+}
+
 .stat-number {
   font-family: $sans-2;
   color: $color-3;

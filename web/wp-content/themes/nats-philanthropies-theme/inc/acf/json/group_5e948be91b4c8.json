@@ -22,6 +22,25 @@
             "button_label": "Add A Statistic",
             "sub_fields": [
                 {
+                    "key": "field_5f32c23b77283",
+                    "label": "Has Dollar Sign",
+                    "name": "has_dollar_sign",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                },
+                {
                     "key": "field_5e948c548d502",
                     "label": "Number",
                     "name": "number",
@@ -103,5 +122,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1595358460
+    "modified": 1597162068
 }

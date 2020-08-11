@@ -5,7 +5,7 @@ use Modules\GridCard;
 // Will hold the HTML compiled from a "card" module, like gridCard or postCard. Data from the $grid_items array is used to pass arguments to card modules.
 $grid_cards = [];
 
-
+$grid_style = get_sub_field('grid-style');
 $links = get_sub_field('links');
 // echo '<pre>'; print_r($links); echo '</pre>';
 
@@ -45,6 +45,7 @@ if( !empty($grid_cards) ):
 			'l-has-no-background',
 			'postGrid',
 			'postGrid-standard',
+            $grid_style
 		],
 	];
 	$post_grid = new PostGrid($args);

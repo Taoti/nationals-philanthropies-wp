@@ -8,6 +8,50 @@
 	// 	@include page-tear-gray();
 	// }
 
+    &.small-small-small-small {
+        .postGrid-grid {
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+        }
+    }
+
+    &.large-large {
+        .postGrid-grid {
+            grid-template-columns: 2fr 2fr;
+
+            & > * {
+                &:nth-child(3),
+                &:nth-child(4) {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    &.large-small-small {
+        .postGrid-grid {
+            grid-template-columns: 2fr 1fr 1fr;
+
+            & > * {
+                &:nth-child(4) {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    &.small-large-large {
+        .postGrid-grid {
+            grid-template-columns: 1fr 1fr 2fr;
+
+            & > * {
+                &:nth-child(3),
+                &:nth-child(4) {
+                    display: none;
+                }
+            }
+        }
+    }
+
 }
 
 .postGrid-inner {
@@ -23,8 +67,8 @@
 		grid-template-columns: 1fr 1fr;
 	}
 
-	@media screen and ( max-width: 550px ) {
-		grid-template-columns: 1fr;
+	@media screen and ( max-width: 768px ) {
+		grid-template-columns: 1fr !important;
 	}
 }
 
@@ -68,11 +112,11 @@
 	padding-bottom: 3rem;
 
 	.postGridItem {
-    grid-area: auto;
+        grid-area: auto;
 	}
 
 }
 
 .postGrid-youthBaseball {
-  margin-bottom: 7rem;
+    margin-bottom: 7rem;
 }

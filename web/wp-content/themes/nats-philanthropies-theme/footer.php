@@ -11,7 +11,7 @@
 
         <h4 class="footer-heading"><a href="<?php echo home_url(); ?>">Nationals Philanthropies</a></h4>
 
-        <p class="footer-siteDescription"><?php echo get_bloginfo('description'); ?></p>
+        <p class="footer-siteDescription"><?php echo get_field('footer_site_description', 8); ?></p>
 
       </div>
 

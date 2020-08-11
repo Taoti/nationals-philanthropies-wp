@@ -7,7 +7,8 @@
 
 			{% for stat in stats %}
 			<div class="stat">
-				<div class="stat-number">{{ stat.number }}<span class="stat-number-unit {% if stat.units == 'k' or stat.units == 'K' %}stat-number-unit-reverse{% endif %}">{{ stat.units}}</span></div>
+
+				<div class="stat-number">{% if stat.has_dollar_sign %}<span class="stat-dollarSign">$</span>{% endif %}{{ stat.number }}<span class="stat-number-unit {% if stat.units == 'k' or stat.units == 'K' %}stat-number-unit-reverse{% endif %}">{{ stat.units}}</span></div>
 				<div class="stat-info">{{ stat.description }}</div>
 			</div>
 			{% endfor %}

@@ -361,6 +361,33 @@
                     "display": "block",
                     "sub_fields": [
                         {
+                            "key": "field_5f32d894a8e34",
+                            "label": "Grid Style",
+                            "name": "grid-style",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "large-large": "Large\/Large (Uses first 2 items)",
+                                "large-small-small": "Large\/Small\/Small (Uses first 3 items)",
+                                "small-small-large": "Small\/Small\/Large (Uses first 3 items)",
+                                "small-small-small-small": "Small\/Small\/Small\/Small (Uses all 4 items)"
+                            },
+                            "default_value": false,
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "ui": 0,
+                            "return_format": "value",
+                            "ajax": 0,
+                            "placeholder": ""
+                        },
+                        {
                             "key": "field_5f1741903cc5e",
                             "label": "Links",
                             "name": "links",
@@ -806,5 +833,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1595448936
+    "modified": 1597167982
 }
