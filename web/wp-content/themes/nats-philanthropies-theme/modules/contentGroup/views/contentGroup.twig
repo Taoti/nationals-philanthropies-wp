@@ -9,12 +9,22 @@
           </span>
 
           <span class="contentGroup-headingLine">
-						{% if accent_image_html %}
+						{% if accent_image_html and not tertiary_heading %}
 						{{ accent_image_html }}
 						{% endif %}
 
             <span class="contentGroup-textWrap">{{ secondary_heading }}</span>
           </span>
+          
+          {% if tertiary_heading %}
+          <span class="contentGroup-headingLine">
+              {% if accent_image_html %}
+              {{ accent_image_html }}
+              {% endif %}
+
+              <span class="contentGroup-textWrap">{{ tertiary_heading }}</span>
+          </span>
+          {% endif %}
         </h1>
         {% endif %}
 

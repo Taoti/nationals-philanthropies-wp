@@ -146,3 +146,8 @@
 .quote-attributionDescription {
 	@include quote-attribution-description();
 }
+
+.homeQuote-logo {
+  display: flex;
+  justify-content: center;
+}

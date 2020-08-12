@@ -1,10 +1,10 @@
 .gridCard {
 	@include card();
 	display: flex;
-	flex-direction: column;
-	justify-content: flex-end;
+	flex-wrap: wrap;
 	min-height: 316px;
 	position: relative;
+  align-content: start;
 
 	&:hover {
 
@@ -21,12 +21,24 @@
 }
 
 .gridCard-iconContainer {
-	justify-self: flex-start;
-	margin-bottom: auto;
+	width: 100%;
 	position: relative;
 	transform: scale3d(1, 1, 1);
-    transform-origin: left center;
-    transition: transform 125ms $bounce-2;
+  transform-origin: left center;
+  transition: transform 125ms $bounce-2;
+  height: 40px;
+
+  svg {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+}
+
+.gridCard-heading,
+.gridCard-excerpt,
+.gridCard-more {
+  flex-basis: 100%;
 }
 
 .gridCard-heading {
@@ -35,10 +47,13 @@
 
 .gridCard-excerpt {
 	@include card-excerpt();
+  margin-bottom: 4rem;
 }
 
 .gridCard-more {
 	@include card-more();
+  position: absolute;
+  bottom: 2rem;
 }
 
 #Capa_1 {

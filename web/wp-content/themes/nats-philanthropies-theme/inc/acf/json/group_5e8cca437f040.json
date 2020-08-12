@@ -41,6 +41,25 @@
             "maxlength": ""
         },
         {
+            "key": "field_5f3447b91f2e5",
+            "label": "Primary Heading - Line 3",
+            "name": "primary_heading_line_3",
+            "type": "text",
+            "instructions": "Appears as an outline. (optional)",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_5e8ccaf1c475c",
             "label": "Description",
             "name": "description",
@@ -117,5 +136,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1586286002
+    "modified": 1597262282
 }

@@ -29,6 +29,7 @@ use JP\Get;
         $args = [
          'primary_heading' => get_sub_field('primary_heading_line_1'),
          'secondary_heading' => get_sub_field('primary_heading_line_2'),
+         'tertiary_heading' => get_sub_field('primary_heading_line_3'),
          'description' => get_sub_field('description'),
          'cta_link' => get_sub_field('button_url'),
 				 'cta_label' => get_sub_field('button_label'),

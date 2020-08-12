@@ -21,6 +21,7 @@ class Quote {
 	public function __construct( $args=[] ){
 		$this->defaults = [
 			'image' => false,
+      'logo' => false,
 			'quoted_text' => false,
 			'attribution_name' => false,
 			'attribution_description' => false,
@@ -44,6 +45,15 @@ class Quote {
       $image_html = Get::image_html( $image_args );
 		}
 
+    if( is_array($logo) ){
+      $logo_args = [
+        'image_array' => $logo,
+        'size' => 'quote-image',
+        'classes' => ['quote-image'],
+      ];
+      $logo_html = Get::image_html( $logo_args );
+    }
+
 		if( $overlay_color ){
 			$classes[] = 'quote-overlay-' . $overlay_color;
 		}
@@ -51,6 +61,7 @@ class Quote {
 		$this->context = Timber::get_context();
 		$this->context['image'] = $image;
 		$this->context['image_html'] = $image_html;
+    $this->context['logo_html'] = $logo_html;
 		$this->context['quoted_text'] = $quoted_text;
 		$this->context['attribution_name'] = $attribution_name;
 		$this->context['attribution_description'] = $attribution_description;

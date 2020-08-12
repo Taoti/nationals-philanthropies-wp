@@ -25,6 +25,7 @@ class ContentGroup {
     $this->defaults = [
 			'primary_heading' => false,
       'secondary_heading' => false,
+      'tertiary_heading' => false,
 			'description' => false,
 			'cta_label' => false,
 			'cta_link' => false,
@@ -45,6 +46,7 @@ class ContentGroup {
 		$this->context = Timber::get_context();
 		$this->context['primary_heading'] = $primary_heading;
     $this->context['secondary_heading'] = $secondary_heading;
+    $this->context['tertiary_heading'] = $tertiary_heading;
 		$this->context['description'] = $description;
 		$this->context['cta_link'] = $cta_link;
 		$this->context['cta_label'] = $cta_label;
