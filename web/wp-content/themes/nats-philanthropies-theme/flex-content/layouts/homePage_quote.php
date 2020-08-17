@@ -44,7 +44,7 @@ use JP\Get;
         if( is_array($logo) ){
           $logo_html = [
             'image_array' => $logo,
-            'size' => 'thumbnail',
+            'size' => 'large',
             'classes' => ['homeQuote-logo'],
           ];
           $logo_html = Get::image_html( $logo_html );
@@ -55,7 +55,7 @@ use JP\Get;
         <div class="homeQuote-imageContainer"><?php echo $image_html; ?></div>
         <?php endif; ?>
 
-        <?php if( $quoted_text ) : ?>
+        <?php if( $logo_html || $quoted_text ) : ?>
         <blockquote class="homeQuote-quote">
             
           <?php if($image_html): ?>
