@@ -4,9 +4,11 @@
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-start;
+  padding: 0 25rem;
 
-  @media screen and ( max-width: 768px ) {
+  @media screen and ( max-width: 1300px ) {
     flex-direction: column-reverse;
+    padding: 0 50px;
   }
 
 }
@@ -14,9 +16,9 @@
 .imageWithTextBlock-image {
   flex-basis: 40%;
 
-  @media screen and ( max-width: 768px ) {
+  @media screen and ( max-width: 1300px ) {
     flex-basis: 100%;
-    margin-top: 10px;
+    margin-top: 40px;
   }
 
   img {
@@ -27,7 +29,7 @@
 .imageWithTextBlock-content {
   flex-basis: 50%;
 
-  @media screen and ( max-width: 768px ) {
+  @media screen and ( max-width: 1300px ) {
     flex-basis: 100%;
   }
 }

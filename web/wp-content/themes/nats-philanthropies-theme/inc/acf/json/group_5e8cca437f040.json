@@ -45,7 +45,7 @@
             "label": "Primary Heading - Line 3",
             "name": "primary_heading_line_3",
             "type": "text",
-            "instructions": "Appears as an outline. (optional)",
+            "instructions": "Appears in a solid color. (optional)",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -136,5 +136,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1597262282
+    "modified": 1597683486
 }
