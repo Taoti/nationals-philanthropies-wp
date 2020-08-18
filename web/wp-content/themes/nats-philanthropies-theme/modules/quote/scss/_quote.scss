@@ -146,14 +146,3 @@
 .quote-attributionDescription {
 	@include quote-attribution-description();
 }
-
-.homeQuote-logo {
-  display: flex;
-  justify-content: center;
-
-  img {
-    max-width: 500px;
-    width: 100%;
-    height: auto;
-  }
-}

@@ -209,3 +209,23 @@
   @include quote-attribution-description()
   color: $color-21;
 }
+
+
+.homeQuote-logo {
+  display: flex;
+  justify-content: center;
+
+  img {
+    max-width: 500px;
+    width: 100%;
+    height: auto;
+  }
+}
+
+.homeQuote-inner.homeQuote-inner--withLogo {
+  align-items: center;
+
+  .homeQuote-contentGroup {
+    top: 0;
+  }
+}

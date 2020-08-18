@@ -3,7 +3,7 @@ use Modules\ContentGroup;
 use JP\Get;
 ?>
 <section class="l-homePageModule homeQuote scrollspy scrollspy-light">
-  <div class="homeQuote-inner">
+  <div class="homeQuote-inner <?php if(get_sub_field('quote_logo')){ ?>homeQuote-inner--withLogo<?php } ?> ">
 
       <div class="homeQuote-contentGroup">
         <?php
