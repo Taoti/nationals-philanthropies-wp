@@ -73,6 +73,9 @@ if ( ! defined( 'WP_DEBUG' ) ) {
 	define('WP_DEBUG', false);
 }
 
+/**
+ * Add custom code for wp-config to our included file:
+ */
 require_once(dirname(__FILE__) . '/wp-config-taoti.php');
 
 /* That's all, stop editing! Happy Pressing. */
