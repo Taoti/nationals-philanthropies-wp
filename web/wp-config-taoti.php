@@ -47,7 +47,7 @@ if (isset($_ENV['PANTHEON_ENVIRONMENT']) && php_sapi_name() != 'cli') {
 
 /**
  * Allow database repair.
- *
  * Necessary after WordPress 5.5 update.
+ * After repairs are complete, please comment the following line to prevent unauthorized users.
  */
-define('WP_ALLOW_REPAIR', true);
+// define('WP_ALLOW_REPAIR', true);
