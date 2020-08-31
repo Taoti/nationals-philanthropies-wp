@@ -7,7 +7,8 @@ var themePath = './';
 var gulp = require( 'gulp' ),
 	watch = require( 'gulp-watch' ),
 	cleanCSS = require('gulp-clean-css'),
-	uglify = require( 'gulp-uglify' ),
+	// uglify = require( 'gulp-uglify' ),
+	uglify = require( 'gulp-uglify-es' ).default,
 	rename = require( 'gulp-rename' ),
 	notify = require( 'gulp-notify' ),
 	autoprefixer = require('gulp-autoprefixer'),
@@ -15,7 +16,8 @@ var gulp = require( 'gulp' ),
 	image = require('gulp-image'),
 	sourcemaps = require('gulp-sourcemaps'),
 	newer = require('gulp-newer'),
-	sass = require('gulp-sass');
+	sass = require('gulp-sass'),
+	babel = require("gulp-babel");
 
 sass.compiler = require('node-sass');
 
@@ -33,13 +35,13 @@ var onError = function( err ) {
 function jpProcessCSS(args){
 
 	return gulp.src( args.path )
-	    .pipe( sass().on('error', sass.logError) )
-		// 	.pipe( sourcemaps.init() )
+		.pipe( sass().on('error', sass.logError) )
+		// .pipe( sourcemaps.init() )
 		.pipe( autoprefixer(['last 4 versions', 'iOS 7']) )
 		.pipe( cleanCSS({rebase:false}) )
 		.pipe( rename({suffix: '.min' }) )
 		// .pipe( sourcemaps.write() )
-	    .pipe( gulp.dest( args.destination ) )
+		.pipe( gulp.dest( args.destination ) )
 		.pipe( notify({ message: args.messageComplete + ' <%= file.relative %>' }) );
 
 }
@@ -64,7 +66,7 @@ gulp.task('scss', function () {
 gulp.task('scss-other-criticals', function () {
 	var args = {
 		path: [
-			themePath + 'styles/scss/critical/*.scss',
+			themePath + 'styles/scss/critical/singles/*.scss',
 		],
 		messageComplete: 'Scss task complete.',
 		destination: themePath + 'styles/css/critical/'
@@ -82,12 +84,13 @@ gulp.task('scss-other-criticals', function () {
 // In this way, you can set up any JS that needs to happen before libraries are loaded (like configs). Then it after it loads the libraries, you can set up JS that is dependent on those libraries.
 gulp.task('scripts', function() {
 	return gulp.src([
-			themePath + 'js/development/before-libs/*.js',
+			themePath + 'js/development/before-libs/**/*.js',
 			themePath + 'js/development/libs/**/*.js',
-			themePath + 'js/development/after-libs/*.js',
+			themePath + 'js/development/after-libs/**/*.js',
 			themePath + 'modules/*/js/*.js'
 		])
 		.pipe(concat('js/scripts.js'))
+		.pipe(babel())
 		.pipe(gulp.dest(themePath))
 		.pipe(rename({suffix: '.min'}))
 		.pipe(uglify())
@@ -122,14 +125,16 @@ gulp.task( 'watch', function() {
 		[
 			themePath + 'styles/*.scss',
 			themePath + 'styles/scss/*.scss',
+			themePath + 'styles/scss/admin/**/*.scss',
+			themePath + 'styles/scss/critical/**/*.scss',
+			themePath + 'styles/scss/inc/**/*.scss',
 			themePath + 'modules/*/scss/**/*.scss',
-			themePath + 'styles/scss/admin/*.scss',
 		],
 		gulp.series([ 'scss', 'scss-other-criticals' ]) // Sometimes there are critical scss files in the modules directory, so they will trigger this watch block. Hence, run the 'scss-other-criticals' here as well.
 	);
 
 	gulp.watch(
-		[ themePath + 'styles/scss/critical/*.scss' ],
+		[ themePath + 'styles/scss/critical/singles/**/*.scss' ],
 		gulp.series([ 'scss-other-criticals' ])
 	);
 

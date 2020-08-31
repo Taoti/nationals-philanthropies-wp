@@ -1,23 +1,20 @@
-// Set up the critical styles that are loaded on every page.
+// Set up the critical styles that are loaded on every page (global critical styles).
 
-// Libraries
+// Includes
 // (these should not contain anything that actually outputs to a CSS file, so just stuff like variables and mixins)
-@import 'scss/config';
-@import 'scss/globals';
+@import 'scss/inc/config';
+@import 'scss/inc/mixins';
 
 // Reset
-@import 'scss/reset';
-
-// Typography ( all the base font items - families, sizes, paddings, line-heights, etc. )
-@import 'scss/typography';
+@import 'scss/critical/reset';
 
 // Layout ( grid, wrappers, etc - including mdeia queries )
-@import 'scss/layout';
+@import 'scss/critical/layout';
 
 // Globals ( any classes or elements that are commonly used, like .button or .icon )
-@import 'scss/base';
-@import 'scss/header';
-@import 'scss/navigation';
+@import 'scss/critical/base';
+@import 'scss/critical/header';
+@import 'scss/critical/navigation';
 
 // Modules ( anything shared cross template )
 @import '../modules/hero/scss/hero';

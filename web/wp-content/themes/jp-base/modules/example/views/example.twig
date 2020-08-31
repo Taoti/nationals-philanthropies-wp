@@ -2,6 +2,14 @@
 <div class="l-module example">
     <div class="l-container example-inner">
 
+			{% if option1 %}
+			<div class="example-option1">{{ option1 }}</div>
+			{% endif %}
+
+			{% if option2 %}
+			<p class="example-option2">{{ option2 }}</p>
+			{% endif %}
+
     </div>
 </div><!-- END .example -->
 {% endblock %}

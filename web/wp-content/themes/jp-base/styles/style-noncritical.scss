@@ -1,8 +1,8 @@
-// Set up the non-critical styles that load on every page.
+// Set up the non-critical styles that load on every page. Styles for things "below the fold" (yes even though that is a dated concept) should be loaded here. The resulting compiled CSS file is lazy-loaded on every page. More details for how the CSS is loaded in <theme-folder>/inc/enqueue.php, look for "function taoti_styles()".
 
-// Libraries
-@import 'scss/config';
-@import 'scss/globals';
+// Includes
+@import 'scss/inc/config';
+@import 'scss/inc/mixins';
 
 @import 'scss/animations';
 
@@ -16,7 +16,7 @@
 // @import '../modules/cta/scss/cta';
 
 // Parts, utility, other one-offs
-// @import 'scss/pagination';
+@import 'scss/pagination';
 
 // Templates ( template-name - including media queries. You can override base module styles here too )
 // @import 'scss/template-careers';

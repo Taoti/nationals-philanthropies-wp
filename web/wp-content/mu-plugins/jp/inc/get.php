@@ -215,7 +215,7 @@ class Get
 
 		$return = false;
 
-		if( is_array($image_array) ){
+		if( is_array($image_array) && isset($image_array['sizes']) && isset($image_array['width']) && isset($image_array['height']) ){
 
 			$src = '';
 			$width = '';

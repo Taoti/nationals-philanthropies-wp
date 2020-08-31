@@ -24,4 +24,8 @@ class Example {
 	public function render(){
 		Timber::render('example.twig', $this->context);
 	}
+
+	public function compile(){
+		return Timber::compile('example.twig', $this->context);
+	}
 }

@@ -5,7 +5,7 @@
  * You can output critical CSS only on the template that uses those styles.
  * This is useful when optimizing load speed, so that CSS that you only use
  * on one template isn't loaded sitewide.
- * On any template, before the get_header() call, run the following:
+ * On any template, before the get_header() call, add the following:
  * taoti_enqueue_critical_css( $css_src_filepath );
  * Example:
  * taoti_enqueue_critical_css( get_template_directory().'/styles/css/critical/front-page-critical.min.css' );
