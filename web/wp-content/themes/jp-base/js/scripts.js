@@ -1251,21 +1251,21 @@ window.lazySizesConfig.loadMode = 3;
   return lazysizes;
 });
 /*
- * https://zurb.com/playground/responsive-tables
+ * Based on https://zurb.com/playground/responsive-tables
  *
  * Just add the class `responsive` to the <table> element,
  * the JS will take it from there to allow horizontal
  * scrolling on small screens.
  *
  * Related CSS is in <theme>/styles/scss/_responsive-tables.scss
+ * 									 OR
+ * 									 <theme>/modules/table/scss/_responsive-tables.scss
  *
- * NOTE: Modified a little bit from the original so it
- * stops throwing JS errors.
+ * NOTE: Modified from the original script so it stops throwing JS errors.
  * - Removed the outer document.ready function, since our scripts
  * are compiled and loaded at the bottom of the HTML anyway.
- * - Removed `$(window).load(updateTables);` replaced with `updateTables();`
- * - Changed `$(this).outerHeight( true );` to `$(this).height()` for Zepto compatibility.
  * - Added try/catch blocks.
+ * - Replaced jQuery code with ES6 syntax.
 */
 
 
@@ -1273,81 +1273,129 @@ var switched = false;
 
 var updateTables = function updateTables() {
   try {
-    if ($(window).width() < 767 && !switched) {
+    var responsiveTables = Array.from(document.querySelectorAll('table.responsive'));
+
+    if (window.innerWidth <= 767 && !switched) {
       switched = true;
-      $("table.responsive").each(function (i, element) {
-        splitTable($(element));
-      });
+
+      for (var _i = 0; _i < responsiveTables.length; _i++) {
+        splitTable(responsiveTables[_i]);
+      }
+
       return true;
-    } else if (switched && $(window).width() > 767) {
+    } else if (switched && window.innerWidth > 767) {
       switched = false;
-      $("table.responsive").each(function (i, element) {
-        unsplitTable($(element));
-      });
+
+      for (var _i2 = 0; _i2 < responsiveTables.length; _i2++) {
+        unsplitTable(responsiveTables[_i2]);
+      }
     }
-  } catch (e) {// console.log('Error updating tables.');
-    // console.log(e);
+  } catch (e) {
+    console.log('Error updating tables.');
+    console.log(e);
   }
 }; // Initialize
 
 
 try {
-  if ($("table.responsive").length) {
+  if (document.querySelectorAll('table.responsive').length) {
     updateTables();
-    $(window).on("redraw", function () {
+    window.addEventListener('redraw', function () {
       switched = false;
       updateTables();
-    }); // An event to listen for
-
-    $(window).on("resize", updateTables);
+    });
+    window.addEventListener('resize', updateTables);
   }
-} catch (e) {// console.log(e);
+} catch (e) {
+  console.log(e);
 }
 
 function splitTable(original) {
+  // `original` should be an element == table.responsive
+  // console.log('INSIDE splitTable()');
+  // console.log('original = ');
+  // console.log(original);
   try {
-    original.wrap("<div class='table-wrapper' />");
-    var copy = original.clone();
-    copy.find("td:not(:first-child), th:not(:first-child)").css("display", "none");
-    copy.removeClass("responsive");
-    original.closest(".table-wrapper").append(copy);
-    copy.wrap("<div class='pinned' />");
-    original.wrap("<div class='scrollable' />");
+    // Save a copy of the original's parent so we can alter its HTML contents later.
+    var original_parent = original.parentNode; // Set up 3 <div>s. div.table-wrapper will contain the other two <div>s. The other two <div>s will contain the original or cloned version of the <table>.
+
+    var wrap = document.createElement('div');
+    wrap.classList.add('table-wrapper');
+    var scrollable = document.createElement('div');
+    scrollable.classList.add('scrollable');
+    var pinned = document.createElement('div');
+    pinned.classList.add('pinned');
+    wrap.appendChild(scrollable);
+    wrap.appendChild(pinned); // Make a copy of the original <table>, this will be modified to allow for the horizontal scrolling.
+
+    var copy = original.cloneNode(true);
+    var cells = Array.from(copy.querySelectorAll("td:not(:first-child), th:not(:first-child)"));
+
+    for (var _i3 = 0; _i3 < cells.length; _i3++) {
+      cells[_i3].style.display = 'none';
+    }
+
+    copy.classList.remove('responsive'); // Add the original table to the new div.scrollable container, and the copy goes in div.pinned.
+
+    scrollable.appendChild(original);
+    pinned.appendChild(copy); // Now `wrap` should have the `scrollable` and `pinned` containers, which themselves have the original and cloned tables respectively. Replace the original's parent's HTML with this new `wrap`'s HTML.
+
+    original_parent.innerHTML = wrap.outerHTML; // The cell heights in the cloned/original tables need to match for the effect to work.
+
     setCellHeights(original, copy);
-  } catch (e) {// console.log('Error in splitTable().');
-    // console.log(e);
+  } catch (error) {
+    console.log('Error in splitTable().');
+    console.log(error);
   }
 }
 
 function unsplitTable(original) {
+  // console.log('INSIDE unsplitTable()');
+  // console.log('original = ');
+  // console.log(original);
   try {
-    original.closest(".table-wrapper").find(".pinned").remove();
-    original.unwrap();
-    original.unwrap();
-  } catch (e) {// console.log('Error in unsplitTable().');
-    // console.log(e);
+    // `original` should be a <table> element within div.scrollable, which is within div.table-wrapper. The goal here is to get the parent immediately beyond div.table-wrapper.
+    var parent_container = original;
+
+    do {
+      parent_container = parent_container.parentNode;
+    } while ((parent_container.matches('.table-wrapper') || parent_container.matches('.scrollable')) && parent_container !== document.body); // With that outer parent, set its contents to the original <table>'s HTML.
+
+
+    parent_container.innerHTML = original.outerHTML;
+  } catch (error) {
+    console.log('Error in unsplitTable().');
+    console.log(error);
   }
 }
 
 function setCellHeights(original, copy) {
   try {
-    var tr = original.find('tr'),
-        tr_copy = copy.find('tr'),
-        heights = [];
-    tr.each(function (index) {
-      var self = $(this),
-          tx = self.find('th, td');
-      tx.each(function () {
-        var height = $(this).height();
-        heights[index] = heights[index] || 0;
-        if (height > heights[index]) heights[index] = height;
-      });
-    });
-    tr_copy.each(function (index) {
-      $(this).height(heights[index]);
-    });
-  } catch (e) {// console.log('Error in setCellHeights().');
-    // console.log(e);
+    var tr = Array.from(original.querySelectorAll('tr'));
+    var tr_copy = Array.from(copy.querySelectorAll('tr'));
+    var heights = [];
+
+    for (var _i4 = 0; _i4 < tr.length; _i4++) {
+      var _self = tr[_i4];
+
+      var tx = _self.querySelectorAll('th, td');
+
+      for (var j = 0; j < tx.length; j++) {
+        var height = parseInt(window.getComputedStyle(tx[j]).height);
+        heights[_i4] = heights[_i4] || 0;
+
+        if (height > heights[_i4]) {
+          heights[_i4] = height;
+        }
+      }
+    }
+
+    for (var _i5 = 0; _i5 < tr_copy.length; _i5++) {
+      tr_copy[_i5].style.height = heights[_i5] + 'px';
+    }
+  } catch (error) {
+    console.log('Error in setCellHeights().');
+    console.log(error);
   }
 } // Based on https://css-tricks.com/snippets/jquery/smooth-scrolling/
 
@@ -4067,4 +4115,5 @@ WebFont.load({// GOOGLE FONTS
   // active: taoti_fonts_active_cb
 }); // Callback function for when the fonts are loaded.
 
-function taoti_fonts_active_cb() {}
+function taoti_fonts_active_cb() {} // Not necessarily specific to this module, but there is a library in use for responsive tables - /js/development/libs/responsive-tables.js
+// https://zurb.com/playground/responsive-tables
