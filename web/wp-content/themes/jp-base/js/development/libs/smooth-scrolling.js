@@ -1,6 +1,6 @@
 // Based on https://css-tricks.com/snippets/jquery/smooth-scrolling/
 
-var jp_jump_links = document.querySelectorAll('a[data-jump-link="1"]');
+let jp_jump_links = document.querySelectorAll('a[data-jump-link="1"]');
 for( i=0; i<jp_jump_links.length; i++ ){
     jp_jump_links[i].addEventListener('click', jp_jump_link_cb);
 }
@@ -13,7 +13,7 @@ function jp_jump_link_cb(event){
       location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') &&
       location.hostname == this.hostname
     ) {
-        var target = document.querySelectorAll(this.hash);
+        let target = document.querySelectorAll(this.hash);
         target = target.length ? target : document.querySelectorAll('[name=' + this.hash.slice(1) + ']');
 
         // Does a scroll target exist?
