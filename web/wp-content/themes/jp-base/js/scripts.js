@@ -117,119 +117,218 @@ window.lazySizesConfig.loadMode = 3;
     w.loadCSS = loadCSS;
   }
 })(typeof global !== "undefined" ? global : void 0);
+/*!
+ * hoverIntent v1.10.1 // 2019.10.05 // jQuery v1.7.0+
+ * http://briancherne.github.io/jquery-hoverIntent/
+ *
+ * You may use hoverIntent under the terms of the MIT license. Basically that
+ * means you are free to use hoverIntent as long as this header is left intact.
+ * Copyright 2007-2019 Brian Cherne
+ */
 
-!function (e) {
-  if ("object" == (typeof exports === "undefined" ? "undefined" : _typeof(exports)) && "undefined" != typeof module) module.exports = e();else if ("function" == typeof define && define.amd) define([], e);else {
-    var t;
-    t = "undefined" != typeof window ? window : "undefined" != typeof global ? global : "undefined" != typeof self ? self : this, t.hoverintent = e();
+/**
+ * hoverIntent is similar to jQuery's built-in "hover" method except that
+ * instead of firing the handlerIn function immediately, hoverIntent checks
+ * to see if the user's mouse has slowed down (beneath the sensitivity
+ * threshold) before firing the event. The handlerOut function is only
+ * called after a matching handlerIn.
+ *
+ * // basic usage ... just like .hover()
+ * .hoverIntent( handlerIn, handlerOut )
+ * .hoverIntent( handlerInOut )
+ *
+ * // basic usage ... with event delegation!
+ * .hoverIntent( handlerIn, handlerOut, selector )
+ * .hoverIntent( handlerInOut, selector )
+ *
+ * // using a basic configuration object
+ * .hoverIntent( config )
+ *
+ * @param  handlerIn   function OR configuration object
+ * @param  handlerOut  function OR selector for delegation OR undefined
+ * @param  selector    selector OR undefined
+ * @author Brian Cherne <brian(at)cherne(dot)net>
+ */
+
+
+;
+
+(function (factory) {
+  'use strict';
+
+  if (typeof define === 'function' && define.amd) {
+    define(['jquery'], factory);
+  } else if ((typeof module === "undefined" ? "undefined" : _typeof(module)) === 'object' && module.exports) {
+    module.exports = factory(require('jquery'));
+  } else if (jQuery && !jQuery.fn.hoverIntent) {
+    factory(jQuery);
   }
-}(function () {
-  return function e(t, n, o) {
-    function r(u, f) {
-      if (!n[u]) {
-        if (!t[u]) {
-          var s = "function" == typeof require && require;
-          if (!f && s) return s(u, !0);
-          if (i) return i(u, !0);
-          var c = new Error("Cannot find module '" + u + "'");
-          throw c.code = "MODULE_NOT_FOUND", c;
-        }
+})(function ($) {
+  'use strict'; // default configuration values
 
-        var a = n[u] = {
-          exports: {}
-        };
-        t[u][0].call(a.exports, function (e) {
-          var n = t[u][1][e];
-          return r(n || e);
-        }, a, a.exports, e, t, n, o);
-      }
+  var _cfg = {
+    interval: 100,
+    sensitivity: 6,
+    timeout: 0
+  }; // counter used to generate an ID for each instance
 
-      return n[u].exports;
+  var INSTANCE_COUNT = 0; // current X and Y position of mouse, updated during mousemove tracking (shared across instances)
+
+  var cX, cY; // saves the current pointer position coordinates based on the given mousemove event
+
+  var track = function track(ev) {
+    cX = ev.pageX;
+    cY = ev.pageY;
+  }; // compares current and previous mouse positions
+
+
+  var compare = function compare(ev, $el, s, cfg) {
+    // compare mouse positions to see if pointer has slowed enough to trigger `over` function
+    if (Math.sqrt((s.pX - cX) * (s.pX - cX) + (s.pY - cY) * (s.pY - cY)) < cfg.sensitivity) {
+      $el.off(s.event, track);
+      delete s.timeoutId; // set hoverIntent state as active for this element (permits `out` handler to trigger)
+
+      s.isActive = true; // overwrite old mouseenter event coordinates with most recent pointer position
+
+      ev.pageX = cX;
+      ev.pageY = cY; // clear coordinate data from state object
+
+      delete s.pX;
+      delete s.pY;
+      return cfg.over.apply($el[0], [ev]);
+    } else {
+      // set previous coordinates for next comparison
+      s.pX = cX;
+      s.pY = cY; // use self-calling timeout, guarantees intervals are spaced out properly (avoids JavaScript timer bugs)
+
+      s.timeoutId = setTimeout(function () {
+        compare(ev, $el, s, cfg);
+      }, cfg.interval);
+    }
+  }; // triggers given `out` function at configured `timeout` after a mouseleave and clears state
+
+
+  var delay = function delay(ev, $el, s, out) {
+    var data = $el.data('hoverIntent');
+
+    if (data) {
+      delete data[s.id];
     }
 
-    for (var i = "function" == typeof require && require, u = 0; u < o.length; u++) {
-      r(o[u]);
-    }
+    return out.apply($el[0], [ev]);
+  }; // checks if `value` is a function
 
-    return r;
-  }({
-    1: [function (e, t, n) {
-      "use strict";
 
-      var o = e("xtend");
+  var isFunction = function isFunction(value) {
+    return typeof value === 'function';
+  };
 
-      t.exports = function (e, t, n) {
-        function r(e, t) {
-          return p && (p = clearTimeout(p)), d = 0, n.call(e, t);
-        }
+  $.fn.hoverIntent = function (handlerIn, handlerOut, selector) {
+    // instance ID, used as a key to store and retrieve state information on an element
+    var instanceId = INSTANCE_COUNT++; // extend the default configuration and parse parameters
 
-        function i(e) {
-          c = e.clientX, a = e.clientY;
-        }
+    var cfg = $.extend({}, _cfg);
 
-        function u(e, n) {
-          if (p && (p = clearTimeout(p)), Math.abs(v - c) + Math.abs(l - a) < y.sensitivity) return d = 1, t.call(e, n);
-          v = c, l = a, p = setTimeout(function () {
-            u(e, n);
-          }, y.interval);
-        }
+    if ($.isPlainObject(handlerIn)) {
+      cfg = $.extend(cfg, handlerIn);
 
-        function f(t) {
-          return p && (p = clearTimeout(p)), e.removeEventListener("mousemove", i, !1), 1 !== d && (v = t.clientX, l = t.clientY, e.addEventListener("mousemove", i, !1), p = setTimeout(function () {
-            u(e, t);
-          }, y.interval)), this;
-        }
-
-        function s(t) {
-          return p && (p = clearTimeout(p)), e.removeEventListener("mousemove", i, !1), 1 === d && (p = setTimeout(function () {
-            r(e, t);
-          }, y.timeout)), this;
-        }
-
-        var c,
-            a,
-            v,
-            l,
-            m = {},
-            d = 0,
-            p = 0,
-            y = {
-          sensitivity: 7,
-          interval: 100,
-          timeout: 0
-        };
-        return m.options = function (e) {
-          return y = o({}, y, e), m;
-        }, m.remove = function () {
-          e && (e.removeEventListener("mouseover", f, !1), e.removeEventListener("mouseout", s, !1));
-        }, e && (e.addEventListener("mouseover", f, !1), e.addEventListener("mouseout", s, !1)), m;
-      };
-    }, {
-      xtend: 2
-    }],
-    2: [function (e, t, n) {
-      function o() {
-        for (var e = {}, t = 0; t < arguments.length; t++) {
-          var n = arguments[t];
-
-          for (var o in n) {
-            r.call(n, o) && (e[o] = n[o]);
-          }
-        }
-
-        return e;
+      if (!isFunction(cfg.out)) {
+        cfg.out = cfg.over;
       }
+    } else if (isFunction(handlerOut)) {
+      cfg = $.extend(cfg, {
+        over: handlerIn,
+        out: handlerOut,
+        selector: selector
+      });
+    } else {
+      cfg = $.extend(cfg, {
+        over: handlerIn,
+        out: handlerIn,
+        selector: handlerOut
+      });
+    } // A private function for handling mouse 'hovering'
 
-      t.exports = o;
-      var r = Object.prototype.hasOwnProperty;
-    }, {}]
-  }, {}, [1])(1);
+
+    var handleHover = function handleHover(e) {
+      // cloned event to pass to handlers (copy required for event object to be passed in IE)
+      var ev = $.extend({}, e); // the current target of the mouse event, wrapped in a jQuery object
+
+      var $el = $(this); // read hoverIntent data from element (or initialize if not present)
+
+      var hoverIntentData = $el.data('hoverIntent');
+
+      if (!hoverIntentData) {
+        $el.data('hoverIntent', hoverIntentData = {});
+      } // read per-instance state from element (or initialize if not present)
+
+
+      var state = hoverIntentData[instanceId];
+
+      if (!state) {
+        hoverIntentData[instanceId] = state = {
+          id: instanceId
+        };
+      } // state properties:
+      // id = instance ID, used to clean up data
+      // timeoutId = timeout ID, reused for tracking mouse position and delaying "out" handler
+      // isActive = plugin state, true after `over` is called just until `out` is called
+      // pX, pY = previously-measured pointer coordinates, updated at each polling interval
+      // event = string representing the namespaced event used for mouse tracking
+      // clear any existing timeout
+
+
+      if (state.timeoutId) {
+        state.timeoutId = clearTimeout(state.timeoutId);
+      } // namespaced event used to register and unregister mousemove tracking
+
+
+      var mousemove = state.event = 'mousemove.hoverIntent.hoverIntent' + instanceId; // handle the event, based on its type
+
+      if (e.type === 'mouseenter') {
+        // do nothing if already active
+        if (state.isActive) {
+          return;
+        } // set "previous" X and Y position based on initial entry point
+
+
+        state.pX = ev.pageX;
+        state.pY = ev.pageY; // update "current" X and Y position based on mousemove
+
+        $el.off(mousemove, track).on(mousemove, track); // start polling interval (self-calling timeout) to compare mouse coordinates over time
+
+        state.timeoutId = setTimeout(function () {
+          compare(ev, $el, state, cfg);
+        }, cfg.interval);
+      } else {
+        // "mouseleave"
+        // do nothing if not already active
+        if (!state.isActive) {
+          return;
+        } // unbind expensive mousemove event
+
+
+        $el.off(mousemove, track); // if hoverIntent state is true, then call the mouseOut function after the specified delay
+
+        state.timeoutId = setTimeout(function () {
+          delay(ev, $el, state, cfg.out);
+        }, cfg.timeout);
+      }
+    }; // listen for mouseenter and mouseleave
+
+
+    return this.on({
+      'mouseenter.hoverIntent': handleHover,
+      'mouseleave.hoverIntent': handleHover
+    }, cfg.selector);
+  };
 });
 /*!
  * in-view 0.6.1 - Get notified when a DOM element enters or exits the viewport.
  * Copyright (c) 2016 Cam Wiegert <cam@camwiegert.com> - https://camwiegert.github.io/in-view
  * License: MIT
  */
+
 
 !function (t, e) {
   "object" == (typeof exports === "undefined" ? "undefined" : _typeof(exports)) && "object" == (typeof module === "undefined" ? "undefined" : _typeof(module)) ? module.exports = e() : "function" == typeof define && define.amd ? define([], e) : "object" == (typeof exports === "undefined" ? "undefined" : _typeof(exports)) ? exports.inView = e() : t.inView = e();
