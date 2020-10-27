@@ -1,7 +1,7 @@
 // Based on https://css-tricks.com/snippets/jquery/smooth-scrolling/
 
 let jp_jump_links = document.querySelectorAll('a[data-jump-link="1"]');
-for( i=0; i<jp_jump_links.length; i++ ){
+for( let i=0; i<jp_jump_links.length; i++ ){
     jp_jump_links[i].addEventListener('click', jp_jump_link_cb);
 }
 
