@@ -17,7 +17,8 @@ var gulp = require( 'gulp' ),
 	sourcemaps = require('gulp-sourcemaps'),
 	newer = require('gulp-newer'),
 	sass = require('gulp-sass'),
-	babel = require("gulp-babel");
+	babel = require("gulp-babel"),
+	postcss = require('gulp-postcss');
 
 sass.compiler = require('node-sass');
 
@@ -37,6 +38,7 @@ function jpProcessCSS(args){
 	return gulp.src( args.path )
 		.pipe( sass().on('error', sass.logError) )
 		// .pipe( sourcemaps.init() )
+		.pipe( postcss([require('postcss-easing-gradients')]) )
 		.pipe( autoprefixer(['last 4 versions', 'iOS 7']) )
 		.pipe( cleanCSS({rebase:false}) )
 		.pipe( rename({suffix: '.min' }) )
