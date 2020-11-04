@@ -12,24 +12,24 @@ get_header();
 
 
 <div class="archiveContent">
-    <div class="l-container archiveContent-inner">
+	<div class="l-container archiveContent-inner">
 
-    <?php if( have_posts() ): ?>
+	<?php if( have_posts() ): ?>
 
-        <?php while( have_posts() ): the_post(); ?>
+		<?php while( have_posts() ): the_post(); ?>
 
-    		<h2><?php the_title(); ?></h2>
-    		<div><?php the_excerpt(); ?></div>
+		<h2><?php the_title(); ?></h2>
+		<div><?php the_excerpt(); ?></div>
 
-        <?php endwhile; ?>
+		<?php endwhile; ?>
 
-    <?php else: ?>
+	<?php else: ?>
 
-        <?php echo 'Not Found.'; ?>
+		<?php echo 'Not Found.'; ?>
 
-    <?php endif; ?>
+	<?php endif; ?>
 
-    </div><!-- END .archiveContent-inner -->
+	</div><!-- END .archiveContent-inner -->
 </div><!-- END .archiveContent -->
 
 

@@ -9,17 +9,17 @@
 // Globals ( any classes or elements that are commonly used, like .button or .icon )
 @import 'scss/entry-content';
 @import 'scss/footer';
-@import 'scss/front-page';
-// @import 'scss/single';
 
 // Modules
+@import '../modules/table/scss/table';
 // @import '../modules/cta/scss/cta';
 
 // Parts, utility, other one-offs
 @import 'scss/pagination';
 
 // Templates ( template-name - including media queries. You can override base module styles here too )
-// @import 'scss/template-careers';
+@import 'scss/front-page';
+// @import 'scss/single';
 
 
 // Custom ( don't use this unless you have to. This is for anything that doesnt fit anywhere else, which should be nothing )

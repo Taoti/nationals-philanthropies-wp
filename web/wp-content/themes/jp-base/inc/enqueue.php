@@ -44,7 +44,8 @@ function taoti_styles(){
   $css_version = '?v='.$css_filemtime;
   $css_href = get_template_directory_uri().'/styles/css/style-noncritical.min.css'.$css_version;
   ?>
-  <link rel="preload" href="<?php echo $css_href; ?>" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <?php /*<link rel="preload" href="<?php echo $css_href; ?>" as="style" onload="this.onload=null;this.rel='stylesheet'">*/ ?>
+	<link rel="stylesheet" href="<?php echo $css_href; ?>" media="print" onload="this.media='all'; this.onload=null;">
   <noscript><link rel="stylesheet" href="<?php echo $css_href; ?>"></noscript>
 	<?php
 

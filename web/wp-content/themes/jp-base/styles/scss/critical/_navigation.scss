@@ -1,53 +1,56 @@
-.menu-main-navigation-container { // nav
+.menu-main-navigation-container {
+	// nav
 
 }
 
 
 
-.menu-main-navigation { // ul
-    display: flex;
-    line-height: 1.2;
+.menu-main-navigation {
+	// ul
+	display: flex;
+	line-height: 1.2;
 
-    .menu-item { // li
-        position: relative;
+	.menu-item {
+		// li
+		position: relative;
 
-    }
+	}
 
-    a {
-        display: block;
-    }
+	a {
+		display: block;
+	}
 
 
-    // First-level
-    > .menu-item {
+	// First-level
+	> .menu-item {
 
-        > a {
-            color: $invert;
-            padding-bottom: .5em;
-            padding-top: .5em;
-        }
+		> a {
+			color: $invert;
+			padding-bottom: .5em;
+			padding-top: .5em;
+		}
 
-        + .menu-item {
-            margin-left: 1.5em;
-        }
-    }
+		+.menu-item {
+			margin-left: 1.5em;
+		}
+	}
 
 }
 
 .sub-menu {
-    display: none;
-    position: absolute;
-    text-align: right;
+	display: none;
+	position: absolute;
+	text-align: right;
 
-    li {
-        + li {
-            margin-top: 1em;
-        }
-    }
+	li {
+		+li {
+			margin-top: 1em;
+		}
+	}
 
-    a {
-        color: $invert;
-    }
+	a {
+		color: $invert;
+	}
 }
 
 
@@ -55,34 +58,34 @@
 // Second level
 .menu-main-navigation > .menu-item-has-children {
 
-    > .sub-menu {
-        right: -1em;
-        width: calc(200% + 2em);
+	> .sub-menu {
+		right: -1em;
+		width: calc(200% + 2em);
 
-        > li {
+		> li {
 
-            > a {
-                padding-left: 1em;
-                padding-right: 1em;
-                padding-top: 1em;
-            }
+			> a {
+				padding-left: 1em;
+				padding-right: 1em;
+				padding-top: 1em;
+			}
 
-            &:last-child > a {
-                padding-bottom: 1em;
-            }
+			&:last-child > a {
+				padding-bottom: 1em;
+			}
 
-        }
+		}
 
-    }
+	}
 
-    // &:hover,
-    &.is-hovered {
+	// &:hover,
+	&.is-hovered {
 
-        > .sub-menu {
-            display: block;
-        }
+		> .sub-menu {
+			display: block;
+		}
 
-    }
+	}
 
 }
 
@@ -91,34 +94,34 @@
 // Third level
 .menu-main-navigation > .menu-item-has-children > .sub-menu > .menu-item-has-children {
 
-    > .sub-menu {
-        margin-bottom: 1em;
-        right: 100%;
-        padding: 1em 1.5em;
-        list-style: none;
-        top: 0;
-        width: 150%;
+	> .sub-menu {
+		margin-bottom: 1em;
+		right: 100%;
+		padding: 1em 1.5em;
+		list-style: none;
+		top: 0;
+		width: 150%;
 
-        &::before {
-            content: '';
-            display: block;
-            height: 0;
-            width: 0;
-            position: absolute;
-            z-index: 2;
-            top: .5em;
-            right: -1em;
-        }
+		&::before {
+			content: '';
+			display: block;
+			height: 0;
+			width: 0;
+			position: absolute;
+			z-index: 2;
+			top: .5em;
+			right: -1em;
+		}
 
-    }
+	}
 
-    // &:hover,
-    &.is-hovered {
+	// &:hover,
+	&.is-hovered {
 
-        > .sub-menu {
-            display: block;
-        }
+		> .sub-menu {
+			display: block;
+		}
 
-    }
+	}
 
 }

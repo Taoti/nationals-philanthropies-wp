@@ -74,9 +74,11 @@ if ( ! defined( 'WP_DEBUG' ) ) {
 }
 
 /**
- * Add custom code for wp-config to our included file:
- */
-require_once(dirname(__FILE__) . '/wp-config-taoti.php');
+* Add custom code for wp-config to our included file:
+*/
+if( file_exists(dirname(__FILE__) . '/wp-config-taoti.php') ){
+	require_once(dirname(__FILE__) . '/wp-config-taoti.php');
+}
 
 /* That's all, stop editing! Happy Pressing. */
 
