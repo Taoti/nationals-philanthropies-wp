@@ -14,7 +14,7 @@ the_post();
 
 
 <div class="content">
-	<div class="l-container content-inner">
+	<div class="content-inner">
 
 		<h1 class="page-title"><?php the_title(); ?></h1>
 

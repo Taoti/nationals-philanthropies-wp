@@ -11,8 +11,8 @@ get_header();
 
 
 
-<div class="l-container content">
-	<div class="l-text-column content-inner">
+<div class="content">
+	<div class="content-inner">
 
 		<?php
 		// $labels = get_post_type_labels( array() );

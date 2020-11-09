@@ -1,0 +1,129 @@
+/*
+ * INSTRUCTIONS
+ * How to use the container layout mixin.
+ *
+ * Use this on most inner <div>s. The idea is to allow the
+ * outermost <div> to have styles like background color or
+ * image that needs to be full browser width. Then the inner
+ * div is the immediate child element which has styles like
+ * max-width and padding to contain the section's contents
+ * within that set width.
+ *
+ * The most important width to find first is the width of
+ * the design. Assume the width of the design is the width
+ * of the browser (e.g., `window.innerWidth`). That design
+ * width must be defined as `$max-width-design` in _config.scss.
+ *
+ * After that, you need to look through the design and find
+ * the widths for all the various sections, and figure out
+ * names for those sections/widths. Instead of applying those
+ * widths as literal `width` CSS properties, figure out the
+ * left/right padding that would essentially give that width,
+ * assuming the design's max-width.
+ *
+ * For example, if the design is 1368px wide and the header
+ * contents width is 1200px, then you'd need a total left/right
+ * padding of 1368 - 1200 = 168. That's 168px total, then divide
+ * by two, for 84px of left and right padding. So your header
+ * would have `max-width: 1368px`, `padding-left: 84px`, and
+ * `padding-right: 84px`. In that way, it creates a pseudo
+ * max-width of 1200px for the content, and the padding will
+ * maintain its size (until media breakpoints).
+ *
+ * To get all of this to work, define padding variables for
+ * each of your design's containers. Then decide what breakpoints
+ * they should share. Breakpoints unique for a given section should
+ * be defined within the mixin for that section. Make sure you use
+ * the same names between the padding variables and section mixins
+ * to keep the naming consistent.
+ *
+ */
+
+
+
+// Define padding values for the various containers defined in the design. For example, the header, hero, and page builder modules all might have their own widths. You will most likey need and (and are encouraged to) change the names of the variables to make sense for your website.
+$padding-l-header-footer: 6rem;
+$padding-l-wide: 14rem;
+$padding-l-content: 25rem;
+
+// Breakpoints for the left/right padding on the containers for when they all get the same padding value. Explained more at the media query below.
+$container-breakpoint-1: 960px;
+$container-breakpoint-2: 700px;
+
+
+
+/*
+ * PURPOSE : 	The mixin you'll need to define your containers.
+ * PARAMS : 	$section-name (string) The name of the section.
+ * RETURNS : 	Layout styles for the named section.
+ * NOTES : 		If you do not provide a $section-name, the
+ * 						container will use the design's max-width without
+ *						any padding.
+ */
+@mixin l-container( $section-name:'' ) {
+	// All containers get the same basic styles. This will at least contain the content to the max-width.
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: $max-width-design;
+
+	// Beyond the width, each section should have its own mixin to at least define its padding. These mixins are defined below.
+	// NOTE - These mixins can contain their own breakpoints, but those breakpoints should occur before $container-breakpoint-1.
+	@if $section-name == 'header-footer' {
+		@include l-header-footer();
+
+	} @else if $section-name == 'wide' {
+		@include l-wide();
+
+	// Use 'content' for narrower content.
+	} @else if $section-name == 'content' {
+		@include l-content();
+
+	}
+
+	// At the first container breakpoint, all the containers get the same left/right padding. This is the point where the screen isn't wide enough to fit the intended designs. Everything needs a uniform padding on the left/right side of the screen.
+	@media screen and ( max-width: $container-breakpoint-1 ) {
+		padding-left: $container-padding-tablet;
+		padding-right: $container-padding-tablet;
+	}
+
+	// Add as many more as necessary global breakpoints for the padding.
+	@media screen and ( max-width: $container-breakpoint-2 ) {
+		padding-left: $container-padding-mobile;
+		padding-right: $container-padding-mobile;
+	}
+
+}
+
+
+
+/*
+ * Define each section's padding-left and padding-right.
+ * You can define more things but these mixins should be
+ * kept to layout-related styles.
+ *
+ * Each of these "sub mixins" can contain their own
+ * breakpoints. For example, maybe the padding needs
+ * to be changed before $container-breakpoint-1 (the
+ * point at which ALL the containers get the same
+ * padding).
+ */
+@mixin l-header-footer() {
+	padding-left: $padding-l-header-footer;
+	padding-right: $padding-l-header-footer;
+
+	// @media screen and ( max-width: $breakpoint ) {
+  //   padding-left: $padding;
+	// 	padding-right: $padding;
+	// }
+}
+
+@mixin l-wide() {
+	padding-left: $padding-l-wide;
+	padding-right: $padding-l-wide;
+}
+
+@mixin l-content() {
+	padding-left: $padding-l-content;
+	padding-right: $padding-l-content;
+}
