@@ -37,6 +37,14 @@
  * the same names between the padding variables and section mixins
  * to keep the naming consistent.
  *
+ * This file provides a starting point with the following
+ * containers: "header-footer", "wide", and "content". You can
+ * use those if they make sense for your project, but most
+ * likely you'll need to define your own.
+ *
+ * You should edit these variables/mixins and remove/add what
+ * you need for your specific project.
+ *
  */
 
 
@@ -107,6 +115,9 @@ $container-breakpoint-2: 700px;
  * to be changed before $container-breakpoint-1 (the
  * point at which ALL the containers get the same
  * padding).
+ *
+ * Edit/remove these and add new ones based on your design's
+ * needs.
  */
 @mixin l-header-footer() {
 	padding-left: $padding-l-header-footer;
