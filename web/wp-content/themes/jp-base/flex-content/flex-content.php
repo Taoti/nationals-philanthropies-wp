@@ -6,13 +6,13 @@
 
 
 ### Run this function to output all of the page builder module content.
-function the_page_builder(){
+function the_page_builder( $field_name='modules' ){
 
     // If there are modules added to the page builder.
-    if( have_rows('modules') ):
+    if( have_rows($field_name) ):
 
      	// Loop through each module.
-        while( have_rows('modules') ): the_row();
+        while( have_rows($field_name) ): the_row();
 
     		// Each layout in the flex content field should correspond to a PHP file in the .../flex-content/layouts/ directory.
     		$layout_name = get_row_layout();

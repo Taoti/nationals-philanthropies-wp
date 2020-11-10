@@ -14,11 +14,6 @@ get_header();
 <div class="content">
 	<div class="content-inner">
 
-		<?php
-		// $labels = get_post_type_labels( array() );
-		// echo "<pre>"; var_dump($labels); echo "</pre>";
-		?>
-
 	</div><!-- END .content-inner -->
 </div><!-- END .content -->
 
