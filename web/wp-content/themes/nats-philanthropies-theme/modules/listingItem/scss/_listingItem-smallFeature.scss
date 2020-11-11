@@ -1,0 +1,9 @@
+.listingItem-smallFeature {
+
+	.listingItem-inner {
+		@include l-container( 'content-2' );
+    justify-content: space-between;
+    align-items: center;
+	}
+
+}

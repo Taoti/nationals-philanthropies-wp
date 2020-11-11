@@ -147,3 +147,142 @@ body.paged {
     display: none;
   }
 }
+
+
+
+@mixin l-archiveTableRow(){
+	display: grid;
+	grid-template-columns: 19fr 58fr 23fr;
+	padding: 2.7rem 2.5rem;
+
+	@media screen and ( max-width: 600px ) {
+		display: flex;
+		flex-direction: column;
+		padding: 0 2.5rem;
+	}
+}
+
+@mixin l-archiveTableCol(){
+	padding: 0 2.5rem;
+}
+
+.archiveTable {
+	background-color: $invert;
+	font-family: $sans-2;
+	font-size: 2.8rem;
+
+	@media screen and ( max-width: 1160px ) {
+    font-size: 2.2rem;
+	}
+}
+
+.archiveTable-inner {
+	@include l-container('content-2');
+	padding-bottom: 10rem;
+	padding-top: 7rem;
+}
+
+.archiveTable-fauxTableHeader {
+	@include l-archiveTableRow();
+	background-color: $color-1;
+	color: $invert;
+
+	@media screen and ( max-width: 600px ) {
+    display: none;
+	}
+}
+
+// The row is an <a>
+.archiveTable-fauxTableRow {
+	@include l-archiveTableRow();
+	color: $color-1;
+
+	@media screen and ( max-width: 600px ) {
+		order: 1;
+	}
+
+	+ .archiveTable-fauxTableRow {
+		@media screen and ( max-width: 600px ) {
+			margin-top: 5rem;
+		}
+	}
+
+	&:hover {
+		background-color: $hover;
+		color: $invert;
+		text-decoration: none;
+
+		@media screen and ( max-width: 600px ) {
+			background-color: transparent;
+			color: $hover;
+			text-decoration: underline;
+		}
+
+	}
+
+}
+
+.archiveTable-fauxTableCol {
+	@include l-archiveTableCol();
+}
+
+.archiveTable-fauxTableCol-date {
+	@media screen and ( max-width: 600px ) {
+		order: 1;
+		opacity: .7;
+	}
+}
+
+.archiveTable-fauxTableCol-title {
+	@media screen and ( max-width: 600px ) {
+		order: 3;
+		font-size: 2.8rem;
+	}
+}
+
+.archiveTable-fauxTableCol-topic {
+	@media screen and ( max-width: 600px ) {
+		order: 2;
+		opacity: .7;
+	}
+}
+
+.archiveTable-sorting {
+	color: inherit;
+	padding-right: 2.2rem;
+	position: relative;
+	white-space: nowrap;
+
+	&:hover {
+		color: lighten($color-22, 12%);
+		text-decoration: none;
+	}
+
+	&::before {
+		content: '';
+		display: block;
+		position: absolute;
+		right: 0;
+		top: calc(50% - .8rem);
+		display: block;
+		height: 0;
+		width: 0;
+		border-left: .8rem solid transparent;
+		border-right: .8rem solid transparent;
+		border-top: 1.6rem solid $color-3;
+	}
+
+	&.archiveTable-sorting-DESC::before {
+		border-bottom: 1.6rem solid $color-3;
+		border-top: none;
+	}
+}
+
+// .archiveTable-sortingIcon {
+// 	display: inline-block;
+// 	height: 0;
+// 	width: 0;
+// 	border-left: .8rem solid transparent;
+// 	border-right: .8rem solid transparent;
+// 	border-top: 1.6rem solid red;
+// }
