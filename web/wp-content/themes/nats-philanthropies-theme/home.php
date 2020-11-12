@@ -47,8 +47,8 @@ if($featured_item) {
     'subtitle' => 'Featured News',
     'excerpt' => get_the_excerpt( $featured_item ),
     'permalink' => get_permalink( $featured_item ),
-    'primary_button_url' => get_permalink($featured_item),
-    'primary_button_label' => 'Read More',
+    // 'primary_button_url' => get_permalink($featured_item),
+    // 'primary_button_label' => 'Read More',
     'image_array' => Get::featured_image_array( $featured_item->ID ),
     'classes' => [
       // 'listingItem-featured',
