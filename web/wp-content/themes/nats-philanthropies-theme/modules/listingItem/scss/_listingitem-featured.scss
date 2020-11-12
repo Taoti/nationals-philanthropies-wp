@@ -10,19 +10,6 @@
 		@include page-tear-leather();
 	}
 
-  // &:after {
-  //     content: '';
-  //     background-image: url(../../images/border-page-tear-1.png);
-  //     height: 49px;
-  //     background-repeat: repeat-x;
-  //     position: absolute;
-  //     bottom: -41px;
-  //     left: 0;
-  //     width: 100%;
-  //     z-index: 1000;
-  //     transform: rotate(180deg);
-  // }
-
   .listingItem-inner {
 		@include l-container( 'content-1' );
     justify-content: space-between;
@@ -42,13 +29,6 @@
     @media screen and ( max-width: 700px ) {
       width: 65vw;
       height: 65vw;
-    }
-
-    a img {
-      object-fit: cover;
-      width: 100%;
-      height: 100%;
-      position: absolute;
     }
   }
 }
