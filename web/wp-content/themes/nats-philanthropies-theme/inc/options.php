@@ -4,7 +4,7 @@
 if( function_exists('acf_add_options_page') ) {
 
 	// Add a temporary options page to have somewhere to toggle the temporary landing page.
-	acf_add_options_page('Temporary Landing Page');
+	// acf_add_options_page('Temporary Landing Page');
 
 	// Options for `events` archive page
 	acf_add_options_page(

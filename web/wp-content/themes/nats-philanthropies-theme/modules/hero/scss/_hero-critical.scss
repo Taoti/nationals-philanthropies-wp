@@ -93,7 +93,10 @@
 .hero-accent {
   display: block;
   position: absolute;
-  opacity: 0;
+	opacity: 0;
+	font-size: 1.6rem;
+	font-family: $sans;
+	color: rgba(0,0,0,.5);
 }
 
   .hero-accent-1 {

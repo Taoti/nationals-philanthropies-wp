@@ -1,5 +1,7 @@
 .listingItem {
-
+	padding-top: 9.5rem;
+	padding-bottom: 8rem;
+	position: relative;
 }
 
 .listingItem-inner {
@@ -37,6 +39,7 @@
 
 .listingItem-imageLink {
 	display: block;
+	height: 100%;
 }
 
 .listingItem-image {

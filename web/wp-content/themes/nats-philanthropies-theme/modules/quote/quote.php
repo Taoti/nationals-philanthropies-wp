@@ -45,6 +45,7 @@ class Quote {
       $image_html = Get::image_html( $image_args );
 		}
 
+		$logo_html = '';
     if( is_array($logo) ){
       $logo_args = [
         'image_array' => $logo,

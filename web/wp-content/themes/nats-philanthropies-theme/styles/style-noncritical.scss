@@ -17,12 +17,6 @@
 @import 'scss/gravity-forms';
 
 
-// !!! TEMP !!!
-// This is the CSS for stuff on the temporary landing page. When moving on to the main site, move this CSS to wherever relevant or remove it.
-@import 'scss/template-temporary-front-page';
-@import 'scss/footer-temp';
-
-
 // Modules
 @import '../modules/hero/scss/hero-noncritical';
 @import '../modules/accordion/scss/accordion';
@@ -62,6 +56,7 @@
 @import 'scss/archive';
 @import 'scss/template-youth-baseball-academy';
 @import 'scss/single';
+@import 'scss/home-noncritical';
 
 
 // Custom ( don't use this unless you have to. This is for anything that doesnt fit anywhere else, which should be nothing )
