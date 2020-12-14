@@ -42,6 +42,7 @@
 
 <header id="header">
 	<div id="header-inner">
+
 		<a href="<?php echo home_url(); ?>" class="header-logo"><?php echo file_get_contents( get_template_directory().'/images/logo.svg' ); ?></a>
 
 		<?php

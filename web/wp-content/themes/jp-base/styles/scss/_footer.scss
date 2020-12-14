@@ -1,3 +1,7 @@
 #footer {
 
 }
+
+#footer-inner{
+	@include l-container('header-footer');
+}

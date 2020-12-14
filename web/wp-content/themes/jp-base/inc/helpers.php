@@ -4,7 +4,34 @@
 // These functions help other areas in the code process or retrieve something. Most likely, helper functions will have a return value.
 
 
-### Give this a string and a integer length and it will return a string that is cut to that length of characters. If the string was indeed shortened it will add ... (ellipsis) to the end.
+
+/*
+* PURPOSE : Set which post types are using the page builder. This helps generate excerpts when the_content() isn't used, or is used in conjunction with the_page_builder(), or however you can find it useful in your theme.
+*  PARAMS : n/a
+* RETURNS : array - An array of post type slugs (strings).
+*   NOTES : This is important for the developer to maintain.
+*/
+### TODO: Set up this array when building your project. Remove this todo when done.
+function taoti_get_post_types_with_page_builder(){
+
+	$post_types_with_page_builder = [
+		'page',
+		// 'post',
+	];
+
+	return $post_types_with_page_builder;
+}
+
+
+
+/*
+* PURPOSE : Shortens a string by character count, add optional ellipsis.
+*  PARAMS : $string (string) - the string you want to shorten.
+						$length (int) - the number of characters to shorten the string to.
+						$ellipsis (boolean) - True to add the ellipsis, false to leave it off.
+* RETURNS : (string) - the shortened string, or original string if it wasn't shortened.
+*   NOTES : This will run wp_strip_all_tags() on the given string.
+*/
 function jp_substr( $string, $length=50, $ellipsis = true ){
     $excerpt = wp_strip_all_tags($string, true);
 

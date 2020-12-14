@@ -1,6 +1,6 @@
 
 .table-inner {
-
+	@include l-container('content');
 }
 
 .contentTable {

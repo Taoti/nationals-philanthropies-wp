@@ -1,17 +1,5 @@
 <?php
 
-### Set which post types are using the page builder. This helps generate excerpts when the_content() isn't used, or is used in conjunction with the_page_builder().
-function taoti_get_post_types_with_page_builder(){
-
-    $post_types_with_page_builder = [
-		'post',
-		'page',
-	];
-
-    return $post_types_with_page_builder;
-}
-
-
 ### Whenever a post is saved, and if that post type uses the page builder, save the HTML output of the page builder in a post meta option. This acts as a sort of cache for the page builder contents, and can be used to generate excerpts.
 function taoti_store_page_builder_output( $post_id, $post, $update ){
 

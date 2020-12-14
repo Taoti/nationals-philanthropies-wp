@@ -1,3 +1,7 @@
 .hero {
 	display: block;
 }
+
+.hero-inner {
+	@include l-container('wide');
+}
