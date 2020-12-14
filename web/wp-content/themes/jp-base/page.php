@@ -1,5 +1,5 @@
 <?php
-// use Modules\CTA;
+use Modules\Hero;
 
 
 ### Critical CSS for the default page template
@@ -13,8 +13,29 @@ the_post();
 
 
 
+<?php
+$hero_args = [
+	// add as needed
+];
+$hero = new Hero($hero_args);
+$hero->render();
+?>
+
+
+
+<?php
+/*
+ * NOTE
+ * Use the page builder (an ACF flex content field)
+ * 						- OR -
+ * the standard the_content() field.
+ * (Delete this comment)
+ */
+?>
+<?php the_page_builder(); ?>
+
 <div class="content">
-	<div class="l-container content-inner">
+	<div class="content-inner">
 
 		<h1 class="page-title"><?php the_title(); ?></h1>
 

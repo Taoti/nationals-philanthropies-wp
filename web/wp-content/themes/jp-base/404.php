@@ -12,7 +12,7 @@ get_header();
 
 
 <div class="content">
-	<div class="l-container content-inner">
+	<div class="content-inner">
 
 		<?php
 		// NOTE

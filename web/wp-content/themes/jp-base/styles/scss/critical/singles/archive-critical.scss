@@ -1,0 +1,10 @@
+// Includes
+// (these should not contain anything that actually outputs to a CSS file, so just stuff like variables and mixins)
+@import '../../inc/config';
+@import '../../inc/mixins';
+
+
+
+.archive-inner {
+	@include l-container('content');
+}

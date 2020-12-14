@@ -11,13 +11,8 @@ get_header();
 
 
 
-<div class="l-container content">
-	<div class="l-text-column content-inner">
-
-		<?php
-		// $labels = get_post_type_labels( array() );
-		// echo "<pre>"; var_dump($labels); echo "</pre>";
-		?>
+<div class="content">
+	<div class="content-inner">
 
 	</div><!-- END .content-inner -->
 </div><!-- END .content -->

@@ -3,7 +3,7 @@
 
 
 ### Critical CSS for the main archive template
-// taoti_enqueue_critical_css( get_template_directory().'/styles/css/critical/index-critical.min.css' );
+taoti_enqueue_critical_css( get_template_directory().'/styles/css/critical/archive-critical.min.css' );
 
 
 get_header();
@@ -12,7 +12,7 @@ get_header();
 
 
 <div class="archiveContent">
-	<div class="l-container archiveContent-inner">
+	<div class="archiveContent-inner">
 
 	<?php if( have_posts() ): ?>
 
