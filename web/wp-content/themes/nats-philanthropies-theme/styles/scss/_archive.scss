@@ -150,6 +150,7 @@ body.paged {
 
 
 
+// Mixins used just for this page
 @mixin l-archiveTableRow(){
 	display: grid;
 	grid-template-columns: 19fr 58fr 23fr;
@@ -165,6 +166,8 @@ body.paged {
 @mixin l-archiveTableCol(){
 	padding: 0 2.5rem;
 }
+
+
 
 .archiveTable {
 	background-color: $invert;
@@ -199,6 +202,10 @@ body.paged {
 
 	@media screen and ( max-width: 600px ) {
 		order: 1;
+	}
+
+	&:nth-child(odd) {
+		background-color: $color-18;
 	}
 
 	+ .archiveTable-fauxTableRow {
