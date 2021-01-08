@@ -47,7 +47,7 @@ if( isset($menuLocations[$theme_location]) ):
 		</li>
 
 		<li class="menu-item menu-item-mobileMenu menu-item-bigButton">
-			<a href="https://give.nats4good.org/give/281307/#!/donation/checkout" class="menu-link menu-link-mobileMenu menu-link-bigButton">
+			<a href="<?php echo home_url(); ?>/donate-now" class="menu-link menu-link-mobileMenu menu-link-bigButton">
 				Donate
 				<i class="menu-icon"><?php echo file_get_contents(get_stylesheet_directory() . '/images/icon-arrow.svg'); ?></i>
 			</a>
