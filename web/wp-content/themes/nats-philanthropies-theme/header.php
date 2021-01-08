@@ -68,15 +68,7 @@ if( $temporary_page_enabled ){
       </a>
       <?php endif ?>
 
-      <?php
-      if( $temporary_page_enabled ){
-        // $theme_location = 'temporary-navigation';
-        get_template_part( 'parts/navigation', 'temp' );
-      } else {
-        // $theme_location = 'main-navigation';
-        get_template_part( 'parts/navigation' );
-      }
-			?>
+      <?php get_template_part( 'parts/navigation' ); ?>
 
 			<?php if( !$temporary_page_enabled ): ?>
 			<div class="header-searchContainer">
