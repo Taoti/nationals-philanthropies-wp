@@ -70,7 +70,6 @@ if( $temporary_page_enabled ){
 
       <?php get_template_part( 'parts/navigation' ); ?>
 
-			<?php if( !$temporary_page_enabled ): ?>
 			<div class="header-searchContainer">
 				<div class="header-searchContainerInner">
 
@@ -88,7 +87,6 @@ if( $temporary_page_enabled ){
 
 				</div>
 			</div>
-      <?php endif ?>
 
     </div>
   </header>
