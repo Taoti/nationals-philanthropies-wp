@@ -95,3 +95,24 @@ function taoti_get_primary_term( $post_id, $taxonomy_slug='category' ){
     return $primary_term;
 
 }
+
+
+
+
+
+/*
+* PURPOSE : If there are zero results (or other parameters) in the archive query, get_post_type() isn't reliable for knowing what the archive's post type is. This function gets the post type from the global $wp_query object instead.
+*  PARAMS : n/a
+* RETURNS : boolean / string - the slug for the post type fromm $wp_query, or false if that is not found.
+*   NOTES :
+*/
+function taoti_get_archive_post_type(){
+	$post_type = false;
+
+	global $wp_query;
+	if( isset($wp_query->query['post_type']) ){
+		$post_type = $wp_query->query['post_type'];
+	}
+
+	return $post_type;
+}

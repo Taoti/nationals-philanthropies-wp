@@ -22,13 +22,20 @@ class Hero {
 			'description' => false,
 			'button_url' => false,
 			'button_label' => false,
-			'classes' => [
-				'l-module',
-				'hero',
-			]
+			'classes' => [],
 		];
 
 		extract(array_merge($this->defaults, $args));
+
+		$required_classes = [
+			'l-module',
+			'hero',
+		];
+		foreach( $required_classes as $required_class ){
+			if( !in_array($required_class, $classes) ){
+				$classes[] = $required_class;
+			}
+		}
 
 		$this->context = Timber::get_context();
 		$this->context['heading'] = $heading;
@@ -41,6 +48,10 @@ class Hero {
 
 	public function render(){
 		Timber::render('hero.twig', $this->context);
+	}
+
+	public function compile(){
+		return Timber::compile('hero.twig', $this->context);
 	}
 
 }
