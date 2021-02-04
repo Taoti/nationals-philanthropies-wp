@@ -42,6 +42,10 @@
   margin-top: 10.2rem;//10.7rem;
   position: relative;
 
+  @media screen and ( max-width: 1500px ) {
+      margin-top: 4.2rem;
+  }
+
   &::before,
   &::after {
     background-color: $border-line;
