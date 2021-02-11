@@ -433,6 +433,154 @@
                     "min": "",
                     "max": ""
                 },
+                "layout_602476ac7ec8c": {
+                    "key": "layout_602476ac7ec8c",
+                    "name": "logo_grid",
+                    "label": "Logo Grid(s)",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_602476d27ec8d",
+                            "label": "Primary Heading",
+                            "name": "primary_heading",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_602477877ec8e",
+                            "label": "Primary Description",
+                            "name": "primary_description",
+                            "type": "textarea",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "maxlength": "",
+                            "rows": 3,
+                            "new_lines": "br"
+                        },
+                        {
+                            "key": "field_602477b07ec8f",
+                            "label": "Grids",
+                            "name": "grids",
+                            "type": "repeater",
+                            "instructions": "You can add multiple grids, each can have it's own heading, images\/logos, CTA button.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "collapsed": "field_602479e77ec91",
+                            "min": 0,
+                            "max": 0,
+                            "layout": "block",
+                            "button_label": "Add A Grid",
+                            "sub_fields": [
+                                {
+                                    "key": "field_602479e77ec91",
+                                    "label": "Grid Heading",
+                                    "name": "grid_heading",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": ""
+                                },
+                                {
+                                    "key": "field_60247a827ec93",
+                                    "label": "Grid CTA Link",
+                                    "name": "grid_cta_link",
+                                    "type": "link",
+                                    "instructions": "The link will appear as a CTA button for this grid.",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "array"
+                                },
+                                {
+                                    "key": "field_6024785e7ec90",
+                                    "label": "Grid Images",
+                                    "name": "grid_images",
+                                    "type": "repeater",
+                                    "instructions": "Each image must be PNG or JPG, at least 242 x 160 in size.",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "collapsed": "",
+                                    "min": 0,
+                                    "max": 0,
+                                    "layout": "row",
+                                    "button_label": "Add Image to Grid",
+                                    "sub_fields": [
+                                        {
+                                            "key": "field_60247a3a7ec92",
+                                            "label": "Image or Logo",
+                                            "name": "image",
+                                            "type": "image",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "return_format": "array",
+                                            "preview_size": "thumbnail",
+                                            "library": "all",
+                                            "min_width": 242,
+                                            "min_height": 160,
+                                            "min_size": "",
+                                            "max_width": "",
+                                            "max_height": "",
+                                            "max_size": "",
+                                            "mime_types": "png,jpg,jpeg"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
                 "layout_5e7d15cd29df1": {
                     "key": "layout_5e7d15cd29df1",
                     "name": "people_listing",
@@ -833,5 +981,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1597167982
+    "modified": 1613003485
 }

@@ -18,6 +18,8 @@ function jp_image_size_setup(){
 
 	add_image_size('small-square', 250, 250, true);
 
+	add_image_size('logo-grid', 242, 160, true);
+
 }
 add_action( 'after_setup_theme', 'jp_image_size_setup' );
 
@@ -33,6 +35,7 @@ function jp_custom_size_names( $sizes ) {
 		'listing-item' => 'Listing Image',
 		'quote-item' => 'Quote Image',
 		'small-square' => 'Small Square',
+		'logo-grid' => 'Logo Grid',
 	) );
 
 }
