@@ -20,6 +20,7 @@ class LogoGrid {
 		$this->defaults = [
 			'primary_heading' => false,
 			'primary_description' => false,
+			'cta_link' => false,
 			'grids' => false,
 			'classes' => []
 		];
@@ -42,7 +43,7 @@ class LogoGrid {
 
 				$add_to_final = [
 					'heading' => $grid['grid_heading'],
-					'cta_link' => $grid['grid_cta_link'],
+					// 'cta_link' => $grid['grid_cta_link'],
 					'cards' => [],
 				];
 
@@ -64,6 +65,7 @@ class LogoGrid {
 		$this->context = Timber::get_context();
 		$this->context['primary_heading'] = $primary_heading;
 		$this->context['primary_description'] = $primary_description;
+		$this->context['cta_link'] = $cta_link;
 		$this->context['final_grids'] = $final_grids;
 		$this->context['classes'] = implode(' ', $classes);
 

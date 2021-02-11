@@ -2,13 +2,17 @@
 <div class="{{ classes }}">
 	<div class="l-inner logoGrid-inner">
 
-		{% if primary_heading %}
-		<h2 class="logoGrid-primaryHeading">{{ primary_heading }}</h2>
-		{% endif %}
+		<div class="logoGrid-header">
 
-		{% if primary_description %}
-		<div class="logoGrid-primaryDescription">{{ primary_description }}</div>
-		{% endif %}
+			{% if primary_heading %}
+			<h2 class="logoGrid-primaryHeading">{{ primary_heading }}</h2>
+			{% endif %}
+
+			{% if primary_description %}
+			<div class="logoGrid-primaryDescription">{{ primary_description }}</div>
+			{% endif %}
+
+		</div>
 
 		{% for grid in final_grids %}
 		<div class="logoGrid-section">
@@ -25,12 +29,12 @@
 			</div>
 			{% endif %}
 
-			{% if grid.cta_link %}
-			<a href="{{ grid.cta_link.url }}" class="logoGrid-button" target="{{ grid.cta_link.target }}">{{ grid.cta_link.title }}</a>
-			{% endif %}
-
 		</div>
 		{% endfor %}
+
+		{% if cta_link %}
+		<a href="{{ cta_link.url }}" class="logoGrid-button" target="{{ cta_link.target }}">{{ cta_link.title }}</a>
+		{% endif %}
 
 	</div>
 </div>

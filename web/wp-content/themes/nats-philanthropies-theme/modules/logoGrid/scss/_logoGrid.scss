@@ -1,0 +1,74 @@
+.logoGrid-inner {
+	@include l-container('content-2');
+}
+
+
+
+.logoGrid-header {
+	border-bottom: 2px solid $color-6;
+	display: flex;
+	flex-wrap: wrap;
+	margin-bottom: 4.2rem;
+	padding-bottom: 5.7rem;
+}
+
+.logoGrid-primaryHeading {
+	@include heading-section();
+	color: $color-11;
+	flex-basis: 50%;
+	flex-shrink: 1.5;
+	padding-right: 4rem;
+	vertical-align: top;
+
+	@media screen and ( max-width: 1100px ) {
+		flex-basis: 100%;
+	}
+}
+
+.logoGrid-primaryDescription {
+	flex-basis: 50%;
+	line-height: 1.8;
+
+	@media screen and ( max-width: 1100px ) {
+		flex-basis: 100%;
+	}
+}
+
+
+
+.logoGrid-section {
+	border-bottom: 2px solid $color-6;
+	margin-bottom: 4.2rem;
+	padding-bottom: 5.7rem;
+}
+
+.logoGrid-heading {
+	font-size: 2.4rem;
+	margin-bottom: 3rem;
+}
+
+.logoGrid-grid {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	grid-gap: 4rem;
+
+	@media screen and ( max-width: 1280px ) {
+    grid-template-columns: repeat(4, 1fr);
+	}
+
+	@media screen and ( max-width: 960px ) {
+    grid-template-columns: repeat(3, 1fr);
+	}
+
+	@media screen and ( max-width: 580px ) {
+    grid-template-columns: repeat(2, 1fr);
+		grid-gap: 2rem;
+	}
+
+}
+
+.logoGrid-button {
+	@include button();
+	margin-left: auto;
+	margin-top: 4.2rem;
+}

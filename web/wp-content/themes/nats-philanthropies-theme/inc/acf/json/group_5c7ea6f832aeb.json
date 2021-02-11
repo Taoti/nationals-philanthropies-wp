@@ -478,11 +478,26 @@
                             "new_lines": "br"
                         },
                         {
+                            "key": "field_602558e733d60",
+                            "label": "CTA Link",
+                            "name": "cta_link",
+                            "type": "link",
+                            "instructions": "Displays as a button below the grid(s).",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array"
+                        },
+                        {
                             "key": "field_602477b07ec8f",
-                            "label": "Grids",
+                            "label": "Grid(s)",
                             "name": "grids",
                             "type": "repeater",
-                            "instructions": "You can add multiple grids, each can have it's own heading, images\/logos, CTA button.",
+                            "instructions": "You can add multiple grids, each can have it's own heading and set of images\/logos.",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -514,21 +529,6 @@
                                     "prepend": "",
                                     "append": "",
                                     "maxlength": ""
-                                },
-                                {
-                                    "key": "field_60247a827ec93",
-                                    "label": "Grid CTA Link",
-                                    "name": "grid_cta_link",
-                                    "type": "link",
-                                    "instructions": "The link will appear as a CTA button for this grid.",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "return_format": "array"
                                 },
                                 {
                                     "key": "field_6024785e7ec90",
@@ -981,5 +981,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1613003485
+    "modified": 1613060394
 }

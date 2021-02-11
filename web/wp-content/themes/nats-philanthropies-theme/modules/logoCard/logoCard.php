@@ -27,7 +27,6 @@ class LogoCard {
 		extract(array_merge($this->defaults, $args));
 
 		$required_classes = [
-			'l-module', // Keep l-module only for page builder modules (flex content layouts)
 			'logoCard',
 		];
 		foreach( $required_classes as $required_class ){
