@@ -2,6 +2,8 @@
 namespace Modules;
 use Timber;
 
+// A ContentGroup is more like the header for a module/section. It has a heading with the split lines and filled/outline font syle, a description, and cta button. "ModuleHeader" or "SectionHeader" would have been a better name.
+
 ### Example usage
 	// $args = [
 	// 	'primary_heading' => get_sub_field('primary_heading_line_1'),
