@@ -1,0 +1,37 @@
+{% block logoGrid %}
+<div class="{{ classes }}">
+	<div class="l-inner logoGrid-inner">
+
+		{% if primary_heading %}
+		<h2 class="logoGrid-primaryHeading">{{ primary_heading }}</h2>
+		{% endif %}
+
+		{% if primary_description %}
+		<div class="logoGrid-primaryDescription">{{ primary_description }}</div>
+		{% endif %}
+
+		{% for grid in final_grids %}
+		<div class="logoGrid-section">
+
+			{% if grid.heading %}
+			<h3 class="logoGrid-heading">{{ grid.heading }}</h3>
+			{% endif %}
+
+			{% if grid.cards %}
+			<div class="logoGrid-grid">
+				{% for card in grid.cards %}
+					{{ card }}
+				{% endfor %}
+			</div>
+			{% endif %}
+
+			{% if grid.cta_link %}
+			<a href="{{ grid.cta_link.url }}" class="logoGrid-button" target="{{ grid.cta_link.target }}">{{ grid.cta_link.title }}</a>
+			{% endif %}
+
+		</div>
+		{% endfor %}
+
+	</div>
+</div>
+{% endblock %}
