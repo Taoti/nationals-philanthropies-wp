@@ -61,3 +61,12 @@ function taoti_extend_excerpt( $excerpt, $post ) {
 	return $excerpt;
 }
 add_filter( 'get_the_excerpt', 'taoti_extend_excerpt', 10, 2 );
+
+
+
+// Remove Filter WP Trim Excerpt
+add_action( 'init', 'wpse17478_init' );
+function wpse17478_init()
+{
+    remove_filter( 'get_the_excerpt', 'wp_trim_excerpt' );
+}

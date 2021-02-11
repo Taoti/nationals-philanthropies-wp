@@ -9,9 +9,7 @@ use Modules\Hero;
 get_header();
 
 the_post();
-?>
 
-<?php
 $args = [
 	'description' => get_the_excerpt(),
 ];

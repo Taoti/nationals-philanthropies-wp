@@ -41,6 +41,10 @@
   position: relative;
   color: $invert;
 
+  @media screen and ( max-width: 1500px ) {
+      padding-bottom: 5rem;
+  }
+
 	@media screen and ( max-width: $home-hero-breakpoint ) {
 		text-align: center;
 	}
@@ -63,9 +67,9 @@
   text-transform: uppercase;
   transition: opacity 1500ms;
 
-  @media screen and ( max-width: 1230px ) {
-    font-size: 15vw;//11vw;
-    margin-top: 12vw;
+  @media screen and ( max-width: 1500px ) {
+    font-size: 10rem;
+    margin-top: 5rem;
   }
 
   @media screen and ( max-width: 480px ) {
@@ -161,6 +165,10 @@
     text-align: center;
     margin: 1.4rem auto 0;
     max-width: 320px;
+  }
+
+  &:blank {
+    display: none;
   }
 }
 
