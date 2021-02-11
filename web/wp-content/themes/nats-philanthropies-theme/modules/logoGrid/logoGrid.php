@@ -30,6 +30,7 @@ class LogoGrid {
 		$required_classes = [
 			'l-module', // Keep l-module only for page builder modules (flex content layouts)
 			'logoGrid',
+			'l-has-no-background',
 		];
 		foreach( $required_classes as $required_class ){
 			if( !in_array($required_class, $classes) ){
