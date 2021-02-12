@@ -18,12 +18,21 @@
 
 
 
-@mixin button(){
+@mixin button($button-color: $link){
+
+	@if $button-color == 'red' {
+		$button-color: $link;
+	} @else if $button-color == 'green' {
+		$button-color: $color-13;
+	} @else if $button-color == 'blue' {
+		$button-color: $color-2;
+	}
+
   align-items: center;
   background-color: transparent;
 	border-radius: 50%;
-	border: 2px solid $link;
-	color: $link;
+	border: 2px solid $button-color;
+	color: $button-color;
 	display: flex;
 	font-family: $sans-2;
 	font-size: 1.4rem;
@@ -40,11 +49,31 @@
 
 	&:hover {
     color: $invert;
-    background-color: $link;
+    background-color: $button-color;
 		text-decoration: none;
 		transform: scale3d(1.25, 1.25, 1.25);
 	}
 }
+
+// @mixin button-green(){
+// 	@include button();
+// 	border-color: $color-13;
+// 	color: $color-13;
+
+// 	&:hover {
+// 		background-color: $color-13;
+// 	}
+// }
+
+// @mixin button-blue(){
+// 	@include button();
+// 	border-color: $color-2;
+// 	color: $color-2;
+
+// 	&:hover {
+// 		background-color: $color-2;
+// 	}
+// }
 
 
 

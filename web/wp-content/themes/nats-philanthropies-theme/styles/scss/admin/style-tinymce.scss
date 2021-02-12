@@ -6,9 +6,19 @@
 
 // This file is mostly a combo of _base.scss and _entry-content.scss
 
+.content-button-red {
+	@include button('red');
+}
+
+.content-button-green {
+	@include button('green');
+}
+
+.content-button-blue {
+	@include button('blue');
+}
 
 .content-button {
-	@include button();
 	display: inline-flex;
 	margin-right: 2rem;
 }

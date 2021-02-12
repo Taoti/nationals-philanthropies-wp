@@ -2,8 +2,19 @@
 
 .entry-content {
 
+	.content-button-red {
+		@include button('red');
+	}
+
+	.content-button-green {
+		@include button('green');
+	}
+
+	.content-button-blue {
+		@include button('blue');
+	}
+
 	.content-button {
-		@include button();
 		display: inline-flex;
 		margin-right: 2rem;
 	}

@@ -22,13 +22,37 @@ add_filter('mce_buttons_2', 'taoti_mce_add_formats_dropdown');
  */
 function taoti_mce_add_formats_options( $settings ){
 
-    $style_formats = array(
-  		array(
-      		'title' => 'Button',
-      		'selector' => 'a',
-      		'classes' => 'content-button'
-      	)
-    );
+    // $style_formats = [
+  	// 	[
+		// 		'title' => 'Button',
+		// 		'selector' => 'a',
+		// 		'classes' => 'content-button'
+		// 	]
+		// ];
+
+		$style_formats = [
+  		[
+				'title' => 'Button',
+				'items' => [
+					[
+						'title' => 'Button - Red',
+						'selector' => 'a',
+						'classes' => 'content-button content-button-red',
+					],
+					[
+						'title' => 'Button - Green',
+						'selector' => 'a',
+						'classes' => 'content-button content-button-green',
+					],
+					[
+						'title' => 'Button - Blue',
+						'selector' => 'a',
+						'classes' => 'content-button content-button-blue',
+					],
+				],
+
+			]
+		];
 
     $settings['style_formats'] = json_encode( $style_formats );
 
