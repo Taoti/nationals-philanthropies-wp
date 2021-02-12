@@ -6,6 +6,11 @@
 		@include button('red');
 	}
 
+	// This selector should catch the buttons that only had the 'content-button' class, when there was only the one red button style.
+	a[class^=content-button][class$=content-button] {
+		@include button('red');
+	}
+
 	.content-button-green {
 		@include button('green');
 	}
