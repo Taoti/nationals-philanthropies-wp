@@ -4,6 +4,8 @@
 
 	.content-button {
 		@include button();
+		display: inline-flex;
+		margin-right: 2rem;
 	}
 
 	h1,
