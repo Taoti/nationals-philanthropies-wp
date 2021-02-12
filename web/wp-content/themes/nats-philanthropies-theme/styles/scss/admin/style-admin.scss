@@ -5,6 +5,15 @@
 
 
 
+// In TinyMCE's "Formats" dropdown menu, the selected items have that "wordpress blue" background color but they have gray text. This fixes the selected items' text color.
+.mce-menu-item.mce-menu-item-preview.mce-active .mce-text,
+.mce-menu-item.mce-menu-item-preview.mce-active .mce-ico {
+	color: #fff !important;
+}
+
+
+
+
 // There is a select field we set up as an Icon Selector, so the client can select from a predefined list of icons. These styles are for the container for the icon preview that sits below the select field.
 .taoti-iconSelector-preview {
     background-color: $color-2;
