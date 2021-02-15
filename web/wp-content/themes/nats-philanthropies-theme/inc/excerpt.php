@@ -20,5 +20,13 @@ function taoti_extend_excerpt( $excerpt, $post ) {
 
 	return $excerpt;
 }
-// NOTE - 2021-02-15 - disabled as part of client request. Might need to reenable this in the future but only when is_search or is_archive is true.
-// add_filter( 'get_the_excerpt', 'taoti_extend_excerpt', 10, 2 );
+
+// Use the page content as a fallback for the excerpt only on search and archive pages. (and the "page for posts" page which is_archive() won't pick up)
+function taoti_set_excerpt_fallback($query){
+	if( $query->is_search() || $query->is_archive() || (isset($query->queried_object_id) && intval($query->queried_object_id) === intval(get_option('page_for_posts')) ) ){
+
+		add_filter( 'get_the_excerpt', 'taoti_extend_excerpt', 10, 2 );
+
+	}
+}
+add_action( 'pre_get_posts', 'taoti_set_excerpt_fallback' );
