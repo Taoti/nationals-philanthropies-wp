@@ -77,6 +77,10 @@
 		white-space: nowrap;
     position: relative;
     z-index: 3;
+
+		@media screen and ( max-width: 400px ) {
+			white-space: normal;
+		}
   }
 }
 
