@@ -19,30 +19,6 @@ html.nav-is-open {
 
 }
 
-//  .navContainer-main-navigation {
-// 	display: block;
-
-// 	@media screen and ( max-width: $breakpoint-nav-collapse ) {
-// 		background-color: $color-2;
-// 		position: fixed;
-// 		top: var(--header-height);
-// 		width: 100vw;
-// 		left: 0;
-// 		padding: 0;
-// 		height: 100vh;
-// 		opacity: 0;
-// 		transform: translate3d(0, calc(-100vh - var(--header-height)), 0);
-// 		transition: transform 400ms ease-in, opacity 400ms;
-
-// 		&.is-open {
-// 			opacity: 1;
-// 			transform: translate3d(0, 0, 0);
-// 		}
-
-// 	}
-
-// }
-
 .menu-mainMenu {
 	@media screen and ( max-width: $breakpoint-nav-collapse ) {
 		padding-top: 5rem;
