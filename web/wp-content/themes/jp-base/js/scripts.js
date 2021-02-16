@@ -1170,7 +1170,62 @@ function jp_jump_link_cb(event) {
   "object" == (typeof exports === "undefined" ? "undefined" : _typeof(exports)) && "undefined" != typeof module ? module.exports = {
     polyfill: o
   } : o();
-}();
+}(); // There is a CSS custom property (CSS variable) that defines the header height so that elements targeted by a jump link will offset the scroll jump to account for the sticky header's height.
+// TODO: figure out a way to detect when #wpadminbar loads so the height of that element can be added as well.
+
+function taoti_set_header_height_css() {
+  var new_height = 0;
+  var header_height = document.getElementById('header').getBoundingClientRect().height;
+
+  if (header_height) {
+    new_height += header_height;
+  } // console.log( document.getElementById('wpadminbar') );
+  // if( document.getElementById('wpadminbar') ){
+  // 	let admin_bar_height = document.getElementById('wpadminbar').getBoundingClientRect().height;
+  // 	if( admin_bar_height ){
+  // 		new_height += admin_bar_height;
+  // 		// console.log('found wpadminbar, new_height = ' + new_height );
+  // 	}
+  // }
+
+
+  if (new_height) {
+    document.documentElement.style.setProperty('--header-height', new_height + 'px');
+  }
+} // Set the header height variable on page load...
+
+
+taoti_set_header_height_css(); // ... and also whenever the window is resized.
+
+var taoti_header_height_timeout = false;
+window.addEventListener('resize', function () {
+  if (taoti_header_height_timeout) {
+    clearTimeout(taoti_header_height_timeout);
+  }
+
+  taoti_header_height_timeout = setTimeout(taoti_set_header_height_css, 500);
+});
+/* Simple helper lisener to determine if the user is scrolling up or down, you can check this at any point in your code.
+ * Examples: `window.taoti_scrollDirection === 'up'`
+ * or `window.taoti_scrollDirection === 'down'`
+ */
+
+window.taoti_lastScrollTop = 0;
+window.taoti_scrollDirection = 'down';
+window.addEventListener("scroll", function () {
+  var st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
+
+  if (st > window.taoti_lastScrollTop) {
+    window.taoti_scrollDirection = 'down';
+  } else {
+    window.taoti_scrollDirection = 'up';
+  }
+
+  window.taoti_lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+  //  console.log(window.taoti_scrollDirection);
+}, {
+  passive: true
+});
 /* Web Font Loader v1.6.28 - (c) Adobe Systems, Google. License: Apache 2.0 */
 
 (function () {
@@ -2006,7 +2061,9 @@ function jp_jump_link_cb(event) {
   "function" === typeof define && define.amd ? define(function () {
     return Z;
   }) : "undefined" !== typeof module && module.exports ? module.exports = Z : (window.WebFont = Z, window.WebFontConfig && Y.load(window.WebFontConfig));
-})(); // Use lazysizes to get lazy loading on css background images.
+})(); // For JS that happens on every page. Otherwise make JS files with the same name as the template or site feature that the code is for. E.g., `front-page.js` or `part-pagination.js`.
+// Put functions that you'll need to use in other JS files in this theme. Stuff like parsing a URL or getting a post ID.
+// Use lazysizes to get lazy loading on css background images.
 
 
 document.addEventListener('lazybeforeunveil', function (e) {

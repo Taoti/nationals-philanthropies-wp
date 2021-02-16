@@ -22,13 +22,20 @@ class CTA {
 			'description' => false,
 			'button_url' => false,
 			'button_label' => false,
-			'classes' => [
-				'l-module',
-				'cta',
-			]
+			'classes' => [],
 		];
 
 		extract(array_merge($this->defaults, $args));
+
+		$required_classes = [
+			'l-module',
+			'cta',
+		];
+		foreach( $required_classes as $required_class ){
+			if( !in_array($required_class, $classes) ){
+				$classes[] = $required_class;
+			}
+		}
 
 		$this->context = Timber::get_context();
 		$this->context['heading'] = $heading;
@@ -41,6 +48,10 @@ class CTA {
 
 	public function render(){
 		Timber::render('cta.twig', $this->context);
+	}
+
+	public function compile(){
+		return Timber::compile('cta.twig', $this->context);
 	}
 
 }
