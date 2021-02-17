@@ -10,8 +10,8 @@
 			<div class="cta-description">{{ description }}</div>
 	    {% endif %}
 
-		{% if button_url and button_label %}
-			<a class="cta-button" href="{{ button_url }}">{{ button_label }}</a>
+		{% if button_link.url and button_link.title %}
+			<a class="cta-button" href="{{ button_link.url }}" target="{{ button_link.target }}">{{ button_link.title }}</a>
 		{% endif %}
 
 	</div>

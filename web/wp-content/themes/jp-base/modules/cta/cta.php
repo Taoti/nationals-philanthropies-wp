@@ -20,8 +20,7 @@ class CTA {
 		$this->defaults = [
 			'heading' => false,
 			'description' => false,
-			'button_url' => false,
-			'button_label' => false,
+			'button_link' => false,
 			'classes' => [],
 		];
 
@@ -40,8 +39,7 @@ class CTA {
 		$this->context = Timber::get_context();
 		$this->context['heading'] = $heading;
 		$this->context['description'] = $description;
-		$this->context['button_url'] = $button_url;
-		$this->context['button_label'] = $button_label;
+		$this->context['button_link'] = $button_link;
 		$this->context['classes'] = implode(' ', $classes);
 
 	}
