@@ -23,7 +23,8 @@ $hero->render();
 
 
 
-<?php the_page_builder(); ?>
+<?php //the_page_builder(); ?>
+<?php the_content(); ?>
 
 
 

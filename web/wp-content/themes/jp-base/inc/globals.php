@@ -43,3 +43,15 @@ function taoti_store_page_builder_output( $post_id, $post, $update ){
 
 }
 add_action( 'save_post', 'taoti_store_page_builder_output', 10, 3 );
+
+
+
+function taoti_use_page_builder_output_for_content( $content ){
+	if ( is_main_query() ) {
+		$page_builder_output = get_post_meta( get_the_ID(), 'taoti_page_builder_output', true );
+		$content = $content . $page_builder_output;
+	}
+
+	return $content;
+}
+add_filter( 'the_content', 'taoti_use_page_builder_output_for_content' );
