@@ -3,8 +3,15 @@ namespace Modules;
 use Timber;
 use JP\Get;
 
-// Note - this relies on the ACF Table plugin
-// https://wordpress.org/plugins/advanced-custom-fields-table-field/
+/*
+ * NOTE
+ * To use this module you must enable the "Advanced
+ * Custom Fields Table" plugin, then create the layout
+ * in the page builder field group. It only needs one
+ * field of type `table` and just name the
+ * layout/field "table".
+ * This same message is in flex-content/layouts/table.php
+ */
 
 ### Example usage
 	// $args = [
