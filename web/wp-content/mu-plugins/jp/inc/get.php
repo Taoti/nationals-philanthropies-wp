@@ -160,13 +160,24 @@ class Get
 
 
     /**
-	// TODO: make work with the fallback from featured_image_array()
+		// TODO: make work with the fallback from featured_image_array()
     * Get the given post's featured image as a URL.
     * Returns a string - the URL for the featured image of the given size, or the URL for the fallback image if not found, or false if something went wrong.
     * @param    string  $size       The image size you want to get back.
     * @param    mixed   $post_ID    The post ID of the post you want the featured image for.
-    * @return   mixed   URL string or boolean false
-    */
+		* @return   mixed   URL string or boolean false
+
+		Sample Use
+		$featured_image_array = Get::featured_image_array( get_the_ID() );
+		echo '<pre>'; print_r($featured_image_array); echo '</pre>';
+		$image_args = [
+			'image_array' => $featured_image_array,
+			'size' => 'thumbnail',
+		];
+		$image_html = Get::image_html($image_args);
+		echo $image_html;
+
+		*/
     public static function featured_image_url( $size='full', $post_ID=false ){
 
 			$url = false;
