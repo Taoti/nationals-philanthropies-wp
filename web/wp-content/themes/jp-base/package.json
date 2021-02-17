@@ -33,6 +33,6 @@
   },
   "dependencies": {},
   "peerDependencies": {
-    "gulp-postcss": "8.x"
+    "gulp-postcss": "^8.0.0"
   }
 }
