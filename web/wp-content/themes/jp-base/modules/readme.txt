@@ -1,12 +1,12 @@
 # What are modules?
 Modules are meant to be resuable components that you can use in different places around your theme templates. This is to maintain a DRY codebase. Look up "DRY coding principle" if you are unfamiliar with DRY (Don't Repeat Yourself).
 
-It's also beneficial, though not a requirement, if modules can be easily used on multiple projects. Modules should be easy to copy/paste to other projects, aside from some CSS/JS tweaks.
+It's also beneficial, though not a requirement, if modules can be easily used on multiple projects. Modules should be easy to copy/paste to other projects (aside from some basic CSS tweaks like color variable names).
 
 Basically, the component you are creating should be a module if:
 	1. that component is used on multiple template files,
 	2. that component needs to take some number of arguments and process them in some way,
-	3. OR that component can be easily copied to a different project.
+	3. OR that component can be easily copied to a different project with some functional JS and SCSS that goes with it.
 
 # Module or Part?
 If you need a repeatable component but maybe it's not so complex to need arguments, or it doesn't need to be used on other projects, you can use a part file instead. See `parts/readme.txt`.
