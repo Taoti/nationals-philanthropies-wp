@@ -1,5 +1,5 @@
 <?php
-### Add custom post types.
+### Add custom post types here.
 
 function jp_register_post_types() {
 

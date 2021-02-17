@@ -1,5 +1,5 @@
 <?php
-### This file runs include() on the main module files and adds their 'views' folders to Timber.
+### This file runs include() on the modules' class files and adds their 'views' folders to Timber.
 
 // Set up an array of all the directories within the 'modules' folder.
 $module_paths = glob( get_template_directory().'/modules/*', GLOB_ONLYDIR );

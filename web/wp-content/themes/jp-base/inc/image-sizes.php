@@ -1,6 +1,8 @@
 <?php
 ### Set up image sizes and their descriptions.
 
+
+
 // Add custom image sizes.
 function jp_image_size_setup(){
 

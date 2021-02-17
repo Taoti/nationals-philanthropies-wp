@@ -1,5 +1,5 @@
 <?php
-### Add custom taxonomies.
+### Add custom taxonomies here.
 
 function jp_registers_taxonomies(){
 
