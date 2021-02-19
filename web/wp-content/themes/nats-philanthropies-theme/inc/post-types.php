@@ -63,6 +63,7 @@ function jp_register_post_types() {
 			'register_args' => [
 				'menu_icon' => 'dashicons-buddicons-groups',
 				'description' => 'Manage your Events.',
+                'rewrite' => array( 'slug' => 'event-list' ),
 			],
 
 		],
