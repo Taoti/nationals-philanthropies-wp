@@ -5,10 +5,10 @@
 }
 
 .listingItem-inner {
-	// @include l-container( 'content-1' );
+	@include l-container( 'content-1' );
 	display: flex;
 
-	@media screen and ( max-width: 1100px ) {
+	@media screen and ( max-width: 1300px ) {
     display: block;
 	}
 
@@ -30,7 +30,7 @@
     flex-shrink: .5;
 	}
 
-	@media screen and ( max-width: 1100px ) {
+	@media screen and ( max-width: 1300px ) {
 		left: 0;
 		margin-bottom: 3rem;
 	}
