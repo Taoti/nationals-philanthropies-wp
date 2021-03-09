@@ -1060,6 +1060,8 @@ function taoti_fonts_active_cb(){
 
 
 
+
+
 /*
  * Scrollspy for the pager (sectionNavigation) that will add/remove a class to each pager item based on the class of the section beneath it.
  * This will work in two ways.
@@ -1233,7 +1235,5 @@ function taoti_scrollspy_scrollTo( target ){
 			block: 'center'
 		});
 }
-
-
 
 
