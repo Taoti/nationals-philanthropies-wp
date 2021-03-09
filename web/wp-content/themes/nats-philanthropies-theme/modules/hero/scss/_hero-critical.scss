@@ -199,4 +199,19 @@ html.wf-inactive {
 
 .page-id-8 .hero:after {
     display: none !important;
+
+    &+section {
+        &:after {
+            background-repeat: repeat-x;
+            bottom: -1px;
+            content: '';
+            height: 49px;
+            left: 0;
+            position: absolute;
+            width: 100%;
+            pointer-events: none;
+            background: url(/wp-content/themes/nats-philanthropies-theme/images/border-page-tear-1.png);
+            z-index: 10000;
+        }
+    }
 }
