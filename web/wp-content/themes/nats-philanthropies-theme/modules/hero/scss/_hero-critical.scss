@@ -202,7 +202,7 @@ html.wf-inactive {
         display: none !important;
     }
 
-    &+section {
+    &+.homeImage {
         &:after {
             background-repeat: repeat-x;
             bottom: -1px;
@@ -212,7 +212,7 @@ html.wf-inactive {
             position: absolute;
             width: 100%;
             pointer-events: none;
-            background: url(/wp-content/themes/nats-philanthropies-theme/images/border-page-tear-1.png);
+            background-image: url(/wp-content/themes/nats-philanthropies-theme/images/border-page-tear-1.png);
             z-index: 10000;
         }
     }
