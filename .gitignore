@@ -45,7 +45,6 @@ pantheon.upstream.yml
 ######################
 .DS_Store*
 ehthumbs.db
-Icon?
 Thumbs.db
 ._*
 
@@ -56,8 +55,6 @@ Thumbs.db
 # SASS #
 ##########
 .sass-cache
-
-
 
 
 ##########################
