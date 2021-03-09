@@ -197,8 +197,10 @@ html.wf-inactive {
 }
 
 
-.page-id-8 .hero:after {
-    display: none !important;
+.page-id-8 .hero {
+    &:after {
+        display: none !important;
+    }
 
     &+section {
         &:after {
