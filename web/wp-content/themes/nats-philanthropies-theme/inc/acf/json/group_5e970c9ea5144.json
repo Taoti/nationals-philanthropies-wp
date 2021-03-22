@@ -31,8 +31,25 @@
                 "icon-news": "News",
                 "icon-notebook": "Notebook",
                 "icon-person": "Person",
-                "icon-school": "icon-school",
-                "icon-trophy": "icon-trophy"
+                "icon-school": "School",
+                "icon-trophy": "Trophy",
+                "icon-message": "Message",
+                "icon-pencil-paper": "Pencil\/Paper",
+                "icon-heart-dollars": "Heart with Dollar Sign",
+                "icon-mail": "Mail",
+                "icon-gear": "Gear",
+                "icon-chart": "Icon Chart",
+                "icon-hands": "Hands",
+                "icon-grocery": "Grocery\/Shopping bag",
+                "icon-vegetable": "Vegetable",
+                "icon-apple": "Apple",
+                "icon-sneaker": "Sneaker",
+                "icon-medal": "Medal",
+                "icon-baseball-bat": "Baseball Bat",
+                "icon-pencil": "Pencil",
+                "icon-football": "Football",
+                "icon-plate-fork-knife": "Plate w\/fork + knife",
+                "icon-person-running": "Person Running"
             },
             "default_value": false,
             "allow_null": 1,
@@ -65,5 +82,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1595455961
+    "modified": 1616426459
 }
