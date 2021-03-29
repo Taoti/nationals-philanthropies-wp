@@ -17,3 +17,13 @@ window.addEventListener("scroll", function(){
 
 	//  console.log(window.taoti_scrollDirection);
 }, false);
+
+
+jQuery('a[href="#EmailSignup"]').click(function(e){
+    e.preventDefault();
+    jQuery('html, body').animate({
+        scrollTop: jQuery('#footer').offset().top
+    }, 300)
+
+    jQuery('#gform_fields_3 #3 input')[0].focus();
+})
