@@ -38,7 +38,7 @@ $args = [
 $hero = new Hero($args);
 $hero->render();
 ?>
-<a href="#EmailSignup">Sign Up</a>
+
 <?php the_page_builder( 'modules_homePage' ); ?>
 
 
