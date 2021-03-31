@@ -22,7 +22,7 @@ jQuery(function(){
     if(window.location.hash && window.location.hash == '#EmailSignup') {
         setTimeout(function(){
             emailSignUpScroll();
-        }, 1000)
+        }, 2000)
         
     }
 
