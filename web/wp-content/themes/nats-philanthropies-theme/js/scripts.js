@@ -886,15 +886,28 @@ window.addEventListener("scroll", function(){
 	//  console.log(window.taoti_scrollDirection);
 }, false);
 
+jQuery(window).on('load', function(){
+    if(window.location.hash && window.location.hash == '#EmailSignup') {
+        setTimeout(function(){
+            emailSignUpScroll();
+        }, 3000)
+        
+    }
 
-jQuery('a[href="#EmailSignup"]').click(function(e){
+    jQuery('a[href="#EmailSignup"]').click(function(e){
+        emailSignUpScroll();
+    })
+})
+
+
+function emailSignUpScroll() {
     e.preventDefault();
     jQuery('html, body').animate({
         scrollTop: jQuery('#footer').offset().top
     }, 300)
 
     jQuery('#gform_fields_3 #3 input')[0].focus();
-})
+}
 // There is a CSS custom property `--header-height` that controls the size/position of the mega nav. The height must be updated when the window is resized or scrolled, since the height of the header can change after either of those events.
 taoti_update_header_height_property();
 // $(window).resize( taoti_update_header_height_property );
