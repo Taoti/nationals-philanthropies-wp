@@ -18,12 +18,22 @@ window.addEventListener("scroll", function(){
 	//  console.log(window.taoti_scrollDirection);
 }, false);
 
+jQuery(function(){
+    if(window.location.hash && window.location.hash == '#EmailSignup') {
+        emailSignUpScroll();
+    }
+    
+    jQuery('a[href="#EmailSignup"]').click(function(e){
+        emailSignUpScroll();
+    })
+})
 
-jQuery('a[href="#EmailSignup"]').click(function(e){
+
+function emailSignUpScroll() {
     e.preventDefault();
     jQuery('html, body').animate({
         scrollTop: jQuery('#footer').offset().top
     }, 300)
 
     jQuery('#gform_fields_3 #3 input')[0].focus();
-})
+}
