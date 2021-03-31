@@ -886,7 +886,7 @@ window.addEventListener("scroll", function(){
 	//  console.log(window.taoti_scrollDirection);
 }, false);
 
-jQuery(window).on('load', function(e){
+jQuery(window).on('load', function(){
     if(window.location.hash && window.location.hash == '#EmailSignup') {
         setTimeout(function(){
             emailSignUpScroll();
@@ -895,13 +895,13 @@ jQuery(window).on('load', function(e){
     }
 
     jQuery('a[href="#EmailSignup"]').click(function(e){
-        emailSignUpScroll(e);
+        e.preventDefault();
+        emailSignUpScroll();
     })
 })
 
 
-function emailSignUpScroll(e) {
-    e.preventDefault();
+function emailSignUpScroll() {
     jQuery('html, body').animate({
         scrollTop: jQuery('#footer').offset().top
     }, 300)
@@ -1066,7 +1066,6 @@ function taoti_fonts_active_cb(){
     taoti_determine_navItem_status();
 
 }
-
 
 
 
@@ -1256,6 +1255,7 @@ function taoti_scrollspy_scrollTo( target ){
 			block: 'center'
 		});
 }
+
 
 
 
