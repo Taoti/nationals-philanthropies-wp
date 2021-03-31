@@ -18,11 +18,11 @@ window.addEventListener("scroll", function(){
 	//  console.log(window.taoti_scrollDirection);
 }, false);
 
-jQuery(function(){
+jQuery(window).on('load', function(){
     if(window.location.hash && window.location.hash == '#EmailSignup') {
         setTimeout(function(){
             emailSignUpScroll();
-        }, 2000)
+        }, 3000)
         
     }
 
