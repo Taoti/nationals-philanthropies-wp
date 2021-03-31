@@ -20,9 +20,12 @@ window.addEventListener("scroll", function(){
 
 jQuery(function(){
     if(window.location.hash && window.location.hash == '#EmailSignup') {
-        emailSignUpScroll();
+        setTimeout(function(){
+            emailSignUpScroll();
+        }, 1000)
+        
     }
-    
+
     jQuery('a[href="#EmailSignup"]').click(function(e){
         emailSignUpScroll();
     })
