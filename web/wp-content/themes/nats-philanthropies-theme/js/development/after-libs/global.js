@@ -21,6 +21,7 @@ window.addEventListener("scroll", function(){
 jQuery(window).on('load', function(){
     if(window.location.hash && window.location.hash == '#EmailSignup') {
         setTimeout(function(){
+            alert('hello');
             emailSignUpScroll();
         }, 3000)
         
