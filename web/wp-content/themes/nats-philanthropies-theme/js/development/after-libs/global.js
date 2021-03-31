@@ -18,7 +18,7 @@ window.addEventListener("scroll", function(){
 	//  console.log(window.taoti_scrollDirection);
 }, false);
 
-jQuery(window).on('load', function(){
+jQuery(window).on('load', function(e){
     if(window.location.hash && window.location.hash == '#EmailSignup') {
         setTimeout(function(){
             emailSignUpScroll();
@@ -27,12 +27,12 @@ jQuery(window).on('load', function(){
     }
 
     jQuery('a[href="#EmailSignup"]').click(function(e){
-        emailSignUpScroll();
+        emailSignUpScroll(e);
     })
 })
 
 
-function emailSignUpScroll() {
+function emailSignUpScroll(e) {
     e.preventDefault();
     jQuery('html, body').animate({
         scrollTop: jQuery('#footer').offset().top
