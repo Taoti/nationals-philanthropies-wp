@@ -888,10 +888,7 @@ window.addEventListener("scroll", function(){
 
 jQuery(window).on('load', function(){
     if(window.location.hash && window.location.hash == '#EmailSignup') {
-        setTimeout(function(){
-            emailSignUpScroll();
-        }, 3000)
-        
+        emailSignUpScroll();        
     }
 
     jQuery('a[href="#EmailSignup"]').click(function(e){
@@ -1082,6 +1079,7 @@ function taoti_fonts_active_cb(){
 
 
 
+
 /*
  * Scrollspy for the pager (sectionNavigation) that will add/remove a class to each pager item based on the class of the section beneath it.
  * This will work in two ways.
@@ -1255,7 +1253,6 @@ function taoti_scrollspy_scrollTo( target ){
 			block: 'center'
 		});
 }
-
 
 
 
