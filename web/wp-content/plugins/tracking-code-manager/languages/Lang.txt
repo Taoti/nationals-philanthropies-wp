@@ -129,9 +129,9 @@ Plugin3.Subtitle=Clean the mess after your content! Organize your post's footer,
 Plugin4.Name=Evergreen Countdown Timer
 Plugin4.Permalink=https://wordpress.org/plugins/intelly-countdown/
 Plugin4.Subtitle=Evergreen Countdown is a plugin built for marketers that need a reliable solution to use scarcity on their websites and landing pages.
-Plugin5.Name=Custom Audience Enhancer
-Plugin5.Permalink=https://intellywp.com/custom-audiences-enhancer/?utm_campaign=sidebar
-Plugin5.Subtitle=Empower your Facebook ads with ultra-targeted custom audiences. <b>The world's 1st technology that creates unparalleled behaviorally targeted custom audiences.</b>
+Plugin5.Name=GDPR Framework
+Plugin5.Permalink=https://wordpress.org/plugins/gdpr-framework/
+Plugin5.Subtitle=A plugin that gives you a simple and elegant interface to handle Data Subject Access Requests (DSARs) and more.
 Plugin6.Name=Inline Related Posts
 Plugin6.Permalink=https://wordpress.org/plugins/intelly-related-posts/
 Plugin6.Subtitle=Inline Related Posts AUTOMATICALLY inserts related posts INSIDE your content, capturing immediately the reader's attention.
@@ -155,11 +155,11 @@ Sidebar2.Url=https://intellywp.com/plugins
 Sidebar3.Name=Contact support
 Sidebar3.Url=https://data443.atlassian.net/servicedesk/customer/portal/17
 Sidebar4.Name=Like us on Facebook
-Sidebar4.Url=https://www.facebook.com/IntellyWp-1020348977998874/
+Sidebar4.Url=https://www.facebook.com/intellywp/
 Sidebar5.Name=Follow us on Twitter
 Sidebar5.Url=https://twitter.com/intellywp
 Sidebar6.Name=Rate us on Wordpress
-Sidebar6.Url=https://profiles.wordpress.org/intellywp/#content-plugins
+Sidebar6.Url=https://wordpress.org/support/plugin/tracking-code-manager/reviews/#postform
 SnippetsLimitNotice=You are using {0} slots or {1} available slots in the FREE version. You can unlock this limit visiting this <a href="{2}">LINK</a> (IntellyWP site).
 SnippetsLimitReached=You have reached the limit of {0} tracking codes. You can unlock this limit visiting this <a href="{1}">LINK</a> (IntellyWP site).
 Specific Pages=
