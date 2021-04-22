@@ -1,10 +1,12 @@
 <?php
+### Set up your Customizer options (Appearance > Customize).
 
 /*
- * PURPOSE : Options for Appearance > Customize. Add to this function to set up your own sections and options in the WordPress Customizer.
- *  PARAMS : $wp_customize - WP Customizer object
- * RETURNS : $wp_customize
- *   NOTES : Options for contact details, social URLs, and the 404 page are set up here as a starting point. Use these, remove them, or add more.
+ * NOTE
+ * Options for contact details, social URLs,
+ * and the 404 page are set up here as a
+ * starting point. Use these, remove them,
+ * or add more.
  */
 
 

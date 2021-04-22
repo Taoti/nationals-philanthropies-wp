@@ -6,7 +6,8 @@
 	?>
 
 	<?php
-	// Common prefetches
+	// TODO: When your project is done, use the Network tab in inspector tools to see what external domains are being used. Add prefetches for those domains here.
+	// Common prefetches:
 	// <link rel="dns-prefetch" href="https://fonts.googleapis.com">
 	// <link rel="dns-prefetch" href="https://ajax.googleapis.com">
 	// <link rel="dns-prefetch" href="https://www.google-analytics.com">
@@ -18,7 +19,9 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<?php /*
+	<?php
+	/*
+	TODO: Use this website to generate favicon files for the site.
 	<!-- http://realfavicongenerator.net/ -->
 	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">

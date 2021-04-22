@@ -1,5 +1,4 @@
 // There is a CSS custom property (CSS variable) that defines the header height so that elements targeted by a jump link will offset the scroll jump to account for the sticky header's height.
-// TODO: figure out a way to detect when #wpadminbar loads so the height of that element can be added as well.
 function taoti_set_header_height_css(){
 	let new_height = 0;
 

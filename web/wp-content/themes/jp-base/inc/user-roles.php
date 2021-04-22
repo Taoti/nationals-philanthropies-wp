@@ -1,4 +1,7 @@
 <?php
+### Cusotomize your project's user roles here.
+
+
 
 ### Only keep the Administrator, Editor, and Author roles
 function taoti_remove_unused_roles(){

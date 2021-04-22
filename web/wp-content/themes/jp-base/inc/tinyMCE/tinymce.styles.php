@@ -1,4 +1,7 @@
 <?php
+### Add custom styles (formats) to the TinyMCE editor.
+
+
 
 /*
  * PURPOSE : Adds the Formats dropdown to the TinyMCE toolbar.

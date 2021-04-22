@@ -1,6 +1,14 @@
 <?php
 ### Enqueue styles and scripts.
-### The theme CSS is loaded in the <head> via the 'taoti_do_css' action, so critical and noncritical CSS can be loaded seperately. The standard enqueue functions don't support this sort of thing yet.
+
+/*
+ * NOTE
+ * The theme CSS is loaded in the <head> via
+ * the 'taoti_do_css' action, so critical and
+ * noncritical CSS can be loaded seperately.
+ * The standard enqueue functions don't support
+ * this sort of thing yet.
+ */
 
 
 

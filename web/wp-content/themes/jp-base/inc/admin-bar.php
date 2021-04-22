@@ -1,4 +1,5 @@
 <?php
+### Customizations for the WordPress admin bar.
 
 /*
  * PURPOSE : Add 'Edit' and 'View' buttons to the toolbar for custom options pages that manage post type archives.

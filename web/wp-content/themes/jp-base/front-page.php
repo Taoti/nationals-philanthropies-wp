@@ -11,6 +11,13 @@ get_header();
 
 
 
+<?php
+/*
+ * NOTE
+ * You will most likely need to change the classes
+ * used for this home page container.
+ */
+?>
 <div class="content">
 	<div class="content-inner">
 

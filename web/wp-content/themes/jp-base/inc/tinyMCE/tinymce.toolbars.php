@@ -1,5 +1,5 @@
 <?php
-### Edit TinyMCE toolbar stuff
+### Edit TinyMCE toolbar stuff here.
 
 
 

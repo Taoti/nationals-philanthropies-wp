@@ -31,5 +31,8 @@
     "node-sass": "^4.14.1",
     "postcss-easing-gradients": "^3.0.1"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "peerDependencies": {
+    "gulp-postcss": "^8.0.0"
+  }
 }

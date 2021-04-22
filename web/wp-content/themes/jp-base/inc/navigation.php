@@ -1,5 +1,5 @@
 <?php
-### Set up the navigation menus.
+### Set up your project's navigation menus.
 
 function jp_register_menus() {
 

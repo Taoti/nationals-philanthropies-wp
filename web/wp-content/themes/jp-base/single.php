@@ -23,28 +23,7 @@ $hero->render();
 
 
 
-<?php
-/*
- * NOTE
- * Use the page builder (an ACF flex content field)
- * 						- OR -
- * the standard the_content() field.
- * (Delete this comment)
- */
-?>
 <?php the_page_builder(); ?>
-
-<div class="content">
-	<div class="content-inner">
-
-		<h1 class="page-title"><?php the_title(); ?></h1>
-
-		<div class="entry-content">
-			<?php the_content(); ?>
-		</div>
-
-	</div><!-- END .content-inner -->
-</div><!-- END .content -->
 
 
 

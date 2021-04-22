@@ -1,7 +1,6 @@
 <?php
-### Helper functions
-
-// These functions help other areas in the code process or retrieve something. Most likely, helper functions will have a return value.
+### Define your helper functions here.
+### Helper functions help other areas in the code process or retrieve something. Most likely, helper functions will have a return value.
 
 
 
@@ -16,7 +15,7 @@ function taoti_get_post_types_with_page_builder(){
 
 	$post_types_with_page_builder = [
 		'page',
-		// 'post',
+		'post',
 	];
 
 	return $post_types_with_page_builder;
