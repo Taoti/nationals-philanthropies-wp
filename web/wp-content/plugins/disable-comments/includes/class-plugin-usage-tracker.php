@@ -20,11 +20,11 @@ if( ! class_exists('DisableComments_Plugin_Tracker') ) :
 		/**
 		 * WP Insights Version
 		 */
-		const WPINS_VERSION = '3.0.0';
+		const WPINS_VERSION = '3.0.2';
 		/**
 		 * API URL
 		 */
-		const API_URL = 'https://us-east1-wpinsight-saas.cloudfunctions.net/task-generator';
+		const API_URL = 'https://send.wpinsight.com/process-plugin-data';
 		/**
 		 * Installed Plugin File
 		 *
@@ -69,7 +69,7 @@ if( ! class_exists('DisableComments_Plugin_Tracker') ) :
 			$this->disabled_wp_cron     = defined('DISABLE_WP_CRON') && DISABLE_WP_CRON == true;
 			$this->enable_self_cron     = $this->disabled_wp_cron == true ? true : false;
 
-			$this->event_hook = 'put_do_weekly_action';
+			$this->event_hook 			= 'put_do_weekly_action';
 
 			$this->require_optin        = isset( $args['opt_in'] ) ? $args['opt_in'] : true;
 			$this->include_goodbye_form = isset( $args['goodbye_form'] ) ? $args['goodbye_form'] : true;
@@ -149,7 +149,7 @@ if( ! class_exists('DisableComments_Plugin_Tracker') ) :
 		 */
 		public function init(){
 			$this->clicked();
-			add_action( $this->event_hook, array( $this, 'force_tracking' ) );
+			add_action( $this->event_hook, array( $this, 'do_tracking' ) );
 			// For Test
 			// add_action( 'admin_init', array( $this, 'force_tracking' ) );
 			add_action( 'disable_comments_notice', array( $this, 'notice' ) );
@@ -342,7 +342,9 @@ if( ! class_exists('DisableComments_Plugin_Tracker') ) :
 				}
 				$current_user = wp_get_current_user();
 				$email = $current_user->user_email;
-				$body['email'] = $email;
+				if( is_email( $email ) ) {
+					$body['email'] = $email;
+				}
 			}
 			$body['marketing_method'] = $this->marketing;
 			$body['server'] = isset( $_SERVER['SERVER_SOFTWARE'] ) ? $_SERVER['SERVER_SOFTWARE'] : '';
@@ -440,9 +442,15 @@ if( ! class_exists('DisableComments_Plugin_Tracker') ) :
 			/**
 			 * Get SITE ID
 			 */
-			$site_id_key = "wpins_{$this->plugin_name}_site_id";
-			$site_id = get_option( $site_id_key, false );
-			$failed_data = [];
+			$site_id_key       = "wpins_{$this->plugin_name}_site_id";
+			$site_id           = get_option( $site_id_key, false );
+			$failed_data       = [];
+			$site_url          = get_bloginfo( 'url' );
+			$original_site_url = get_option( "wpins_{$this->plugin_name}_original_url", false );
+
+			if( ( $original_site_url === false || $original_site_url != $site_url ) && version_compare( $body['wpins_version'], '3.0.1', '>=' ) ) {
+				$site_id = false;
+			}
 			/**
 			 * Send Initial Data to API
 			 */
@@ -456,7 +464,7 @@ if( ! class_exists('DisableComments_Plugin_Tracker') ) :
 				}
 
 				$body['plugin_slug'] = $this->plugin_name;
-				$body['url']         = get_bloginfo( 'url' );
+				$body['url']         = $site_url;
 				$body['item_id']     = $this->item_id;
 
 				$request = $this->remote_post( $body );
@@ -464,6 +472,7 @@ if( ! class_exists('DisableComments_Plugin_Tracker') ) :
 					$retrieved_body = json_decode( wp_remote_retrieve_body( $request ), true );
 					if( is_array( $retrieved_body ) && isset( $retrieved_body['siteId'] ) ) {
 						update_option( $site_id_key, $retrieved_body['siteId'] );
+						update_option( "wpins_{$this->plugin_name}_original_url", $site_url );
 						update_option( "wpins_{$this->plugin_name}_{$retrieved_body['siteId']}", $body );
 					}
 				} else {
@@ -471,7 +480,7 @@ if( ! class_exists('DisableComments_Plugin_Tracker') ) :
 				}
 			}
 
-			$site_id_data_key = "wpins_{$this->plugin_name}_{$site_id}";
+			$site_id_data_key        = "wpins_{$this->plugin_name}_{$site_id}";
 			$site_id_data_failed_key = "wpins_{$this->plugin_name}_{$site_id}_send_failed";
 
 			if( $site_id != false ) {
@@ -484,9 +493,12 @@ if( ! class_exists('DisableComments_Plugin_Tracker') ) :
 			}
 
 			if( ! empty( $failed_data ) && $site_id != false ) {
-				$failed_data['plugin_slug'] = $this->plugin_name;
-				$failed_data['url']         = get_bloginfo( 'url' );
-				$failed_data['site_id']     = $site_id;
+				$failed_data['plugin_slug']  = $this->plugin_name;
+				$failed_data['url']          = $site_url;
+				$failed_data['site_id']      = $site_id;
+				if( $original_site_url != false ) {
+					$failed_data['original_url'] = $original_site_url;
+				}
 
 				$request = $this->remote_post( $failed_data );
 				if( ! is_wp_error( $request ) ) {
@@ -497,9 +509,12 @@ if( ! class_exists('DisableComments_Plugin_Tracker') ) :
 			}
 
 			if( ! empty( $diff_data ) && $site_id != false && empty( $failed_data ) ) {
-				$diff_data['plugin_slug'] = $this->plugin_name;
-				$diff_data['url']         = get_bloginfo( 'url' );
-				$diff_data['site_id']     = $site_id;
+				$diff_data['plugin_slug']  = $this->plugin_name;
+				$diff_data['url']          = $site_url;
+				$diff_data['site_id']      = $site_id;
+				if( $original_site_url != false ) {
+					$diff_data['original_url'] = $original_site_url;
+				}
 
 				$request = $this->remote_post( $diff_data );
 				if( is_wp_error( $request ) ) {
@@ -646,7 +661,7 @@ if( ! class_exists('DisableComments_Plugin_Tracker') ) :
 		 * @return void
 		 */
 		public function clicked(){
-			if( isset( $_GET['plugin'] ) && isset( $_GET['plugin_action'] ) ) {
+			if( isset( $_GET['plugin'] ) && trim($_GET['plugin']) === $this->plugin_name && isset( $_GET['plugin_action'] ) ) {
 				if( isset( $_GET['tab'] ) && $_GET['tab'] === 'plugin-information' ) {
                     return;
                 }
