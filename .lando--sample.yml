@@ -1,3 +1,5 @@
+### Update the lines below with the appropriate information, then save as lando.yml ###
+
 name: #local-site-name (can be whatever you'd like)
 
 config:
