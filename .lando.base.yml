@@ -22,12 +22,10 @@ services:
 tooling:
   npm:
     service: appserver
-    dir: cd /app/web/wp-content/themes/theme--crs
-    cmd: npm
+    cmd: cd /app/web/wp-content/themes/THEME_NAME && npm
   gulp:
     service: appserver
-    dir: cd /app/web/wp-content/themes/theme--crs
-    cmd: gulp
+    cmd: cd /app/web/wp-content/themes/THEME_NAME && gulp
   xdebug-on:
     service: appserver
     description: Enable xdebug for nginx.
