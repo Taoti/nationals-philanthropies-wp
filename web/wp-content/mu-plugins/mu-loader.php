@@ -16,6 +16,7 @@ $plugin_files_to_load = [
 	WPMU_PLUGIN_DIR.'/pantheon-advanced-page-cache/pantheon-advanced-page-cache.php',
 	WPMU_PLUGIN_DIR.'/safe-svg/safe-svg.php',
 	WPMU_PLUGIN_DIR.'/taoti-prevent-acf-field-sync/taoti-prevent-acf-field-sync.php',
+    WPMU_PLUGIN_DIR.'/wordpress-seo/wp-seo.php',
 ];
 
 foreach( $plugin_files_to_load as $file_path ){
