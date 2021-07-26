@@ -1,0 +1,12 @@
+{% block photoSlider %}
+<div class="{{ classes }}">
+    <div class="l-container photoSlider-inner">
+        <div class="photoSlider-images">
+             {% for image in images %}
+                <img src="{{ image }}" alt="">
+            {% endfor %}
+        </div>
+
+    </div>
+</div>
+{% endblock %}

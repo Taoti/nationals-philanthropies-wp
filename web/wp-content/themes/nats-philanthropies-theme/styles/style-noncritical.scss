@@ -37,6 +37,7 @@
 @import '../modules/imageWithTextBlock/scss/imageWithTextBlock';
 @import '../modules/logoCard/scss/logoCard';
 @import '../modules/logoGrid/scss/logoGrid';
+@import '../modules/photoSlider/scss/photoSlider';
 
 
 // Homepage Flex Content Layouts
@@ -60,6 +61,9 @@
 @import 'scss/single';
 @import 'scss/home-noncritical';
 
+// Slick Slider
+@import 'scss/slick';
+@import 'scss/slick-theme';
 
 // Custom ( don't use this unless you have to. This is for anything that doesnt fit anywhere else, which should be nothing )
 @import 'scss/custom';
