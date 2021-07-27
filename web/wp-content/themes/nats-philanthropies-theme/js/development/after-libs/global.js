@@ -44,6 +44,7 @@ jQuery(document).ready(function () {
         infinite: true,
         dots: true,
         slidesToScroll: 1,
+        slidesToShow: (is_multiple) ? 3 : 1,
         responsive: [
             {
                 breakpoint: 1024,
