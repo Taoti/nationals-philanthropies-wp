@@ -42,14 +42,13 @@ function emailSignUpScroll() {
 jQuery(document).ready(function () {
     jQuery('.photoSlider-images').slick({
         infinite: true,
-        slidesToShow: 3,
+        dots: true,
         slidesToScroll: 1,
         responsive: [
             {
                 breakpoint: 1024,
                 settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 3,
+                    slidesToShow: (is_multiple) ? 3 : 1,
                     infinite: true,
                     dots: true
                 }
@@ -57,8 +56,7 @@ jQuery(document).ready(function () {
             {
                 breakpoint: 600,
                 settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 2
+                    slidesToShow: (is_multiple) ? 3 : 1
                 }
             },
             {
