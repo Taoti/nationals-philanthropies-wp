@@ -30,7 +30,7 @@ class PhotoSlider {
 
 		$image_arr = array();
 		foreach($images as $image) {
-			array_push($image_arr, ($slider_type == 'Multiple') ? $image['sizes']['article'] : $image['sizes']['small-square']);
+			array_push($image_arr, ($slider_type == 'Multiple') ? $image['sizes']['small-square'] : $image['sizes']['article']);
 		}
 
 		$this->context = Timber::get_context();
