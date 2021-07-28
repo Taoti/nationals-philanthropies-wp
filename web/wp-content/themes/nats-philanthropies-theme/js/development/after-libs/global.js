@@ -40,7 +40,15 @@ function emailSignUpScroll() {
 
 /** Photo Slider Slick */
 jQuery(document).ready(function () {
-    jQuery('.photoSlider-images').slick({
+    jQuery( ".photoSlider-images" ).each(function( index ) {
+        initializeSlickSlider(jQuery( this ).attr('id'), (jQuery( this ).attr('data-slider-type') == 'Multiple'));
+    });
+
+    
+});
+
+function initializeSlickSlider(slider_id, is_multiple) {
+    jQuery('#' + slider_id).slick({
         infinite: true,
         dots: true,
         slidesToScroll: 1,
@@ -69,4 +77,4 @@ jQuery(document).ready(function () {
             }
         ]
     });
-});
+}

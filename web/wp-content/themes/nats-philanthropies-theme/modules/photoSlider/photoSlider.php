@@ -36,6 +36,7 @@ class PhotoSlider {
 		$this->context = Timber::get_context();
 		$this->context['slider_type'] = $slider_type;
 		$this->context['is_multiple'] = ($slider_type == 'Multiple') ? 'true' : 'false';
+		$this->context['unique_id'] = uniqid() . '-' . $slider_type;
         $this->context['images'] = $image_arr;
 		$this->context['classes'] = implode(' ', $classes);
 

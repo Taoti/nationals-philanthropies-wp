@@ -910,7 +910,15 @@ function emailSignUpScroll() {
 
 /** Photo Slider Slick */
 jQuery(document).ready(function () {
-    jQuery('.photoSlider-images').slick({
+    jQuery( ".photoSlider-images" ).each(function( index ) {
+        initializeSlickSlider(jQuery( this ).attr('id'), (jQuery( this ).attr('data-slider-type') == 'Multiple'));
+    });
+
+    
+});
+
+function initializeSlickSlider(slider_id, is_multiple) {
+    jQuery('#' + slider_id).slick({
         infinite: true,
         dots: true,
         slidesToScroll: 1,
@@ -939,7 +947,7 @@ jQuery(document).ready(function () {
             }
         ]
     });
-});
+}
 
 // There is a CSS custom property `--header-height` that controls the size/position of the mega nav. The height must be updated when the window is resized or scrolled, since the height of the header can change after either of those events.
 taoti_update_header_height_property();
@@ -1099,6 +1107,8 @@ function taoti_fonts_active_cb(){
     taoti_determine_navItem_status();
 
 }
+
+
 
 
 
@@ -1289,7 +1299,5 @@ function taoti_scrollspy_scrollTo( target ){
 			block: 'center'
 		});
 }
-
-
 
 
