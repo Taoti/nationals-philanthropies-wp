@@ -73,8 +73,14 @@ add_shortcode('wp_caption', 'taoti_fixed_img_caption_shortcode');
 add_shortcode('caption', 'taoti_fixed_img_caption_shortcode');
 
 
+/** Add Align Center option to Full Toolbar */
+add_filter( 'acf/fields/wysiwyg/toolbars' , 'my_toolbars'  );
+function my_toolbars( $toolbars )
+{
+	array_push($toolbars['Full' ][1], 'aligncenter'); 
 
-
+	return $toolbars;
+}
 
 /*
  * PURPOSE : Remove the inline styles from .wp-video <div>s
