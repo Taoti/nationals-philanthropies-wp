@@ -12,7 +12,7 @@ if( is_a( $selected_event, 'WP_Post') ){
 		'excerpt' => get_the_excerpt( $selected_event ),
 		'permalink' => false,
 		'primary_button_url' => get_field( 'rsvp_url', $selected_event->ID ),
-		'primary_button_label' => 'RSVP',
+		'primary_button_label' => get_field( 'rsvp_button_label', $selected_event->ID ) ? get_field( 'rsvp_button_label', $selected_event->ID ) : 'RSVP',
 		'secondary_button_url' => get_field( 'sponsor_url', $selected_event->ID ),
 		'secondary_button_label' => get_field( 'sponsor_name', $selected_event->ID ),
 		'image_array' => Get::featured_image_array( $selected_event->ID ),

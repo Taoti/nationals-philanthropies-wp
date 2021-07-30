@@ -19,6 +19,25 @@
             "placeholder": ""
         },
         {
+            "key": "field_610436d356b91",
+            "label": "RSVP Button Label",
+            "name": "rsvp_button_label",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_5e7e5c57183ab",
             "label": "Sponsor Name",
             "name": "sponsor_name",
@@ -69,7 +88,7 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 1,
+    "active": true,
     "description": "",
-    "modified": 1585339513
+    "modified": 1627666153
 }
