@@ -77,7 +77,9 @@ add_shortcode('caption', 'taoti_fixed_img_caption_shortcode');
 add_filter( 'acf/fields/wysiwyg/toolbars' , 'my_toolbars'  );
 function my_toolbars( $toolbars )
 {
-	array_push($toolbars['Full' ][1], 'aligncenter'); 
+    array_push($toolbars['Full' ][1], 'alignleft'); 
+    array_push($toolbars['Full' ][1], 'aligncenter'); 
+    array_push($toolbars['Full' ][1], 'alignright'); 
 
 	return $toolbars;
 }
