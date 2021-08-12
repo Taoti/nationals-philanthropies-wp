@@ -180,6 +180,34 @@
                             "prefix_name": 0
                         },
                         {
+                            "key": "field_61153dfdbf195",
+                            "label": "Background Color",
+                            "name": "bg_home_color",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "#0C9CC2": "Atomic Blue",
+                                "#AB0003": "Nationals Red",
+                                "#213F93": "Federal Blue",
+                                "#E01B1B": "Bright Red",
+                                "#1D7746": "Grass Green"
+                            },
+                            "default_value": false,
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "ui": 0,
+                            "return_format": "value",
+                            "ajax": 0,
+                            "placeholder": ""
+                        },
+                        {
                             "key": "field_5e8cccbf25be9",
                             "label": "Image Upload",
                             "name": "image",
@@ -470,7 +498,7 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 1,
+    "active": true,
     "description": "",
-    "modified": 1597264748
+    "modified": 1628782148
 }
