@@ -3,9 +3,11 @@
 namespace iThemesSecurity\User_Groups\Module;
 
 use iThemesSecurity\Contracts\Runnable;
+use iThemesSecurity\Module_Config;
 use iThemesSecurity\User_Groups\Everybody_Else;
 use iThemesSecurity\User_Groups\Repository\Repository;
 use iThemesSecurity\User_Groups\Settings_Proxy;
+use iThemesSecurity\User_Groups\Settings_Registration;
 use iThemesSecurity\User_Groups\Settings_Registry;
 use iThemesSecurity\User_Groups\User_Group;
 
@@ -40,6 +42,29 @@ class Module implements Runnable {
 	}
 
 	public function trigger_setting_registration() {
+		foreach ( \ITSEC_Modules::get_config_list() as $config ) {
+			if ( ! $user_groups = $config->get_user_groups() ) {
+				continue;
+			}
+
+			foreach ( $user_groups as $setting => $user_group ) {
+				$this->settings_registry->register( new Settings_Registration(
+					$config->get_id(),
+					$setting,
+					$user_group['type'],
+					static function () use ( $config, $setting ) {
+						$user_group = $config->translate( Module_Config::T_USER_GROUPS )
+						                     ->get_user_groups()[ $setting ];
+
+						return [
+							'title'       => $user_group['title'],
+							'description' => $user_group['description'],
+						];
+					}
+				) );
+			}
+		}
+
 		do_action( 'itsec_register_user_group_settings', $this->settings_registry );
 	}
 

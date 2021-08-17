@@ -39,9 +39,9 @@ function tcmp_ui_manager() {
         if ($tcmp->Manager->remove($id)) {
             $tcmp->Options->pushSuccessMessage('CodeDeleteNotice', $id, $snippet['name']);
         }
-    } else if($id!='') {
-        $snippet=$tcmp->Manager->get($id);
-	if($tcmp->Utils->is('action', 'toggle') && $id>0 && wp_verify_nonce(TCMP_QS('tcmp_nonce'), 'tcmp_toggle')) {
+    } else if ($id != '' && $id != 0) {
+        $snippet = $tcmp->Manager->get($id);
+	    if ($tcmp->Utils->is('action', 'toggle') && $id>0 && wp_verify_nonce(TCMP_QS('tcmp_nonce'), 'tcmp_toggle')) {
             $snippet['active']=($snippet['active']==0 ? 1 : 0);
             $tcmp->Manager->put($snippet['id'], $snippet);
         }

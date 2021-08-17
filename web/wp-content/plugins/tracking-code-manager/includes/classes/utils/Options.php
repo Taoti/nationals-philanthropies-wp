@@ -427,4 +427,15 @@ class TCMP_Options {
     public function setMetaboxPostTypes($values) {
         $this->setOption('MetaboxPostTypes', $values);
     }
+
+    //hook priority
+    public function getHookPriority()
+    {
+        return $this->getOption('HookPriority', TCMP_HOOK_PRIORITY_DEFAULT);
+    }
+
+    public function setHookPriority($value)
+    {
+        $this->setOption('HookPriority', $value);
+    }
 }

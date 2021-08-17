@@ -20,6 +20,11 @@ class TCMP_Form {
     //args can be a string or an associative array if you want
     private function getTextArgs($args, $defaults, $excludes=array()) {
         $result=$args;
+        
+        if (is_string($excludes)) {
+            $excludes = explode(',', $excludes);
+        }
+
         if(is_array($result) && count($result)>0) {
             $result='';
             foreach($args as $k=>$v) {
@@ -275,19 +280,41 @@ class TCMP_Form {
         $this->rightInput($name, $args);
     }
 
-    public function text($name, $value='', $options=NULL) {
-        if(is_array($value) && isset($value[$name])) {
-            $value=$value[$name];
+    public function number($name, $value = '', $options = NULL)
+    {
+        if (!$options) {
+            $options = array();
         }
-        $defaults=array('class'=>'tcmp-text');
-        $other=$this->getTextArgs($options, $defaults);
+        $options['type'] = 'number';
+        $options['autocomplete'] = 'off';
+        $options['style'] = 'width:100px;';
+        if (!isset($options['min'])) {
+            $options['min'] = 0;
+        }
 
-        $options=array('class'=>'tcmp-label');
-        $this->leftInput($name, $options);
+        return $this->text($name, $value, $options);
+    }
+
+    public function text($name, $value = '', $options = NULL)
+    {
+        if (is_array($value) && isset($value[$name])) {
+            $value = $value[$name];
+        }
+
+        $type = 'text';
+        if (isset($options['type'])) {
+            $type = $options['type'];
+        }
+
+        $defaults = array('class' => 'tcmp-'.$type);
+        $other = $this->getTextArgs($options, $defaults, 'type');
+
+        $args = array('class' => 'tcmp-label');
+        $this->leftInput($name, $args);
         ?>
-            <input type="text" id="<?php echo $name ?>" name="<?php echo $name ?>" value="<?php echo $value ?>" <?php echo $other?> />
+            <input type="<?php echo $type?>" id="<?php echo $name ?>" name="<?php echo $name ?>" value="<?php echo $value ?>" <?php echo $other?> />
         <?php
-        $this->rightInput($name, $options);
+        $this->rightInput($name, $args);
     }
 
     public function hidden($name, $value='', $args=NULL) {

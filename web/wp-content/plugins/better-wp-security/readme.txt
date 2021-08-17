@@ -1,10 +1,10 @@
 === iThemes Security (formerly Better WP Security) ===
 Contributors: ithemes, chrisjean, mattdanner, timothyblynjacobs
 Tags: security plugin, malware scanner, login security, malware prevention, hack prevention, brute force protection, anti-virus, secure, password protection, ban, bad bots, audit log
-Requires at least: 5.4
-Tested up to: 5.7
-Stable tag: 7.9.1
-Requires PHP: 5.6
+Requires at least: 5.7
+Tested up to: 5.8
+Stable tag: 8.0.1
+Requires PHP: 7.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -188,6 +188,46 @@ Free support may be available with the help of the community in the <a href="htt
 5. Free malware scan powered by Sucuri SiteCheck.
 
 == Changelog ==
+
+= 8.0.1 =
+* Bug Fix: Sites that did not support HTTPS, but had the SSL module active, but not configured, on upgrade would get redirected to the HTTPS version of the site.
+* Bug Fix: Unregister the iThemes Security Two-Factor module when the Two-Factor Feature Plugin is enabled.
+* Bug Fix: Allow activation on WordPress 5.7.0.
+* Bug Fix: Add missing textdomains.
+
+= 8.0.0 =
+
+* Important: iThemes Security now requires WordPress 5.7 and PHP 7.0 or later.
+* New: iThemes Security gets a redesigned interface focused on making it easier to configure and find what you're looking for. Read More: https://ithemes.com/?p=65086.
+* New: Instantly search over everything in iThemes Security with a new instant search feature.
+* New: Security Tools have been grouped into their own page. "Identify Server IPs" and "Security Check Pro" can be run manually without using Debug Mode.
+* New: Relevant content from the Help Center, iThemes Blog, and iThemes YouTube channel is surfaced in a new Help area based on the current page. Click the "Help" button in the toolbar or the "Info" icon next to the page title to access it.
+* New: The settings UI is now fully responsive and works great across mobile, tablet, and desktop devices.
+* New: Two-Factor is now part of the core iThemes Security plugin.
+* Enhancement: Improved keyboard and screen reader support.
+* Enhancement: The Banned Users Card can add multiple bans at once.
+* Tweak: Add a new Global setting to control "Automatically Temporarily Authorize Hosts".
+* Tweak: When the Global setting "Hide Security Menu in Admin Bar" is enabled, notices will no longer be printed on non-iThemes Security pages. Instead, you can access the Message Center from the Settings or Dashbaord toolbars.
+* Tweak: The Database Backups module is no longer available if you have BackupBuddy installed. If this behavior isn't desired, enable the "ITSEC_ENABLE_BACKUPS" constant.
+* Tweak: The Geolocation API configuration used by Trusted Devices has been moved into it's own dedicated "Geolocation" module.
+* Tweak: Move "Have I Been Pwned" integration to the Core plugin.
+* Tweak: Reduce filename length and complexity for built CSS and JS files.
+* Removed: The following modules have been removed: 404 Detection, Away Mode, Change Content Directory, and Multisite Tweaks.
+* Removed: The following WordPress and System Tweaks have been removed: Remove Windows Live Writer Header, EditURI Header, Comment Spam, Mitigate Attachment File Traversal Attack, Protect Against Tabnapping, Filter Long URL Strings, Filter Non-English Characters, Filter Request Methods, Remove File Writing Permissions.
+* Removed: The "Backup Full Database" setting has been removed from the Backups module.
+* Removed: The "Require SSL", "Front End SSL Mode", and "SSL for Dashboard" settings have been removed from the SSL module.
+* Bug Fix: Fix fatal errors when using PHP 8.
+* Bug Fix: Fix infinite loop when restricting who can use App Passwords on multisite installs.
+* Bug Fix: Ensure the ITSEC_Setup class does not exist before trying to load it. Display schema errors on multisite in the Network Admin.
+* Bug Fix: Labels for Disable PHP Execution in Plugins and Themes were reversed.
+* Bug Fix: Add missing constants to the debug page.
+* Bug Fix: Remove deleted recipients when saving notifications.
+* Bug Fix: Correct Site Scan statuses for scans with no issues.
+* Dev Note: Modules are now based on a module.json configuration file. If you are registering custom iThemes Security module, you should update it to include a module.json file that adheres to the core/module-schema.json JSON Schema.
+* Dev Note: The Network Brute Force module had it's folder updated to "network-brute-force" from "ipcheck".
+* Dev Note: New Object Oriented API for creating Password Requirements.
+* Dev Note: New Settings and Modules REST API endpoints.
+* Dev Note: New RPC REST API namespace. There is no backward compatibility promise for these API endpoints.
 
 = 7.9.1 =
 * Security: Fix Hide Backend Bypass, thanks to Julio Potier for reporting the issue.
@@ -631,5 +671,5 @@ Free support may be available with the help of the community in the <a href="htt
 
 == Upgrade Notice ==
 
-= 7.9.1 =
-Version 7.9.1 contains security and bug fixes. It is recommended for all users.
+= 8.0.1 =
+Version 8.0.0 is a major new release for iThemes Security with a brand new user interface and new features like Two-Factor.

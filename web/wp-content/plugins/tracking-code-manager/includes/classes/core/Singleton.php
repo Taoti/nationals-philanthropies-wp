@@ -12,6 +12,7 @@ class TCMP_Singleton {
     var $Ecommerce;
     var $Plugin;
     var $Tabs;
+    var $BodyWritten;
 
     function __construct() {
         $this->Lang=new TCMP_Language();
@@ -26,6 +27,7 @@ class TCMP_Singleton {
         $this->Manager=new TCMP_Manager();
         $this->Ecommerce=new TCMP_Ecommerce();
         $this->Plugin=new TCMP_Plugin();
+        $this->BodyWritten = false;
     }
     public function init() {
         $this->Lang->load('tcmp', TCMP_PLUGIN_DIR.'languages/Lang.txt');
