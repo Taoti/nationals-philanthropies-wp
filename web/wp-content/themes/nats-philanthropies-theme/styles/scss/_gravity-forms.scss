@@ -135,7 +135,8 @@
 
 
 .gfield + .gfield,
-.gform_page_footer {
+.gform_page_footer,
+.gform_footer {
 	margin-top: 4rem;
 }
 
@@ -172,7 +173,7 @@
 	.ginput_right,
 	.name_first,
 	.name_last {
-		flex-basis: calc(50% - 2rem);
+		//flex-basis: calc(50% - 2rem); commented temporarily by Arne
 	}
 }
 
@@ -235,7 +236,7 @@
 
 .add_list_item {
 	display: block;
-	height: 16px;
+	min-height: 16px;
 	margin-top: 3px;
 }
 
