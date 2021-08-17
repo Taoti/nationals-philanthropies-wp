@@ -2,7 +2,7 @@
 Contributors: IntellyWP, data443
 Tags: adwords remarketing,analytics conversion tracking,conversion pixel,conversion tracking,conversion tracking adwords,conversion tracking pixel,conversion tracking script,Facebook Ads,facebook conversion pixel,facebook custom audience,facebook retargeting,google adwords,google analytics web tracking code,google tag manager,html snippet,html snippets,html tracking code,javascript snippet,javascript snippets,header and footer,pay per click tracking,pixel tracking code,remarketing,retargeting,snippets,Tag Management,track conversion,track conversions,tracking code,tracking codes,tracking script,woocommerce,edd,easy digital downloads,wp ecommerce,wp e-commerce
 Requires at least: 2.7
-Tested up to: 5.7
+Tested up to: 5.8
 
 A plugin to manage ALL your tracking code and conversion pixels. Compatible with Facebook Ads, Google Adwords, WooCommerce, Easy Digital Downloads, ..
 
@@ -104,6 +104,17 @@ Have a look at the source code of your page (search for: Tracking Code Manager) 
 6. Tracking code manager is also as a metabox in your posts/pages (you can remove by settings)
 
 == Changelog ==
+
+= 2.0.3 =
+*Release Date - 2021-07-22*
+
+* IWP-50 Enable change of priority in placement of scripts. Add priority setting to admin settings page.
+* IWP-273 Position code at the beginning of the body instead of the end.
+
+= 2.0.2 =
+*Release Date - 2021-06-17*
+
+* IWP-225 Fix PHP 8 Warning
 
 = 2.0.1 =
 *Release Date - 2021-03-10*

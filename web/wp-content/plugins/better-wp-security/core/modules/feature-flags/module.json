@@ -1,0 +1,7 @@
+{
+  "id": "feature-flag",
+  "type": "advanced",
+  "status": "always-active",
+  "title": "Feature Flags",
+  "description": "Feature Flags in iThemes Security allow you to try experimental features before they are released."
+}

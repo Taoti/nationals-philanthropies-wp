@@ -32,7 +32,7 @@ class ITSEC_Lib_Feature_Flags {
 	 * @return true|WP_Error
 	 */
 	public static function register_flag( $name, $args = array() ) {
-		if ( ! preg_match( '/^[a-zA-Z0-9_]+$/', $name ) ) {
+		if ( ! preg_match( '/^\w+$/', $name ) ) {
 			return new WP_Error( 'invalid_flag_name', __( 'Invalid flag name.', 'better-wp-security' ) );
 		}
 
@@ -183,7 +183,7 @@ class ITSEC_Lib_Feature_Flags {
 	 */
 	public static function get_reason( $flag ) {
 		if ( ! $config = self::get_flag_config( $flag ) ) {
-			return [ 'unknown', __( 'Unknown flag' ) ];
+			return [ 'unknown', __( 'Unknown flag', 'better-wp-security' ) ];
 		}
 
 		if ( ! self::is_available( $flag ) ) {
@@ -193,20 +193,20 @@ class ITSEC_Lib_Feature_Flags {
 		}
 
 		if ( defined( 'ITSEC_FF_' . $flag ) ) {
-			return [ 'constant', __( 'Manually configured with a constant.' ) ];
+			return [ 'constant', __( 'Manually configured with a constant.', 'better-wp-security' ) ];
 		}
 
 		if ( ! empty( $config['disabled'] ) ) {
-			return [ 'remote', __( 'Remotely disabled by iThemes.' ) ];
+			return [ 'remote', __( 'Remotely disabled by iThemes.', 'better-wp-security' ) ];
 		}
 
 		$flags = ITSEC_Modules::get_setting( 'global', 'feature_flags' );
 
 		if ( isset( $flags[ $flag ]['rate'] ) ) {
-			return [ 'rollout', __( 'Gradually rolling out.' ) ];
+			return [ 'rollout', __( 'Gradually rolling out.', 'better-wp-security' ) ];
 		}
 
-		return [ 'setting', __( 'Configured in the Feature Flags settings page.' ) ];
+		return [ 'setting', __( 'Configured in the Feature Flags settings page.', 'better-wp-security' ) ];
 	}
 
 	/**

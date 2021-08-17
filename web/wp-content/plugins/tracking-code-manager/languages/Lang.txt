@@ -105,6 +105,9 @@ License.licenseSiteCount=License site count
 License.metabox=In "<b>{0}</b>"
 LicenseSection=License information
 LicenseSectionSubtitle=Insert the activation key received by email in the text below to see all the settings
+Priority.tcmpHookPriority=Priority
+PrioritySection=Priority Setting
+PrioritySectionSubtitle=Change the priority used to insert the scripts onto the page. (Default priority is 10, 1 is the highest priority and lower priorities are higher numbers.)
 Manager=
 ManagerTitle=Welcome to "<b>Tracking Code Manager</b> (v.{0})", an <a href="https://intellywp.com/" target="_blank"><b>IntellyWP</b></a> plugin.
 MetaboxSection=Metabox information

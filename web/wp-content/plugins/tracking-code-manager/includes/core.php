@@ -1,6 +1,6 @@
 <?php
 //per agganciarsi ogni volta che viene scritto un contenuto
-add_filter('wp_head', 'tcmp_head');
+add_filter('wp_head', 'tcmp_head', get_option('TCM_HookPriority', TCMP_HOOK_PRIORITY_DEFAULT));
 function tcmp_head(){
     global $post, $tcmp;
 
@@ -10,6 +10,8 @@ function tcmp_head(){
         $tcmp->Log->info('POST ID=%s IS SHOWN', $post->ID);
     }
 
+    $tcmp->BodyWritten = false;
+
     //future development
     //is_archive();
     //is_post_type_archive();
@@ -17,11 +19,25 @@ function tcmp_head(){
     //is_attachment();
     $tcmp->Manager->writeCodes(TCMP_POSITION_HEAD);
 }
-add_action('wp_footer', 'tcmp_footer');
+
+add_action('wp_body_open', 'tcmp_body', get_option('TCM_HookPriority', TCMP_HOOK_PRIORITY_DEFAULT));
+function tcmp_body()
+{
+    global $tcmp;
+
+    $tcmp->Manager->writeCodes(TCMP_POSITION_BODY);
+    $tcmp->BodyWritten = true;
+}
+
+add_action('wp_footer', 'tcmp_footer', get_option('TCM_HookPriority', TCMP_HOOK_PRIORITY_DEFAULT));
 function tcmp_footer() {
     global $tcmp;
-    //there isn't a hook when <BODY> starts
-    $tcmp->Manager->writeCodes(TCMP_POSITION_BODY);
+
+    if (!$tcmp->BodyWritten) {
+        // this is a fallback if wp_body_open() is not called by the theme
+        $tcmp->Manager->writeCodes(TCMP_POSITION_BODY);
+    }
+
     $tcmp->Manager->writeCodes(TCMP_POSITION_CONVERSION);
     $tcmp->Manager->writeCodes(TCMP_POSITION_FOOTER);
 }

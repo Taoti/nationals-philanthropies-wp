@@ -30,9 +30,16 @@ function tcmp_ui_settings() {
             $options[$k]=$v;
         }
         $tcmp->Options->setMetaboxPostTypes($options);
+
+        $tcmp->Options->setHookPriority($tcmp->Utils->iqs('tcmpHookPriority', TCMP_HOOK_PRIORITY_DEFAULT));
     }
 
     $tcmp->Form->formStarts();
+    $tcmp->Form->prefix = 'Priority';
+    $tcmp->Form->p('PrioritySection');
+    $tcmp->Form->number('tcmpHookPriority', $tcmp->Options->getHookPriority());
+
+    $tcmp->Form->prefix='License';
     $tcmp->Form->p('MetaboxSection');
     $metaboxes=$tcmp->Options->getMetaboxPostTypes();
 
