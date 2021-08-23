@@ -73,22 +73,19 @@ if ( ! defined( 'WP_DEBUG' ) ) {
 	define('WP_DEBUG', false);
 }
 
+/**
+
+* Add custom code for wp-config to our included file:
+
+*/
+
+if( file_exists(dirname(__FILE__) . '/wp-config-taoti.php') ){
+
+    require_once(dirname(__FILE__) . '/wp-config-taoti.php');
+
+}
+
 /* That's all, stop editing! Happy Pressing. */
-
-
-/** 
-
-* Add custom code for wp-config to our included file: 
-
-*/ 
-
-if( file_exists(dirname(__FILE__) . '/wp-config-taoti.php') ){ 
-
-    require_once(dirname(__FILE__) . '/wp-config-taoti.php'); 
-
-} 
-
-
 
 /** Absolute path to the WordPress directory. */
 if ( !defined('ABSPATH') )
