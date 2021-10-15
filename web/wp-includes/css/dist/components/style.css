@@ -796,6 +796,49 @@ svg.components-checkbox-control__checked {
   margin-left: 0.5rem;
 }
 
+.components-color-edit__color-option-main-area {
+  display: flex;
+  align-items: center; }
+  .components-color-edit__color-option-main-area .components-circular-option-picker__option-wrapper {
+    margin: 8px; }
+
+.components-color-edit__color-option.is-hover {
+  background: #e0e0e0; }
+
+.components-color-edit__cancel-button {
+  float: right; }
+
+.components-color-edit__color-option-color-name {
+  width: 100%; }
+
+.components-color-edit__label-and-insert-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; }
+
+.components-color-edit__insert-button {
+  margin-top: -8px; }
+
+.components-color-edit__hidden-control {
+  position: relative;
+  left: -9999px; }
+
+.components-color-edit__color-option-color-name-input .components-base-control__field {
+  margin-bottom: 0;
+  margin-right: 8px; }
+
+.components-color-edit__slug-input {
+  margin-left: 8px; }
+
+.component-color-indicator {
+  width: 25px;
+  height: 16px;
+  margin-left: 0.8rem;
+  border: 1px solid #dadada;
+  display: inline-block; }
+  .component-color-indicator + .component-color-indicator {
+    margin-left: 0.5rem; }
+
 /**
  * Parts of this source were derived and modified from react-color,
  * released under the MIT license.
@@ -1343,7 +1386,11 @@ input.components-combobox-control__input[type=text]:focus {
   background-color: #fff;
 }
 
-.SingleDatePickerInput__withBorder {
+.components-combobox-control__suggestions-container {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  padding: 6px 8px;
+  box-shadow: 0 0 0 transparent;
+  transition: box-shadow 0.1s linear;
   border-radius: 2px;
   border: 1px solid #dbdbdb;
 }
@@ -3325,6 +3372,14 @@ body.is-dragging-components-draggable {
   padding-left: 12px;
 }
 
+.components-menu-items-choice svg,
+.components-menu-items-choice.components-button svg {
+  margin-right: 12px; }
+
+.components-menu-items-choice.has-icon,
+.components-menu-items-choice.components-button.has-icon {
+  padding-left: 12px; }
+
 .components-modal__screen-overlay {
   position: fixed;
   top: 0;
@@ -3804,6 +3859,10 @@ body.rtl .components-panel__body-toggle.components-button .dashicons-arrow-right
   width: 100%;
 }
 
+.components-placeholder__error {
+  margin-top: 1em;
+  width: 100%; }
+
 .components-placeholder__preview img {
   margin: 3%;
   width: 50%;
@@ -3844,6 +3903,37 @@ body.rtl .components-panel__body-toggle.components-button .dashicons-arrow-right
 .components-placeholder.is-small .components-button {
   padding: 0 8px 2px;
 }
+
+.components-placeholder__fieldset .components-button {
+  margin-right: 12px;
+  margin-bottom: 12px; }
+  .components-placeholder__fieldset .components-button:last-child {
+    margin-bottom: 0;
+    margin-right: 0; }
+
+.components-placeholder__fieldset .components-button:not(.is-link) ~ .components-button.is-link {
+  margin-left: 10px;
+  margin-right: 10px; }
+  .components-placeholder__fieldset .components-button:not(.is-link) ~ .components-button.is-link:last-child {
+    margin-right: 0; }
+
+.components-placeholder.is-large .components-placeholder__label {
+  font-size: 18pt;
+  font-weight: normal; }
+
+.components-placeholder.is-medium .components-placeholder__instructions, .components-placeholder.is-small .components-placeholder__instructions {
+  display: none; }
+
+.components-placeholder.is-medium .components-placeholder__fieldset,
+.components-placeholder.is-medium .components-placeholder__fieldset form, .components-placeholder.is-small .components-placeholder__fieldset,
+.components-placeholder.is-small .components-placeholder__fieldset form {
+  flex-direction: column; }
+
+.components-placeholder.is-medium .components-placeholder__fieldset .components-button, .components-placeholder.is-small .components-placeholder__fieldset .components-button {
+  margin-right: auto; }
+
+.components-placeholder.is-small .components-button {
+  padding: 0 8px 2px; }
 
 /*!rtl:begin:ignore*/
 .components-popover {

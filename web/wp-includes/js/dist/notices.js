@@ -186,7 +186,7 @@ const notices = on_sub_key('context')((state = [], action) => {
       }), action.notice];
 
     case 'REMOVE_NOTICE':
-      return Object(external_lodash_["reject"])(state, {
+      return Object(external_this_lodash_["reject"])(state, {
         id: action.id
       });
   }
