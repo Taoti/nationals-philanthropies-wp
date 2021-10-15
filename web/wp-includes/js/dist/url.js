@@ -307,16 +307,19 @@ function isValidPath(path) {
 
 // CONCATENATED MODULE: ./node_modules/@wordpress/url/build-module/get-query-string.js
 /**
- * Returns the query string part of the URL.
+ * Determines whether the given string looks like a URL.
  *
- * @param {string} url The full URL.
+ * @param {string} url The string to scrutinise.
  *
  * @example
  * ```js
  * const queryString = getQueryString( 'http://localhost:8080/this/is/a/test?query=true#fragment' ); // 'query=true'
  * ```
  *
- * @return {string|void} The query string part of the URL.
+ * @see https://url.spec.whatwg.org/
+ * @see https://url.spec.whatwg.org/#valid-url-string
+ *
+ * @return {boolean} Whether or not it looks like a URL.
  */
 function getQueryString(url) {
   let query;
@@ -392,17 +395,16 @@ function buildQueryString(data) {
 
 // CONCATENATED MODULE: ./node_modules/@wordpress/url/build-module/is-valid-query-string.js
 /**
- * Checks for invalid characters within the provided query string.
+ * Determines whether the given string looks like an email.
  *
- * @param {string} queryString The query string.
+ * @param {string} email The string to scrutinise.
  *
  * @example
  * ```js
- * const isValid = isValidQueryString( 'query=true&another=false' ); // true
- * const isNotValid = isValidQueryString( 'query=true?another=false' ); // false
+ * const isEmail = isEmail( 'hello@wordpress.org' ); // true
  * ```
  *
- * @return {boolean} True if the argument contains a valid query string.
+ * @return {boolean} Whether or not it looks like an email.
  */
 function isValidQueryString(queryString) {
   if (!queryString) {
@@ -442,17 +444,17 @@ function getPathAndQueryString(url) {
 
 // CONCATENATED MODULE: ./node_modules/@wordpress/url/build-module/get-fragment.js
 /**
- * Returns the fragment part of the URL.
+ * Returns the protocol part of the URL.
  *
- * @param {string} url The full URL
+ * @param {string} url The full URL.
  *
  * @example
  * ```js
- * const fragment1 = getFragment( 'http://localhost:8080/this/is/a/test?query=true#fragment' ); // '#fragment'
- * const fragment2 = getFragment( 'https://wordpress.org#another-fragment?query=true' ); // '#another-fragment'
+ * const protocol1 = getProtocol( 'tel:012345678' ); // 'tel:'
+ * const protocol2 = getProtocol( 'https://wordpress.org' ); // 'https:'
  * ```
  *
- * @return {string|void} The fragment part of the URL.
+ * @return {string|void} The protocol part of the URL.
  */
 function getFragment(url) {
   const matches = /^\S+?(#[^\s\?]*)/.exec(url);
@@ -464,24 +466,24 @@ function getFragment(url) {
 
 // CONCATENATED MODULE: ./node_modules/@wordpress/url/build-module/is-valid-fragment.js
 /**
- * Checks for invalid characters within the provided fragment.
+ * Tests if a url protocol is valid.
  *
- * @param {string} fragment The url fragment.
+ * @param {string} protocol The url protocol.
  *
  * @example
  * ```js
- * const isValid = isValidFragment( '#valid-fragment' ); // true
- * const isNotValid = isValidFragment( '#invalid-#fragment' ); // false
+ * const isValid = isValidProtocol( 'https:' ); // true
+ * const isNotValid = isValidProtocol( 'https :' ); // false
  * ```
  *
- * @return {boolean} True if the argument contains a valid fragment.
+ * @return {boolean} True if the argument is a valid protocol (e.g. http:, tel:).
  */
 function isValidFragment(fragment) {
   if (!fragment) {
     return false;
   }
 
-  return /^#[^\s#?\/]*$/.test(fragment);
+  return /^[a-z\-.\+]+[0-9]*:$/i.test(protocol);
 }
 
 // CONCATENATED MODULE: ./node_modules/@wordpress/url/build-module/get-query-args.js
@@ -628,18 +630,20 @@ function addQueryArgs(url = '', args) {
  */
 
 /**
- * Returns a single query argument of the url
+ * Returns the authority part of the URL.
  *
- * @param {string} url URL.
- * @param {string} arg Query arg name.
+ * @param {string} url The full URL.
  *
  * @example
  * ```js
- * const foo = getQueryArg( 'https://wordpress.org?foo=bar&bar=baz', 'foo' ); // bar
+ * const authority1 = getAuthority( 'https://wordpress.org/help/' ); // 'wordpress.org'
+ * const authority2 = getAuthority( 'https://localhost:8080/test/' ); // 'localhost:8080'
  * ```
  *
  * @return {QueryArgParsed|void} Query arg value.
  */
+function getAuthority(url) {
+  var matches = /^[^\/\s:]+:(?:\/\/)?\/?([^\/\s#?]+)[\/#?]{0,1}\S*$/.exec(url);
 
 function getQueryArg(url, arg) {
   return getQueryArgs(url)[arg];
@@ -675,17 +679,17 @@ function hasQueryArg(url, arg) {
 
 
 /**
- * Removes arguments from the query string of the url
+ * Checks for invalid characters within the provided authority.
  *
- * @param {string}    url  URL.
- * @param {...string} args Query Args.
+ * @param {string} authority A string containing the URL authority.
  *
  * @example
  * ```js
- * const newUrl = removeQueryArgs( 'https://wordpress.org?foo=bar&bar=baz&baz=foobar', 'foo', 'bar' ); // https://wordpress.org?baz=foobar
+ * const isValid = isValidAuthority( 'wordpress.org' ); // true
+ * const isNotValid = isValidAuthority( 'wordpress#org' ); // false
  * ```
  *
- * @return {string} Updated URL.
+ * @return {boolean} True if the argument contains a valid authority.
  */
 
 function removeQueryArgs(url, ...args) {
@@ -709,17 +713,20 @@ function removeQueryArgs(url, ...args) {
 
 const USABLE_HREF_REGEXP = /^(?:[a-z]+:|#|\?|\.|\/)/i;
 /**
- * Prepends "http://" to a url, if it looks like something that is meant to be a TLD.
+ * Returns the path part of the URL.
  *
- * @param {string} url The URL to test.
+ * @param {string} url The full URL.
  *
  * @example
  * ```js
- * const actualURL = prependHTTP( 'wordpress.org' ); // http://wordpress.org
+ * const path1 = getPath( 'http://localhost:8080/this/is/a/test?query=true' ); // 'this/is/a/test'
+ * const path2 = getPath( 'https://wordpress.org/help/faq/' ); // 'help/faq'
  * ```
  *
- * @return {string} The updated URL.
+ * @return {string|void} The path part of the URL.
  */
+function getPath(url) {
+  var matches = /^[^\/\s:]+:(?:\/\/)?[^\/\s#?]+[\/]([^\s#?]+)[#?]{0,1}\S*$/.exec(url);
 
 function prependHTTP(url) {
   if (!url) {
@@ -731,23 +738,21 @@ function prependHTTP(url) {
   if (!USABLE_HREF_REGEXP.test(url) && !isEmail(url)) {
     return 'http://' + url;
   }
-
-  return url;
 }
 
 // CONCATENATED MODULE: ./node_modules/@wordpress/url/build-module/safe-decode-uri.js
 /**
- * Safely decodes a URI with `decodeURI`. Returns the URI unmodified if
- * `decodeURI` throws an error.
+ * Checks for invalid characters within the provided path.
  *
- * @param {string} uri URI to decode.
+ * @param {string} path The URL path.
  *
  * @example
  * ```js
- * const badUri = safeDecodeURI( '%z' ); // does not throw an Error, simply returns '%z'
+ * const isValid = isValidPath( 'test/path/' ); // true
+ * const isNotValid = isValidPath( '/invalid?test/path/' ); // false
  * ```
  *
- * @return {string} Decoded URI if possible.
+ * @return {boolean} True if the argument contains a valid path
  */
 function safeDecodeURI(uri) {
   try {
@@ -755,16 +760,23 @@ function safeDecodeURI(uri) {
   } catch (uriError) {
     return uri;
   }
+
+  return /^[^\s#?]+$/.test(path);
 }
 
 // CONCATENATED MODULE: ./node_modules/@wordpress/url/build-module/safe-decode-uri-component.js
 /**
- * Safely decodes a URI component with `decodeURIComponent`. Returns the URI component unmodified if
- * `decodeURIComponent` throws an error.
+ * Checks for invalid characters within the provided query string.
  *
- * @param {string} uriComponent URI component to decode.
+ * @param {string} queryString The query string.
  *
- * @return {string} Decoded URI component if possible.
+ * @example
+ * ```js
+ * const isValid = isValidQueryString( 'query=true&another=false' ); // true
+ * const isNotValid = isValidQueryString( 'query=true?another=false' ); // false
+ * ```
+ *
+ * @return {boolean} True if the argument contains a valid query string.
  */
 function safeDecodeURIComponent(uriComponent) {
   try {
@@ -812,6 +824,8 @@ function filterURLForDisplay(url, maxLength = null) {
     return '…' + filteredURL.slice(-maxLength);
   } // If the file is greater than max length, truncate the file.
 
+    baseUrl = baseUrl.substr(0, queryStringIndex);
+  }
 
   const index = file.lastIndexOf('.');
   const [fileName, extension] = [file.slice(0, index), file.slice(index + 1)];

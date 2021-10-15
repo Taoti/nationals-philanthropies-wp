@@ -237,6 +237,9 @@ function getValuePair(instance, key) {
   } // If reached, it implies that an object-like key was set with another
   // reference, so delete the reference and replace with the current.
 
+  for (var i = 0; i < properties.length; i++) {
+    var property = properties[i];
+    map = map.get(property);
 
   _map.delete(valuePair[0]);
 
@@ -579,6 +582,7 @@ var useCallback = useCallbackOne;
 
 
 
+(function() { module.exports = this["wp"]["priorityQueue"]; }());
 
 /***/ }),
 
@@ -755,6 +759,55 @@ function isPlainObject(obj) {
   return Object.getPrototypeOf(obj) === proto;
 }
 
+// Inlined / shortened version of `kindOf` from https://github.com/jonschlinkert/kind-of
+function miniKindOf(val) {
+  if (val === void 0) return 'undefined';
+  if (val === null) return 'null';
+  var type = typeof val;
+
+  switch (type) {
+    case 'boolean':
+    case 'string':
+    case 'number':
+    case 'symbol':
+    case 'function':
+      {
+        return type;
+      }
+  }
+
+  if (Array.isArray(val)) return 'array';
+  if (isDate(val)) return 'date';
+  if (isError(val)) return 'error';
+  var constructorName = ctorName(val);
+
+  switch (constructorName) {
+    case 'Symbol':
+    case 'Promise':
+    case 'WeakMap':
+    case 'WeakSet':
+    case 'Map':
+    case 'Set':
+      return constructorName;
+  } // other
+
+
+  return type.slice(8, -1).toLowerCase().replace(/\s/g, '');
+}
+
+function ctorName(val) {
+  return typeof val.constructor === 'function' ? val.constructor.name : null;
+}
+
+function isError(val) {
+  return val instanceof Error || typeof val.message === 'string' && val.constructor && typeof val.constructor.stackTraceLimit === 'number';
+}
+
+function isDate(val) {
+  if (val instanceof Date) return true;
+  return typeof val.toDateString === 'function' && typeof val.getDate === 'function' && typeof val.setDate === 'function';
+}
+
 function kindOf(val) {
   var typeOfVal = typeof val;
 
@@ -837,6 +890,8 @@ function redux_createStore(reducer, preloadedState, enhancer) {
    * @returns {any} The current state tree of your application.
    */
 
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js
+var asyncToGenerator = __webpack_require__(45);
 
   function getState() {
     if (isDispatching) {
@@ -1025,6 +1080,10 @@ function redux_createStore(reducer, preloadedState, enhancer) {
   // reducer returns their initial state. This effectively populates
   // the initial state tree.
 
+  function getState() {
+    if (isDispatching) {
+      throw new Error('You may not call store.getState() while the reducer is executing. ' + 'The reducer has already received the state as an argument. ' + 'Pass it down from the top reducer instead of reading it from the store.');
+    }
 
   dispatch({
     type: ActionTypes.INIT
@@ -1050,6 +1109,9 @@ function warning(message) {
   }
   /* eslint-enable no-console */
 
+    if (isDispatching) {
+      throw new Error('You may not call store.subscribe() while the reducer is executing. ' + 'If you would like to be notified after the store has been updated, subscribe from a ' + 'component and invoke store.getState() in the callback to access the latest state. ' + 'See https://redux.js.org/api-reference/store#subscribelistener for more details.');
+    }
 
   try {
     // This error was thrown as a convenience so that if you enable
@@ -1149,6 +1211,16 @@ function combineReducers(reducers) {
   } catch (e) {
     shapeAssertionError = e;
   }
+  /**
+   * Replaces the reducer currently used by the store to calculate the state.
+   *
+   * You might need this if your app implements code splitting and you want to
+   * load some of the reducers dynamically. You might also need this if you
+   * implement a hot reloading mechanism for Redux.
+   *
+   * @param {Function} nextReducer The reducer for the store to use instead.
+   * @returns {void}
+   */
 
   return function combination(state, action) {
     if (state === void 0) {
@@ -1323,6 +1395,16 @@ function isCrushed() {}
 if (false) {}
 
 
+  dispatch({
+    type: ActionTypes.INIT
+  });
+  return _ref2 = {
+    dispatch: dispatch,
+    subscribe: subscribe,
+    getState: getState,
+    replaceReducer: replaceReducer
+  }, _ref2[es["a" /* default */]] = observable, _ref2;
+}
 
 // EXTERNAL MODULE: ./node_modules/equivalent-key-map/equivalent-key-map.js
 var equivalent_key_map = __webpack_require__("FtRg");
@@ -1383,6 +1465,11 @@ function createRegistrySelector(registrySelector) {
    * @type {boolean}
    */
 
+function getUndefinedStateErrorMessage(key, action) {
+  var actionType = action && action.type;
+  var actionDescription = actionType && "action \"" + String(actionType) + "\"" || 'an action';
+  return "Given " + actionDescription + ", reducer \"" + key + "\" returned undefined. " + "To ignore an action, you must explicitly return the previous state. " + "If you want this reducer to hold no value, you can return null instead of undefined.";
+}
 
   selector.isRegistrySelector = true;
   return selector;
@@ -1508,6 +1595,7 @@ function controls_resolveSelect(storeKey, selectorName, ...args) {
  * @return {Object}  The control descriptor.
  */
 
+    if (false) { var warningMessage; }
 
 function controls_dispatch(storeKey, actionName, ...args) {
   return {
@@ -1669,6 +1757,7 @@ const onSubKey = actionProperty => reducer => (state = {}, action) => {
  * Internal dependencies
  */
 
+function isCrushed() {}
 
 /**
  * Reducer function returning next state for selector resolution of
@@ -1963,7 +2052,12 @@ function invalidateResolutionForStoreSelector(selectorName) {
 
 
 
+function getIsResolving(state, selectorName, args) {
+  var map = Object(external_this_lodash_["get"])(state, [selectorName]);
 
+  if (!map) {
+    return;
+  }
 
 
 
@@ -2386,6 +2480,7 @@ function createCoreDataStore(registry) {
  * External dependencies
  */
 
+
 /**
  * Internal dependencies
  */
@@ -2524,6 +2619,8 @@ function createRegistry(storeConfigs = {}, parent = null) {
    * @return {*} The action's returned value.
    */
 
+    return parent && parent.select(reducerKey);
+  }
 
   function dispatch(storeNameOrDefinition) {
     const storeName = Object(external_lodash_["isObject"])(storeNameOrDefinition) ? storeNameOrDefinition.name : storeNameOrDefinition;
@@ -2602,6 +2699,10 @@ function createRegistry(storeConfigs = {}, parent = null) {
     // We fallback to regular `subscribe` here for backward-compatibility for now.
     // See https://github.com/WordPress/gutenberg/pull/27466 for more info.
 
+  function registerGenericStore(key, config) {
+    if (typeof config.getSelectors !== 'function') {
+      throw new TypeError('config.getSelectors must be a function');
+    }
 
     if (!parent) {
       return subscribe(handler);
@@ -3538,6 +3639,9 @@ const useDispatchWithMap = (dispatchMap, deps) => {
 // CONCATENATED MODULE: ./node_modules/@wordpress/data/build-module/components/with-dispatch/index.js
 
 
+var use_dispatch_useDispatch = function useDispatch(storeName) {
+  var _useRegistry = useRegistry(),
+      dispatch = _useRegistry.dispatch;
 
 /**
  * WordPress dependencies
@@ -3740,11 +3844,30 @@ const useDispatch = storeNameOrDefinition => {
 
 
 
+var build_module_experimentalResolveSelect = default_registry.__experimentalResolveSelect;
+/**
+ * Given the name of a registered store, returns an object of the store's action creators.
+ * Calling an action creator will cause it to be dispatched, updating the state value accordingly.
+ *
+ * Note: Action creators returned by the dispatch will return a promise when
+ * they are called.
+ *
+ * @param {string} name Store name.
+ *
+ * @example
+ * ```js
+ * const { dispatch } = wp.data;
+ *
+ * dispatch( 'my-shop' ).setPrice( 'hammer', 9.75 );
+ * ```
+ * @return {Object} Object containing the action creators.
+ */
 
 
 
 
 
+var build_module_use = default_registry.use;
 
 
 

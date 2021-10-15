@@ -383,6 +383,24 @@ const formatBold = Object(external_wp_element_["createElement"])(external_wp_pri
 }));
 /* harmony default export */ var format_bold = (formatBold);
 
+// EXTERNAL MODULE: external {"this":["wp","primitives"]}
+var external_this_wp_primitives_ = __webpack_require__(7);
+
+// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/format-bold.js
+
+
+/**
+ * WordPress dependencies
+ */
+
+var formatBold = Object(external_this_wp_element_["createElement"])(external_this_wp_primitives_["SVG"], {
+  xmlns: "http://www.w3.org/2000/svg",
+  viewBox: "0 0 24 24"
+}, Object(external_this_wp_element_["createElement"])(external_this_wp_primitives_["Path"], {
+  d: "M14.7 11.3c1-.6 1.5-1.6 1.5-3 0-2.3-1.3-3.4-4-3.4H7v14h5.8c1.4 0 2.5-.3 3.3-1 .8-.7 1.2-1.7 1.2-2.9.1-1.9-.8-3.1-2.6-3.7zm-5.1-4h2.3c.6 0 1.1.1 1.4.4.3.3.5.7.5 1.2s-.2 1-.5 1.2c-.3.3-.8.4-1.4.4H9.6V7.3zm4.6 9c-.4.3-1 .4-1.7.4H9.6v-3.9h2.9c.7 0 1.3.2 1.7.5.4.3.6.8.6 1.5s-.2 1.2-.6 1.5z"
+}));
+/* harmony default export */ var format_bold = (formatBold);
+
 // CONCATENATED MODULE: ./node_modules/@wordpress/format-library/build-module/bold/index.js
 
 
@@ -686,6 +704,21 @@ const formatItalic = Object(external_wp_element_["createElement"])(external_wp_p
 }));
 /* harmony default export */ var format_italic = (formatItalic);
 
+// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/format-italic.js
+
+
+/**
+ * WordPress dependencies
+ */
+
+var formatItalic = Object(external_this_wp_element_["createElement"])(external_this_wp_primitives_["SVG"], {
+  xmlns: "http://www.w3.org/2000/svg",
+  viewBox: "0 0 24 24"
+}, Object(external_this_wp_element_["createElement"])(external_this_wp_primitives_["Path"], {
+  d: "M12.5 5L10 19h1.9l2.5-14z"
+}));
+/* harmony default export */ var format_italic = (formatItalic);
+
 // CONCATENATED MODULE: ./node_modules/@wordpress/format-library/build-module/italic/index.js
 
 
@@ -800,7 +833,7 @@ function isValidHref(href) {
     // This ensures URIs with an http protocol have exactly two forward slashes following the protocol.
 
 
-    if (Object(external_lodash_["startsWith"])(protocol, 'http') && !/^https?:\/\/[^\/\s]/i.test(trimmedHref)) {
+    if (Object(external_this_lodash_["startsWith"])(protocol, 'http') && !/^https?:\/\/[^\/\s]/i.test(trimmedHref)) {
       return false;
     }
 
@@ -1009,6 +1042,10 @@ function InlineLinkUI({
 
 
 
+
+function link_createSuper(Derived) { var hasNativeReflectConstruct = link_isNativeReflectConstruct(); return function _createSuperInternal() { var Super = Object(getPrototypeOf["a" /* default */])(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = Object(getPrototypeOf["a" /* default */])(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return Object(possibleConstructorReturn["a" /* default */])(this, result); }; }
+
+function link_isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
 /**
  * Internal dependencies

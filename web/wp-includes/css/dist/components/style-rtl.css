@@ -796,6 +796,49 @@ svg.components-checkbox-control__checked {
   margin-right: 0.5rem;
 }
 
+.components-color-edit__color-option-main-area {
+  display: flex;
+  align-items: center; }
+  .components-color-edit__color-option-main-area .components-circular-option-picker__option-wrapper {
+    margin: 8px; }
+
+.components-color-edit__color-option.is-hover {
+  background: #e0e0e0; }
+
+.components-color-edit__cancel-button {
+  float: left; }
+
+.components-color-edit__color-option-color-name {
+  width: 100%; }
+
+.components-color-edit__label-and-insert-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; }
+
+.components-color-edit__insert-button {
+  margin-top: -8px; }
+
+.components-color-edit__hidden-control {
+  position: relative;
+  right: -9999px; }
+
+.components-color-edit__color-option-color-name-input .components-base-control__field {
+  margin-bottom: 0;
+  margin-left: 8px; }
+
+.components-color-edit__slug-input {
+  margin-right: 8px; }
+
+.component-color-indicator {
+  width: 25px;
+  height: 16px;
+  margin-right: 0.8rem;
+  border: 1px solid #dadada;
+  display: inline-block; }
+  .component-color-indicator + .component-color-indicator {
+    margin-right: 0.5rem; }
+
 /**
  * Parts of this source were derived and modified from react-color,
  * released under the MIT license.
@@ -1338,7 +1381,11 @@ input.components-combobox-control__input[type=text]:focus {
   background-color: #fff;
 }
 
-.SingleDatePickerInput__withBorder {
+.components-combobox-control__suggestions-container {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  padding: 6px 8px;
+  box-shadow: 0 0 0 transparent;
+  transition: box-shadow 0.1s linear;
   border-radius: 2px;
   border: 1px solid #dbdbdb;
 }
@@ -3315,6 +3362,14 @@ body.is-dragging-components-draggable {
   padding-right: 12px;
 }
 
+.components-menu-items-choice svg,
+.components-menu-items-choice.components-button svg {
+  margin-left: 12px; }
+
+.components-menu-items-choice.has-icon,
+.components-menu-items-choice.components-button.has-icon {
+  padding-right: 12px; }
+
 .components-modal__screen-overlay {
   position: fixed;
   top: 0;
@@ -3791,6 +3846,10 @@ body.rtl .components-panel__body-toggle.components-button .dashicons-arrow-right
   margin-top: 1em;
   width: 100%;
 }
+
+.components-placeholder__error {
+  margin-top: 1em;
+  width: 100%; }
 
 .components-placeholder__preview img {
   margin: 3%;

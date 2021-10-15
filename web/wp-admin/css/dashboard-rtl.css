@@ -384,6 +384,10 @@
 	text-decoration: underline;
 }
 
+#dashboard-widgets .community-events li.event-none a {
+	text-decoration: underline;
+}
+
 .community-events-form label {
 	display: inline-block;
 	vertical-align: top;
@@ -1082,6 +1086,10 @@ a.rsswidget {
 
 #dashboard_php_nag.php-insecure .dashicons-warning {
 	color: #d63638;
+}
+
+#dashboard_php_nag h2 {
+	display: inline-block;
 }
 
 #dashboard_php_nag h2 {

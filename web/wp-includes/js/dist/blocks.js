@@ -1689,17 +1689,17 @@ function registerBlockType(blockNameOrMetadata, settings) {
     }, name), DEPRECATED_ENTRY_KEYS));
   }
 
-  if (!Object(external_lodash_["isPlainObject"])(settings)) {
+  if (!Object(external_this_lodash_["isPlainObject"])(settings)) {
     console.error('Block settings must be a valid object.');
     return;
   }
 
-  if (!Object(external_lodash_["isFunction"])(settings.save)) {
+  if (!Object(external_this_lodash_["isFunction"])(settings.save)) {
     console.error('The "save" property must be a valid function.');
     return;
   }
 
-  if ('edit' in settings && !Object(external_lodash_["isFunction"])(settings.edit)) {
+  if ('edit' in settings && !Object(external_this_lodash_["isFunction"])(settings.edit)) {
     console.error('The "edit" property must be a valid function.');
     return;
   } // Canonicalize legacy categories to equivalent fallback.
@@ -2071,6 +2071,38 @@ const registerBlockVariation = (blockName, variation) => {
 const unregisterBlockVariation = (blockName, variationName) => {
   Object(external_wp_data_["dispatch"])(store).removeBlockVariations(blockName, variationName);
 };
+/**
+ * Returns an array with the variations of a given block type.
+ *
+ * @param {string}                blockName Name of block (example: “core/columns”).
+ * @param {WPBlockVariationScope} [scope]   Block variation scope name.
+ *
+ * @return {(WPBlockVariation[]|void)} Block variations.
+ */
+
+var registration_getBlockVariations = function getBlockVariations(blockName, scope) {
+  return Object(external_this_wp_data_["select"])('core/blocks').getBlockVariations(blockName, scope);
+};
+/**
+ * Registers a new block variation for the given block type.
+ *
+ * @param {string}           blockName Name of the block (example: “core/columns”).
+ * @param {WPBlockVariation} variation Object describing a block variation.
+ */
+
+var registration_registerBlockVariation = function registerBlockVariation(blockName, variation) {
+  Object(external_this_wp_data_["dispatch"])('core/blocks').addBlockVariations(blockName, variation);
+};
+/**
+ * Unregisters a block variation defined for the given block type.
+ *
+ * @param {string} blockName     Name of the block (example: “core/columns”).
+ * @param {string} variationName Name of the variation defined for the block.
+ */
+
+var registration_unregisterBlockVariation = function unregisterBlockVariation(blockName, variationName) {
+  Object(external_this_wp_data_["dispatch"])('core/blocks').removeBlockVariations(blockName, variationName);
+};
 
 // CONCATENATED MODULE: ./node_modules/@wordpress/blocks/build-module/api/factory.js
 /**
@@ -2204,7 +2236,7 @@ const isPossibleTransformForSource = (transform, direction, blocks) => {
   // for a block selection of multiple blocks of different types
 
 
-  if (!isWildcardBlockTransform(transform) && !Object(external_lodash_["every"])(blocks, {
+  if (!isWildcardBlockTransform(transform) && !Object(external_this_lodash_["every"])(blocks, {
     name: firstBlockName
   })) {
     return false;
@@ -2332,7 +2364,7 @@ const isContainerGroupBlock = name => name === registration_getGroupingBlockName
  */
 
 function getPossibleBlockTransformations(blocks) {
-  if (Object(external_lodash_["isEmpty"])(blocks)) {
+  if (Object(external_this_lodash_["isEmpty"])(blocks)) {
     return [];
   }
 
@@ -2449,12 +2481,12 @@ function switchToBlockType(blocks, name) {
   let transformationResults;
 
   if (transformation.isMultiBlock) {
-    if (Object(external_lodash_["has"])(transformation, '__experimentalConvert')) {
+    if (Object(external_this_lodash_["has"])(transformation, '__experimentalConvert')) {
       transformationResults = transformation.__experimentalConvert(blocksArray);
     } else {
       transformationResults = transformation.transform(blocksArray.map(currentBlock => currentBlock.attributes), blocksArray.map(currentBlock => currentBlock.innerBlocks));
     }
-  } else if (Object(external_lodash_["has"])(transformation, '__experimentalConvert')) {
+  } else if (Object(external_this_lodash_["has"])(transformation, '__experimentalConvert')) {
     transformationResults = transformation.__experimentalConvert(firstBlock);
   } else {
     transformationResults = transformation.transform(firstBlock.attributes, firstBlock.innerBlocks);
@@ -2462,13 +2494,13 @@ function switchToBlockType(blocks, name) {
   // of objects.
 
 
-  if (!Object(external_lodash_["isObjectLike"])(transformationResults)) {
+  if (!Object(external_this_lodash_["isObjectLike"])(transformationResults)) {
     return null;
   } // If the transformation function returned a single object, we want to work
   // with an array instead.
 
 
-  transformationResults = Object(external_lodash_["castArray"])(transformationResults); // Ensure that every block object returned by the transformation has a
+  transformationResults = Object(external_this_lodash_["castArray"])(transformationResults); // Ensure that every block object returned by the transformation has a
   // valid block type.
 
   if (transformationResults.some(result => !registration_getBlockType(result.name))) {
@@ -12514,7 +12546,6 @@ if (true) {
 
 (function() { module.exports = window["wp"]["primitives"]; }());
 
-/***/ }),
 
 /***/ "UuzZ":
 /***/ (function(module, exports) {
