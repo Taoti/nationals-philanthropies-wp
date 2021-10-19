@@ -594,6 +594,10 @@ fieldset label,
 	opacity: 1;
 }
 
+.password-input-wrapper input {
+	font-family: Consolas, Monaco, monospace;
+}
+
 #pass1.short, #pass1-text.short {
 	border-color: #e65054;
 }
@@ -1267,6 +1271,10 @@ table.form-table td .updated p {
 
 .privacy_requests .row-actions {
 	color: #787c82;
+}
+
+.privacy_requests .row-actions.processing {
+	position: static;
 }
 
 .privacy_requests .row-actions.processing {
