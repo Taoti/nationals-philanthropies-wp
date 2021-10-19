@@ -1,10 +1,10 @@
 === Tracking Code Manager ===
-Contributors: IntellyWP, data443
-Tags: adwords remarketing,analytics conversion tracking,conversion pixel,conversion tracking,conversion tracking adwords,conversion tracking pixel,conversion tracking script,Facebook Ads,facebook conversion pixel,facebook custom audience,facebook retargeting,google adwords,google analytics web tracking code,google tag manager,html snippet,html snippets,html tracking code,javascript snippet,javascript snippets,header and footer,pay per click tracking,pixel tracking code,remarketing,retargeting,snippets,Tag Management,track conversion,track conversions,tracking code,tracking codes,tracking script,woocommerce,edd,easy digital downloads,wp ecommerce,wp e-commerce
+Contributors: IntellyWP, Data443
+Tags: adwords remarketing, analytics conversion tracking, conversion pixel, conversion tracking, conversion tracking adwords, conversion tracking pixel, conversion tracking script,Facebook Ads, facebook conversion pixel, facebook custom audience, facebook retargeting, google adwords, google analytics web tracking code, google tag manager, html snippet, html snippets, html tracking code, javascript snippet, javascript snippets, header and footer, pay per click tracking, pixel tracking code, remarketing, retargeting, snippets, Tag Management, track conversion, track conversions, tracking code, tracking codes, tracking script, woocommerce, edd, easy digital downloads, wp ecommerce, wp e-commerce
 Requires at least: 2.7
 Tested up to: 5.8
 
-A plugin to manage ALL your tracking code and conversion pixels. Compatible with Facebook Ads, Google Adwords, WooCommerce, Easy Digital Downloads, ..
+A plugin to manage ALL of your tracking code and conversion pixels. Compatible with Facebook Ads, Google Adwords, WooCommerce, Easy Digital Downloads, ..
 
 == Description ==
 
@@ -12,7 +12,7 @@ A plugin to manage ALL your tracking code and conversion pixels. Compatible with
 
 <p>This plugin is a service of <a href="https://www.data443.com" rel="nofollow ugc">Data443.com</a>.</p>
 
-<p>Data443 is a Data Security and Privacy Compliance company that is publicly traded <a href="https://finance.yahoo.com/quote/ATDS?p=ATD" rel="nofollow ugc">ATDS</a>.  We have been providing leading GDPR compliance products such as <a href="https://wordpress.org/plugins/gdpr-framework/" rel="nofollow ugc">WordPress GDPR Framework</a> and <a href="https://www.data443.com/classidocs-home/" rel="nofollow ugc">ClassiDocs</a>, Blockchain privacy, and enterprise cloud eDiscovery tools.</p>
+<p>Data443 is a Data Security and Privacy Compliance company that is publicly traded <a href="https://finance.yahoo.com/quote/ATDS?p=ATD" rel="nofollow ugc">ATDS</a>.  We have been providing leading GDPR compliance products such as <a href="https://wordpress.org/plugins/gdpr-framework/" rel="nofollow ugc">WordPress GDPR Framework</a> and <a href="https://data443.com/products/data-identification-manager/" rel="nofollow ugc">Data Identification Manager</a>, Blockchain privacy, and enterprise cloud eDiscovery tools.</p>
 
 
 It doesn’t matter the place where you want to put your code, because with Tracking Code Manager you can put it wherever you want, with no restrictions.
@@ -24,7 +24,7 @@ For every single service you use, you’ll have to put a script or a tracking pi
 Tracking Code Manager plugin allows you to gather EVERY code and snippet displaying them exactly where you want, whether in the whole site or in specific pages and posts.
 
 > <strong>TRACK CONVERSION ON YOUR E-COMMERCE PLUGIN</strong><br>
-> When it comes to track conversions on a wordpress page it’s easy… but if it’s a "dynamic thank you page" is a big problem.<br><br>
+> When it comes to track conversions on a WordPress page it’s easy… but if it’s a "dynamic thank you page" is a big problem.<br><br>
 > Tracking Code Manager plugin DETECT AUTOMATICALLY your e-commerce plugin (WooCommerce, Easy Digital Downloads or WP eCommerce) and let you put the conversion pixels every time someone completes a sale on your store.<br>
 > In addition you also have the ability to track a single product at time ;)<br>
 > <a href="https://wordpress.org/plugins/tracking-code-manager/screenshots/">Check some screenshots here.</a>
@@ -76,7 +76,7 @@ Of course you can! You can choose to put the code in a single page, in some post
 
 = Can I track conversions? =
 
-Yeap! This is one of the main reason to use this plugin! You can track your conversions by putting the conversion pixel or code ONLY inside the thank you page.
+Yep! This is one of the main reason to use this plugin! You can track your conversions by putting the conversion pixel or code ONLY inside the thank you page.
 
 = Can I manage Facebook Retargeting and Custom Audiences? =
 
@@ -92,18 +92,23 @@ You have 6 slots to use. Which means six different locations with unlimited trac
 
 = How to verify that a tracking code is properly working? =
 
-Have a look at the source code of your page (search for: Tracking Code Manager) or you can install Google Chrome Addons. We suggest <a href="https://chrome.google.com/webstore/detail/fb-pixel-helper/fdgfkebogiimcoedlicjlajpkdmockpc">FB Pixel Helper</a> for Facebook codes and <a href="https://chrome.google.com/webstore/detail/tag-assistant-by-google/kejbdjndbnbjgmefkgdddjlbokphdefk">Tag Assistant (by Google)</a> for Google codes.
+Have a look at the source code of your page (search for: Tracking Code Manager) or you can install Google Chrome Add-ons. We suggest <a href="https://chrome.google.com/webstore/detail/fb-pixel-helper/fdgfkebogiimcoedlicjlajpkdmockpc">FB Pixel Helper</a> for Facebook codes and <a href="https://chrome.google.com/webstore/detail/tag-assistant-by-google/kejbdjndbnbjgmefkgdddjlbokphdefk">Tag Assistant (by Google)</a> for Google codes.
 
 == Screenshots ==
 
 1. New tracking code scripts
 2. Include tracking code in specific page
-3. Choose easly by typing the page title
+3. Choose easily by typing the page title
 4. Include also [All] posts or pages without selecting all one-by-one
 5. List your tracking codes defined
 6. Tracking code manager is also as a metabox in your posts/pages (you can remove by settings)
 
 == Changelog ==
+
+= 2.0.4 =
+*Release Date - 2021-08-19*
+
+* IWP-309 Fixed duplicate code insertion when WooCommerce conversion was selected.
 
 = 2.0.3 =
 *Release Date - 2021-07-22*
