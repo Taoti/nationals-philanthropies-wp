@@ -75,6 +75,10 @@ final class Module_Config {
 		return $this->get_config()['deprecated'] ?? '';
 	}
 
+	public function get_order(): int {
+		return $this->get_config()['order'] ?? 10;
+	}
+
 	public function is_onboard(): bool {
 		return $this->get_config()['onboard'] ?? false;
 	}
@@ -141,6 +145,10 @@ final class Module_Config {
 
 	public function get_requirements(): array {
 		return $this->get_config()['requirements'] ?? [];
+	}
+
+	public function get_feature_flags(): array {
+		return $this->get_config()['feature-flags'] ?? [];
 	}
 
 	/**

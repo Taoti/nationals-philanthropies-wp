@@ -136,6 +136,7 @@ final class Modules_Controller extends \WP_REST_Controller {
 				'default'  => $item->get_status(),
 			],
 			'type'                  => $item->get_type(),
+			'order'                 => $item->get_order(),
 			'onboard'               => $item->is_onboard(),
 			'side_effects'          => $item->has_side_effects(),
 			'keywords'              => $item->get_keywords(),
@@ -151,6 +152,10 @@ final class Modules_Controller extends \WP_REST_Controller {
 		$fields = $this->get_fields_for_response( $request );
 
 		if ( $settings = \ITSEC_Modules::get_settings_obj( $item->get_id() ) ) {
+			if ( rest_is_field_included( 'settings.show_ui', $fields ) ) {
+				$data['settings']['show_ui'] = $settings->show_ui();
+			}
+
 			if ( rest_is_field_included( 'settings.schema', $fields ) ) {
 				$data['settings']['schema'] = $settings->get_settings_schema();
 
@@ -271,6 +276,12 @@ final class Modules_Controller extends \WP_REST_Controller {
 					'context'  => [ 'view', 'edit', 'embed' ],
 					'readonly' => true,
 				],
+				'order'                 => [
+					'title'    => __( 'Module Order' ),
+					'type'     => 'integer',
+					'context'  => [ 'edit' ],
+					'readonly' => true,
+				],
 				'onboard'               => [
 					'title'    => __( 'Show in Onboard', 'better-wp-security' ),
 					'type'     => 'boolean',
@@ -329,7 +340,7 @@ final class Modules_Controller extends \WP_REST_Controller {
 					'readonly' => true,
 				],
 				'tools'                 => [
-					'title'                => __( 'Module Tools', 'LION', 'better-wp-security' ),
+					'title'                => __( 'Module Tools', 'better-wp-security' ),
 					'type'                 => 'object',
 					'additionalProperties' => [
 						'type' => 'object',
@@ -339,6 +350,10 @@ final class Modules_Controller extends \WP_REST_Controller {
 					'title'      => __( 'Module Settings Configuration', 'better-wp-security' ),
 					'type'       => 'object',
 					'properties' => [
+						'show_ui'     => [
+							'description' => __( 'Should a settings UI be shown.' ),
+							'type'        => 'boolean',
+						],
 						'schema'      => [
 							'description' => __( 'The schema describing the settings.', 'better-wp-security' ),
 							'type'        => 'object',

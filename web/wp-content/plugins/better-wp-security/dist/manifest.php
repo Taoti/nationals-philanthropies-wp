@@ -285,11 +285,11 @@
       0 => 'dashboard/dashboard--settings.css',
       1 => 'dashboard/dashboard--settings.js',
     ),
-    'hash' => '9a9828fd74fb8f80877b61e0b24243f7',
+    'hash' => '2b6571358543391738a5e6cfe19f8d09',
     'contentHash' => 
     array (
       'css/mini-extract' => '29e9442b48fe485f4b02',
-      'javascript' => 'f716ed9424ba83160edd',
+      'javascript' => '567f81e809b25fc43b13',
     ),
     'vendors' => 
     array (
@@ -514,11 +514,11 @@
       0 => 'pages/settings.css',
       1 => 'pages/settings.js',
     ),
-    'hash' => '1cc4672c54977b1117679f66e0ac4cdc',
+    'hash' => '6357ed962df0fecc8c364f02a2ccd7b3',
     'contentHash' => 
     array (
-      'css/mini-extract' => '2f5b22b6ef4d4fa0f2b4',
-      'javascript' => 'c6faed60f1f22f36f25a',
+      'css/mini-extract' => 'ecded2b59c04a766931c',
+      'javascript' => '1358278fd2978eac90be',
     ),
     'vendors' => 
     array (

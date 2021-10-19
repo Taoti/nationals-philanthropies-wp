@@ -61,6 +61,10 @@
         "custom"
       ]
     },
+    "order": {
+      "type": "integer",
+      "minimum": 0
+    },
     "onboard": {
       "type": "boolean"
     },
@@ -396,6 +400,14 @@
               "pro",
               "free"
             ]
+          },
+          "feature-flags": {
+            "description": "List of feature flags that must be enabled.",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
           }
         }
       }
@@ -432,6 +444,54 @@
         }
       },
       "additionalProperties": false
+    }
+  },
+  "feature-flags": {
+    "description": "List of feature flags the module provides.",
+    "type": "object",
+    "additionalProperties": {
+      "type": "object",
+      "properties": {
+        "rate": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "remote": {
+          "type": "boolean"
+        },
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "documentation": {
+          "type": "string",
+          "format": "uri"
+        },
+        "requirements": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "version": {
+              "type": "object",
+              "required": [
+                "pro",
+                "free"
+              ],
+              "properties": {
+                "pro": {
+                  "type": "string"
+                },
+                "free": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "definitions": {

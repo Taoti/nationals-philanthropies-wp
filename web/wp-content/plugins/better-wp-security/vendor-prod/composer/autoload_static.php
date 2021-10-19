@@ -307,6 +307,7 @@ class ComposerStaticInit35a2bd4feb347da0d3ea2d8ef023082f
         'iThemesSecurity\\Exception\\Invalid_Module' => __DIR__ . '/../..' . '/core/Exception/Invalid_Module.php',
         'iThemesSecurity\\Exception\\Unsatisfied_Module_Dependencies_Exception' => __DIR__ . '/../..' . '/core/Exception/Unsatisfied_Module_Dependencies_Exception.php',
         'iThemesSecurity\\Exception\\WP_Error' => __DIR__ . '/../..' . '/core/Exception/WP_Error.php',
+        'iThemesSecurity\\FeatureFlags\\Settings' => __DIR__ . '/../..' . '/core/modules/feature-flags/settings.php',
         'iThemesSecurity\\Lib\\Config_Password_Requirement' => __DIR__ . '/../..' . '/core/lib/Config_Password_Requirement.php',
         'iThemesSecurity\\Lib\\Legacy_Password_Requirement' => __DIR__ . '/../..' . '/core/lib/Legacy_Password_Requirement.php',
         'iThemesSecurity\\Lib\\Lockout\\Context' => __DIR__ . '/../..' . '/core/lib/lockout/abstract-context.php',

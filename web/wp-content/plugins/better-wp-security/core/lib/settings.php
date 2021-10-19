@@ -83,6 +83,15 @@ abstract class ITSEC_Settings {
 	}
 
 	/**
+	 * Should the settings UI be shown.
+	 *
+	 * @return bool
+	 */
+	public function show_ui(): bool {
+		return $this->has_interactive_settings();
+	}
+
+	/**
 	 * Checks if this module has any interactive settings.
 	 *
 	 * @return bool
@@ -191,6 +200,14 @@ abstract class ITSEC_Settings {
 			}
 		}
 
+		if ( isset( $config['feature-flags'] ) ) {
+			foreach ( $config['feature-flags'] as $flag ) {
+				if ( ! ITSEC_Lib_Feature_Flags::is_enabled( $flag ) ) {
+					return false;
+				}
+			}
+		}
+
 		return true;
 	}
 
@@ -232,6 +249,26 @@ abstract class ITSEC_Settings {
 
 	public function get_all() {
 		return $this->settings;
+	}
+
+	/**
+	 * Prepares the settings for output in the REST API.
+	 *
+	 * @return array
+	 */
+	public function prepare_for_rest() {
+		return $this->settings;
+	}
+
+	/**
+	 * Prepares the settings from a REST API request to be saved.
+	 *
+	 * @param array $settings
+	 *
+	 * @return array
+	 */
+	public function prepare_from_rest( $settings ) {
+		return $settings;
 	}
 
 	public function set( $name, $value ) {
