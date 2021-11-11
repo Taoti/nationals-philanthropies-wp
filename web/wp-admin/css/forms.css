@@ -1276,10 +1276,6 @@ table.form-table td .updated p {
 	position: static;
 }
 
-.privacy_requests .row-actions.processing {
-	position: static;
-}
-
 .privacy_requests tbody .has-request-results th {
 	box-shadow: none;
 }

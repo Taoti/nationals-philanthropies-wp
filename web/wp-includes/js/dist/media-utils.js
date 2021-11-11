@@ -266,7 +266,7 @@ const getGalleryDetailsMediaFrame = () => {
         filterable: 'uploaded',
         multiple: 'add',
         editable: false,
-        library: wp.media.query(Object(external_this_lodash_["defaults"])({
+        library: wp.media.query(Object(external_lodash_["defaults"])({
           type: 'image'
         }, this.options.library))
       }), new wp.media.controller.EditImage({

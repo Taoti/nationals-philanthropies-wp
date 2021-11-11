@@ -154,9 +154,7 @@ function memoize(fn) {
 
 (function() { module.exports = window["wp"]["mediaUtils"]; }());
 
-/**
- * WordPress dependencies
- */
+/***/ }),
 
 /***/ "8oxB":
 /***/ (function(module, exports) {
@@ -558,10 +556,6 @@ const plus = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createEleme
 }));
 /* harmony default export */ __webpack_exports__["a"] = (plus);
 
-var PluginDocumentSettingPanel = Object(_wordpress_compose__WEBPACK_IMPORTED_MODULE_2__["compose"])(Object(_wordpress_plugins__WEBPACK_IMPORTED_MODULE_3__["withPluginContext"])(function (context, ownProps) {
-  if (undefined === ownProps.name) {
-    typeof process !== "undefined" && process.env && "production" !== "production" ? _wordpress_warning__WEBPACK_IMPORTED_MODULE_5___default()('PluginDocumentSettingPanel requires a name property.') : void 0;
-  }
 
 /***/ }),
 
@@ -713,16 +707,11 @@ const PREFERENCES_DEFAULTS = {
  * WordPress dependencies
  */
 
-var moreVertical = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_primitives__WEBPACK_IMPORTED_MODULE_1__["SVG"], {
-  xmlns: "http://www.w3.org/2000/svg",
-  viewBox: "0 0 24 24"
-}, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_primitives__WEBPACK_IMPORTED_MODULE_1__["Path"], {
-  d: "M13 19h-2v-2h2v2zm0-6h-2v-2h2v2zm0-6h-2V5h2v2z"
-}));
-/* harmony default export */ __webpack_exports__["a"] = (moreVertical);
 
+/**
+ * Internal dependencies
+ */
 
-/***/ }),
 
 /**
  * Higher-order reducer creator which provides the given initial state for the
@@ -756,8 +745,6 @@ const createWithInitialState = initialState => reducer => {
  * @return {Object} Updated state.
  */
 
-/***/ 33:
-/***/ (function(module, exports) {
 
 const preferences = Object(external_lodash_["flow"])([external_wp_data_["combineReducers"], createWithInitialState(PREFERENCES_DEFAULTS)])({
   panels(state, action) {
@@ -814,7 +801,9 @@ const preferences = Object(external_lodash_["flow"])([external_wp_data_["combine
       case 'SHOW_BLOCK_TYPES':
         return Object(external_lodash_["without"])(state, ...action.blockNames);
 
-/***/ }),
+      case 'HIDE_BLOCK_TYPES':
+        return Object(external_lodash_["union"])(state, action.blockNames);
+    }
 
     return state;
   },
@@ -827,11 +816,9 @@ const preferences = Object(external_lodash_["flow"])([external_wp_data_["combine
             return state;
           }
 
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return _arrayWithHoles; });
-function _arrayWithHoles(arr) {
-  if (Array.isArray(arr)) return arr;
-}
+          if (!action.blockStyle) {
+            return Object(external_lodash_["omit"])(state, [action.blockName]);
+          }
 
           return { ...state,
             [action.blockName]: action.blockStyle
@@ -868,7 +855,7 @@ function removedPanels(state = [], action) {
         return [...state, action.panelName];
       }
 
-(function() { module.exports = this["wp"]["data"]; }());
+  }
 
   return state;
 }
@@ -886,7 +873,9 @@ function activeModal(state = null, action) {
     case 'OPEN_MODAL':
       return action.name;
 
-/***/ }),
+    case 'CLOSE_MODAL':
+      return null;
+  }
 
   return state;
 }
@@ -895,15 +884,25 @@ function publishSidebarActive(state = false, action) {
     case 'OPEN_PUBLISH_SIDEBAR':
       return true;
 
+    case 'CLOSE_PUBLISH_SIDEBAR':
+      return false;
 
-var LEAF_KEY, hasWeakMap;
+    case 'TOGGLE_PUBLISH_SIDEBAR':
+      return !state;
+  }
 
+  return state;
+}
 /**
- * Arbitrary value used as key for referencing cache object in WeakMap tree.
+ * Reducer keeping track of the meta boxes isSaving state.
+ * A "true" value means the meta boxes saving request is in-flight.
  *
- * @type {Object}
+ *
+ * @param {boolean}  state   Previous state.
+ * @param {Object}   action  Action Object.
+ *
+ * @return {Object} Updated state.
  */
-LEAF_KEY = {};
 
 function isSavingMetaBoxes(state = false, action) {
   switch (action.type) {
@@ -918,11 +917,13 @@ function isSavingMetaBoxes(state = false, action) {
   }
 }
 /**
- * Whether environment supports WeakMap.
+ * Reducer keeping track of the meta boxes per location.
  *
- * @type {boolean}
+ * @param {boolean}  state   Previous state.
+ * @param {Object}   action  Action Object.
+ *
+ * @return {Object} Updated state.
  */
-hasWeakMap = typeof WeakMap !== 'undefined';
 
 function metaBoxLocations(state = {}, action) {
   switch (action.type) {
@@ -1109,35 +1110,22 @@ const getMetaBoxContainer = location => {
 function* openGeneralSidebar(name) {
   yield external_wp_data_["controls"].dispatch(build_module["g" /* store */].name, 'enableComplementaryArea', store.name, name);
 }
-
 /**
- * Creates and returns a new cache object.
+ * Returns an action object signalling that the user closed the sidebar.
  *
  * @yield {Object} Action object.
  */
-function createCache() {
-	var cache = {
-		clear: function() {
-			cache.head = null;
-		},
-	};
 
 function* closeGeneralSidebar() {
   yield external_wp_data_["controls"].dispatch(build_module["g" /* store */].name, 'disableComplementaryArea', store.name);
 }
-
 /**
- * Returns true if entries within the two arrays are strictly equal by
- * reference from a starting index.
+ * Returns an action object used in signalling that the user opened a modal.
  *
- * @param {Array}  a         First array.
- * @param {Array}  b         Second array.
- * @param {number} fromIndex Index from which to start comparison.
+ * @param {string} name A string that uniquely identifies the modal.
  *
- * @return {boolean} Whether arrays are shallowly equal.
+ * @return {Object} Action object.
  */
-function isShallowEqual( a, b, fromIndex ) {
-	var i;
 
 function openModal(name) {
   return {
@@ -1241,7 +1229,7 @@ function removeEditorPanel(panelName) {
  * @return {Object} Action object.
  */
 
-function actions_toggleFeature(feature) {
+function toggleFeature(feature) {
   return {
     type: 'TOGGLE_FEATURE',
     feature
@@ -1286,7 +1274,7 @@ function togglePinnedPluginItem(pluginName) {
 function hideBlockTypes(blockNames) {
   return {
     type: 'HIDE_BLOCK_TYPES',
-    blockNames: Object(external_this_lodash_["castArray"])(blockNames)
+    blockNames: Object(external_lodash_["castArray"])(blockNames)
   };
 }
 /**
@@ -1331,7 +1319,7 @@ function __experimentalUpdateLocalAutosaveInterval(interval) {
 function showBlockTypes(blockNames) {
   return {
     type: 'SHOW_BLOCK_TYPES',
-    blockNames: Object(external_this_lodash_["castArray"])(blockNames)
+    blockNames: Object(external_lodash_["castArray"])(blockNames)
   };
 }
 /**
@@ -1654,7 +1642,7 @@ function isPublishSidebarOpened(state) {
  */
 
 function isEditorPanelRemoved(state, panelName) {
-  return Object(external_this_lodash_["includes"])(state.removedPanels, panelName);
+  return Object(external_lodash_["includes"])(state.removedPanels, panelName);
 }
 /**
  * Returns true if the given panel is enabled, or false otherwise. Panels are
@@ -1706,7 +1694,7 @@ function isModalActive(state, modalName) {
  */
 
 function isFeatureActive(state, feature) {
-  return Object(external_this_lodash_["get"])(state.preferences.features, [feature], false);
+  return Object(external_lodash_["get"])(state.preferences.features, [feature], false);
 }
 /**
  * Returns true if the plugin item is pinned to the header.
@@ -2236,8 +2224,6 @@ function actions_unpinItem(scope, itemId) {
  * External dependencies
  */
 
-  return reducer_objectSpread(reducer_objectSpread({}, state), {}, Object(defineProperty["a" /* default */])({}, itemType, reducer_objectSpread(reducer_objectSpread({}, state[itemType]), {}, Object(defineProperty["a" /* default */])({}, scope, item || null))));
-}
 /**
  * Returns the item that is enabled in a given scope.
  *
@@ -2667,9 +2653,6 @@ PinnedItems.Slot = PinnedItemsSlot;
 
 
 
-function isItemPinned(state, scope, item) {
-  return isMultipleEnabledItemEnabled(state, 'pinnedItems', scope, item) !== false;
-}
 
 
 function ComplementaryAreaSlot({
@@ -2896,9 +2879,6 @@ var external_wp_compose_ = __webpack_require__("K9lf");
  */
 
 
-/**
- * Internal dependencies
- */
 
 
 
@@ -3247,16 +3227,6 @@ var store = __webpack_require__("T40v");
  * Internal dependencies
  */
 
-  return Object(external_this_wp_element_["createElement"])(external_this_wp_components_["Slot"], {
-    name: name,
-    bubblesVirtually: bubblesVirtually,
-    fillProps: action_item_objectSpread({
-      as: Item
-    }, fillProps)
-  }, function (fills) {
-    return !Object(external_this_lodash_["isEmpty"])(fills) && Object(external_this_wp_element_["createElement"])(Container, props, fills);
-  });
-}
 
 const {
   Fill,
@@ -3336,9 +3306,6 @@ Object(external_wp_viewport_["ifViewportMatches"])('medium'))(base));
 
 
 
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = Object(getPrototypeOf["a" /* default */])(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = Object(getPrototypeOf["a" /* default */])(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return Object(possibleConstructorReturn["a" /* default */])(this, result); }; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
 
 /***/ }),
@@ -3469,11 +3436,7 @@ var external_wp_mediaUtils_ = __webpack_require__("6aBm");
  * WordPress dependencies
  */
 
-var slotName = '__experimentalMainDashboardButton';
 
-var main_dashboard_button_createSlotFill = Object(external_this_wp_components_["createSlotFill"])(slotName),
-    Fill = main_dashboard_button_createSlotFill.Fill,
-    MainDashboardButtonSlot = main_dashboard_button_createSlotFill.Slot;
 
 const replaceMediaUpload = () => external_wp_mediaUtils_["MediaUpload"];
 
@@ -3713,7 +3676,6 @@ var external_wp_keycodes_ = __webpack_require__("RxS6");
  */
 
 
-// CONCATENATED MODULE: ./node_modules/@wordpress/edit-post/build-module/components/visual-editor/block-inspector-button.js
 
 
 /**
@@ -5512,7 +5474,6 @@ function useHTMLProps(props, visualState, isStatic) {
 }
 
 
-function browser_url_isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
 // CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/motion/utils/valid-prop.js
 /**
@@ -5651,30 +5612,7 @@ function calcSVGTransformOrigin(dimensions, originX, originY) {
     return pxOriginX + " " + pxOriginY;
 }
 
-function getPostEditURL(postId) {
-  return Object(external_this_wp_url_["addQueryArgs"])('post.php', {
-    post: postId,
-    action: 'edit'
-  });
-}
-/**
- * Returns the Post's Trashed URL.
- *
- * @param {number} postId    Post ID.
- * @param {string} postType Post Type.
- *
- * @return {string} Post trashed URL.
- */
 
-function getPostTrashedURL(postId, postType) {
-  return Object(external_this_wp_url_["addQueryArgs"])('edit.php', {
-    trashed: 1,
-    post_type: postType,
-    ids: postId
-  });
-}
-var browser_url_BrowserURL = /*#__PURE__*/function (_Component) {
-  Object(inherits["a" /* default */])(BrowserURL, _Component);
 
 // CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/svg/utils/path.js
 
@@ -5757,15 +5695,6 @@ function buildSVGAttrs(state, _a, projection, layoutState, options, transformTem
     }
 }
 
-var wordpress = Object(external_this_wp_element_["createElement"])(external_this_wp_primitives_["SVG"], {
-  xmlns: "http://www.w3.org/2000/svg",
-  viewBox: "-2 -2 24 24"
-}, Object(external_this_wp_element_["createElement"])(external_this_wp_primitives_["Path"], {
-  d: "M20 10c0-5.51-4.49-10-10-10C4.48 0 0 4.49 0 10c0 5.52 4.48 10 10 10 5.51 0 10-4.48 10-10zM7.78 15.37L4.37 6.22c.55-.02 1.17-.08 1.17-.08.5-.06.44-1.13-.06-1.11 0 0-1.45.11-2.37.11-.18 0-.37 0-.58-.01C4.12 2.69 6.87 1.11 10 1.11c2.33 0 4.45.87 6.05 2.34-.68-.11-1.65.39-1.65 1.58 0 .74.45 1.36.9 2.1.35.61.55 1.36.55 2.46 0 1.49-1.4 5-1.4 5l-3.03-8.37c.54-.02.82-.17.82-.17.5-.05.44-1.25-.06-1.22 0 0-1.44.12-2.38.12-.87 0-2.33-.12-2.33-.12-.5-.03-.56 1.2-.06 1.22l.92.08 1.26 3.41zM17.41 10c.24-.64.74-1.87.43-4.25.7 1.29 1.05 2.71 1.05 4.25 0 3.29-1.73 6.24-4.4 7.78.97-2.59 1.94-5.2 2.92-7.78zM6.1 18.09C3.12 16.65 1.11 13.53 1.11 10c0-1.3.23-2.48.72-3.59C3.25 10.3 4.67 14.2 6.1 18.09zm4.03-6.63l2.58 6.98c-.86.29-1.76.45-2.71.45-.79 0-1.57-.11-2.29-.33.81-2.38 1.62-4.74 2.42-7.1z"
-}));
-/* harmony default export */ var library_wordpress = (wordpress);
-
-// CONCATENATED MODULE: ./node_modules/@wordpress/edit-post/build-module/components/header/fullscreen-mode-close/index.js
 
 
 // CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/svg/utils/create-render-state.js
@@ -5775,22 +5704,6 @@ var wordpress = Object(external_this_wp_element_["createElement"])(external_this
 var createSvgRenderState = function () { return (__assign(__assign({}, createHtmlRenderState()), { attrs: {} })); };
 
 
-    var siteData = getEntityRecord('root', '__unstableBase', undefined) || {};
-    return {
-      isActive: isFeatureActive('fullscreenMode'),
-      isRequestingSiteIcon: isResolving('core', 'getEntityRecord', ['root', '__unstableBase', undefined]),
-      postType: getPostType(getCurrentPostType()),
-      siteIconUrl: siteData.site_icon_url
-    };
-  }, []),
-      isActive = _useSelect.isActive,
-      isRequestingSiteIcon = _useSelect.isRequestingSiteIcon,
-      postType = _useSelect.postType,
-      siteIconUrl = _useSelect.siteIconUrl;
-
-  if (!isActive || !postType) {
-    return null;
-  }
 
 // CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/svg/use-props.js
 
@@ -5798,7 +5711,6 @@ var createSvgRenderState = function () { return (__assign(__assign({}, createHtm
 
 
 
-// CONCATENATED MODULE: ./node_modules/@wordpress/edit-post/build-module/components/header/header-toolbar/index.js
 
 function useSVGProps(props, visualState) {
     var visualProps = Object(external_React_["useMemo"])(function () {
@@ -5893,13 +5805,6 @@ var camelCaseAttributes = new Set([
     "gradientTransform",
 ]);
 
-var MODES = [{
-  value: 'visual',
-  label: Object(external_this_wp_i18n_["__"])('Visual editor')
-}, {
-  value: 'text',
-  label: Object(external_this_wp_i18n_["__"])('Code editor')
-}];
 
 
 // CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/svg/utils/render.js
@@ -6106,7 +6011,6 @@ function isPath(element) {
 }
 
 
-function more_menu_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 // CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/html/config-motion.js
 
@@ -6235,44 +6139,6 @@ function isTouchEvent(event) {
 
 // CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/events/event-info.js
 
-function PostPublishButtonOrToggle(_ref) {
-  var forceIsDirty = _ref.forceIsDirty,
-      forceIsSaving = _ref.forceIsSaving,
-      hasPublishAction = _ref.hasPublishAction,
-      isBeingScheduled = _ref.isBeingScheduled,
-      isPending = _ref.isPending,
-      isPublished = _ref.isPublished,
-      isPublishSidebarEnabled = _ref.isPublishSidebarEnabled,
-      isPublishSidebarOpened = _ref.isPublishSidebarOpened,
-      isScheduled = _ref.isScheduled,
-      togglePublishSidebar = _ref.togglePublishSidebar,
-      setEntitiesSavedStatesCallback = _ref.setEntitiesSavedStatesCallback;
-  var IS_TOGGLE = 'toggle';
-  var IS_BUTTON = 'button';
-  var isSmallerThanMediumViewport = Object(external_this_wp_compose_["useViewportMatch"])('medium', '<');
-  var component;
-  /**
-   * Conditions to show a BUTTON (publish directly) or a TOGGLE (open publish sidebar):
-   *
-   * 1) We want to show a BUTTON when the post status is at the _final stage_
-   * for a particular role (see https://wordpress.org/support/article/post-status/):
-   *
-   * - is published
-   * - is scheduled to be published
-   * - is pending and can't be published (but only for viewports >= medium).
-   * 	 Originally, we considered showing a button for pending posts that couldn't be published
-   * 	 (for example, for an author with the contributor role). Some languages can have
-   * 	 long translations for "Submit for review", so given the lack of UI real estate available
-   * 	 we decided to take into account the viewport in that case.
-   *  	 See: https://github.com/WordPress/gutenberg/issues/10475
-   *
-   * 2) Then, in small viewports, we'll show a TOGGLE.
-   *
-   * 3) Finally, we'll use the publish sidebar status to decide:
-   *
-   * - if it is enabled, we show a TOGGLE
-   * - if it is disabled, we show a BUTTON
-   */
 
 /**
  * Filters out events not attached to the primary pointer (currently left mouse button)
@@ -6444,60 +6310,6 @@ function isDragActive() {
 // CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/gestures/use-hover-gesture.js
 
 
-function Header(_ref) {
-  var setEntitiesSavedStatesCallback = _ref.setEntitiesSavedStatesCallback;
-
-  var _useSelect = Object(external_this_wp_data_["useSelect"])(function (select) {
-    return {
-      hasActiveMetaboxes: select('core/edit-post').hasMetaBoxes(),
-      isPublishSidebarOpened: select('core/edit-post').isPublishSidebarOpened(),
-      isSaving: select('core/edit-post').isSavingMetaBoxes(),
-      showIconLabels: select('core/edit-post').isFeatureActive('showIconLabels'),
-      hasReducedUI: select('core/edit-post').isFeatureActive('reducedUI')
-    };
-  }, []),
-      hasActiveMetaboxes = _useSelect.hasActiveMetaboxes,
-      isPublishSidebarOpened = _useSelect.isPublishSidebarOpened,
-      isSaving = _useSelect.isSaving,
-      showIconLabels = _useSelect.showIconLabels,
-      hasReducedUI = _useSelect.hasReducedUI;
-
-  var isLargeViewport = Object(external_this_wp_compose_["useViewportMatch"])('large');
-  return Object(external_this_wp_element_["createElement"])("div", {
-    className: "edit-post-header"
-  }, Object(external_this_wp_element_["createElement"])(main_dashboard_button.Slot, null, Object(external_this_wp_element_["createElement"])(fullscreen_mode_close, null)), Object(external_this_wp_element_["createElement"])("div", {
-    className: "edit-post-header__toolbar"
-  }, Object(external_this_wp_element_["createElement"])(header_toolbar, null)), Object(external_this_wp_element_["createElement"])("div", {
-    className: "edit-post-header__settings"
-  }, !hasReducedUI && Object(external_this_wp_element_["createElement"])(external_this_wp_element_["Fragment"], null, !isPublishSidebarOpened && // This button isn't completely hidden by the publish sidebar.
-  // We can't hide the whole toolbar when the publish sidebar is open because
-  // we want to prevent mounting/unmounting the PostPublishButtonOrToggle DOM node.
-  // We track that DOM node to return focus to the PostPublishButtonOrToggle
-  // when the publish sidebar has been closed.
-  Object(external_this_wp_element_["createElement"])(external_this_wp_editor_["PostSavedState"], {
-    forceIsDirty: hasActiveMetaboxes,
-    forceIsSaving: isSaving,
-    showIconLabels: showIconLabels
-  }), Object(external_this_wp_element_["createElement"])(DevicePreview, null), Object(external_this_wp_element_["createElement"])(external_this_wp_editor_["PostPreviewButton"], {
-    forceIsAutosaveable: hasActiveMetaboxes,
-    forcePreviewLink: isSaving ? null : undefined
-  })), Object(external_this_wp_element_["createElement"])(post_publish_button_or_toggle, {
-    forceIsDirty: hasActiveMetaboxes,
-    forceIsSaving: isSaving,
-    setEntitiesSavedStatesCallback: setEntitiesSavedStatesCallback
-  }), (isLargeViewport || !showIconLabels) && Object(external_this_wp_element_["createElement"])(external_this_wp_element_["Fragment"], null, Object(external_this_wp_element_["createElement"])(pinned_items.Slot, {
-    scope: "core/edit-post"
-  }), Object(external_this_wp_element_["createElement"])(more_menu, {
-    showIconLabels: showIconLabels
-  })), showIconLabels && !isLargeViewport && Object(external_this_wp_element_["createElement"])(more_menu, {
-    showIconLabels: showIconLabels
-  })));
-}
-
-/* harmony default export */ var components_header = (Header);
-
-// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/cog.js
-
 
 
 
@@ -6519,19 +6331,6 @@ function useHoverGesture(_a) {
         ? createHoverEvent(visualElement, false, onHoverEnd)
         : undefined);
 }
-
-var cog = Object(external_this_wp_element_["createElement"])(external_this_wp_primitives_["SVG"], {
-  xmlns: "http://www.w3.org/2000/svg",
-  viewBox: "0 0 24 24"
-}, Object(external_this_wp_element_["createElement"])(external_this_wp_primitives_["Path"], {
-  fillRule: "evenodd",
-  d: "M10.289 4.836A1 1 0 0111.275 4h1.306a1 1 0 01.987.836l.244 1.466c.787.26 1.503.679 2.108 1.218l1.393-.522a1 1 0 011.216.437l.653 1.13a1 1 0 01-.23 1.273l-1.148.944a6.025 6.025 0 010 2.435l1.149.946a1 1 0 01.23 1.272l-.653 1.13a1 1 0 01-1.216.437l-1.394-.522c-.605.54-1.32.958-2.108 1.218l-.244 1.466a1 1 0 01-.987.836h-1.306a1 1 0 01-.986-.836l-.244-1.466a5.995 5.995 0 01-2.108-1.218l-1.394.522a1 1 0 01-1.217-.436l-.653-1.131a1 1 0 01.23-1.272l1.149-.946a6.026 6.026 0 010-2.435l-1.148-.944a1 1 0 01-.23-1.272l.653-1.131a1 1 0 011.217-.437l1.393.522a5.994 5.994 0 012.108-1.218l.244-1.466zM14.929 12a3 3 0 11-6 0 3 3 0 016 0z",
-  clipRule: "evenodd"
-}));
-/* harmony default export */ var library_cog = (cog);
-
-// CONCATENATED MODULE: ./node_modules/@wordpress/edit-post/build-module/components/sidebar/settings-header/index.js
-
 
 
 
@@ -19090,8 +18889,6 @@ const close = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElem
 /* harmony import */ var _wordpress_primitives__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("Tqx9");
 /* harmony import */ var _wordpress_primitives__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_primitives__WEBPACK_IMPORTED_MODULE_1__);
 
-	function classNames () {
-		var classes = [];
 
 /**
  * WordPress dependencies
@@ -19106,8 +18903,7 @@ const wordpress = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["create
 /* harmony default export */ __webpack_exports__["a"] = (wordpress);
 
 
-		return classes.join(' ');
-	}
+/***/ }),
 
 /***/ "wx14":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {

@@ -313,9 +313,6 @@ table.fixed {
 
 .fixed .column-posts {
 	width: 74px;
-	-webkit-hyphens: auto;
-	-ms-hyphens: auto;
-	hyphens: auto;
 }
 
 .fixed .column-role,

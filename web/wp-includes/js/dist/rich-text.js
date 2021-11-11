@@ -600,7 +600,7 @@ function getFormatTypeForClassName(state, elementClassName) {
 function addFormatTypes(formatTypes) {
   return {
     type: 'ADD_FORMAT_TYPES',
-    formatTypes: Object(external_this_lodash_["castArray"])(formatTypes)
+    formatTypes: Object(external_lodash_["castArray"])(formatTypes)
   };
 }
 /**
@@ -614,7 +614,7 @@ function addFormatTypes(formatTypes) {
 function removeFormatTypes(names) {
   return {
     type: 'REMOVE_FORMAT_TYPES',
-    names: Object(external_this_lodash_["castArray"])(names)
+    names: Object(external_lodash_["castArray"])(names)
   };
 }
 
@@ -1586,7 +1586,7 @@ function getActiveFormats({
  */
 
 function getActiveFormat(value, formatType) {
-  return Object(external_this_lodash_["find"])(getActiveFormats(value), {
+  return Object(external_lodash_["find"])(getActiveFormats(value), {
     type: formatType
   });
 }
@@ -1995,14 +1995,14 @@ function removeFormat(value, formatType, startIndex = value.start, endIndex = va
     });
 
     if (format) {
-      while (Object(external_this_lodash_["find"])(newFormats[startIndex], format)) {
+      while (Object(external_lodash_["find"])(newFormats[startIndex], format)) {
         filterFormats(newFormats, startIndex, formatType);
         startIndex--;
       }
 
       endIndex++;
 
-      while (Object(external_this_lodash_["find"])(newFormats[endIndex], format)) {
+      while (Object(external_lodash_["find"])(newFormats[endIndex], format)) {
         filterFormats(newFormats, endIndex, formatType);
         endIndex++;
       }
@@ -2017,7 +2017,7 @@ function removeFormat(value, formatType, startIndex = value.start, endIndex = va
 
   return normaliseFormats({ ...value,
     formats: newFormats,
-    activeFormats: Object(external_this_lodash_["reject"])(activeFormats, {
+    activeFormats: Object(external_lodash_["reject"])(activeFormats, {
       type: formatType
     })
   });
@@ -2427,8 +2427,6 @@ function splitAtSelection({
 /**
  * WordPress dependencies
  */
-
-/** @typedef {import('./register-format-type').RichTextFormatType} RichTextFormatType */
 
 /**
  * Internal dependencies
@@ -3369,59 +3367,6 @@ function canOutdentListItems(value) {
     start
   } = value;
   const startingLineIndex = getLineIndex(value, start);
-  return replacements[startingLineIndex] !== undefined;
-}
-
-// CONCATENATED MODULE: ./node_modules/@wordpress/rich-text/build-module/can-indent-list-items.js
-/**
- * Internal dependencies
- */
-
-/** @typedef {import('./create').RichTextValue} RichTextValue */
-
-/**
- * Checks if the selected list item can be indented.
- *
- * @param {RichTextValue} value Value to check.
- *
- * @return {boolean} Whether or not the selected list item can be indented.
- */
-
-function canIndentListItems(value) {
-  var lineIndex = getLineIndex(value); // There is only one line, so the line cannot be indented.
-
-  if (lineIndex === undefined) {
-    return false;
-  }
-
-  var replacements = value.replacements;
-  var previousLineIndex = getLineIndex(value, lineIndex);
-  var formatsAtLineIndex = replacements[lineIndex] || [];
-  var formatsAtPreviousLineIndex = replacements[previousLineIndex] || []; // If the indentation of the current line is greater than previous line,
-  // then the line cannot be furter indented.
-
-  return formatsAtLineIndex.length <= formatsAtPreviousLineIndex.length;
-}
-
-// CONCATENATED MODULE: ./node_modules/@wordpress/rich-text/build-module/can-outdent-list-items.js
-/**
- * Internal dependencies
- */
-
-/** @typedef {import('./create').RichTextValue} RichTextValue */
-
-/**
- * Checks if the selected list item can be outdented.
- *
- * @param {RichTextValue} value Value to check.
- *
- * @return {boolean} Whether or not the selected list item can be outdented.
- */
-
-function canOutdentListItems(value) {
-  var replacements = value.replacements,
-      start = value.start;
-  var startingLineIndex = getLineIndex(value, start);
   return replacements[startingLineIndex] !== undefined;
 }
 
@@ -4367,23 +4312,6 @@ function useInputAndSelection(props) {
      * @param {Event|DOMHighResTimeStamp} event
      */
 
-    apply({
-      value: newRecord,
-      current: ref.current,
-      multilineTag: multilineTag,
-      multilineWrapperTags: multilineTag === 'li' ? ['ul', 'ol'] : undefined,
-      prepareEditableTree: createPrepareEditableTree(prepareHandlers),
-      __unstableDomOnly: domOnly,
-      placeholder: placeholder
-    });
-  }
-  /**
-   * Handles a paste event.
-   *
-   * Saves the pasted data as plain text in `pastedPlainText`.
-   *
-   * @param {ClipboardEvent} event The paste event.
-   */
 
     function handleSelectionChange(event) {
       if (ownerDocument.activeElement !== element) {
@@ -4629,7 +4557,6 @@ function useDelete(props) {
 
 
 
-  var lastHistoryValue = Object(external_this_wp_element_["useRef"])(value);
 
 
 
