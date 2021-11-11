@@ -99,27 +99,14 @@ this["wp"] = this["wp"] || {}; this["wp"]["compose"] =
 
 (function() { module.exports = window["wp"]["element"]; }());
 
-            // need to use === for the character check because the character can be 0
-            if (e.type == 'keyup' && _ignoreNextKeyup === character) {
-                _ignoreNextKeyup = false;
-                return;
-            }
+/***/ }),
 
 /***/ "NMb1":
 /***/ (function(module, exports) {
 
 (function() { module.exports = window["wp"]["deprecated"]; }());
 
-        /**
-         * binds a key sequence to an event
-         *
-         * @param {string} combo - combo specified in bind call
-         * @param {Array} keys
-         * @param {Function} callback
-         * @param {string=} action
-         * @returns void
-         */
-        function _bindSequence(combo, keys, callback, action) {
+/***/ }),
 
 /***/ "PD33":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -3929,12 +3916,6 @@ function delegate(elements, selector, type, callback, useCapture) {
     });
 }
 
-  if (action.type === 'append') {
-    return [].concat(Object(toConsumableArray["a" /* default */])(state), [action.item]);
-  }
-
-  return state;
-}
 /**
  * Finds closest match and invokes callback.
  *

@@ -524,24 +524,6 @@ var external_lodash_ = __webpack_require__("YLtl");
  */
 
 /**
- * Object containing a React element.
- *
- * @typedef {import('react').ReactElement} WPElement
- */
-
-/**
- * Object containing a React component.
- *
- * @typedef {import('react').ComponentType} WPComponent
- */
-
-/**
- * Object containing a React synthetic event.
- *
- * @typedef {import('react').SyntheticEvent} WPSyntheticEvent
- */
-
-/**
  * Object that provides utilities for dealing with React children.
  */
 
@@ -702,7 +684,7 @@ function concatChildren(...childrenArguments) {
   return childrenArguments.reduce((accumulator, children, i) => {
     external_React_["Children"].forEach(children, (child, j) => {
       if (child && 'string' !== typeof child) {
-        child = Object(external_this_React_["cloneElement"])(child, {
+        child = Object(external_React_["cloneElement"])(child, {
           key: [i, j].join()
         });
       }
@@ -799,7 +781,7 @@ const isEmptyElement = element => {
     return false;
   }
 
-  if (Object(external_this_lodash_["isString"])(element) || Object(external_this_lodash_["isArray"])(element)) {
+  if (Object(external_lodash_["isString"])(element) || Object(external_lodash_["isArray"])(element)) {
     return !element.length;
   }
 
@@ -1080,15 +1062,15 @@ function getNormalAttributeName(attribute) {
 
 
 function getNormalStylePropertyName(property) {
-  if (Object(external_this_lodash_["startsWith"])(property, '--')) {
+  if (Object(external_lodash_["startsWith"])(property, '--')) {
     return property;
   }
 
   if (hasPrefix(property, ['ms', 'O', 'Moz', 'Webkit'])) {
-    return '-' + Object(external_this_lodash_["kebabCase"])(property);
+    return '-' + Object(external_lodash_["kebabCase"])(property);
   }
 
-  return Object(external_this_lodash_["kebabCase"])(property);
+  return Object(external_lodash_["kebabCase"])(property);
 }
 /**
  * Returns the normal form of the style property value for HTML. Appends a
@@ -1144,8 +1126,8 @@ function renderElement(element, context, legacyContext = {}) {
   element;
 
   switch (type) {
-    case external_this_React_["StrictMode"]:
-    case external_this_React_["Fragment"]:
+    case external_React_["StrictMode"]:
+    case external_React_["Fragment"]:
       return renderChildren(props.children, context, legacyContext);
 
     case RawHTML:
@@ -1205,7 +1187,7 @@ function renderNativeComponent(type, props, context, legacyContext = {}) {
     // place of children. Ensure to omit so it is not assigned as attribute
     // as well.
     content = renderChildren(props.value, context, legacyContext);
-    props = Object(external_this_lodash_["omit"])(props, 'value');
+    props = Object(external_lodash_["omit"])(props, 'value');
   } else if (props.dangerouslySetInnerHTML && typeof props.dangerouslySetInnerHTML.__html === 'string') {
     // Dangerous content is left unescaped.
     content = props.dangerouslySetInnerHTML.__html;
@@ -1345,7 +1327,7 @@ function renderAttributes(props) {
 
 function renderStyle(style) {
   // Only generate from object, e.g. tolerate string value.
-  if (!Object(external_this_lodash_["isPlainObject"])(style)) {
+  if (!Object(external_lodash_["isPlainObject"])(style)) {
     return style;
   }
 
