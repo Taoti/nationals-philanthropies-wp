@@ -2823,7 +2823,6 @@ var OutsideClickHandler = function (_React$Component) {
 
 exports['default'] = OutsideClickHandler;
 
-  var context = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_SystemContext_js__WEBPACK_IMPORTED_MODULE_1__[/* SystemContext */ "a"]);
 
 OutsideClickHandler.propTypes = propTypes;
 OutsideClickHandler.defaultProps = defaultProps;
@@ -3754,12 +3753,6 @@ function contextConnect(Component, namespace, options = {}) {
     // @ts-ignore
     WrappedComponent = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["memo"])(WrappedComponent);
   }
-});
-var Clickable = Object(reakit_system_createComponent__WEBPACK_IMPORTED_MODULE_1__[/* createComponent */ "a"])({
-  as: "button",
-  memo: true,
-  useHook: useClickable
-});
 
   if (typeof namespace === 'undefined') {
     typeof process !== "undefined" && process.env && "production" !== "production" ? _wordpress_warning__WEBPACK_IMPORTED_MODULE_2___default()('contextConnect: Please provide a namespace') : void 0;
@@ -5254,7 +5247,6 @@ module.exports = function isPrimitive(value) {
 	return value === null || (typeof value !== 'function' && typeof value !== 'object');
 };
 
-    var registeredTheme = _ThemedStyleSheet2['default'].get();
 
 /***/ }),
 
@@ -5576,8 +5568,6 @@ module.exports = {
 
 "use strict";
 
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/possibleConstructorReturn.js
-var possibleConstructorReturn = __webpack_require__(24);
 
 var getDay = Date.prototype.getDay;
 var tryDateObject = function tryDateGetDayCall(value) {
@@ -6041,19 +6031,6 @@ var MODIFIER_KEY_NAMES = exports.MODIFIER_KEY_NAMES = new Set(['Shift', 'Control
 
 
 
-    if (__unstableObserveElement) {
-      observer = new window.MutationObserver(refresh);
-      observer.observe(__unstableObserveElement, {
-        attributes: true
-      });
-    }
-
-    return function () {
-      window.clearInterval(intervalHandle);
-      window.removeEventListener('resize', refresh);
-      window.removeEventListener('scroll', refresh, true);
-      window.removeEventListener('click', refreshOnAnimationFrame);
-      window.cancelAnimationFrame(rafId);
 
 
 
@@ -7273,10 +7250,8 @@ module.exports = function abs(x) {
 /***/ "J7JS":
 /***/ (function(module, exports, __webpack_require__) {
 
-    this.merged = _extends({}, from, this.merged, to);
-    this.hasChanged = false; // Attachment handling, trailed springs can "attach" themselves to a previous spring
+"use strict";
 
-    var target = attach && attach(this); // Reduces input { name: value } pairs into animated values
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -8474,10 +8449,6 @@ function createStringFromObject(mergedProps, registered, obj) {
         if (_key === 'NO_COMPONENT_SELECTOR' && "production" !== 'production') {
           throw new Error('Component selectors can only be used in conjunction with babel-plugin-emotion.');
         }
-      });
-    }, [onCharacterKeyDown, options.orientation, item, options.up, options.next, options.down, options.previous, options.first, options.last]);
-    var onClick = Object(react__WEBPACK_IMPORTED_MODULE_3__["useCallback"])(function (event) {
-      var _onClickRef$current;
 
         if (Array.isArray(value) && typeof value[0] === 'string' && (registered == null || registered[value[0]] === undefined)) {
           for (var _i = 0; _i < value.length; _i++) {
@@ -9442,8 +9413,6 @@ var defaultProps = exports.defaultProps = {
     return onMultiplyScrollableMonths;
   }(),
 
-var context_SlotFillProvider = /*#__PURE__*/function (_Component) {
-  Object(inherits["a" /* default */])(SlotFillProvider, _Component);
 
   // month props
   renderMonthText: null,
@@ -11803,21 +11772,6 @@ function css_browser_esm_css() {
 
 
 
-  domUtils[name] = function (elem, val) {
-    if (val !== undefined) {
-      if (elem) {
-        var computedStyle = getComputedStyleX(elem);
-        var isBorderBox = isBorderBoxFn(elem);
-        if (isBorderBox) {
-          val += getPBMWidth(elem, ['padding', 'border'], which, computedStyle);
-        }
-        return css(elem, name, val);
-      }
-      return undefined;
-    }
-    return elem && getWHIgnoreDisplay(elem, name, CONTENT_INDEX);
-  };
-});
 
 
 
@@ -13257,7 +13211,6 @@ function CompositeState_reducer(state, action) {
         var _canLoop = loop && loop !== "horizontal"; // Pressing down arrow key will only focus the composite element if loop
         // is true or vertical.
 
-"use strict";
 
         var _hasNullItem2 = _canLoop && includesBaseElement;
 
@@ -14144,16 +14097,6 @@ var Composite = Object(createComponent["a" /* createComponent */])({
 });
 
 
-module.exports = function assertRecord(ES, recordType, argumentName, value) {
-  var predicate = predicates[recordType];
-  if (typeof predicate !== 'function') {
-    throw new $SyntaxError('unknown record type: ' + recordType);
-  }
-  if (!predicate(ES, value)) {
-    throw new $TypeError(argumentName + ' must be a ' + recordType);
-  }
-  console.log(predicate(ES, value), value);
-};
 
 // EXTERNAL MODULE: ./node_modules/reakit/es/Id/Id.js
 var Id = __webpack_require__("ym77");
@@ -18286,7 +18229,6 @@ var DragRecognizer = /*#__PURE__*/function (_CoordinatesRecognize) {
 
       addBindings(bindings, 'onTouchMove', this.onDragChange); // this is needed for react-three-fiber
 
-// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/utils/colors-values.js
 
       addBindings(bindings, 'onTouchEnd', this.onDragEnd);
 
@@ -18456,13 +18398,6 @@ function useDrag(handler, config) {
     drag: handler
   }, buildDragConfig.current(config));
 }
-/**
- * Flips a CSS property from left <-> right.
- *
- * @param {string} key The CSS property name.
- *
- * @return {string} The flipped CSS property name, if applicable.
- */
 
 /**
  * @private
@@ -37993,7 +37928,6 @@ var chevron_left = __webpack_require__("2gm7");
  */
 
 
-  this.timeouts = {}; // keeping track of timeouts for debounced gestures (such as move, scroll, wheel)
 
 
 /**
@@ -38826,8 +38760,6 @@ function NoticeList({
 
 // CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/panel/header.js
 
-var DragRecognizer = /*#__PURE__*/function (_CoordinatesRecognize) {
-  react_use_gesture_esm_inheritsLoose(DragRecognizer, _CoordinatesRecognize);
 
 function PanelHeader({
   label,
@@ -39024,7 +38956,6 @@ const PanelRow = Object(external_wp_element_["forwardRef"])(({
  * Internal dependencies
  */
 
-    var newTurns = Math.abs(delta_a) > 270 ? turns + sign(delta_a) : turns; // we update the angle difference to its corrected value
 
 /**
  * Renders a placeholder. Normally used by blocks to render their empty state.
@@ -39628,7 +39559,6 @@ function useRadioState(initialState) {
 
 
 
-  var _proto = MoveRecognizer.prototype;
 
 
 
@@ -39636,7 +39566,6 @@ function useRadioState(initialState) {
 
 
 
-      var movementDetection = _this.getMovement(values, startState);
 
 
 
@@ -41962,10 +41891,6 @@ const ToolbarButtonContainer = props => Object(external_wp_element_["createEleme
 
 
 
-function box_control_useUniqueId(idProp) {
-  var instanceId = Object(external_this_wp_compose_["useInstanceId"])(BoxControl, 'inspector-box-control');
-  return idProp || instanceId;
-}
 
 function ToolbarButton({
   containerClassName,
@@ -42035,12 +41960,6 @@ const ToolbarGroupContainer = ({
 // CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/toolbar-group/toolbar-group-collapsed.js
 
 
-  var handleOnReset = function handleOnReset() {
-    var initialValues = DEFAULT_VALUES;
-    onChange(initialValues);
-    setValues(initialValues);
-    setIsDirty(false);
-  };
 
 /**
  * WordPress dependencies
@@ -42082,10 +42001,6 @@ function ToolbarGroupCollapsed({
 // CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/toolbar-group/index.js
 
 
-// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/card/context.js
-/**
- * WordPress dependencies
- */
 
 /**
  * External dependencies
@@ -42548,36 +42463,6 @@ function TreeGrid({
         nextIndex = Math.min(currentColumnIndex + 1, focusablesInRow.length - 1);
       } // Focus is either at the left or right edge of the grid. Do nothing.
 
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/getPrototypeOf.js
-var getPrototypeOf = __webpack_require__(19);
-
-// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/color-picker/utils.js
-/**
- * Parts of this source were derived and modified from react-color,
- * released under the MIT license.
- *
- * https://github.com/casesandberg/react-color/
- *
- * Copyright (c) 2015 Case Sandberg
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- */
 
       if (nextIndex === currentColumnIndex) {
         // Prevent key use for anything else. For example, Voiceover
@@ -42604,24 +42489,6 @@ var getPrototypeOf = __webpack_require__(19);
         nextRowIndex = Math.min(currentRowIndex + 1, rows.length - 1);
       } // Focus is either at the top or bottom edge of the grid. Do nothing.
 
-  var transparent = hex === '000000' && rgb.a === 0;
-  return {
-    color: color,
-    hex: transparent ? 'transparent' : "#".concat(hex),
-    hsl: hsl,
-    hsv: hsv,
-    oldHue: data.h || oldHue || hsl.h,
-    rgb: rgb,
-    source: data.source
-  };
-}
-/**
- * Get the top/left offsets of a point in a container, also returns the container width/height.
- *
- * @param {Event} e Mouse or touch event with a location coordinate.
- * @param {HTMLElement} container The container div, returned point is relative to this container.
- * @return {Object} An object of the offset positions & container size.
- */
 
       if (nextRowIndex === currentRowIndex) {
         // Prevent key use for anything else. For example, Voiceover
@@ -42665,23 +42532,12 @@ var getPrototypeOf = __webpack_require__(19);
 /* harmony default export */ var tree_grid = (Object(external_wp_element_["forwardRef"])(TreeGrid));
 
 
-  if (props.hsl.a !== a) {
-    return {
-      h: props.hsl.h,
-      s: props.hsl.s,
-      l: props.hsl.l,
-      a: a,
-      source: 'rgb'
-    };
-  }
 
 
 // CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/tree-grid/row.js
 
 
 
-  return null;
-}
 /**
  * WordPress dependencies
  */
@@ -42771,9 +42627,6 @@ function TreeGridRow({
  * Internal dependencies
  */
 
-/**
- * WordPress dependencies
- */
 
 /* harmony default export */ var tree_grid_item = (Object(external_wp_element_["forwardRef"])(function TreeGridItem({
   children,
@@ -43320,8 +43173,6 @@ var v4 = __webpack_require__("7Cbv");
 
 // CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/higher-order/with-notices/index.js
 
-    moveTimeoutRef.current = utils_setTimeout(unsetMoveXY, fadeTimeout);
-  };
 
 
 /**
@@ -43753,17 +43604,6 @@ function getWindow(element) {
   return Object(_getDocument_js__WEBPACK_IMPORTED_MODULE_0__[/* getDocument */ "a"])(element).defaultView || _window;
 }
 
-      if ('resize' === action && (oldWidth !== width || oldHeight !== height)) {
-        this.setState({
-          width: width,
-          height: height
-        });
-      }
-    }
-  }, {
-    key: "trySandbox",
-    value: function trySandbox() {
-      var forceRerender = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
 
 
 
@@ -43785,11 +43625,6 @@ var COMPOSITE_ITEM_KEYS = COMPOSITE_GROUP_KEYS;
 var COMPOSITE_ITEM_WIDGET_KEYS = COMPOSITE_ITEM_KEYS;
 
 
-      var observeAndResizeJS = "\n\t\t\t( function() {\n\t\t\t\tvar observer;\n\n\t\t\t\tif ( ! window.MutationObserver || ! document.body || ! window.parent ) {\n\t\t\t\t\treturn;\n\t\t\t\t}\n\n\t\t\t\tfunction sendResize() {\n\t\t\t\t\tvar clientBoundingRect = document.body.getBoundingClientRect();\n\n\t\t\t\t\twindow.parent.postMessage( {\n\t\t\t\t\t\taction: 'resize',\n\t\t\t\t\t\twidth: clientBoundingRect.width,\n\t\t\t\t\t\theight: clientBoundingRect.height,\n\t\t\t\t\t}, '*' );\n\t\t\t\t}\n\n\t\t\t\tobserver = new MutationObserver( sendResize );\n\t\t\t\tobserver.observe( document.body, {\n\t\t\t\t\tattributes: true,\n\t\t\t\t\tattributeOldValue: false,\n\t\t\t\t\tcharacterData: true,\n\t\t\t\t\tcharacterDataOldValue: false,\n\t\t\t\t\tchildList: true,\n\t\t\t\t\tsubtree: true\n\t\t\t\t} );\n\n\t\t\t\twindow.addEventListener( 'load', sendResize, true );\n\n\t\t\t\t// Hack: Remove viewport unit styles, as these are relative\n\t\t\t\t// the iframe root and interfere with our mechanism for\n\t\t\t\t// determining the unconstrained page bounds.\n\t\t\t\tfunction removeViewportStyles( ruleOrNode ) {\n\t\t\t\t\tif( ruleOrNode.style ) {\n\t\t\t\t\t\t[ 'width', 'height', 'minHeight', 'maxHeight' ].forEach( function( style ) {\n\t\t\t\t\t\t\tif ( /^\\d+(vmin|vmax|vh|vw)$/.test( ruleOrNode.style[ style ] ) ) {\n\t\t\t\t\t\t\t\truleOrNode.style[ style ] = '';\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t} );\n\t\t\t\t\t}\n\t\t\t\t}\n\n\t\t\t\tArray.prototype.forEach.call( document.querySelectorAll( '[style]' ), removeViewportStyles );\n\t\t\t\tArray.prototype.forEach.call( document.styleSheets, function( stylesheet ) {\n\t\t\t\t\tArray.prototype.forEach.call( stylesheet.cssRules || stylesheet.rules, removeViewportStyles );\n\t\t\t\t} );\n\n\t\t\t\tdocument.body.style.position = 'absolute';\n\t\t\t\tdocument.body.style.width = '100%';\n\t\t\t\tdocument.body.setAttribute( 'data-resizable-iframe-connected', '' );\n\n\t\t\t\tsendResize();\n\n\t\t\t\t// Resize events can change the width of elements with 100% width, but we don't\n\t\t\t\t// get an DOM mutations for that, so do the resize when the window is resized, too.\n\t\t\t\twindow.addEventListener( 'resize', sendResize, true );\n\t\t} )();";
-      var style = "\n\t\t\tbody {\n\t\t\t\tmargin: 0;\n\t\t\t}\n\t\t\thtml,\n\t\t\tbody,\n\t\t\tbody > div,\n\t\t\tbody > div > iframe {\n\t\t\t\twidth: 100%;\n\t\t\t}\n\t\t\thtml.wp-has-aspect-ratio,\n\t\t\tbody.wp-has-aspect-ratio,\n\t\t\tbody.wp-has-aspect-ratio > div,\n\t\t\tbody.wp-has-aspect-ratio > div > iframe {\n\t\t\t\theight: 100%;\n\t\t\t\toverflow: hidden; /* If it has an aspect ratio, it shouldn't scroll. */\n\t\t\t}\n\t\t\tbody > div > * {\n\t\t\t\tmargin-top: 0 !important; /* Has to have !important to override inline styles. */\n\t\t\t\tmargin-bottom: 0 !important;\n\t\t\t}\n\t\t"; // put the html snippet into a html document, and then write it to the iframe's document
-      // we can use this in the future to inject custom styles or scripts.
-      // Scripts go into the body rather than the head, to support embedded content such as Instagram
-      // that expect the scripts to be part of the body.
 
 
 /***/ }),
@@ -47073,8 +46908,6 @@ var DayPickerSingleDateController = function (_React$Component) {
             date = _props7.date,
             numberOfMonths = _props7.numberOfMonths;
 
-function RovingTabIndex(_ref) {
-  var children = _ref.children;
 
         var focusedDate = newMonth.clone().startOf('month');
         if (date) {
@@ -47372,13 +47205,6 @@ function RovingTabIndex(_ref) {
             currentMonth = _state7.currentMonth,
             visibleDays = _state7.visibleDays;
 
-      if (nextIndex === currentColumnIndex) {
-        // Prevent key use for anything else. For example, Voiceover
-        // will start reading text on continued use of left/right arrow
-        // keys.
-        event.preventDefault();
-        return;
-      } // Focus the next element.
 
         return _react2['default'].createElement(_DayPicker2['default'], {
           orientation: orientation,
@@ -48525,7 +48351,6 @@ function () {
       } // The guid helps us tracking frames, a new queue over an old one means an override
       // We discard async calls in that caseÍ
 
-      var _super = with_filters_createSuper(FilteredComponentRenderer);
 
       var local = this.local = ++this.guid;
       var queue = this.localQueue = this.queue;
@@ -48664,8 +48489,6 @@ function () {
       to = _ref6[1];
     } // This will collect all props that were ever set, reset merged props when necessary
 
-/* harmony default export */ var esm_browser_v4 = (v4);
-// CONCATENATED MODULE: ./node_modules/@wordpress/components/build-module/higher-order/with-notices/index.js
 
     this.merged = _extends({}, from, this.merged, to);
     this.hasChanged = false; // Attachment handling, trailed springs can "attach" themselves to a previous spring
@@ -51092,9 +50915,6 @@ else {}
 
 })(Math);
 
-/***/ }),
-/* 333 */
-/***/ (function(module, exports, __webpack_require__) {
 
 /***/ }),
 
@@ -51116,7 +50936,9 @@ else {}
  * External dependencies
  */
 
-module.exports = boundFlat;
+/**
+ * WordPress dependencies
+ */
 
 
 
@@ -51575,10 +51397,6 @@ const useSlot = name => {
  * WordPress dependencies
  */
 
-function collectionOf(type, size, entries, indent) {
-    var joinedEntries = indent ? indentedJoin(entries, indent) : entries.join(', ');
-    return type + ' (' + size + ') {' + joinedEntries + '}';
-}
 
 /**
  * Internal dependencies
@@ -52178,9 +51996,6 @@ module.exports = function ToInteger(value) {
 
 "use strict";
 
-/***/ }),
-/* 354 */
-/***/ (function(module, exports, __webpack_require__) {
 
 var has = __webpack_require__("oNNP");
 
@@ -52416,7 +52231,6 @@ module.exports = function Call(F, V) {
 	return $apply(F, V, argumentsList);
 };
 
-"use strict";
 
 /***/ }),
 
@@ -52432,7 +52246,6 @@ module.exports = function Call(F, V) {
 
 "use strict";
 
-var $match = GetIntrinsic('%Symbol.match%', true);
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -52533,7 +52346,6 @@ var isObject = __webpack_require__("Ptb8");
 
 // CONCATENATED MODULE: ./node_modules/reakit-utils/es/isPlainObject.js
 
-// https://tc39.es/ecma262/2020/#sec-lengthofarraylike
 
 /**
  * Checks whether `arg` is a plain object or not.
@@ -52859,16 +52671,12 @@ module.exports = function IsPropertyKey(argument) {
 
 
 
-var callBind = __webpack_require__(221);
 
 
 /**
  * Internal dependencies
  */
 
-/***/ }),
-/* 371 */
-/***/ (function(module, exports, __webpack_require__) {
 
 const NOTICE_TIMEOUT = 10000;
 /** @typedef {import('@wordpress/element').WPElement} WPElement */
@@ -53210,9 +53018,6 @@ module.exports = function shimValues() {
 	return polyfill;
 };
 
-/***/ }),
-/* 377 */
-/***/ (function(module, exports, __webpack_require__) {
 
 /***/ }),
 
@@ -53221,7 +53026,6 @@ module.exports = function shimValues() {
 
 "use strict";
 
-module.exports = __webpack_require__(378);
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -53846,9 +53650,6 @@ function isSelfTarget(event) {
 
 
 
-function noop() {
-  return null;
-}
 
 /***/ }),
 
@@ -53939,14 +53740,6 @@ function ScrollLock() {
 /* harmony import */ var _icon__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("9VDH");
 /* harmony import */ var _visually_hidden__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("ldlY");
 
-var $TypeError = GetIntrinsic('%TypeError%');
-var $SyntaxError = GetIntrinsic('%SyntaxError%');
-var $Array = GetIntrinsic('%Array%');
-var $String = GetIntrinsic('%String%');
-var $Object = GetIntrinsic('%Object%');
-var $Number = GetIntrinsic('%Number%');
-var $Symbol = GetIntrinsic('%Symbol%', true);
-var $RegExp = GetIntrinsic('%RegExp%');
 
 
 /**
@@ -53958,17 +53751,12 @@ var $RegExp = GetIntrinsic('%RegExp%');
  * WordPress dependencies
  */
 
-var $NumberValueOf = bind.call(Function.call, GetIntrinsic('%NumberPrototype%').valueOf);
-var $BooleanValueOf = bind.call(Function.call, GetIntrinsic('%BooleanPrototype%').valueOf);
-var $StringValueOf = bind.call(Function.call, GetIntrinsic('%StringPrototype%').valueOf);
-var $DateValueOf = bind.call(Function.call, GetIntrinsic('%DatePrototype%').valueOf);
 
 
 /**
  * Internal dependencies
  */
 
-var $isExtensible = $Object.isExtensible;
 
 
 
@@ -54083,14 +53871,6 @@ function Button(props, ref) {
 }
 /* harmony default export */ __webpack_exports__["a"] = (Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["forwardRef"])(Button));
 
-	// https://people.mozilla.org/~jorendorff/es6-draft.html#sec-call-f-v-args
-	Call: function Call(F, V) {
-		var args = arguments.length > 2 ? arguments[2] : [];
-		if (!this.IsCallable(F)) {
-			throw new $TypeError(F + ' is not a function');
-		}
-		return F.apply(V, args);
-	},
 
 /***/ }),
 
@@ -54260,15 +54040,6 @@ var classnames = function classnames(args) {
 
 // CONCATENATED MODULE: ./node_modules/emotion/dist/emotion.esm.js
 
-	// https://ecma-international.org/ecma-262/6.0/#sec-invoke
-	Invoke: function Invoke(O, P) {
-		if (!this.IsPropertyKey(P)) {
-			throw new $TypeError('P must be a Property Key');
-		}
-		var argumentsList = arraySlice(arguments, 2);
-		var func = this.GetV(O, P);
-		return this.Call(func, O, argumentsList);
-	},
 
 var _createEmotion = create_emotion_browser_esm(),
     flush = _createEmotion.flush,
@@ -54283,8 +54054,6 @@ var _createEmotion = create_emotion_browser_esm(),
     emotion_esm_cache = _createEmotion.cache;
 
 
-		return iterator;
-	},
 
 
 /***/ }),
@@ -54330,15 +54099,6 @@ exports.MAX_SPECIFICITY = MAX_SPECIFICITY;
 /* harmony import */ var _Id_Id_js__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__("ym77");
 /* harmony import */ var _setTextFieldValue_0a221f4e_js__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__("0HL0");
 
-	// https://ecma-international.org/ecma-262/6.0/#sec-iteratorclose
-	IteratorClose: function IteratorClose(iterator, completion) {
-		if (this.Type(iterator) !== 'Object') {
-			throw new $TypeError('Assertion failed: Type(iterator) is not Object');
-		}
-		if (!this.IsCallable(completion)) {
-			throw new $TypeError('Assertion failed: completion is not a thunk for a Completion Record');
-		}
-		var completionThunk = completion;
 
 
 
@@ -54360,22 +54120,11 @@ exports.MAX_SPECIFICITY = MAX_SPECIFICITY;
 
 
 
-		if (!this.IsPropertyKey(P)) {
-			throw new $TypeError('Assertion failed: IsPropertyKey(P) is not true');
-		}
 
 
 
-		if (!this.IsPropertyKey(P)) {
-			throw new $TypeError('Assertion failed: IsPropertyKey(P) is not true');
-		}
 
 
-	// https://www.ecma-international.org/ecma-262/6.0/#sec-deletepropertyorthrow
-	DeletePropertyOrThrow: function DeletePropertyOrThrow(O, P) {
-		if (this.Type(O) !== 'Object') {
-			throw new $TypeError('Assertion failed: Type(O) is not Object');
-		}
 
 
 function getWidget(itemElement) {
@@ -54673,13 +54422,6 @@ var CompositeItem = Object(reakit_system_createComponent__WEBPACK_IMPORTED_MODUL
 
 "use strict";
 
-		var isData = has(Desc, '[[Value]]');
-		var IsAccessor = has(Desc, '[[Get]]') || has(Desc, '[[Set]]');
-		if (isData && IsAccessor) {
-			throw new $TypeError('Property Descriptors may not be both accessor and data descriptors');
-		}
-		return true;
-	},
 
 var GetIntrinsic = __webpack_require__("rZ7t");
 
@@ -54813,7 +54555,6 @@ function matches(element, selectors) {
 }
 
 
-var _toISOMonthString2 = _interopRequireDefault(_toISOMonthString);
 
 // CONCATENATED MODULE: ./node_modules/reakit-utils/es/closest.js
 
@@ -55751,13 +55492,6 @@ var TOOLBAR_SEPARATOR_KEYS = TOOLBAR_ITEM_KEYS;
 
 "use strict";
 
-        var verticalScrollable = orientation === _constants.VERTICAL_SCROLLABLE;
-        var horizontalStyle = {
-          left: index * calendarMonthWidth
-        };
-        var verticalStyle = {
-          marginLeft: -calendarMonthWidth / 2
-        };
 
 var define = __webpack_require__("82c2");
 
@@ -56969,7 +56703,6 @@ function fireEvent(element, type, eventInit) {
 
 
 
-var _react2 = _interopRequireDefault(_react);
 
 /***/ }),
 
@@ -57000,7 +56733,6 @@ exports.Profiler=g;exports.StrictMode=f;exports.Suspense=p;exports.isAsyncMode=f
 exports.isMemo=function(a){return z(a)===r};exports.isPortal=function(a){return z(a)===d};exports.isProfiler=function(a){return z(a)===g};exports.isStrictMode=function(a){return z(a)===f};exports.isSuspense=function(a){return z(a)===p};
 exports.isValidElementType=function(a){return"string"===typeof a||"function"===typeof a||a===e||a===m||a===g||a===f||a===p||a===q||"object"===typeof a&&null!==a&&(a.$$typeof===t||a.$$typeof===r||a.$$typeof===h||a.$$typeof===k||a.$$typeof===n||a.$$typeof===w||a.$$typeof===x||a.$$typeof===y||a.$$typeof===v)};exports.typeOf=z;
 
-var _document = __webpack_require__(419);
 
 /***/ }),
 
@@ -58738,7 +58470,6 @@ module.exports = function GetIntrinsic(name, allowMissing) {
 
 "use strict";
 
-var _getCalendarDaySettings2 = _interopRequireDefault(_getCalendarDaySettings);
 
 // http://262.ecma-international.org/5.1/#sec-9.1
 
@@ -59249,9 +58980,6 @@ exports['default'] = CloseButton;
 
 "use strict";
 
-/***/ }),
-/* 428 */
-/***/ (function(module, exports, __webpack_require__) {
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -59459,10 +59187,6 @@ exports['default'] = {
 
 "use strict";
 
-function isNextMonth(a, b) {
-  if (!_moment2['default'].isMoment(a) || !_moment2['default'].isMoment(b)) return false;
-  return (0, _isSameMonth2['default'])(a.clone().add(1, 'month'), b);
-}
 
 var implementation = __webpack_require__("rQy3");
 
@@ -59478,9 +59202,6 @@ module.exports = function getPolyfill() {
 
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
 
 var GetIntrinsic = __webpack_require__("rZ7t");
 
@@ -59629,7 +59350,6 @@ module.exports = function flat() {
 
 "use strict";
 
-var _ChevronDown2 = _interopRequireDefault(_ChevronDown);
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -59999,7 +59719,6 @@ var Role = Object(reakit_system_createComponent__WEBPACK_IMPORTED_MODULE_1__[/* 
 
 "use strict";
 
-var _KeyboardShortcutRow2 = _interopRequireDefault(_KeyboardShortcutRow);
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -60140,11 +59859,6 @@ exports['default'] = (0, _reactWithStyles.withStyles)(function (_ref2) {
 
 
 
-    DayPickerKeyboardShortcuts_show__bottomRight: {
-      borderTop: '26px solid transparent',
-      borderRight: '33px solid ' + String(color.core.primary),
-      bottom: 0,
-      right: 0,
 
 
 
