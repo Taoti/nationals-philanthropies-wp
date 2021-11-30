@@ -316,8 +316,8 @@
                         },
                         {
                             "key": "field_61a5ee2a55691",
-                            "label": "Right Image Large Top",
-                            "name": "right_image_large_top",
+                            "label": "Top Diamond Image",
+                            "name": "top_diamond_image",
                             "type": "image",
                             "instructions": "",
                             "required": 0,
@@ -339,13 +339,45 @@
                             "mime_types": ""
                         },
                         {
+                            "key": "field_61a6536dfca9d",
+                            "label": "Image or Icon for Right Diamond?",
+                            "name": "image_or_icon_for_right_diamond",
+                            "type": "radio",
+                            "instructions": "Small diamond at the very right",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "image": "Image",
+                                "icon": "Icon"
+                            },
+                            "allow_null": 0,
+                            "other_choice": 0,
+                            "default_value": "",
+                            "layout": "vertical",
+                            "return_format": "value",
+                            "save_other_choice": 0
+                        },
+                        {
                             "key": "field_61a5ee5855692",
-                            "label": "Right Image Medium Small",
-                            "name": "right_image_medium_small",
+                            "label": "Middle Diamond Image",
+                            "name": "middle_diamond_image",
                             "type": "image",
                             "instructions": "",
                             "required": 0,
-                            "conditional_logic": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_61a6536dfca9d",
+                                        "operator": "==",
+                                        "value": "image"
+                                    }
+                                ]
+                            ],
                             "wrapper": {
                                 "width": "",
                                 "class": "",
@@ -364,8 +396,54 @@
                         },
                         {
                             "key": "field_61a5ee6e55693",
-                            "label": "Right Image Bottom Large",
-                            "name": "right_image_bottom_large",
+                            "label": "Middle Diamond Icon",
+                            "name": "middle_diamond_icon",
+                            "type": "group",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_61a6536dfca9d",
+                                        "operator": "==",
+                                        "value": "icon"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layout": "block",
+                            "sub_fields": [
+                                {
+                                    "key": "field_61a658522dc01",
+                                    "label": "Icon Selector",
+                                    "name": "icon_selector",
+                                    "type": "clone",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "clone": [
+                                        "group_5e970c9ea5144"
+                                    ],
+                                    "display": "seamless",
+                                    "layout": "block",
+                                    "prefix_label": 0,
+                                    "prefix_name": 0
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_61a65305fca9c",
+                            "label": "Bottom Diamond Image",
+                            "name": "bottom_diamond_image",
                             "type": "image",
                             "instructions": "",
                             "required": 0,
@@ -603,5 +681,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1638264537
+    "modified": 1638291567
 }
