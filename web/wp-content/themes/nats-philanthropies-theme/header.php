@@ -11,7 +11,7 @@
   // <link rel="dns-prefetch" href="https://fonts.googleapis.com">
   // <link rel="dns-prefetch" href="https://ajax.googleapis.com">
   // <link rel="dns-prefetch" href="https://www.google-analytics.com">
-  // <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  // 
   // <link rel="dns-prefetch" href="https://use.typekit.net">
   ?>
 
@@ -26,6 +26,17 @@
   <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ab0003">
   <meta name="msapplication-TileColor" content="#2b5797">
   <meta name="theme-color" content="#ffffff">
+
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <!-- Google Tag Manager -->
+
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({‘gtm.start’:
+    new Date().getTime(),event:‘gtm.js’});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!=‘dataLayer’?‘&l=‘+l:‘’;j.async=true;j.src=
+    ’https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,‘script’,‘dataLayer’,‘GTM-K6G6V4T’);</script>
+
+  <!-- End Google Tag Manager -->
 
   <?php
   ### Set up critical and non critical CSS.
