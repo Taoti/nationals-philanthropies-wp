@@ -2,6 +2,16 @@
 <html lang="en-US">
 
 <head>
+    <!-- Google Tag Manager -->
+
+      <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({‘gtm.start’:
+      new Date().getTime(),event:‘gtm.js’});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!=‘dataLayer’?‘&l=‘+l:‘’;j.async=true;j.src=
+      ’https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,‘script’,‘dataLayer’,‘GTM-K6G6V4T’);</script>
+
+    <!-- End Google Tag Manager -->
+
   <?php
   // Use js/development/after-libs/web-font-loader.js to load fonts.
   ?>
@@ -27,16 +37,7 @@
   <meta name="msapplication-TileColor" content="#2b5797">
   <meta name="theme-color" content="#ffffff">
 
-  
-  <!-- Google Tag Manager -->
 
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({‘gtm.start’:
-    new Date().getTime(),event:‘gtm.js’});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!=‘dataLayer’?‘&l=‘+l:‘’;j.async=true;j.src=
-    ’https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,‘script’,‘dataLayer’,‘GTM-K6G6V4T’);</script>
-
-  <!-- End Google Tag Manager -->
 
   <?php
   ### Set up critical and non critical CSS.
