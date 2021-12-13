@@ -102,13 +102,15 @@ add_action( 'itsec_register_tools', function ( Tools_Registry $registry ) {
 			 *
 			 * @since 6.3.0
 			 *
-			 * @param int $new_user The new user's ID.
+			 * @param int     $new_user The new user's ID.
+			 * @param WP_User $user     The old user object.
 			 */
-			do_action( 'itsec_change_admin_user_id', $new_user );
+			do_action( 'itsec_change_admin_user_id', $new_user, $user );
 
 			ITSEC_Lib::release_lock( 'admin_user' );
 
-			return Result::success()->add_success_message( __( 'Updated user ID.', 'better-wp-security' ) );
+			return Result::success( $new_user )
+			             ->add_success_message( __( 'Updated user ID.', 'better-wp-security' ) );
 		}
 	} );
 } );

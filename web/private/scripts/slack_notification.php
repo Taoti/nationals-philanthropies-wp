@@ -1,14 +1,14 @@
 <?php
 
 // Important constants :)
-$pantheon_yellow = 'good'; //'#EFD01B';
+$pantheon_yellow = '#ed3403'; //'#EFD01B';
 
 // Default values for parameters - this will assume the channel you define the webhook for.
 // The full Slack Message API allows you to specify other channels and enhance the messagge further
 // if you like: https://api.slack.com/docs/messages/builder
 $defaults = array(
   'slack_username' => 'Pantheon',
-  'always_show_text' => false,
+  'always_show_text' => true,
 );
 
 // Load our hidden credentials.
@@ -20,10 +20,11 @@ $secrets = _get_secrets(array('slack_url'), $defaults);
 // https://api.slack.com/docs/attachments
 $fields = array(
   array(
-    'value' => ucfirst($_POST['user_firstname']) . ' derployed '
+    'value' => ucfirst($_POST['user_firstname']) . ' deployed '
       . '<http://' . $_ENV['PANTHEON_ENVIRONMENT'] . '-' . $_ENV['PANTHEON_SITE_NAME'] . '.pantheonsite.io|' . $_ENV['PANTHEON_SITE_NAME'] . '.' . $_ENV['PANTHEON_ENVIRONMENT'] . '> | '
       . '<https://dashboard.pantheon.io/sites/'. PANTHEON_SITE .'#'. PANTHEON_ENVIRONMENT .'/deploys|:pantheon:dashboard>',
-    'short' => 'false'
+      'value' => $deploy_message,
+      'short' => 'false'
   ),
 );
 
@@ -43,7 +44,7 @@ switch($_POST['wf_type']) {
     // Build an array of fields to be rendered with Slack Attachments as a table
     // attachment-style formatting:
     // https://api.slack.com/docs/attachments
-    /*
+
     $fields[] = array(
       'title' => 'Details',
       'value' => $text,
@@ -54,7 +55,7 @@ switch($_POST['wf_type']) {
       'value' => $deploy_message,
       'short' => 'false'
     );
-    */
+
     break;
 
   case 'sync_code':
@@ -71,7 +72,7 @@ switch($_POST['wf_type']) {
     // Build an array of fields to be rendered with Slack Attachments as a table
     // attachment-style formatting:
     // https://api.slack.com/docs/attachments
-    /*
+
     $fields += array(
       array(
         'title' => 'Commit',
@@ -84,7 +85,7 @@ switch($_POST['wf_type']) {
         'short' => 'false'
       )
     );
-    */
+
     break;
 
   case 'clear_cache':

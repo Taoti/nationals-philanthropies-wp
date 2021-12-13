@@ -415,10 +415,11 @@ class TCMP_Manager {
                             $start=FALSE;
                         }
                     }
-                }
-                if($previous!==FALSE && $previous<strlen($text)) {
-                    $code=$tcmp->Utils->substr($text, $previous);
-                    $buffer.=$code;
+
+                    if ($previous !== FALSE && $previous < strlen($text)) {
+                        $code = $tcmp->Utils->substr($text, $previous);
+                        $buffer .= $code;
+                    }
                 }
                 $text=$buffer;
             }

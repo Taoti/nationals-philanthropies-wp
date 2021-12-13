@@ -958,3 +958,9 @@
 	Bug Fix: Unregister the iThemes Security Two-Factor module when the Two-Factor Feature Plugin is enabled.
 	Bug Fix: Allow activation on WordPress 5.7.0.
 	Bug Fix: Add missing textdomains.
+8.0.2 - 2021-08-11 - Timothy Jacobs
+	Enhancement: Reintroduce Feature Flags management UI.
+	Tweak: Reposition "Advanced" and "Tools" menu items to be more readable on lengthy screens.
+	Bug Fix: When the Change Admin User tool is run, update any User Groups referencing the old user id.
+	Bug Fix: WordPress footer would appear in the middle of the logs page.
+	Bug Fix: Add missing translation strings file.

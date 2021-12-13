@@ -1,4 +1,10 @@
 /**
+ * WordPress dependencies
+ */
+import { createRegistrySelector } from '@wordpress/data';
+import { MODULES_STORE_NAME } from './';
+
+/**
  * Get a WP User by its ID.
  *
  * @param {Object} state
@@ -67,3 +73,7 @@ export function getActors( state, type ) {
 export function getSiteInfo( state ) {
 	return state.siteInfo;
 }
+
+export const getFeatureFlags = createRegistrySelector( ( select ) => () =>
+	select( MODULES_STORE_NAME ).getSetting( 'feature-flags', 'enabled' ) || []
+);

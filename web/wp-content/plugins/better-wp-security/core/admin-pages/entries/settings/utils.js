@@ -18,8 +18,8 @@ import { __ } from '@wordpress/i18n';
 /**
  * Internal dependencies
  */
-import { MODULES_STORE_NAME } from '@ithemes/security-data';
 import { WPError } from '@ithemes/security-utils';
+import { CORE_STORE_NAME, MODULES_STORE_NAME } from '@ithemes/security-data';
 
 export const ConfigContext = createContext( {
 	serverType: '',
@@ -71,7 +71,13 @@ export function getAjv() {
 }
 
 const isConditionalSettingActive = ( definition, module, context ) => {
-	const { serverType, installType, activeModules, settings } = context;
+	const {
+		serverType,
+		installType,
+		activeModules,
+		settings,
+		featureFlags,
+	} = context;
 
 	if (
 		definition[ 'server-type' ] &&
@@ -90,6 +96,14 @@ const isConditionalSettingActive = ( definition, module, context ) => {
 	if ( definition[ 'active-modules' ] ) {
 		for ( const activeModule of definition[ 'active-modules' ] ) {
 			if ( ! activeModules.includes( activeModule ) ) {
+				return false;
+			}
+		}
+	}
+
+	if ( definition[ 'feature-flags' ] ) {
+		for ( const featureFlag of definition[ 'feature-flags' ] ) {
+			if ( ! featureFlags?.includes( featureFlag ) ) {
 				return false;
 			}
 		}
@@ -132,6 +146,7 @@ const isConditionalSettingActive = ( definition, module, context ) => {
  * @param {string} context.serverType The web server type.
  * @param {string} context.installType The ITSEC installation type.
  * @param {Array<string>} context.activeModules The list of active modules.
+ * @param {Array<string>} context.featureFlags The list of feature flags.
  * @param {Object} context.settings The module's setting value.
  * @param {Object} context.registry The @wordpress/data registry.
  *
@@ -200,15 +215,17 @@ export function makeConditionalSettingsSchema( module, context ) {
 export function useConditionalSchema( module, settings ) {
 	const { serverType, installType } = useConfigContext();
 	const registry = useRegistry();
-	const activeModules = useSelect( ( select ) =>
-		select( MODULES_STORE_NAME ).getActiveModules()
-	);
+	const { activeModules, featureFlags } = useSelect( ( select ) => ( {
+		activeModules: select( MODULES_STORE_NAME ).getActiveModules(),
+		featureFlags: select( CORE_STORE_NAME ).getFeatureFlags(),
+	} ) );
 	const context = {
 		serverType,
 		installType,
 		activeModules,
 		settings,
 		registry,
+		featureFlags,
 	};
 
 	return makeConditionalSettingsSchema( module, context );

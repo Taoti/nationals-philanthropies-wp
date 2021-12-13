@@ -11,7 +11,7 @@ import {
 	generatePath,
 	Link,
 } from 'react-router-dom';
-import { isEmpty, every, cloneDeep, size } from 'lodash';
+import { isEmpty, every, cloneDeep, size, sortBy } from 'lodash';
 
 /**
  * WordPress dependencies
@@ -30,7 +30,7 @@ import {
 	ErrorList,
 	HelpList,
 } from '@ithemes/security-components';
-import { MODULES_STORE_NAME } from '@ithemes/security-data';
+import { CORE_STORE_NAME, MODULES_STORE_NAME } from '@ithemes/security-data';
 import {
 	PageHeader,
 	PrimarySchemaFormInputs,
@@ -57,14 +57,21 @@ function useTypes() {
 	const { root } = useParams();
 	const { serverType, installType } = useConfigContext();
 	const registry = useRegistry();
-	const { editedModules, activeModules } = useSelect( ( select ) => ( {
-		editedModules: select( MODULES_STORE_NAME ).getEditedModules(),
-		activeModules: select( MODULES_STORE_NAME ).getActiveModules(),
-	} ) );
+	const { editedModules, activeModules, featureFlags } = useSelect(
+		( select ) => ( {
+			editedModules: select( MODULES_STORE_NAME ).getEditedModules(),
+			activeModules: select( MODULES_STORE_NAME ).getActiveModules(),
+			featureFlags: select( CORE_STORE_NAME ).getFeatureFlags(),
+		} )
+	);
 
 	const getModules = () =>
 		editedModules.filter( ( module ) => {
 			if ( module.status.selected !== 'active' ) {
+				return false;
+			}
+
+			if ( ! module.settings?.show_ui ) {
 				return false;
 			}
 
@@ -85,6 +92,7 @@ function useTypes() {
 					serverType,
 					installType,
 					activeModules,
+					featureFlags,
 					registry,
 					settings: registry
 						.select( MODULES_STORE_NAME )
@@ -119,7 +127,7 @@ function useTypes() {
 			return true;
 		} );
 
-	const modules = getModules();
+	const modules = sortBy( getModules(), 'order' );
 	const types = getModuleTypes()
 		.map( ( type ) => ( {
 			...type,

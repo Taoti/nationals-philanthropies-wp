@@ -483,7 +483,6 @@ final class ITSEC_Logs_Page {
 				</div>
 			</div>
 		</div>
-		</div>
 	</div>
 <?php
 

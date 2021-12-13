@@ -201,42 +201,10 @@ body.itsec-modal-open {
 	margin: 1em 0;
 }
 
-
-
 /*
  * Main content area and module cards
  */
-.itsec-module-section-heading {
-	margin: 0 0 1em 0;
-	overflow: hidden;
-}
-.itsec-settings-view-toggle {
-	float: left;
-	margin-right: 1em;
-	padding: .35em 0;
-}
-.itsec-settings-view-toggle a,
-.itsec-settings-view-toggle a::before {
-	color: #b4b9be;
-	padding: 0 .25em 0 0;
-}
-.itsec-settings-view-toggle a:hover,
-.itsec-settings-view-toggle a:focus {
-	color: #999;
-	cursor: pointer;
-}
-.itsec-settings-view-toggle a.itsec-selected {
-	color: #00a0d2;
-}
-.itsec-module-search {
-	float: left;
-	margin-right: 1em;
-}
 
-.itsec-feature-tabs {
-	float: right;
-	margin: 0;
-}
 .itsec-module-cards-container {
 	clear: both;
 	box-sizing: border-box;
@@ -251,7 +219,7 @@ body.itsec-modal-open {
 	width: 100%;
 }
 
-.itsec-module-settings-content pre{
+.itsec-module-settings-content pre {
 	background: #f1f1f1;
 	overflow:scroll;
 	padding: 1em;
@@ -283,11 +251,6 @@ body.itsec-modal-open {
 	opacity: 1;
 }
 
-#itsec-settings-messages-container div,
-.itsec-module-messages-container div {
-
-}
-
 #itsec-settings-messages-container.no-module {
 	position: relative;
 	padding: 0;
@@ -314,64 +277,9 @@ body.itsec-modal-open {
 	margin-bottom: 0;
 }
 
-@media ( max-width: 1400px ) {
-	.itsec-module-card {
-		max-width: 49%;
-	}
-}
-
-@media ( max-width: 500px ) {
-	.wrap h1 img {
-		display: block;
-		margin-bottom: 1em;
-	}
-	.itsec-module-card {
-		max-width: 100%;
-		padding-right: 0;
-		padding-bottom: 10px;
-	}
-	.itsec-module-card .module-description {
-		display: none;
-	}
-	.itsec-module-search,
-	.itsec-module-search input {
-		width: 100%;
-		margin-bottom: 1em;
-	}
-	.itsec-feature-tabs {
-		float: none;
-	}
-	.itsec-feature-tabs li {
-		font-size: 12px;
-	}
-}
-
-
-/* Sidebar Styles */
-/* Pro Upsell */
-#itsec-sidebar-widget-pro-upsell {
-	background-color: #FFF1B8;
-}
-
-#itsec-sidebar-widget-pro-upsell > h3 {
-	background-color: #FFCD08;
-}
-
 /**
  * Styling for the logs page
  */
-@media screen and (max-width: 1200px) {
-	body.security_page_itsec-logs div#postbox-container-1 {
-		display: none;
-	}
-	body.security_page_itsec-logs #postbox-container-2 {
-		border-right: none !important;
-		padding-right: 0 !important;
-	}
-	body.security_page_itsec-logs #post-body {
-		margin-right: 0 !important;
-	}
-}
 .itsec-log-entries .dashicons {
 	color: #555;
 	font-size: 16px;
@@ -466,9 +374,6 @@ body.security_page_itsec-logs #old-logs-migration-status p {
 #itsec-settings-editor:empty {
 	display: none;
 }
-.itsec-module-cards-container .bulkactions:empty {
-	display: none;
-}
 
 body.security_page_itsec-logs .itsec-module-settings-content-main .form-table .widefat th {
 	padding: 8px 10px;
@@ -480,31 +385,4 @@ body.security_page_itsec-logs .itsec-module-settings-content-main .form-table .w
 
 .itsec-settings-module-settings .form-table td {
 	position: relative;
-}
-
-.itsec-settings-module-settings .ms-options-wrap {
-	max-width: 455px;
-}
-
-.itsec-settings-module-settings .ms-options-wrap > .ms-options {
-	margin-left: 10px;
-	margin-right: 10px;
-	width: auto;
-}
-
-.itsec-settings-module-settings .ms-options-wrap > .ms-options > ul label {
-	padding: 4px;
-}
-
-.itsec-settings-module-settings .ms-options-wrap > .ms-options > ul input[type="checkbox"] {
-	position: initial;
-}
-
-.itsec-settings-module-settings .ms-options-wrap > button {
-	text-overflow: ellipsis;
-	overflow: hidden;
-}
-
-.itsec-settings-module-settings .ms-options-wrap > button > span {
-	display: inline;
 }

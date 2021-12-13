@@ -274,6 +274,7 @@ return array(
     'iThemesSecurity\\Exception\\Invalid_Module' => $baseDir . '/core/Exception/Invalid_Module.php',
     'iThemesSecurity\\Exception\\Unsatisfied_Module_Dependencies_Exception' => $baseDir . '/core/Exception/Unsatisfied_Module_Dependencies_Exception.php',
     'iThemesSecurity\\Exception\\WP_Error' => $baseDir . '/core/Exception/WP_Error.php',
+    'iThemesSecurity\\FeatureFlags\\Settings' => $baseDir . '/core/modules/feature-flags/settings.php',
     'iThemesSecurity\\Lib\\Config_Password_Requirement' => $baseDir . '/core/lib/Config_Password_Requirement.php',
     'iThemesSecurity\\Lib\\Legacy_Password_Requirement' => $baseDir . '/core/lib/Legacy_Password_Requirement.php',
     'iThemesSecurity\\Lib\\Lockout\\Context' => $baseDir . '/core/lib/lockout/abstract-context.php',

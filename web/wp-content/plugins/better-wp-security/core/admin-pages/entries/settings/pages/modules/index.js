@@ -10,7 +10,7 @@ import {
 	useRouteMatch,
 	Redirect,
 } from 'react-router-dom';
-import { isEmpty, size } from 'lodash';
+import { isEmpty, size, sortBy } from 'lodash';
 import classnames from 'classnames';
 
 /**
@@ -66,16 +66,19 @@ export default function Modules() {
 		.map( ( { slug, label } ) => ( {
 			name: slug,
 			title: label,
-			modules: modules.filter(
-				( module ) =>
-					module.type === slug &&
-					module.status.default !== 'always-active' &&
-					( root !== 'onboard' || module.onboard ) &&
-					( module.status.selected === 'active' ||
-						! validateModuleRequirements(
-							module,
-							'activate'
-						).hasErrors() )
+			modules: sortBy(
+				modules.filter(
+					( module ) =>
+						module.type === slug &&
+						module.status.default !== 'always-active' &&
+						( root !== 'onboard' || module.onboard ) &&
+						( module.status.selected === 'active' ||
+							! validateModuleRequirements(
+								module,
+								'activate'
+							).hasErrors() )
+				),
+				'order'
 			),
 		} ) )
 		.filter(

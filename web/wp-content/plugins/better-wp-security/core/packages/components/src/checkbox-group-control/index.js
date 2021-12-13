@@ -46,7 +46,11 @@ export default function CheckboxGroupControl( {
 				) }
 				{ options.map( ( option ) => (
 					<CheckboxControl
-						{ ...omit( option, [ 'value' ] ) }
+						{ ...omit( option, [
+							'value',
+							'disabled',
+							'readOnly',
+						] ) }
 						key={ option.value }
 						checked={ isChecked( option ) }
 						onChange={ update( option ) }

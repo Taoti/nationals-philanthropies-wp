@@ -103,8 +103,13 @@ final class Settings_Controller extends \WP_REST_Controller {
 			);
 		}
 
-		$updated = \ITSEC_Modules::set_settings( $config->get_id(), $request->get_json_params() ?: $request->get_body_params() );
-		$updated = \ITSEC_Lib::updated_settings_to_wp_error( $updated );
+		if ( ! $obj = \ITSEC_Modules::get_settings_obj( $request['id'] ) ) {
+			return new \WP_Error( 'rest_unsupported_module', __( 'This module does not have settings.', 'better-wp-security' ) );
+		}
+
+		$settings = $request->get_json_params() ?: $request->get_body_params();
+		$updated  = $obj->set_all( $obj->prepare_from_rest( $settings ) );
+		$updated  = \ITSEC_Lib::updated_settings_to_wp_error( $updated );
 
 		if ( is_wp_error( $updated ) ) {
 			\ITSEC_Lib_REST::add_status_to_error( \WP_Http::BAD_REQUEST, $updated );
@@ -130,13 +135,17 @@ final class Settings_Controller extends \WP_REST_Controller {
 			);
 		}
 
-		$current = \ITSEC_Modules::get_settings( $config->get_id() );
+		if ( ! $obj = \ITSEC_Modules::get_settings_obj( $request['id'] ) ) {
+			return new \WP_Error( 'rest_unsupported_module', __( 'This module does not have settings.', 'better-wp-security' ) );
+		}
+
+		$current = $obj->get_all();
 
 		foreach ( $request->get_json_params() ?: $request->get_body_params() as $setting => $value ) {
 			$current[ $setting ] = $value;
 		}
 
-		$updated = \ITSEC_Modules::set_settings( $config->get_id(), $current );
+		$updated = $obj->set_all( $obj->prepare_from_rest( $current ) );
 		$updated = \ITSEC_Lib::updated_settings_to_wp_error( $updated );
 
 		if ( is_wp_error( $updated ) ) {
@@ -185,14 +194,12 @@ final class Settings_Controller extends \WP_REST_Controller {
 	 * @return \WP_REST_Response|\WP_Error
 	 */
 	public function prepare_item_for_response( $item, $request ) {
-		$settings = \ITSEC_Modules::get_settings( $item->get_id() );
-		$obj      = \ITSEC_Modules::get_settings_obj( $item->get_id() );
-
-		if ( ! $obj ) {
+		if ( ! $obj = \ITSEC_Modules::get_settings_obj( $item->get_id() ) ) {
 			return new \WP_Error( 'rest_unsupported_module', __( 'This module does not have settings.', 'better-wp-security' ) );
 		}
 
-		$schema = $obj->get_settings_schema();
+		$settings = $obj->prepare_for_rest();
+		$schema   = $obj->get_settings_schema();
 
 		foreach ( $settings as $setting => $value ) {
 			if ( ! is_array( $value ) || $value ) {

@@ -42,6 +42,15 @@ class GF_Field_Consent extends GF_Field {
 	public $checked_indicator_markup = '';
 
 	/**
+	 * Indicates if this field supports state validation.
+	 *
+	 * @since 2.5.11
+	 *
+	 * @var bool
+	 */
+	protected $_supports_state_validation = true;
+
+	/**
 	 * GF_Field_Consent constructor.
 	 *
 	 * @since 2.4
@@ -555,6 +564,24 @@ class GF_Field_Consent extends GF_Field {
 		}
 
 		return $value;
+	}
+
+	/**
+	 * Get field label class.
+	 *
+	 * @since unknown
+	 * @since 2.5     Added `screen-reader-text` if the label hasn't been set; added `gfield_label_before_complex` if the field has inputs.
+	 * @since 2.5.13  Added `gform_consent_field` class to differentiate the required indicator placement when label is hidden.
+	 *
+	 * @return string
+	 */
+	public function get_field_label_class() {
+
+		$class = parent::get_field_label_class();
+
+		$class .= ' gform_consent_field';
+
+		return $class;
 	}
 
 }
