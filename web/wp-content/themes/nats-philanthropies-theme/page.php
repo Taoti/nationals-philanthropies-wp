@@ -17,6 +17,7 @@ $args = [
 // Check for the heading overrides. Line 1 should always be added to $args if it's available, since they might want to put the title all on the one line.
 $heading_line_1 = get_field('hero_primary_heading_line_1');
 $heading_line_2 = get_field('hero_primary_heading_line_2');
+$disable_excerpt = get_field('hero_disable_excerpt');
 if( $heading_line_1 ){
 	$args['heading_line_1'] = $heading_line_1;
 }
@@ -24,6 +25,7 @@ if( $heading_line_1 ){
 if( $heading_line_2 && $heading_line_1 ){
 	$args['heading_line_2'] = $heading_line_2;
 }
+$args['disable_excerpt'] = $disable_excerpt;
 
 $hero = new Hero($args);
 $hero->render();

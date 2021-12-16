@@ -45,7 +45,8 @@ class Hero {
 			'heading_line_1' => $heading_line_1,
 			'heading_line_2' => $heading_line_2,
       'header_img' => false,
-      'description' => false,
+      'description' => get_the_excerpt(),
+			'disable_excerpt' => false,
       'button_label' => false,
       'button_link' => false,
 			'background_image_url' => false,
@@ -99,6 +100,7 @@ class Hero {
 		$this->context['heading_line_2'] = $heading_line_2;
     $this->context['header_img'] = $header_img;
     $this->context['description'] = $description;
+		$this->context['disable_excerpt'] = $disable_excerpt;
     $this->context['button_label'] = $button_label;
     $this->context['button_link'] = $button_link;
 		$this->context['background_image_url'] = $background_image_url;
