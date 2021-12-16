@@ -27,10 +27,8 @@
       </h1>
       {% endif %}
 
-      {% if description %}
-        <div class="hero-description">
-          {{ description}}
-        </div>
+      {% if disable_excerpt %}
+        <div class="hero-description">{{ description}}</div>
       {% endif %}
 
       {% if button_link and button_label %}

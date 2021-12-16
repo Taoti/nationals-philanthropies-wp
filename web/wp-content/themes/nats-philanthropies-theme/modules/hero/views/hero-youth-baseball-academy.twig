@@ -7,7 +7,7 @@
 
       {% if heading_line_1 and heading_line_2 %}
       <h1 class="hero-heading">
-        
+
         <div class="hero-tbaLogo">
         {{ tba_logo }}
         </div>
@@ -27,10 +27,8 @@
       </h1>
       {% endif %}
 
-      {% if description %}
-        <div class="hero-description">
-          {{ description}}
-        </div>
+      {% if disable_excerpt %}
+        <div class="hero-description">{{ description}}</div>
       {% endif %}
 
       {% if button_link and button_label %}
@@ -43,7 +41,7 @@
     </div>
 
 	</div><!-- END .hero-inner -->
-  
+
   <div class="hero-stats">
     <div class="hero-stats-inner">
       <div class="hero-stats-content">

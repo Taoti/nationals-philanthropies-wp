@@ -34,7 +34,8 @@
             },
             "clone": [
                 "field_5e8cca5dc475a",
-                "field_5e8cca91c475b"
+                "field_5e8cca91c475b",
+                "field_61bb5bccef6f4"
             ],
             "display": "seamless",
             "layout": "block",
@@ -55,6 +56,11 @@
                 "param": "post_type",
                 "operator": "==",
                 "value": "page"
+            },
+            {
+                "param": "page_type",
+                "operator": "!=",
+                "value": "front_page"
             }
         ]
     ],
@@ -64,7 +70,7 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 1,
+    "active": true,
     "description": "",
-    "modified": 1605197142
+    "modified": 1639669163
 }
