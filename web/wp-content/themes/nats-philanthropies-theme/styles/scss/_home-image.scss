@@ -92,3 +92,9 @@
     max-width: 100%;
   }
 }
+
+.l-homePageModule {
+  &.homeImage {
+    margin-top: -70px;
+  }
+}
