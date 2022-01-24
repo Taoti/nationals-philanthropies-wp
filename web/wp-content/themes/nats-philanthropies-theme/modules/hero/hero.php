@@ -82,7 +82,15 @@ class Hero {
 			$classes[] = 'hero-home';
 			$classes[] = 'scrollspy';
 			$classes[] = 'scrollspy-dark';
-      $header_img = get_stylesheet_directory_uri() . '/images/hero-header-img-withShadows.png';
+
+			$hero_diamond_image = get_field('hero_diamond_image');
+	  		if ($hero_diamond_image) {
+				$header_img = $hero_diamond_image['url'];
+			} else {
+				echo 'uso el regular';
+				$header_img = get_stylesheet_directory_uri() . '/images/hero-header-img-withShadows.png';
+			}
+	  		
 		} elseif($this->use_youth_baseball_academy_template){
       $classes[] = 'hero-youth-baseball-academy';
       $header_img = get_stylesheet_directory_uri() . '/images/bg-hero-youth-baseball-academy-header-img.png';
