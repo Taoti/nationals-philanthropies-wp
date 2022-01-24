@@ -87,7 +87,6 @@ class Hero {
 	  		if ($hero_diamond_image) {
 				$header_img = $hero_diamond_image['url'];
 			} else {
-				echo 'uso el regular';
 				$header_img = get_stylesheet_directory_uri() . '/images/hero-header-img-withShadows.png';
 			}
 	  		
