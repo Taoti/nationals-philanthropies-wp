@@ -82,10 +82,24 @@ class Hero {
 			$classes[] = 'hero-home';
 			$classes[] = 'scrollspy';
 			$classes[] = 'scrollspy-dark';
-      $header_img = get_stylesheet_directory_uri() . '/images/hero-header-img-withShadows.png';
+
+			$hero_diamond_image = get_field('hero_diamond_image');
+	  		if ($hero_diamond_image) {
+				$header_img = $hero_diamond_image['url'];
+			} else {
+				$header_img = get_stylesheet_directory_uri() . '/images/hero-header-img-withShadows.png';
+			}
+	  		
 		} elseif($this->use_youth_baseball_academy_template){
-      $classes[] = 'hero-youth-baseball-academy';
-      $header_img = get_stylesheet_directory_uri() . '/images/bg-hero-youth-baseball-academy-header-img.png';
+	  $classes[] = 'hero-youth-baseball-academy';
+	  
+	  $header_diamond_image = get_field('youth_diamond_image');
+	  if ($header_diamond_image) {
+		$header_img = $header_diamond_image['url'];
+	  } else {
+			$header_img = get_stylesheet_directory_uri() . '/images/bg-hero-youth-baseball-academy-header-img.png';
+	  }
+      
       $accent_image_1_html = '<img class="hero-accent hero-accent-1 lazyload" data-srcset="' . get_stylesheet_directory_uri() . '/images/accent-spatter-2-blue.png 1x, ' . get_stylesheet_directory_uri() . '/images/accent-spatter-2-blue@2x.png 2x" width="477" height="82" alt="Paint splatter accent">';
       $tba_logo = get_stylesheet_directory_uri() . '/images/img-TBA-logo.png';
       $stats = get_field('hero_stats');
