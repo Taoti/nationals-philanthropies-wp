@@ -1,27 +1,36 @@
 {
-  "name": "jp-wordpress",
-  "author": "James Pfleiderer",
-  "version": "1.1.0",
+  "name": "taoti-wordpress",
+  "author": "Taoti Creative",
+  "version": "1.1.1",
   "license": "MIT",
   "description": "Set up for the base WordPress theme.",
   "repository": "none",
   "main": "gulpfile.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "gulp": "gulp"
   },
+  "browserslist": "> 0.25%, not dead",
   "devDependencies": {
+    "@babel/core": "^7.10.5",
+    "@babel/preset-env": "^7.10.4",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
+    "gulp-babel": "^8.0.0-beta.2",
     "gulp-clean-css": "^4.3.0",
     "gulp-concat": "^2.6.1",
-    "gulp-image": "^6.1.0",
+    "gulp-image": "^6.2.1",
     "gulp-newer": "^1.4.0",
     "gulp-notify": "^3.2.0",
+    "gulp-postcss": "^9.0.0",
     "gulp-rename": "^2.0.0",
-    "gulp-sass": "^4.0.2",
+    "gulp-sass": "^5.0.0",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-uglify": "^3.0.2",
+    "gulp-uglify-es": "^2.0.0",
     "gulp-watch": "5.0.1",
-    "node-sass": "^4.13.1"
-  }
+    "sass": "^1.45.1",
+    "postcss-easing-gradients": "^3.0.1"
+  },
+  "dependencies": {}
 }

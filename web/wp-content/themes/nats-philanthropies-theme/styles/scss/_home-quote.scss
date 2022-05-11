@@ -196,17 +196,17 @@
 }
 
 .homeQuote-quoteText {
-  @include quoted-text()
+  @include quoted-text();
   color: $color-7;
 }
 
 .homeQuote-author {
-  @include quote-attribution-name()
+  @include quote-attribution-name();
   color: $color-3;
 }
 
 .homeQuote-location {
-  @include quote-attribution-description()
+  @include quote-attribution-description();
   color: $color-21;
 }
 

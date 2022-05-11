@@ -7,17 +7,20 @@ var themePath = './';
 var gulp = require( 'gulp' ),
 	watch = require( 'gulp-watch' ),
 	cleanCSS = require('gulp-clean-css'),
-	uglify = require( 'gulp-uglify' ),
+	// uglify = require( 'gulp-uglify' ),
+	uglify = require( 'gulp-uglify-es' ).default,
 	rename = require( 'gulp-rename' ),
 	notify = require( 'gulp-notify' ),
 	autoprefixer = require('gulp-autoprefixer'),
 	concat = require('gulp-concat'),
-	image = require('gulp-image'),
+	// image = require('gulp-image'),
 	sourcemaps = require('gulp-sourcemaps'),
 	newer = require('gulp-newer'),
-	sass = require('gulp-sass');
+	sass = require('gulp-sass')(require('sass')),
+	babel = require("gulp-babel"),
+	postcss = require('gulp-postcss');
 
-sass.compiler = require('node-sass');
+sass.compiler = require('sass');
 
 // Error Handling
 var onError = function( err ) {
@@ -33,13 +36,13 @@ var onError = function( err ) {
 function jpProcessCSS(args){
 
 	return gulp.src( args.path )
-	    .pipe( sass().on('error', sass.logError) )
-		// 	.pipe( sourcemaps.init() )
+		.pipe( sass().on('error', sass.logError) )
+		// .pipe( sourcemaps.init() )
 		.pipe( autoprefixer(['last 4 versions', 'iOS 7']) )
 		.pipe( cleanCSS({rebase:false}) )
 		.pipe( rename({suffix: '.min' }) )
 		// .pipe( sourcemaps.write() )
-	    .pipe( gulp.dest( args.destination ) )
+		.pipe( gulp.dest( args.destination ) )
 		.pipe( notify({ message: args.messageComplete + ' <%= file.relative %>' }) );
 
 }
@@ -83,10 +86,10 @@ gulp.task('scss-other-criticals', function () {
 // In this way, you can set up any JS that needs to happen before libraries are loaded (like configs). Then it after it loads the libraries, you can set up JS that is dependent on those libraries.
 gulp.task('scripts', function() {
 	return gulp.src([
-			themePath + 'js/development/before-libs/*.js',
-			themePath + 'js/development/libs/**/*.js',
-			themePath + 'js/development/after-libs/*.js',
-			themePath + 'modules/*/js/*.js'
+		themePath + 'js/development/before-libs/*.js',
+		themePath + 'js/development/libs/**/*.js',
+		themePath + 'js/development/after-libs/*.js',
+		themePath + 'modules/*/js/*.js'
 		])
 		.pipe(concat('js/scripts.js'))
 		.pipe(gulp.dest(themePath))
@@ -97,24 +100,24 @@ gulp.task('scripts', function() {
 });
 
 // Compress all images in the uncompressed folder.
-gulp.task('images', function() {
-	return gulp.src(themePath + 'images/uncompressed/*')
-		.pipe(newer(themePath + 'images'))
-		.pipe(image({
-			pngquant: true,
-			optipng: false,
-			zopflipng: true,
-			jpegRecompress: false,
-			mozjpeg: true,
-			guetzli: false,
-			gifsicle: true,
-			svgo: true,
-			concurrent: 10,
-			quiet: true // defaults to false
-	    }))
-		.pipe(gulp.dest(themePath + 'images'))
-		.pipe(notify({ message: 'Images task complete' }));
-});
+// gulp.task('images', function() {
+// 	return gulp.src(themePath + 'images/uncompressed/*')
+// 		.pipe(newer(themePath + 'images'))
+// 		.pipe(image({
+// 			pngquant: true,
+// 			optipng: false,
+// 			zopflipng: true,
+// 			jpegRecompress: false,
+// 			mozjpeg: true,
+// 			guetzli: false,
+// 			gifsicle: true,
+// 			svgo: true,
+// 			concurrent: 10,
+// 			quiet: true // defaults to false
+// 	    }))
+// 		.pipe(gulp.dest(themePath + 'images'))
+// 		.pipe(notify({ message: 'Images task complete' }));
+// });
 
 // Watch task -- this runs on every file save.
 gulp.task( 'watch', function() {
@@ -147,14 +150,17 @@ gulp.task( 'watch', function() {
 	);
 
 	// Watch img Files
-	gulp.watch(
-		[ themePath + 'images/uncompressed/**' ],
-		gulp.series([ 'images' ])
-	);
+	// gulp.watch(
+	// 	[ themePath + 'images/uncompressed/**' ],
+	// 	gulp.series([ 'images' ])
+	// );
 
 });
 
 
 // Default task -- runs scss and watch functions
-gulp.task( 'default', gulp.series(['images', 'scripts', 'scss', 'scss-other-criticals', 'watch']), function() {
+gulp.task( 'default', gulp.series(['scripts', 'scss', 'scss-other-criticals', 'watch']), function() {
+});
+
+gulp.task( 'build', gulp.series(['scripts', 'scss', 'scss-other-criticals']), function() {
 });
