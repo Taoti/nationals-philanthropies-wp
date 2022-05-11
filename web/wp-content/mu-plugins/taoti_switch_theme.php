@@ -16,7 +16,7 @@ function jp_switch_theme(){
         $current_theme = wp_get_theme();
 
         if( $current_theme->exists() === false ){
-            switch_theme( 'jp-base' );
+            switch_theme( 'nats-philanthropies-theme' );
         }
     }
 

@@ -3,3 +3,4 @@ name: nats
 config:
   site: nationals-philanthropies
   id: be730000-9907-4711-9ad3-8a5ffe2f045b
+  composer_version: 2.1.12
