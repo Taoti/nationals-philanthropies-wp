@@ -27,7 +27,7 @@
 		"wpackagist-plugin/classic-editor": "1.6.2",
 		"wpackagist-plugin/disable-comments": "2.3.2",
 		"wpackagist-plugin/disable-emojis": "1.7.3",
-		"wpackagist-plugin/fakerpress": "0.5.1",
+		"wpackagist-plugin/fakerpress": "0.5.3",
 		"wpackagist-plugin/members": "3.1.7",
 		"wpackagist-plugin/minimum-featured-image-size": "2.0.3",
 		"wpackagist-plugin/pantheon-advanced-page-cache": "1.0.0",
@@ -37,7 +37,6 @@
 		"wpackagist-plugin/regenerate-thumbnails": "3.1.5",
 		"wpackagist-plugin/show-current-template": "0.4.6",
 		"wpackagist-plugin/safe-svg": "1.9.9",
-		"wpackagist-plugin/simple-custom-post-type-order": "2.5.6",
 		"wpackagist-plugin/timber-library": "1.19.1",
 		"wpackagist-plugin/tiny-compress-images": "3.3",
 		"wpackagist-plugin/tracking-code-manager": "2.0.4",
@@ -45,7 +44,7 @@
 		"wpackagist-plugin/wp-native-php-sessions": "1.2.4",
 		"wpackagist-plugin/worker": "^4.9",
 		"wpackagist-plugin/wp-mail-smtp": "3.2.1",
-		"wpackagist-plugin/yo-images": "0.1.8"
+		"wpackagist-plugin/yoimages": "0.1.8"
 	},
 	"require-dev": {
 		"squizlabs/php_codesniffer": "^3.5",

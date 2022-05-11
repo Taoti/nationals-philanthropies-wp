@@ -97,6 +97,7 @@ _assets
 !web/wp-content/plugins/index.php
 !web/wp-content/plugins/phpcs.xml
 !web/wp-content/plugins/gravityforms
+!web/wp-content/plugins/simple-custom-post-order
 !web/wp-content/plugins/acf-content-analysis-for-yoast-seo
 
 # MU Plugins #
