@@ -81,9 +81,9 @@ jobs:
           paths:
             - /home/tester/.composer/cache
 
-      - run:
-          name: check coding standards
-          command: composer -n code-sniff
+      # - run:
+      #     name: check coding standards
+      #     command: composer -n code-sniff
 
       - run:
           name: clone-bash-env
