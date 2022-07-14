@@ -1,0 +1,69 @@
+# See also https://tu.taoti.com/knowledge-base/github-action-based-pantheon-deploys
+name: Pantheon Deploy
+on:
+  push:
+    branches:
+      - 'main'
+      - 'master'
+      - 'qa'
+      - 'integration'
+      - 'security'
+      - 'hotfix'
+      - 'alpha'
+      - 'beta'
+      - 'managewp'
+
+concurrency: 
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Set Variables
+        env:
+          SECRET_SITE_NAME: ${{ secrets.PANTHEON_SITE }}
+        run: ./.github/actions/deploy-pantheon/set-environment
+
+      - id: setup-runner
+        name: Setup Build Environment
+        uses: ./.github/actions/deploy-pantheon/setup
+        with:
+          secret_ssh_key: ${{ secrets.PANTHEON_SSH_KEY }}
+          secret_terminus_token: ${{ secrets.PANTHEON_TERMINUS_TOKEN }}
+          secret_site_name: ${{ secrets.PANTHEON_SITE }}
+
+      - name: Build Assets
+        run: composer -n build-assets
+
+      - name: Deploy code to Pantheon
+        run: |
+          commit_message=$(git log -1 --pretty=%B)
+          git config user.name "$(git --no-pager log --format=format:'%an' -n 1)"
+          git config user.email "$(git --no-pager log --format=format:'%ae' -n 1)"
+          terminus build:env:create "${{ secrets.PANTHEON_SITE }}.dev" "$TERMINUS_ENV" --message="${{ github.actor }}: CI Deployment for: $commit_message" --yes
+
+      - name: Run Post Deploy Tasks
+        run: |
+          terminus -n wp "${{ secrets.PANTHEON_SITE }}.$TERMINUS_ENV" -- core update-db
+          terminus -n env:clear-cache "${{ secrets.PANTHEON_SITE }}.$TERMINUS_ENV"
+
+      - name: Slack Notification
+        if: success()
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_TITLE: ':tada: :partyparrot: :tada: Succeeded!'
+
+      - name: Slack Notification Fail
+        if: failure()
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_TITLE: ':fire: :thisisfine: :fire: Failed!'
