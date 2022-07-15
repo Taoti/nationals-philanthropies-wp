@@ -1,0 +1,12 @@
+#!/bin/bash
+set -eo pipefail
+
+## Site specific environment variables.
+## If needing to override the defaults, put this in the site root
+## as `set-environment` with chmod +x.
+
+(
+  echo "THEME_DIR=web/themes/YOUR-THEME-DIR"
+  echo "NPM_VER=12.x"
+  echo "PHP_VER=7.4"
+) >> $GITHUB_ENV

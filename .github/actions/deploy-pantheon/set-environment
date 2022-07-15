@@ -1,0 +1,25 @@
+#!/bin/bash
+set -eo pipefail
+
+if [[ ${GITHUB_REF_NAME} == 'main' ]] ; then
+  DEFAULT_ENV='dev'
+elif [[ ${GITHUB_REF_NAME} == 'master' ]] ; then
+  DEFAULT_ENV='dev'
+else
+  DEFAULT_ENV=$GITHUB_REF_NAME
+fi
+(
+  echo "DEFAULT_ENV=$DEFAULT_ENV"
+  echo "TERMINUS_ENV=$DEFAULT_ENV"
+) >> $GITHUB_ENV
+
+if [[ -x "$GITHUB_WORKSPACE/set-environment" ]] ; then
+  "$GITHUB_WORKSPACE/set-environment"
+else
+  THEME_NAME=${SECRET_SITE_NAME//-/_}
+  (
+    echo "THEME_DIR=web/themes/$THEME_NAME"
+    echo "NPM_VER=12.x"
+    echo "PHP_VER=7.4"
+  ) >> $GITHUB_ENV
+fi

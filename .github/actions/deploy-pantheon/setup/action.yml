@@ -1,0 +1,80 @@
+name: "Deploy Pantheon Setup"
+description: "Provides SSH, PHP, Terminus as a composite action"
+
+inputs:
+  composer_version:
+    description: 'Composer version'
+    required: true
+    default: 'v2'
+  terminus_version:
+    description: 'Terminus version number in composer dependency format.'
+    required: true
+    default: '^3.0'
+  terminus_build_tools_version:
+    description: 'Terminus build tools version number in composer dependency format.'
+    required: true
+    default: '^3.0'
+  secret_ssh_key:
+    description: 'Github Secret SSH Key for pantheon'
+    required: true
+  secret_terminus_token:
+    description: 'Github secret terminus token for Pantheon'
+    required: true
+  secret_site_name:
+    description: 'Github secret site name'
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - name: Setup SSH
+      uses: shimataro/ssh-key-action@v2
+      with:
+        key: ${{ inputs.secret_ssh_key }}
+        #config: "Host *.drush.in StrictHostKeyChecking no"
+        known_hosts: " "
+
+    - name: Setup Node
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ env.NPM_VER }}
+        cache: 'npm'
+        cache-dependency-path: ${{ env.THEME_DIR }}/package-lock.json
+
+    - name: Setup PHP
+      uses: shivammathur/setup-php@master
+      with:
+        php-version: ${{ env.PHP_VER }}
+        extensions: gd
+        tools: composer:${{ inputs.composer_version }}
+
+    # Composer caching.
+    - name: Get Composer Cache Directory
+      id: composer-cache
+      shell: bash
+      run: |
+        echo "::set-output name=dir::$(composer config cache-files-dir)"
+    - name: Utilize Composer Cache Directory
+      uses: actions/cache@v2
+      with:
+        path: ${{ steps.composer-cache.outputs.dir }}
+        key: ${{ runner.os }}-composer-${{ hashFiles('composer.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-composer-${{ hashFiles('composer.lock') }}
+          ${{ runner.os }}-composer-
+          ${{ runner.os }}
+
+    # Terminus setup and test.
+    - name: Installing Terminus
+      shell: bash
+      run: |
+        composer global require pantheon-systems/terminus:${{ inputs.terminus_version }}
+        terminus auth:login --machine-token=${{ inputs.secret_terminus_token}}
+
+    - name: Install Terminus build tools
+      shell: bash
+      if: success()
+      run: |
+        mkdir -p ~/.terminus/plugins
+        composer create-project --no-dev -d ~/.terminus/plugins pantheon-systems/terminus-build-tools-plugin:${{ inputs.terminus_build_tools_version }}
+        terminus self:plugin:install ~/.terminus/plugins/terminus-build-tools-plugin
